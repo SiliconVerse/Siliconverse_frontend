@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import styles from './companyProfile.module.css';
 import { ReactPortal } from '../../hooks/portal';
+import { Upload } from 'lucide-react';
+import CompanyModalUpdates from '../company-api-modal/companyModal';
 
 const CompanyProfileForm = () => {
   const [caption, setCaption] = useState('');
@@ -52,6 +54,9 @@ const CompanyProfileForm = () => {
               type='button'
               className={styles.formGroup_btn + ' ' + styles.btn_1}
             >
+              <span>
+                <Upload size={20} />
+              </span>
               Upload File
             </button>
             <span
@@ -76,7 +81,11 @@ const CompanyProfileForm = () => {
         </section>
       </form>
       {/* Modals for states of form response */}
-      {show && <ReactPortal setState={setShow}></ReactPortal>}
+      {show && (
+        <ReactPortal>
+          <CompanyModalUpdates status={'error'} />
+        </ReactPortal>
+      )}
     </>
   );
 };

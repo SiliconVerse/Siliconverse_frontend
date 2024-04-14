@@ -10,7 +10,7 @@ const CompanyProfile = () => {
     organisation: 'Silicon Verse',
     type: 'Tech Hub',
   };
-  const [userData, setUserData] = useState(userInfomation);
+  const [userData] = useState(userInfomation);
   return (
     <>
       <section className={styles.container}>

@@ -126,6 +126,9 @@
  font-size: 14px;
  font-weight: 300;
  width: 100%;
+ display: inline-flex;
+ justify-content: center;
+ gap: 8px;
 
  &.btn_1 {
   background: var(--green);

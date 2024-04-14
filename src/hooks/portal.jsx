@@ -6,6 +6,9 @@ export function ReactPortal({ children, setState }) {
   const [wrapperElement, setWrapperElement] = useState(null);
 
   function handleVisibility() {
+    if (typeof setState !== 'function') {
+      return;
+    }
     setState(false);
   }
 

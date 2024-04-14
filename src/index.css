@@ -2,6 +2,7 @@
   font-family: 'Poppins', sans-serif;
   --primary-color: #FF5F15;
   --green: #2EB67D;
+  --red: #FF0000;
   --white: #FFFFFF;
   --text-color: #222222;
   color: var(--text-color);
