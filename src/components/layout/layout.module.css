@@ -1,0 +1,9 @@
+.layout_body {
+ display: grid;
+ grid-template-columns: repeat(12, 1fr);
+}
+
+.layout_content {
+ grid-column: 3/-1;
+ background: salmon;
+}

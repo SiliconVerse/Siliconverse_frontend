@@ -1,41 +1,41 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
-nav{
+nav {
     background-color: #FDEFE9;
 }
 
 
-nav ul{
+nav ul {
     display: flex;
     flex-direction: row;
 }
 
 
-nav ul li{
+nav ul li {
     display: flex;
     margin-left: 60px;
 }
 
 
-main{
+main {
     background-color: #FDEFE9;
     padding: 20px;
 }
 
-.grid{
+.grid {
     display: flex;
 }
 
-.text{
+.text {
     width: 700px;
     height: 500px;
     padding: 50px;
 }
 
-.image{
+.image {
     width: 300px;
     height: 400px;
     background-color: #FFE3E3;
@@ -43,12 +43,12 @@ main{
     border-radius: 20px;
 }
 
-.img{
+.img {
     width: 500px;
     height: 500px;
 }
 
-.btn{
+.btn {
     background: #FF5F15;
     color: #fff;
     border-radius: 20px;
@@ -56,7 +56,7 @@ main{
     width: 200px;
 }
 
-.button{
+.button {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -64,7 +64,7 @@ main{
     margin-left: 100px;
 }
 
-.bt{
+.bt {
     margin-right: 200px;
     margin-top: 100px;
     background-color: #000;
@@ -73,11 +73,63 @@ main{
     width: 200px;
 }
 
-.bts{
+.bts {
     margin-left: 200px;
 }
 
-.jobs{
+.jobs {
     background-color: #fff;
     margin-top: -20px;
+}
+
+a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: #535bf2;
+}
+
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+button:hover {
+    border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+
+    a:hover {
+        color: #747bff;
+    }
+
+    button {
+        background-color: #f9f9f9;
+    }
 }
