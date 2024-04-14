@@ -1,7 +1,10 @@
 :root {
   font-family: 'Poppins', sans-serif;
   --primary-color: #FF5F15;
+  --green: #2EB67D;
   --white: #FFFFFF;
+  --text-color: #222222;
+  color: var(--text-color);
 }
 
 *,
@@ -11,4 +14,6 @@
   margin: 0;
   box-sizing: border-box;
   font-family: inherit;
+  color: inherit;
+
 }

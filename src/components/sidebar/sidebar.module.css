@@ -3,7 +3,7 @@
  background: var(--primary-color);
  color: var(--white);
  border-top: 1px solid var(--white);
- min-height: calc(100dvh - 120px);
+ height: 100%;
  width: 100%;
  font-size: 13px;
 

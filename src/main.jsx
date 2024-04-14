@@ -1,13 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import About from './components/pages/About.jsx';
 import Interns from './components/pages/Interns.jsx';
 import Mission from './components/pages/Mission.jsx';
-import CompanyProfile from './components/pages/CompanyProfile.jsx';
 import Layout from './components/layout/layout.jsx';
+import CompanyProfilePage from './components/pages/CompanyProfilePage.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -18,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/about' element={<About />} />
         <Route path='/intern' element={<Interns />} />
         <Route path='/mission' element={<Mission />} />
-        <Route path='/profile' element={<CompanyProfile />} />
+        <Route path='/profile' element={<CompanyProfilePage />} />
       </Route>
     </Routes>
   </BrowserRouter>

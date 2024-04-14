@@ -18,7 +18,6 @@ const SideBar = () => {
       return false;
     } else {
       if (!location.search) {
-        console.log(location.pathname);
         return true;
       }
       return false;
