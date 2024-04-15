@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import styles from './sidebar.module.css';
 import profileBigImg from '../../assets/profileImgBig.png';
 import profileBigIcon from '../../assets/profileImgIcon.png';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { company_profile_links } from '../../utils/sidebarLinks';
 
-const SideBar = () => {
+const SideBar = ({ showMenu }) => {
   const [searchParams] = useSearchParams();
   const location = useLocation();
 
@@ -25,7 +26,7 @@ const SideBar = () => {
   }
 
   return (
-    <div className={styles.sidebar}>
+    <div className={showMenu ? styles.showMenu : styles.sidebar}>
       <div className={styles.profile}>
         <aside className={styles.profile_images}>
           <img

@@ -18,4 +18,16 @@
  text-transform: capitalize;
  line-height: 24px;
  color: white;
+ display: flex;
+ gap: 10px;
+ align-items: center;
+}
+
+
+.menu {
+ display: none;
+
+ @media screen and (width < 768px) {
+  display: block;
+ }
 }
