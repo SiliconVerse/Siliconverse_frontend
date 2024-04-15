@@ -119,6 +119,50 @@ button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* styles for help_center */
+.helpcenter {
+    flex-direction: column;
+}
+
+.helpcenter_content {
+    flex-direction: column;
+    padding: 70px 50px 40px 50px;
+    gap: 10px;
+}
+
+.helpcenter h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+}
+
+.helpcenter_content h3 {
+    text-align: left;
+}
+
+.helpcenter input, .helpcenter_content textarea, .helpcenter_content .btn {
+    border-radius: 10px;
+}
+
+.helpcenter input, .helpcenter_content textarea {
+    border: 1px solid rgba(0, 0, 0, .5);
+    padding: 10px;
+    width: 684px;
+}
+
+.helpcenter input {
+    height: 45px;
+}
+.helpcenter_content .btn {
+    padding: 7.5px 5px;
+    max-width: 156px;
+    height: 45px;
+    position: relative;
+    right: 156px;
+    top: 0.5px;
+}
+
 @media (prefers-color-scheme: light) {
     :root {
         color: #213547;
