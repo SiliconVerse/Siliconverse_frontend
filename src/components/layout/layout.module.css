@@ -7,7 +7,7 @@
  height: calc(100dvh - 120px);
  /* max-height: calc(100dvh - 120px); */
  overflow-y: auto;
- grid-column: 3/-1;
+ grid-column: 4/-1;
 
  /* Customize scrollbar */
  &::-webkit-scrollbar {
@@ -23,5 +23,10 @@
   scrollbar-width: thin;
   scrollbar-color: #ff5f1596 #88888886;
   /* thumb color and track color */
+ }
+
+
+ @media screen and (width < 768px) {
+  grid-column: 1/-1
  }
 }

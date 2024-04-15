@@ -42,6 +42,10 @@
  display: flex;
  align-items: flex-end;
  gap: 10px;
+
+ @media screen and (width < 768px) {
+  flex-direction: column;
+ }
 }
 
 .formGroup {
@@ -55,12 +59,17 @@
  margin: 0;
  height: fit-content;
 
+ @media screen and (width < 768px) {
+  width: 100%;
+ }
+
 
  aside {
   display: flex;
   align-items: center;
   width: 100%;
   padding: 4px;
+
 
   label {
    font-weight: 700;
@@ -117,7 +126,41 @@
  justify-content: center;
  align-items: center;
  width: 180px;
+
+ @media screen and (width < 768px) {
+  flex-direction: row;
+  width: 100%;
+ }
+
 }
+
+.btn_text {
+ margin-inline: auto;
+ font-size: 12px;
+ font-weight: 300;
+ text-wrap: wrap;
+ text-align: center;
+
+ @media screen and (width < 768px) {
+  display: none;
+ }
+}
+
+.btn_text_show {
+ display: none;
+
+ @media screen and (width < 768px) {
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+  font-weight: 300;
+ }
+
+ @media screen and (width <=412px) {
+  font-size: 12px;
+ }
+}
+
 
 .formGroup_btn {
  border: none;
@@ -132,6 +175,7 @@
 
  &.btn_1 {
   background: var(--green);
+  text-wrap: nowrap;
  }
 
  &.btn_2 {

@@ -1,8 +1,49 @@
 .container {
- width: 40%;
+ width: 50%;
  background: var(--white);
  display: flex;
  justify-content: center;
  align-items: center;
- padding-block: 30px;
+ padding-block: 60px;
+
+ @media screen and (width < 768px) {
+  width: 90%;
+ }
+}
+
+.modal_content {
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+
+.btn_container {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ justify-content: space-between;
+ gap: 100px;
+ margin-top: 30px;
+
+
+ .btn {
+  padding: 8px 60px;
+  border: none;
+  font-weight: 600;
+  text-transform: capitalize;
+  border-radius: 10px;
+  width: 100%;
+ }
+
+ .btn_1 {
+  background: var(--red);
+  color: var(--white);
+ }
+
+ .btn_2 {
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+ }
 }

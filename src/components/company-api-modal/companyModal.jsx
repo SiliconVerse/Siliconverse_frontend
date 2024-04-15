@@ -2,18 +2,18 @@
 import { BarChart, FileText } from 'lucide-react';
 import styles from './companyModal.module.css';
 
-const CompanyModalUpdates = ({ status }) => {
+const CompanyModalUpdates = ({ status, setState }) => {
   return (
     <div className={styles.container}>
       {status == 'loading' && (
-        <div>
+        <div className={styles.modal_content}>
           <FileText size={240} />
           <p style={{ fontWeight: '700' }}>Uploading Post, please wait...</p>
         </div>
       )}
 
       {status == 'success' && (
-        <div>
+        <div className={styles.modal_content}>
           <FileText size={240} style={{ color: 'var(--green)' }} />
           <p
             style={{
@@ -31,7 +31,7 @@ const CompanyModalUpdates = ({ status }) => {
       )}
 
       {status == 'error' && (
-        <div>
+        <div className={styles.modal_content}>
           <BarChart size={240} style={{ color: 'var(--red)' }} />
           <p
             style={{
@@ -43,6 +43,17 @@ const CompanyModalUpdates = ({ status }) => {
             Couldn’t upload magazine post
           </p>
           <p style={{ fontWeight: '700' }}>Check your internet connection</p>
+          <div className={styles.btn_container}>
+            <button
+              className={styles.btn + ' ' + styles.btn_1}
+              onClick={() => setState((prev) => !prev)}
+            >
+              Cancel
+            </button>
+            <button className={styles.btn + ' ' + styles.btn_2}>
+              Try again
+            </button>
+          </div>
         </div>
       )}
     </div>
