@@ -29,16 +29,18 @@ const SideBar = ({ showMenu }) => {
     <div className={showMenu ? styles.showMenu : styles.sidebar}>
       <div className={styles.profile}>
         <aside className={styles.profile_images}>
-          <img
-            src={profileBigImg}
-            alt='Profile Image of user'
-            className={styles.profileImg}
-          />
-          <img
-            src={profileBigIcon}
-            alt='Profile Image of user'
-            className={styles.floatIcon}
-          />
+          <span style={{ position: 'relative' }}>
+            <img
+              src={profileBigImg}
+              alt='Profile Image of user'
+              className={styles.profileImg}
+            />
+            <img
+              src={profileBigIcon}
+              alt='Profile Image of user'
+              className={styles.floatIcon}
+            />
+          </span>
         </aside>
         <aside className={styles.profile_details}>
           <p className={styles.profile_name}>Olaoluwa Vincent</p>

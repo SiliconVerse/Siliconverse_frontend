@@ -80,9 +80,9 @@ const CompanyProfileForm = () => {
       {/* Modals for states of form response */}
       {show && (
         // The Portal can receive the setShow state to close the modal also
-        <ReactPortal>
+        <ReactPortal setState={setShow}>
           {/* This should Recieve a state to rerun the post request when a user clicks on try Again */}
-          <CompanyModalUpdates status={'success'} setState={setShow} />
+          <CompanyModalUpdates status={'loading'} setState={setShow} />
         </ReactPortal>
       )}
     </>

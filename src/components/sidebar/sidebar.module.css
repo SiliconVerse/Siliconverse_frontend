@@ -12,7 +12,7 @@
  justify-content: start;
  align-items: flex-start;
  padding-top: 20px;
- gap: 30px;
+ gap: 20px;
  transition: all ease-in-out 400ms;
 
  @media screen and (min-width: 768px) and (min-height: 900px) {
@@ -71,14 +71,14 @@
 
   .profileImg {
    display: block;
-   width: 60%;
-   height: 60%;
+   height: 100px;
+   width: 100px;
   }
 
   .floatIcon {
    position: absolute;
    bottom: 10px;
-   right: 30px;
+   right: 0px;
    display: block;
    height: 30px;
    width: 30px;
