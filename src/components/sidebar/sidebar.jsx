@@ -63,7 +63,8 @@ const SideBar = ({ showMenu }) => {
         <button>SignOut</button>
       </div>
       <div className={styles.footer}>
-        <button className={styles.btn_help}>Help Center</button>
+        <Link to="/help"><button className={styles.btn_help}>Help Center</button></Link>
+        
       </div>
     </div>
   );
