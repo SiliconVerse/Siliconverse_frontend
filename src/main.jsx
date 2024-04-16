@@ -9,6 +9,7 @@ import Layout from './components/layout/layout.jsx';
 import CompanyProfilePage from './components/pages/CompanyProfilePage.jsx';
 import Login from './components/pages/Login.jsx';
 import Signup from './components/pages/Signup.jsx';
+import HelpCenter from './components/pages/HelpCenter.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/intern' element={<Interns />} />
         <Route path='/mission' element={<Mission />} />
         <Route path='/profile' element={<CompanyProfilePage />} />
+        <Route path='/help' element={<HelpCenter />} />
       </Route>
     </Routes>
   </BrowserRouter>
