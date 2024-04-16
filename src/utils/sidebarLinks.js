@@ -5,18 +5,18 @@ export const company_profile_links = [
   },
   {
     link: 'account settings',
-    url: '?user=settings',
+    url: '/profile?user=settings',
   },
   {
     link: 'projects',
-    url: '?user=projects',
+    url: '/profile?user=projects',
   },
   {
     link: 'history',
-    url: '?user=history',
+    url: '/profile?user=history',
   },
   {
     link: 'preference',
-    url: '?user=preference',
+    url: '/profile?user=preference',
   },
 ];

@@ -7,11 +7,15 @@ import Interns from './components/pages/Interns.jsx';
 import Mission from './components/pages/Mission.jsx';
 import Layout from './components/layout/layout.jsx';
 import CompanyProfilePage from './components/pages/CompanyProfilePage.jsx';
+import Login from './components/pages/Login.jsx';
+import Signup from './components/pages/Signup.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<App />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/register' element={<Signup />} />
       {/* Use Outlet for shared layout */}
       <Route element={<Layout />}>
         <Route path='/about' element={<About />} />
