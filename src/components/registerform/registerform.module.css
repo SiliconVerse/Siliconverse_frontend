@@ -95,6 +95,7 @@
 
  p {
   position: absolute;
+  color: var(--white);
   z-index: 20;
   top: 20%;
   text-align: center;
