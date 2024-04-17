@@ -1,0 +1,320 @@
+.landing-container{
+    height: 100vh;
+    width: 100vw;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.nav-bars{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: auto;
+}
+.nav-bars a{
+    text-decoration: none;
+    color: #000000;
+}
+.landing-link{
+    text-decoration: none;
+    color: #000000;
+}
+link{
+    text-decoration: none;
+}
+.hero-text{
+    font-size: larger;
+}
+.get-started-btn{
+    width: 202px;
+    height: 66px;
+    top: 708px;
+    left: 84px;
+    border-radius: 100px;
+    border: 1px;
+    padding: 10px, 32px, 10px, 32px;
+    gap: 10px;
+    background-color: #FF5F15;
+    color: #ffffff;
+}
+.sub-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.image-container{
+    width: 375px;
+    height: 419px;
+    top: 241px;
+    left: 732px;
+    border-radius: 40px;
+    background-color: #D9D9D9;
+    background-image: url(../src/img/hero-image.png);
+    background-repeat: none;
+    background-size: cover;
+    background-position:  center;
+}
+
+.text-container h2{
+    width: 665px;
+    height: 180px;
+    top: 284px;
+    left: 84px;
+    font-family: Bellota Text;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 60.38px;
+    color:#000000;
+}
+.text-container p{
+    width: 365px;
+    height: 70px;
+    margin-top: 20px;
+    line-height: 30.19px;
+    color: #000000;
+}
+.second-layer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.second-layer button{
+    width: 200px;
+    height: 46px;
+    margin-top: 90px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.third-layer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: auto;
+    background-color: #FF5F15;
+    height: 50px;
+    margin-top: 60px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+.third-layer form{
+    margin: auto;
+    margin-top: 10px;
+    border: 2px solid #FFFFFF;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    width: 160px;
+    text-align: center;
+    height: 30px;
+}
+.third-layer select{
+    border: none;
+    margin-top: 5px;
+}
+.third-layer label{
+    margin: auto;
+   
+}
+.find-internship{
+    border: 0;
+}
+
+.card-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 626px;
+    height: 278px;
+    margin: auto;
+    margin-top: 10px;
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+
+    
+}
+.card-image{
+    border: 2px solid grey;
+    background-color: grey;
+    border-radius: 100%; 
+    width: 150px;
+    height: 150px;
+    margin: 30px 40px;
+}
+.footer-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 40px 350px;
+}
+
+.social-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 70px;
+}
+.social-links, a{
+    text-decoration: none;
+    color: #FFFFFF;
+    margin-left: 10px;
+}
+.first-layer{
+    background-color: #FDEFE9;
+    width: 100vw;
+    height: 100vh;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.footer-container{
+    background-color: #FF5F15;
+    color: #ffffff;
+}
+.footer-container, link{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.fourth-layer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+.signup-container{
+    background: linear-gradient(to right, #FF5F15 0%, #FF5F15 50%, #dad7cd 50%,#dad7cd 100%);
+    width: 720px;
+    height: 1024px;
+    opacity: 90%;
+    font-family: 'Poppins', sans-serif;
+}
+.signupBtn{
+    display: flex;
+    text-align: center;
+}
+.signup-text-container h2{
+    width: 482px;
+    height: 48px;
+    margin-top: 200px;
+    margin-left: 26px;
+    font-weight: 300;
+    font-size: 55px;
+    color: #FFFFFF;
+}
+.signup-text-container h3{
+    width: 151px;
+    height: 39px;
+    margin-top: 6px;
+    margin-left: 18px;
+    border-radius: 10px;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    text-align: center;
+}
+.form-container{
+    opacity: 90%;
+}
+.login-form-container form{
+    gap: 10px;
+    border: 2px solid #ffffff;
+    background-color: #FFFFFF;
+    margin-top: 30px;
+    width: 400px;
+    border-radius: 20px;
+    height:440px;
+}
+.signup-form-container{
+    gap: 10px;
+    border: 2px solid #ffffff;
+    background-color: #FFFFFF;
+    margin-top: 40px;
+    width: 400px;
+    border-radius: 20px;
+    height:550px;
+}
+.signup-form-container h2{
+    text-align: center;
+    color: #FF5F15;
+
+}
+.signup-container hr{
+    background-color: #FF5F15;
+    width: 50px;
+    border: 2px solid #FF5F15;
+}
+.signup-form-container button{
+    margin: auto;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: #FF5F15;
+    color: #FFFFFF;
+    border: 2px solid #FF5F15;
+    font-size: larger;
+    margin-left: 150px;
+}
+.login-form-container{
+    width: 400px;
+}
+.login-form-container button{
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: #FF5F15;
+    color: #FFFFFF;
+    border: 2px solid #FF5F15;
+    font-size: larger;
+    margin-left: 150px;
+}
+.login-form-container h2{
+    text-align: center;
+    color: #FF5F15;
+
+}
+.login-form-container hr{
+    background-color: #FF5F15;
+    width: 50px;
+    border: 2px solid #FF5F15;
+}
+.form-container,label, input{
+    margin-left: 40px;
+}
+input{
+    border: none;
+    border-bottom: 2px solid rgba(0,0,0, 0.3);
+    width: 300px;
+    font-family: "Bellota Text" sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    height: 24px;
+    flex: 1;
+    padding: 10px;
+    margin-bottom: 15px;
+    color: #000000;
+
+}
+::placeholder{
+    color:#AEAEAE;
+    opacity: 30%;
+}
+.form-container button{
+    margin-left: 150px;
+    width: 100px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 2px solid #FF5F15;
+    background-color: #FF5F15;
+    color: #FFFFFF;
+
+}
+.footer-container, p{
+    text-align: center;
+}
+.signup-container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
