@@ -14,10 +14,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Routes>
       <Route path='/' element={<App />} />
       {/* Use Outlet for shared layout */}
-      <Route element={<Layout />}>
         <Route path='/about' element={<About />} />
         <Route path='/intern' element={<Interns />} />
         <Route path='/mission' element={<Mission />} />
+        <Route element={<Layout />}>
+
         <Route path='/profile' element={<CompanyProfilePage />} />
         <Route path='/help' element={<HelpCenter />} />
 
