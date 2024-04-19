@@ -1,0 +1,32 @@
+.layout_body {
+ display: grid;
+ grid-template-columns: repeat(12, 1fr);
+}
+
+.layout_content {
+ height: calc(100dvh - 120px);
+ /* max-height: calc(100dvh - 120px); */
+ overflow-y: auto;
+ grid-column: 4/-1;
+
+ /* Customize scrollbar */
+ &::-webkit-scrollbar {
+  width: 8px;
+ }
+
+
+ &::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+ }
+
+ & {
+  scrollbar-width: thin;
+  scrollbar-color: #ff5f1596 #88888886;
+  /* thumb color and track color */
+ }
+
+
+ @media screen and (width < 768px) {
+  grid-column: 1/-1
+ }
+}
