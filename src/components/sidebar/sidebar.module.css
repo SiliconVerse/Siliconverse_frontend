@@ -120,12 +120,16 @@
 }
 
 .signout {
+ padding-inline: 8px;
+ width: 100%;
+
  button {
+  width: 100%;
+  border: 1px solid var(--white);
   background: none;
-  border: none;
-  color: var(--white);
-  margin: 0;
-  padding: 0;
+  font-weight: 300;
+  border-radius: 0;
+  padding: 8px;
  }
 }
 
