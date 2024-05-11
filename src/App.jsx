@@ -6,7 +6,6 @@ import { useTypingEffect } from './hooks/typing-effect'
 import Footer from './components/Footer'
 import {useKindeAuth} from '@kinde-oss/kinde-auth-react';
 
-
 function App() {
   const { login, register } = useKindeAuth();
   const text = useTypingEffect("Digital platform designed to connect Tech Startups, SMEs, and Tech Talents", 100)
@@ -27,10 +26,10 @@ function App() {
 
           <li className="lis">
             <li>
-            <button className='btns' onClick={login}><Link >Sign In</Link></button>
+            <button className='btns' onClick={login}><Link style={{color: "white"}}>Sign In</Link></button>
             </li>
             <li>
-            <button className='btns' onClick={register} style={{ padding : '10px'}}><Link>Sign Up</Link></button>
+            <button className='btns' onClick={register} style={{padding : '10px'}}><Link style={{color:"white"}}>Sign Up</Link></button>
             </li>
           </li>
         </ul>

@@ -1,7 +1,16 @@
 import { useState } from 'react';
 import styles from './companyProfile.module.css';
 import CompanyProfileForm from './companyProfileForm';
+import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
 const CompanyProfile = () => {
+
+  const {user, isAuthenticated, isLoading} = useKindeAuth();
+
+
+  if(isLoading){
+    return <p> Name Loading...</p>
+  }
+
   const userInfomation = {
     ceo: 'Olaoluwa vincent',
     state: 'Lagos',
@@ -22,10 +31,14 @@ const CompanyProfile = () => {
           </p>
         </div>
         <div className={styles.userInfo}>
+          { isAuthenticated ? (
           <aside>
             <h5>Name of CEO</h5>
-            <p>{userData.ceo}</p>
+            <p>{user.given_name}{user.family_name}</p>
           </aside>
+          ) : (
+            <p> Name Loading...</p>
+          )}
           <aside>
             <h5>Location</h5>
             <p>

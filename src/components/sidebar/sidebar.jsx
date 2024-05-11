@@ -4,8 +4,10 @@ import profileBigImg from '../../assets/profileImgBig.png';
 import profileBigIcon from '../../assets/profileImgIcon.png';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { company_profile_links } from '../../utils/sidebarLinks';
+import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
 
 const SideBar = ({ showMenu }) => {
+  const {user, isAuthenticated, isLoading} = useKindeAuth();
   const [searchParams] = useSearchParams();
   const location = useLocation();
 
@@ -25,8 +27,13 @@ const SideBar = ({ showMenu }) => {
     }
   }
 
+  if(isLoading){
+    return <p>Loading...</p>
+  }
+
   return (
     <div className={showMenu ? styles.showMenu : styles.sidebar}>
+      { isAuthenticated ? (
       <div className={styles.profile}>
         <aside className={styles.profile_images}>
           <span style={{ position: 'relative' }}>
@@ -43,11 +50,14 @@ const SideBar = ({ showMenu }) => {
           </span>
         </aside>
         <aside className={styles.profile_details}>
-          <p className={styles.profile_name}>Olaoluwa Vincent</p>
+          <p className={styles.profile_name}>{user.given_name} {user.family_name}</p>
           <p>Ibadan</p>
           <p>Nigeria</p>
         </aside>
       </div>
+       ) : (
+        <p> Please Sign Up or Log In </p>
+      )}
       <div className={styles.links}>
         {company_profile_links.map((item, index) => (
           <Link
