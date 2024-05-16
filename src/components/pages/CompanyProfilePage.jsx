@@ -1,5 +1,6 @@
 import { useLocation, useSearchParams } from 'react-router-dom';
 import CompanyProfile from '../company-profile/companyProfile';
+import { Settings } from 'lucide-react';
 
 const CompanyProfilePage = () => {
   const [searchParams] = useSearchParams();
@@ -20,8 +21,8 @@ const CompanyProfilePage = () => {
         <CompanyProfile />
       )}
 
-      {userParam == 'preference' && <p>preference</p>}
-      {userParam == 'settings' && <p>settings</p>}
+      {userParam == 'preference' && <Settings/>}
+      {userParam == 'settings' && <Settings/>}
       {userParam == 'history' && <p>history</p>}
       {userParam == 'projects' && <p>projects</p>}
     </div>

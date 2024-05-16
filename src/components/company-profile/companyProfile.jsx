@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './companyProfile.module.css';
 import CompanyProfileForm from './companyProfileForm';
 import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
+import { CiEdit } from "react-icons/ci";
 const CompanyProfile = () => {
 
   const {user, isAuthenticated, isLoading} = useKindeAuth();
@@ -29,12 +30,16 @@ const CompanyProfile = () => {
             Updating your information will offer you the most relevant content
             and conversations
           </p>
+
+          <div className="">
+            <button className={styles.btn}> <CiEdit/>  Edit</button>
+          </div>
         </div>
         <div className={styles.userInfo}>
           { isAuthenticated ? (
           <aside>
             <h5>Name of CEO</h5>
-            <p>{user.given_name}{user.family_name}</p>
+            <p>{user.given_name} <span style={{marginLeft:"20px"}}>{user.family_name}</span></p>
           </aside>
           ) : (
             <p> Name Loading...</p>

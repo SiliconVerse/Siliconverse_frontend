@@ -17,7 +17,7 @@ const UserProfile = () => {
         alt='profile picture'
         className={styles.profileImg}
       />
-      <h4 className={styles.profile_name}>{user.given_name} {user.family_name}</h4>
+      <h4 className={styles.profile_name}>{user.given_name} <span style={{marginLeft: "20px"}}>{user.family_name}</span></h4>
     </div> 
     ):(
       <p> Please Sign Up or Log In</p> 
