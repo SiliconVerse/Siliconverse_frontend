@@ -1,4 +1,5 @@
 import './App.css'
+import './index.css'
 import { Link } from 'react-router-dom'
 import Jobs from './components/Jobs'
 import Image from './assets/woman.png'

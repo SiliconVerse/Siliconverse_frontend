@@ -1,8 +1,8 @@
-import React from 'react'
+
 
 const Mission = () => {
   return (
-    <div>Mission</div>
+    <div className="text-3xl text-red-500">Mission</div>
   )
 }
 
