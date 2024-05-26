@@ -1,4 +1,4 @@
-
+/* 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 
@@ -116,18 +116,16 @@ main {
 .job{
     display: grid;
     grid-template-columns: 200px 200px 200px 200px;
-    grid-gap: 30px;
-    align-items: center;
-    justify-content: center;
+    grid-gap: 20px;
 }
 
 .flex{
     display: flex;
     flex-direction: column;
     background-color: #FF5F15;
-    width: 210px;
-    height: 230px;
-    /* margin-left: 100px; */
+    width: 200px;
+    height: 200px;
+    margin-left: 100px;
 }
 
 .footer{
@@ -197,60 +195,55 @@ main {
 .face{
     background-color: blue;
     color: #fff;
-    /* width: 20px; */
-    /* height: 20px; */
+    width: 20px;
+    height: 20px;
     border-radius: 20px;
-    padding: 5px;
-    font-size: 14px;  
+    padding: 10px;
 }
 
 .insta{
     background-color: palevioletred;
     color: #fff;
-    /* width: 20px; */
-    /* height: 20px; */
+    width: 20px;
+    height: 20px;
     border-radius: 20px;
-    padding: 6px;
-    font-size: 17px;  
+    padding: 10px;
 }
 
 .linked{
     background-color: blue;
     color: #fff;
-    /* width: 20px; */
-    /* height: 20px; */
+    width: 20px;
+    height: 20px;
     border-radius: 20px;
-    padding: 5px;
+    padding: 10px;
 }
 
 .tweet{
     background-color: black;
     color: #fff;
-    /* width: 20px; */
-    /* height: 20px; */
+    width: 20px;
+    height: 20px;
     border-radius: 20px;
-    padding: 5px;
-    font-size: 14px;  
+    padding: 10px;  
 }
 
 .tube{
     background-color: red;
     color: #fff;
-    /* width: 20px; */
-    /* height: 20px; */
+    width: 20px;
+    height: 20px;
     border-radius: 20px;
-    padding: 5px;  
-    font-size: 16px;  
+    padding: 10px;  
 }
 
 .app{
     background-color: green;
     color: #fff;
-    /* width: 20px; */
-    /* height: 20px; */
+    width: 20px;
+    height: 20px;
     border-radius: 20px;
-    padding: 5px; 
-    font-size: 17px;   
+    padding: 10px;  
 }
 
 .input{
@@ -264,7 +257,7 @@ main {
 
 .boxes{
     border: 3px solid black;
-    padding: 8px;
+    padding: 20px;
 }
 
 .boxes::placeholder{
@@ -383,7 +376,7 @@ button:focus-visible {
 }
 
 /* styles for help_center */
-.helpcenter {
+/* .helpcenter {
     flex-direction: column;
 }
 
@@ -439,4 +432,4 @@ button:focus-visible {
     button {
         background-color: #f9f9f9;
     }
-}
+} */ 
