@@ -195,55 +195,60 @@ main {
 .face{
     background-color: blue;
     color: #fff;
-    width: 20px;
-    height: 20px;
+    /* width: 20px; */
+    /* height: 20px; */
     border-radius: 20px;
-    padding: 10px;
+    padding: 5px;
+    font-size: 14px;  
 }
 
 .insta{
     background-color: palevioletred;
     color: #fff;
-    width: 20px;
-    height: 20px;
+    /* width: 20px; */
+    /* height: 20px; */
     border-radius: 20px;
-    padding: 10px;
+    padding: 6px;
+    font-size: 17px;  
 }
 
 .linked{
     background-color: blue;
     color: #fff;
-    width: 20px;
-    height: 20px;
+    /* width: 20px; */
+    /* height: 20px; */
     border-radius: 20px;
-    padding: 10px;
+    padding: 5px;
 }
 
 .tweet{
     background-color: black;
     color: #fff;
-    width: 20px;
-    height: 20px;
+    /* width: 20px; */
+    /* height: 20px; */
     border-radius: 20px;
-    padding: 10px;  
+    padding: 5px;
+    font-size: 14px;  
 }
 
 .tube{
     background-color: red;
     color: #fff;
-    width: 20px;
-    height: 20px;
+    /* width: 20px; */
+    /* height: 20px; */
     border-radius: 20px;
-    padding: 10px;  
+    padding: 5px;  
+    font-size: 16px;  
 }
 
 .app{
     background-color: green;
     color: #fff;
-    width: 20px;
-    height: 20px;
+    /* width: 20px; */
+    /* height: 20px; */
     border-radius: 20px;
-    padding: 10px;  
+    padding: 5px; 
+    font-size: 17px;   
 }
 
 .input{

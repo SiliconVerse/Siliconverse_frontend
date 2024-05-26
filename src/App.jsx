@@ -35,18 +35,23 @@ function App() {
           </li>
         </ul>
       </nav> 
-      <section className='main'>
-        <div className="grid">
+
+    
+      <section className='main mt-8'>
+        <div className="grid grid-cols-2">
         <div className="text">
-          <h1>{text}</h1>
-          <p style={{ fontSize:"20px", paddingTop:"20px", paddingBottom:"20px"}}>{texts}</p>
+          <h1 className='font-normal'>{text}</h1>
+          <p className='font-medium' style={{ fontSize:"20px", paddingTop:"20px", paddingBottom:"20px"}}>{texts}</p>
           <button className="btn">Get Started</button>
         </div>
         <div className="image grid">
-          <img src={Image} alt="Silicon Verse" className='img'/>
+          <img src={Image} alt="Silicon Verse" className='w-[100%] h-[100%]'/>
         </div>
         </div>
       </section>
+
+
+      
         <div className="button">
           <button className="bt">Apply for Internship</button>
           <button className="bt bts" >Get Interns</button>

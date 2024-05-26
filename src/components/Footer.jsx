@@ -9,7 +9,7 @@ const Footer = () => {
     <section className='footer'>
       <div className="list">
         <ul>
-          <li><Link className='link'>About</Link></li>
+          <li><Link to="/about" className='link'>About</Link></li>
           <li><Link className='link'>Organisations</Link></li>
           <li><Link className='link'>Privacy Policy</Link></li>
           <li><Link className='link'>Terms and Conditions</Link></li>
@@ -17,15 +17,15 @@ const Footer = () => {
         </ul>
       </div>
 
-      <div className="icons">
-        <h3>Follow us on :</h3>
+      <div className="icons mt-10">
+        <h3 className='font-bold'>Follow us on :</h3>
         <ul>
-          <li><Link to={"https://www.facebook.com/Siliconverse"}><FaFacebookF className='face' /></Link></li>
-          <li><Link to={"https://www.instagram.com/siliconverse"}><FaInstagram  className='insta'/></Link></li>
-          <li><Link to={"https://www.linkedin.com/company/siliconverse/"}><FaLinkedinIn className='linked' /></Link></li>
-          <li><Link to={"https://www.x.com/siliconverse"}><RiTwitterXLine className='tweet' /></Link></li>
-          <li><Link to={""}><FaYoutube className='tube' /></Link></li>
-          <li><Link to={""}><FaWhatsapp className='app' /></Link></li>
+          <li className='face'><Link to={"https://www.facebook.com/Siliconverse"}><FaFacebookF /></Link></li>
+          <li className='insta'><Link to={"https://www.instagram.com/siliconverse"}><FaInstagram /></Link></li>
+          <li className='linked' ><Link to={"https://www.linkedin.com/company/siliconverse/"}><FaLinkedinIn /></Link></li>
+          <li className='tweet' ><Link to={"https://www.x.com/siliconverse"}><RiTwitterXLine  /></Link></li>
+          <li className='tube'><Link to={""}><FaYoutube  /></Link></li>
+          <li className='app'><Link to={""}><FaWhatsapp /></Link></li>
         </ul>
       </div>
     </section>
