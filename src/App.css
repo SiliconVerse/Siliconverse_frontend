@@ -116,16 +116,18 @@ main {
 .job{
     display: grid;
     grid-template-columns: 200px 200px 200px 200px;
-    grid-gap: 20px;
+    grid-gap: 30px;
+    align-items: center;
+    justify-content: center;
 }
 
 .flex{
     display: flex;
     flex-direction: column;
     background-color: #FF5F15;
-    width: 200px;
-    height: 200px;
-    margin-left: 100px;
+    width: 210px;
+    height: 230px;
+    /* margin-left: 100px; */
 }
 
 .footer{
@@ -262,7 +264,7 @@ main {
 
 .boxes{
     border: 3px solid black;
-    padding: 20px;
+    padding: 8px;
 }
 
 .boxes::placeholder{
