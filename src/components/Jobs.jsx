@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./../App.css"
 
@@ -45,7 +45,7 @@ const Jobs = () => {
 
     return (
         <div className='jobs'>
-            <div className="search">
+            <div className="search mb-7">
                 <div className="input">
                     <label style={{ fontWeight:"bolder", marginRight:"10px"}}> Find Internship/Jobs:</label>
                     <select name="" id="">
@@ -63,11 +63,11 @@ const Jobs = () => {
             </div>
             <div className='job'>
                 {filteredJobs.map((job, index) => (
-                    <div key={index} className='flex'>
+                    <div key={index} className='flex text-center'>
                         {/* Assuming employer_logo is a URL to an image */}
-                        <img src={job.employer_logo} alt={job.company} style={{width: '100px', height: '100px',borderRadius:"50px"}} />
-                        <span>{job.employer_name}</span>
-                        <span>{job.job_title}</span>
+                        <img src={job.employer_logo} alt={job.company} style={{width: '150px', height: '100px',borderRadius:"50px"}} />
+                        <p className='mt-2 mb-1 font-semibold'>{job.employer_name}</p>
+                        <p>{job.job_title}</p>
                         {/* Render different links based on job data */}
                         <button>
                             {job.job_apply_link ? (
