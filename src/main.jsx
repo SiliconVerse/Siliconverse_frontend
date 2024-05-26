@@ -46,12 +46,18 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
-
+import { KindeProvider } from "@kinde-oss/kinde-auth-react";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <KindeProvider
+      clientId="0841862f40cf4c429db18b54e08a7fec"
+      domain="https://siliconverses.kinde.com" redirectUri="http://localhost:5173/home/"
+    //     logoutUri="http://localhost:5173"
+    >
       <BrowserRouter>
         <App />
       </BrowserRouter>
+    </KindeProvider>
   </React.StrictMode>,
 )
