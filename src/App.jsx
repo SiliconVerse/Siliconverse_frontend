@@ -10,6 +10,7 @@ import HelpCenter from "./components/pages/HelpCenter.jsx";
 // import Layout from "./components/layout/layout.jsx";
 import CompanyProfilePage from "./components/pages/CompanyProfilePage.jsx";
 import UserProfile from "./components/user-profile/userProfile.jsx";
+import Magazine from "./components/magazine-page/Magazine.jsx";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/profile" element={<CompanyProfilePage />} />
             <Route path="/help" element={<HelpCenter />} />
             <Route path="/userProfile" element={<UserProfile />} />
+            <Route path="/magazine" element={<Magazine />} />
           </Routes>
           {/* <Home /> */}
         </div>
