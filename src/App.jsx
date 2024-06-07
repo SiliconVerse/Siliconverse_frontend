@@ -15,8 +15,8 @@ import Magazine from "./components/pages/Magazine.jsx";
 const App = () => {
   return (
     <div className="w-full">
-      <div className="bg-[#FDEFE9] w-full ">
-        <div className="m-6">
+      <div className="w-full">
+        <div className="">
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />

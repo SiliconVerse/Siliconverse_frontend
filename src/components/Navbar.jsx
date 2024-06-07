@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="pt-8 ">
+    <div className="p-8 bg-[#FDEFE9]">
       <div className="hidden md:block">
         <nav className="flex justify-between items-center">
           <div>
