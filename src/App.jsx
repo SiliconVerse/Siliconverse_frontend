@@ -17,7 +17,7 @@ const App = () => {
     <div className="w-full">
       <div className="bg-[#FDEFE9] w-full ">
         <div className="m-6">
-          {/* <Navbar /> */}
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
