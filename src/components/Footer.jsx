@@ -37,12 +37,12 @@ const Footer = () => {
               </Link>
             </li>
             <li className="bg-[#D8095F] p-2 rounded-full">
-              <Link to={"https://www.instagram.com/siliconverse"}>
+              <Link to={"https://www.instagram.com/siliconverse.io?igsh=Y3ZnMDRiMGp6YTVy"}>
                 <FaInstagram />
               </Link>
             </li>
             <li className="bg-[#126BC4] p-2 rounded-full">
-              <Link to={"https://www.linkedin.com/company/siliconverse/"}>
+              <Link to={"https://www.linkedin.com/company/siliconvers/"}>
                 <FaLinkedinIn />
               </Link>
             </li>
