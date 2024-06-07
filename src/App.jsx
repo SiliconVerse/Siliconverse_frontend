@@ -1,7 +1,7 @@
 import Footer from "../src/components/Footer";
 import Navbar from "../src/components/Navbar";
 import Home from "../src/components/pages/Home";
-import Jobs from "../src/components/Jobs";
+// import Jobs from "../src/components/Jobs";
 import { Routes, Route } from "react-router-dom";
 import About from "./components/pages/About.jsx";
 import Interns from "./components/pages/Interns.jsx";
@@ -31,7 +31,7 @@ const App = () => {
           {/* <Home /> */}
         </div>
       </div>
-      <Jobs />
+
       <Footer />
     </div>
   );
