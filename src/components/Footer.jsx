@@ -36,7 +36,7 @@ const Footer = () => {
           </h2>
           <ul className="flex items-center justify-center flex-wrap gap-4 md:gap-14 mt-6 text-white">
             <li className="bg-[#207BF3] p-2 rounded-full">
-              <Link to={"https://www.facebook.com/Siliconverse"}>
+              <Link to={"https://www.facebook.com/Siliconverse"} target="blank">
                 <FaFacebookF />
               </Link>
             </li>
