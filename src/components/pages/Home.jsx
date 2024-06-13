@@ -1,5 +1,6 @@
 import Jobs from "../Jobs";
 import { images } from "../..";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -18,7 +19,13 @@ const Home = () => {
             </div>
 
             <button className="bg-[#FF5F15] py-2 px-10 rounded-3xl text-white">
-              Get Started
+              <NavLink
+                to="/signup"
+                className="block w-full h-full text-white text-center"
+                style={{ textDecoration: "none" }}
+              >
+                Get Started
+              </NavLink>
             </button>
           </div>
 
