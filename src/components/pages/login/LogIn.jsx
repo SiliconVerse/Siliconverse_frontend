@@ -41,6 +41,10 @@ const LoginForm = () => {
               <span style={{ color: "#ff5f15" }}>Forgot Password?</span>
             </div>
             <button type="submit">Login</button>
+            <p style={{ textAlign: "center" }}>
+              Don't have an account?
+              <span style={{ color: "#ff5f15" }}> Sign up</span>
+            </p>
           </form>
         </div>
         <div className="text">
