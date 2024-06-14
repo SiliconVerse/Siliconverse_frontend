@@ -13,8 +13,7 @@ import UserProfile from "./components/user-profile/userProfile.jsx";
 import Magazine from "./components/pages/Magazine.jsx";
 import SignIn from "./components/auth/SignIn.jsx";
 import Register from "./components/auth/Register.jsx";
-import LogIn from "./components/pages/LogIn.jsx";
-import Register from "./components/auth/Register.jsx";
+import LoginForm from "./components/pages/login/LogIn.jsx";
 import SignUp from "./components/pages/SignUp.jsx";
 
 const App = () => {
@@ -34,7 +33,7 @@ const App = () => {
             <Route path="/magazine" element={<Magazine />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<LogIn />} />
+            <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignUp />} />
           </Routes>
           {/* <Home /> */}
