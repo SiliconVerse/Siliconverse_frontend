@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Logo from "../../../images/siliconlogo.png";
 import "./logIn.css";
 
 const LoginForm = () => {
@@ -17,7 +18,7 @@ const LoginForm = () => {
       <div className="login-form">
         <div className="login-form-inner">
           <div className="form-titles">
-            <span>SiliconVerse</span>
+            <img src={Logo} alt="SiliconVerse logo" />
             <h2>Log in</h2>
           </div>
           <form onSubmit={handleSubmit}>
@@ -49,7 +50,7 @@ const LoginForm = () => {
         </div>
         <div className="text">
           <h3>
-            <b>Welcome to Siliconverse</b>
+            <b className="text-title">Welcome to Siliconverse</b>
             <br />
             Siliconverse is a tech space for tech talents, who wish to look for
             internship, jobs and further their knowledge on the tech space.{" "}
