@@ -216,6 +216,7 @@
 
 .text-talent h3 {
   width: 100%;
+  padding-bottom: 25%;
 }
 
 .text-title {
@@ -253,6 +254,27 @@
     flex-direction: column;
     gap: 1em;
   }
+
+  .talent-form {
+    flex-direction: column;
+    gap: 5%;
+    margin: 5%;
+    padding: 1.5em;
+  }
+
+  .name,
+  .contact,
+  .age-location,
+  .password {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5%;
+  }
+
+  .text-talent {
+    width: 80%;
+    padding: 7%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -278,6 +300,27 @@
     flex-direction: column;
     gap: 1em;
   }
+
+  .talent-form {
+    flex-direction: column;
+    gap: 5%;
+    margin: 5%;
+    padding: 1.2em;
+  }
+
+  .name,
+  .contact,
+  .age-location,
+  .password {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5%;
+  }
+
+  .text-talent {
+    width: 90%;
+    padding: 6%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -302,5 +345,26 @@
   .button {
     flex-direction: column;
     gap: 0.5em;
+  }
+
+  .talent-form {
+    flex-direction: column;
+    gap: 5%;
+    margin: 5%;
+    padding: 1em;
+  }
+
+  .name,
+  .contact,
+  .age-location,
+  .password {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5%;
+  }
+
+  .text-talent {
+    width: 100%;
+    padding: 5%;
   }
 }
