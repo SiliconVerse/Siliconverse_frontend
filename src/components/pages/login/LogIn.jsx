@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import Logo from "../../../images/siliconlogo.png";
 import "./logIn.css";
 
@@ -45,11 +46,13 @@ const LoginForm = () => {
             <button type="submit">Login</button>
             <p style={{ textAlign: "center" }}>
               Don't have an account?
-              <span style={{ color: "#ff5f15" }}> Sign up</span>
+              <NavLink to="/signup">
+                <span style={{ color: "#ff5f15" }}> Sign up</span>
+              </NavLink>
             </p>
           </form>
         </div>
-        <div className="text">
+        <div className="text-login">
           <h3>
             <b className="text-title">Welcome to Siliconverse</b>
             <br />

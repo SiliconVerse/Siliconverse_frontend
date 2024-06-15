@@ -88,6 +88,96 @@
   background-color: #c0c0c0;
 }
 
+// Talent signup
+
+.talent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../../../images/latestNews.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.talent-form {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  margin: 5% 2% 5% 2%;
+  width: 100%;
+  padding: 2em;
+  background-color: transparent;
+  /* backdrop-filter: blur(2px); */
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.talent-form h2 {
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+.talent-form label {
+  display: block;
+  margin-bottom: 0.5em;
+  color: #fff;
+}
+
+.talent-form input {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 5%;
+  border: 2px solid black;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.talent-form select {
+  color: #fff;
+  background: transparent;
+  margin-bottom: 5%;
+  border: 2px solid #c0c0c0;
+  border-radius: 15px;
+}
+
+.talent-form option {
+  color: #ff5f15;
+  background: #c0c0c0;
+}
+
+.talent-form button {
+  padding: 0.5em 2em;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 100%;
+  background-color: #ff5f15;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.talent-form button:hover {
+  background-color: #c0c0c0;
+}
+
+.text-talent {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #ff5f15;
+  border-radius: 15px;
+  padding: 5%;
+}
+
 @media (max-width: 907px) {
   .inner-block {
     width: 90%;
