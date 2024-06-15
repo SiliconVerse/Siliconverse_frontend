@@ -1,0 +1,370 @@
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../../images/latestNews.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.inner-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+  margin: 10% 10% 10% 10%;
+  width: 100%;
+  padding: 2em;
+  /* background-color: transparent; */
+  background-color: rgba(255, 95, 21, 0.45);
+  backdrop-filter: blur(2px);
+  /* background: #f7f7f7; */
+  /* opacity: 0.478; */
+  border: 2px solid #ff5f15;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  justify-self: flex-start;
+  margin-left: -35%;
+  align-self: center;
+  width: 25%;
+  border-radius: 15px;
+}
+
+.text {
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  padding: 2%;
+  background: none;
+}
+
+.button {
+  display: flex;
+  gap: 10;
+  justify-content: center;
+  padding: 2% 5% 2% 5%;
+}
+
+.button-talent {
+  display: flex;
+  border: 1px solid #ff5f15;
+  border-radius: 7px;
+  background: #fff;
+  width: 9.5%;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.button-talent:hover {
+  background-color: #c0c0c0;
+}
+
+.button-company {
+  display: flex;
+  border: 1px solid #ff5f15;
+  border-radius: 7px;
+  color: #000;
+  background: #fff;
+  width: 16%;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  margin-left: -2%;
+  cursor: pointer;
+}
+
+.button-talent:hover,
+.button-company:hover {
+  background-color: #c0c0c0;
+}
+
+// Talent signup
+
+.talent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../../../images/latestNews.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.talent-form {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  margin: 5% 2% 5% 2%;
+  width: 100%;
+  padding: 2em;
+  background-color: transparent;
+  /* backdrop-filter: blur(2px); */
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.age-location {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.password {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.talent-form h2 {
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 5%;
+}
+
+.talent-form label {
+  display: block;
+  margin-bottom: 0.5em;
+  color: #fff;
+}
+
+.talent-form input {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 5%;
+  border: 2px solid black;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.talent-form select {
+  color: #fff;
+  background: transparent;
+  margin-bottom: 5%;
+  border: 2px solid #c0c0c0;
+  border-radius: 15px;
+  width: 100%;
+  height: 45px;
+  text-align: center;
+}
+
+.talent-form option {
+  color: #ff5f15;
+  background: #c0c0c0;
+}
+
+.talent-form button {
+  padding: 0.5em 2em;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 100%;
+  background-color: #ff5f15;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.talent-form button:hover {
+  background-color: #c0c0c0;
+}
+
+.text-talent {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #ff5f15;
+  border-radius: 15px;
+  padding: 5%;
+}
+
+.text-talent h3 {
+  width: 100%;
+  padding-bottom: 25%;
+}
+
+.text-title {
+  margin-bottom: 15%;
+}
+
+.talent-form p {
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+@media (max-width: 907px) {
+  .inner-block {
+    width: 90%;
+    margin: 10%;
+    padding: 1.5em;
+  }
+
+  .logo img {
+    width: 45%;
+    max-width: 180px;
+    display: flex;
+    justify-content: flex-start;
+    /* margin-left: -113%; */
+  }
+
+  .button-talent,
+  .button-company {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+  }
+
+  .button {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .talent-form {
+    flex-direction: column;
+    gap: 5%;
+    margin: 5%;
+    padding: 1.5em;
+  }
+
+  .name,
+  .contact,
+  .age-location,
+  .password {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5%;
+  }
+
+  .text-talent {
+    width: 80%;
+    padding: 7%;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner-block {
+    width: 90%;
+    margin: 10%;
+    padding: 1.5em;
+  }
+
+  .logo img {
+    width: 40%;
+    max-width: 120px;
+  }
+
+  .button-talent,
+  .button-company {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+  }
+
+  .button {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .talent-form {
+    flex-direction: column;
+    gap: 5%;
+    margin: 5%;
+    padding: 1.2em;
+  }
+
+  .name,
+  .contact,
+  .age-location,
+  .password {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5%;
+  }
+
+  .text-talent {
+    width: 90%;
+    padding: 6%;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner-block {
+    width: 95%;
+    margin: 5%;
+    padding: 1em;
+  }
+
+  .logo img {
+    width: 30%;
+    max-width: 100px;
+  }
+
+  .button-talent,
+  .button-company {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+  }
+
+  .button {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .talent-form {
+    flex-direction: column;
+    gap: 5%;
+    margin: 5%;
+    padding: 1em;
+  }
+
+  .name,
+  .contact,
+  .age-location,
+  .password {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5%;
+  }
+
+  .text-talent {
+    width: 100%;
+    padding: 5%;
+  }
+}

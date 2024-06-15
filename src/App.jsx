@@ -11,6 +11,10 @@ import HelpCenter from "./components/pages/HelpCenter.jsx";
 import CompanyProfilePage from "./components/pages/CompanyProfilePage.jsx";
 import UserProfile from "./components/user-profile/userProfile.jsx";
 import Magazine from "./components/pages/Magazine.jsx";
+import SignIn from "./components/auth/SignIn.jsx";
+import Register from "./components/auth/Register.jsx";
+import LoginForm from "./components/pages/login/LogIn.jsx";
+import SignUp from "./components/pages/SignUp.jsx";
 
 const App = () => {
   return (
@@ -27,6 +31,10 @@ const App = () => {
             <Route path="/help" element={<HelpCenter />} />
             <Route path="/userProfile" element={<UserProfile />} />
             <Route path="/magazine" element={<Magazine />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/signup" element={<SignUp />} />
           </Routes>
           {/* <Home /> */}
         </div>

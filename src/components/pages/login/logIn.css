@@ -1,0 +1,203 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../../../images/latestNews.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  margin: 10% 10% 10% 10%;
+  width: 100%;
+  padding: 2em;
+  background-color: transparent;
+  backdrop-filter: blur(2px);
+  /* background: #f7f7f7; */
+  /* opacity: 0.478; */
+  border: 2px solid #ff5f15;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form-inner {
+  width: 60%;
+  gap: 5%;
+  justify-content: center;
+}
+
+.form-titles {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  margin-bottom: 1em;
+  justify-self: center;
+  margin-left: -10%;
+}
+
+.form-titles img {
+  align-self: center;
+  margin-left: -15%;
+  margin-right: 8%;
+  border: none;
+  border-radius: 8px;
+  align-self: flex-start;
+  width: 15%;
+}
+
+.login-form form div {
+  margin-bottom: 1em;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 5%;
+  border: 2px solid black;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.login-form button {
+  padding: 0.5em 2em;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 100%;
+  background-color: #ff5f15;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #c0c0c0;
+}
+
+.text-login {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 95, 21, 0.35);
+  color: #fff;
+  border: #ff5f15;
+  border-radius: 7%;
+  padding: 5%;
+}
+
+.text-title {
+  padding-bottom: 5%;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  .login-container {
+    background-size: auto 100%; /* Adjust background-size for mobile */
+  }
+
+  .login-form {
+    flex-direction: column;
+    margin: 5%;
+    padding: 1em;
+  }
+
+  .login-form-inner {
+    width: 100%;
+  }
+
+  .form-titles {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .form-titles img {
+    margin-left: 0;
+    margin-right: 0;
+    width: 30%;
+  }
+
+  .text {
+    width: 100%;
+    padding: 10%;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .login-container {
+    background-size: cover; /* Use cover for tablets */
+  }
+
+  .login-form {
+    flex-direction: column;
+    margin: 8%;
+    padding: 1.5em;
+  }
+
+  .login-form-inner {
+    width: 80%;
+  }
+
+  .form-titles {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .form-titles img {
+    margin-left: 0;
+    margin-right: 0;
+    width: 20%;
+  }
+
+  .text {
+    width: 80%;
+    padding: 7%;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+  .login-container {
+    background-size: cover; /* Use cover for desktops */
+  }
+
+  .login-form {
+    flex-direction: row;
+    margin: 10%;
+    padding: 2em;
+  }
+
+  .login-form-inner {
+    width: 60%;
+  }
+
+  .form-titles {
+    flex-direction: row;
+    margin-left: -10%;
+  }
+
+  .form-titles img {
+    margin-left: -15%;
+    margin-right: 8%;
+    width: 15%;
+  }
+
+  .text {
+    width: 40%;
+    padding: 5%;
+  }
+}

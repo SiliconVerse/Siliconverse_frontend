@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BiMenuAltLeft } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { navLinks } from "../utils/navLinks";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -33,10 +33,10 @@ const Navbar = () => {
 
           <div className="flex justify-between items-center gap-5">
             <button className="border border-[#FF5F15] py-2 px-8 rounded-3xl text-black">
-              Signin
+              <NavLink to="/login">Signin</NavLink>
             </button>
             <button className="bg-[#FF5F15] py-2 px-10 rounded-3xl text-white">
-              Create Account
+              <NavLink to="/signup">Create Account</NavLink>
             </button>
           </div>
         </nav>

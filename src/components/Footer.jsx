@@ -36,7 +36,7 @@ const Footer = () => {
           </h2>
           <ul className="flex items-center justify-center flex-wrap gap-4 md:gap-14 mt-6 text-white">
             <li className="bg-[#207BF3] p-2 rounded-full">
-              <Link to={"https://www.facebook.com/Siliconverse"}>
+              <Link to={"https://www.facebook.com/Siliconverse"} target="blank">
                 <FaFacebookF />
               </Link>
             </li>
@@ -45,17 +45,17 @@ const Footer = () => {
                 to={
                   "https://www.instagram.com/siliconverse.io?igsh=Y3ZnMDRiMGp6YTVy"
                 }
-              >
+                target="blank">
                 <FaInstagram />
               </Link>
             </li>
             <li className="bg-[#126BC4] p-2 rounded-full">
-              <Link to={"https://www.linkedin.com/company/siliconvers/"}>
+              <Link to={"https://www.linkedin.com/company/siliconvers/"} target="blank">
                 <FaLinkedinIn />
               </Link>
             </li>
             <li className="bg-black p-2 rounded-full">
-              <Link to={"https://www.x.com/siliconverse"}>
+              <Link to={"https://www.x.com/siliconverse"} target="blank">
                 <RiTwitterXLine />
               </Link>
             </li>
