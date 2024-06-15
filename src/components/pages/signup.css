@@ -83,6 +83,85 @@
   cursor: pointer;
 }
 
+.button-talent:hover,
 .button-company:hover {
   background-color: #c0c0c0;
+}
+
+@media (max-width: 907px) {
+  .inner-block {
+    width: 90%;
+    margin: 10%;
+    padding: 1.5em;
+  }
+
+  .logo img {
+    width: 45%;
+    max-width: 180px;
+    display: flex;
+    justify-content: flex-start;
+    /* margin-left: -113%; */
+  }
+
+  .button-talent,
+  .button-company {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+  }
+
+  .button {
+    flex-direction: column;
+    gap: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner-block {
+    width: 90%;
+    margin: 10%;
+    padding: 1.5em;
+  }
+
+  .logo img {
+    width: 40%;
+    max-width: 120px;
+  }
+
+  .button-talent,
+  .button-company {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+  }
+
+  .button {
+    flex-direction: column;
+    gap: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner-block {
+    width: 95%;
+    margin: 5%;
+    padding: 1em;
+  }
+
+  .logo img {
+    width: 30%;
+    max-width: 100px;
+  }
+
+  .button-talent,
+  .button-company {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+  }
+
+  .button {
+    flex-direction: column;
+    gap: 0.5em;
+  }
 }
