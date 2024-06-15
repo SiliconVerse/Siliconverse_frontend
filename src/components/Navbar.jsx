@@ -65,6 +65,15 @@ const Navbar = () => {
                 </Link>
               </h2>
             ))}
+
+            <div className="flex flex-col justify-between items-center gap-5">
+              <button className="border border-[#FF5F15] py-2 px-8 rounded-3xl text-black">
+                Signin
+              </button>
+              <button className="bg-[#FF5F15] py-2 px-10 rounded-3xl text-white">
+                Create Account
+              </button>
+            </div>
           </div>
         )}
       </section>
