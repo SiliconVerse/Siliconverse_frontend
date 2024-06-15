@@ -3,9 +3,11 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  min-height: 100vh;
   background-image: url(../../../images/latestNews.png);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 .login-form {
@@ -99,4 +101,103 @@
 
 .text-title {
   padding-bottom: 5%;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  .login-container {
+    background-size: auto 100%; /* Adjust background-size for mobile */
+  }
+
+  .login-form {
+    flex-direction: column;
+    margin: 5%;
+    padding: 1em;
+  }
+
+  .login-form-inner {
+    width: 100%;
+  }
+
+  .form-titles {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .form-titles img {
+    margin-left: 0;
+    margin-right: 0;
+    width: 30%;
+  }
+
+  .text {
+    width: 100%;
+    padding: 10%;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .login-container {
+    background-size: cover; /* Use cover for tablets */
+  }
+
+  .login-form {
+    flex-direction: column;
+    margin: 8%;
+    padding: 1.5em;
+  }
+
+  .login-form-inner {
+    width: 80%;
+  }
+
+  .form-titles {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .form-titles img {
+    margin-left: 0;
+    margin-right: 0;
+    width: 20%;
+  }
+
+  .text {
+    width: 80%;
+    padding: 7%;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+  .login-container {
+    background-size: cover; /* Use cover for desktops */
+  }
+
+  .login-form {
+    flex-direction: row;
+    margin: 10%;
+    padding: 2em;
+  }
+
+  .login-form-inner {
+    width: 60%;
+  }
+
+  .form-titles {
+    flex-direction: row;
+    margin-left: -10%;
+  }
+
+  .form-titles img {
+    margin-left: -15%;
+    margin-right: 8%;
+    width: 15%;
+  }
+
+  .text {
+    width: 40%;
+    padding: 5%;
+  }
 }
