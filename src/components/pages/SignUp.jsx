@@ -39,45 +39,57 @@ const TalentForm = () => {
         <form onSubmit={handleSubmit}>
           <h2>Talent Signup</h2>
 
-          <label htmlFor="firstName">First name:</label>
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={formValues.firstName}
-            onChange={handleChange}
-            required
-          />
+          <div className="name">
+            <div>
+              <label htmlFor="firstName">First name:</label>
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                value={formValues.firstName}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-          <label htmlFor="lastName">Last name:</label>
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            value={formValues.lastName}
-            onChange={handleChange}
-            required
-          />
+            <div>
+              <label htmlFor="lastName">Last name:</label>
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                value={formValues.lastName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
 
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formValues.email}
-            onChange={handleChange}
-            required
-          />
+          <div className="contact">
+            <div>
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formValues.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-          <label htmlFor="tel">Phone number:</label>
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone Number"
-            value={formValues.phone}
-            onChange={handleChange}
-            required
-          />
+            <div>
+              <label htmlFor="tel">Phone number:</label>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                value={formValues.phone}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
 
           <select
             name="skillset"
@@ -96,31 +108,38 @@ const TalentForm = () => {
             {/* Add more options as needed */}
           </select>
 
-          <label htmlFor="date">Date of Birth:</label>
-          <input
-            type="date"
-            name="dob"
-            placeholder="Date of Birth"
-            value={formValues.dob}
-            onChange={handleChange}
-            required
-          />
+          <div className="age-location">
+            <div>
+              <label htmlFor="date">Date of Birth:</label>
+              <input
+                type="date"
+                name="dob"
+                placeholder="Date of Birth"
+                value={formValues.dob}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-          <select
-            name="country"
-            value={formValues.country}
-            onChange={handleChange}
-            required
-          >
-            <option value="" disabled>
-              Current Location (Country)
-            </option>
-            {countryOptions.map((country) => (
-              <option key={country} value={country}>
-                {country}
-              </option>
-            ))}
-          </select>
+            <div>
+              <select
+                name="country"
+                value={formValues.country}
+                onChange={handleChange}
+                required
+                style={{ width: "50%", marginLeft: "25%", marginTop: "13%" }}
+              >
+                <option value="" disabled>
+                  Current Location (Country)
+                </option>
+                {countryOptions.map((country) => (
+                  <option key={country} value={country}>
+                    {country}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
 
           <label htmlFor="state">State:</label>
           <input
@@ -132,25 +151,31 @@ const TalentForm = () => {
             required
           />
 
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formValues.password}
-            onChange={handleChange}
-            required
-          />
+          <div className="password">
+            <div>
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formValues.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-          <label htmlFor="confirmPassword">Confirm password:</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            value={formValues.confirmPassword}
-            onChange={handleChange}
-            required
-          />
+            <div>
+              <label htmlFor="confirmPassword">Confirm password:</label>
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                value={formValues.confirmPassword}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
 
           <button className="talent-signup-button" type="submit">
             Sign Up

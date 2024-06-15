@@ -116,10 +116,43 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.age-location {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.password {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
 .talent-form h2 {
   text-align: center;
   font-weight: bold;
   color: #fff;
+  margin-bottom: 5%;
 }
 
 .talent-form label {
@@ -143,6 +176,9 @@
   margin-bottom: 5%;
   border: 2px solid #c0c0c0;
   border-radius: 15px;
+  width: 100%;
+  height: 45px;
+  text-align: center;
 }
 
 .talent-form option {
@@ -176,6 +212,19 @@
   border: 1px solid #ff5f15;
   border-radius: 15px;
   padding: 5%;
+}
+
+.text-talent h3 {
+  width: 100%;
+}
+
+.text-title {
+  margin-bottom: 15%;
+}
+
+.talent-form p {
+  text-align: center;
+  margin-bottom: 2%;
 }
 
 @media (max-width: 907px) {
