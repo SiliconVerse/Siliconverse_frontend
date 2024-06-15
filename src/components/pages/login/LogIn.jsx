@@ -8,9 +8,10 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Submit logic
+    // Authentication logic goes here
     console.log("Email:", email);
     console.log("Password:", password);
+    // Insert logic here, and put the begining before handleSubmit
   };
 
   return (

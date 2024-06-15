@@ -1,65 +1,64 @@
 import React, { useState } from "react";
-import Input from "./common/input";
-import Button from "./common/button";
 
-const Register = () => {
-  const [user, setUser] = useState({ email: "", password: "" });
-  const [organization, setOrganization] = useState({ name: "", type: "" });
+function SignUpForm() {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
 
-  const handleUserChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser((prevState) => ({ ...prevState, [name]: value }));
-  };
-
-  const handleOrganizationChange = (e) => {
-    const { name, value } = e.target;
-    setOrganization((prevState) => ({ ...prevState, [name]: value }));
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = { user, organization };
-    console.log("Register Data:", formData);
-    //Registration logic goes here
+    console.log("Form data submitted:", formData);
+    // Handle form submission, e.g., send data to a server
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Register</h2>
-      <Input
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={user.email}
-        onChange={handleUserChange}
-      />
-      <Input
-        type="password"
-        name="password"
-        placeholder="Password"
-        value={user.password}
-        onChange={handleUserChange}
-      />
-      <Input
-        type="text"
-        name="name"
-        placeholder="Organization Name"
-        value={organization.name}
-        onChange={handleOrganizationChange}
-      />
-      <select
-        name="type"
-        value={organization.type}
-        onChange={handleOrganizationChange}
-      >
-        <option value="">Select Type</option>
-        <option value="talent">Talent</option>
-        <option value="company">Company</option>
-      </select>
-
-      <Button type="submit">Register</Button>
+      <div>
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <button type="submit">Sign Up</button>
     </form>
   );
-};
+}
 
-export default Register;
+export default SignUpForm;
