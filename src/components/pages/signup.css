@@ -165,9 +165,16 @@
   width: 100%;
   padding: 0.5em;
   margin-bottom: 5%;
-  border: 2px solid black;
+  outline: none;
+  border: 2px solid #fff;
+  box-shadow: 2px 1px grey;
   border-radius: 15px;
   box-sizing: border-box;
+}
+
+.talent-form input:hover {
+  border: 2px solid #ff5f15;
+  box-shadow: 2px 1px #ff5f15;
 }
 
 .talent-form select {
