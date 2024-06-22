@@ -19,7 +19,16 @@ const About = () => {
           <p className="text-[17px] mt-2">
             Ready to explore new opportunities? Join Siliconverse today and
             unlock your potential!
-          </p>
+          </p>{" "}
+          <div className="mt-3">
+            <a
+              href="https://chat.whatsapp.com/HfTXlt9RqhJ5hqoWcxkxuj"
+              target="_blank"
+              className="text-[#FF5F15] text-[16px] underline font-medium"
+            >
+              Click to Join now
+            </a>
+          </div>
         </div>
       </div>
     </div>

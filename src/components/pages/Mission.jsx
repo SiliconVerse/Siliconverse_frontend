@@ -7,7 +7,7 @@ const Mission = () => {
         <div className="flex flex-col md:flex-row gap-10 md:gap-0 justify-between">
           <div className="w-full md:w-1/2 space-y-4">
             <h1 className="text-[40px] font-bold">Our Mission</h1>
-            <p className="text-[12px] md:text-[16px]">
+            <p className="text-[12px] md:text-[20px]">
               Our mission is to solve unemployment while helping businesses
               grow.
             </p>
