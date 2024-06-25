@@ -3,6 +3,10 @@ import Logo from "../../images/siliconlogo.png";
 import "./signup.css";
 import countryOptions from "./countryOptions";
 import { NavLink } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../auth/firebase";
+import { setDoc, doc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 const TalentForm = () => {
   const [formValues, setFormValues] = useState({
@@ -23,14 +27,49 @@ const TalentForm = () => {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formValues.password !== formValues.confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
-    // Add your form submission logic here
-    console.log("Form submitted", formValues);
+
+    const {
+      email,
+      password,
+      firstName,
+      lastName,
+      phone,
+      skillset,
+      dob,
+      country,
+      state,
+    } = formValues;
+    // Form submission logic
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      const user = auth.currentUser;
+      console.log(user);
+
+      if (user) {
+        await setDoc(doc(db, "Users", user.uid), {
+          email: user.email,
+          firstName: firstName,
+          lastName: lastName,
+          phone: phone,
+          skillset: skillset,
+          dateOfBirth: dob,
+          country: country,
+          stateOfResdidence: state,
+        });
+      }
+      console.log("User successfully registered");
+      toast.success("Registered successfully 🎉", { position: "top-center" });
+    } catch (error) {
+      console.log(error.message);
+      toast.success(error.message, { position: "bottom-center" });
+    }
+    console.log("Form submitted successfully", formValues);
   };
 
   return (
