@@ -70,10 +70,10 @@ const Navbar = () => {
 
             <div className="flex flex-col justify-between items-center gap-5">
               <button className="border border-[#FF5F15] py-2 px-8 rounded-3xl text-black">
-                Signin
+                <NavLink to="/login">Signin</NavLink>
               </button>
               <button className="bg-[#FF5F15] py-2 px-10 rounded-3xl text-white">
-                Create Account
+                <NavLink to="/signup">Create Account</NavLink>
               </button>
             </div>
           </div>

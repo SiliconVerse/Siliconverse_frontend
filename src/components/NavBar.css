@@ -90,6 +90,7 @@ button.bg-[#FF5F15]:hover {
 .absolute {
   position: absolute;
   z-index: 1;
+  border-radius: 15px;
 }
 
 /* Menu Icon */
