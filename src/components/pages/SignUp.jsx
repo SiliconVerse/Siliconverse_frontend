@@ -152,7 +152,7 @@ const TalentForm = () => {
             <option value="photography">Photography</option>
             <option value="projectManagement">Project management</option>
             <option value="productManagement">Product management</option>
-            {/* Add more options as needed */}
+            {/* Add more options */}
           </select>
 
           <div className="age-location">
@@ -276,14 +276,50 @@ const CompanyForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
+
+    const {
+      companyEmail: email,
+      password,
+      firstName,
+      lastName,
+      companyPhone,
+      organizationName,
+      location,
+      state,
+    } = formData;
+    // Form submission logic
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      const user = auth.currentUser;
+      console.log(user);
+
+      if (user) {
+        await setDoc(doc(db, "Users", user.uid), {
+          email: user.email,
+          firstName: firstName,
+          lastName: lastName,
+          companyPhone: companyPhone,
+          organizationName: organizationName,
+          location: location,
+          stateOfResdidence: state,
+        });
+      }
+      console.log("Company successfully registered");
+      toast.success("Registered Company successfully 🎉", {
+        position: "top-center",
+      });
+    } catch (error) {
+      console.log(error.message);
+      toast.success(error.message, { position: "bottom-center" });
+    }
+
     console.log("Form data submitted:", formData);
-    // Here you would typically handle form submission, e.g., send data to a server
   };
 
   return (
