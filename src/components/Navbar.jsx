@@ -2,6 +2,8 @@ import { useState } from "react";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
 import { navLinks } from "../utils/navLinks";
+import "./NavBar.css";
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 

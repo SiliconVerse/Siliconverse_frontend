@@ -1,0 +1,130 @@
+/* Container and Background */
+.p-8 {
+  padding: 2rem;
+}
+.bg-[#FDEFE9] {
+  background-color: #fdefe9;
+}
+
+/* Navbar Styling */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* position: fixed; */
+  z-index: 1000;
+  background-color: #fdefe9;
+}
+
+nav div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+nav h2 {
+  padding: 0 1.25rem;
+  font-size: 1.125rem;
+  font-weight: normal;
+}
+
+/* Links Styling */
+.links {
+  text-decoration: none;
+  color: inherit;
+}
+
+.links:hover {
+  text-decoration: underline;
+}
+
+/* Button Styling */
+button {
+  padding: 0.5rem 2rem;
+  border-radius: 1.5rem;
+}
+
+button.border {
+  border: 1px solid #ff5f15;
+}
+
+button.text-black {
+  color: black;
+}
+
+button.bg-[#FF5F15] {
+  background-color: #ff5f15;
+  color: white;
+}
+
+button.bg-[#FF5F15]:hover {
+  background-color: #e6500c;
+}
+
+/* Responsive Design */
+.hidden {
+  display: none;
+}
+
+.md\\:block {
+  display: block;
+}
+
+.md\\:hidden {
+  display: none;
+}
+
+.md\\:flex {
+  display: flex;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+  z-index: 1;
+}
+
+/* Menu Icon */
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+/* Mobile Menu */
+.md\\:hidden .bg-[#FDEFE9] {
+  background-color: #fdefe9;
+}
+
+.md\\:hidden .w-full {
+  width: 100%;
+}
+
+.md\\:hidden .flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2.5rem;
+}
+
+.md\\:hidden .text-2xl {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.md\\:hidden .hover\\:underline:hover {
+  text-decoration: underline;
+}
+
+.md\\:hidden .flex-col {
+  flex-direction: column;
+  gap: 1.25rem;
+}
