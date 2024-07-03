@@ -1,61 +1,48 @@
-import './App.css'
-import { Link } from 'react-router-dom'
-import Jobs from './components/Jobs'
-import Image from './assets/woman.png'
-import { useTypingEffect } from './hooks/typing-effect'
-import Footer from './components/Footer'
-import {useKindeAuth} from '@kinde-oss/kinde-auth-react';
+import Footer from "../src/components/Footer";
+import Navbar from "../src/components/Navbar";
+import Home from "../src/components/pages/Home";
+// import Jobs from "../src/components/Jobs";
+import { Routes, Route } from "react-router-dom";
+import About from "./components/pages/About.jsx";
+import Interns from "./components/pages/Interns.jsx";
+import Mission from "./components/pages/Mission.jsx";
+import HelpCenter from "./components/pages/HelpCenter.jsx";
+// import Layout from "./components/layout/layout.jsx";
+import CompanyProfilePage from "./components/pages/CompanyProfilePage.jsx";
+import UserProfile from "./components/user-profile/userProfile.jsx";
+import Magazine from "./components/pages/Magazine.jsx";
+// Auth imports
+import LoginForm from "./components/pages/login/LogIn.jsx";
+import SignUp from "./components/pages/SignUp.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function App() {
-  const { login, register } = useKindeAuth();
-  const text = useTypingEffect("Digital platform designed to connect Tech Startups, SMEs, and Tech Talents", 100)
-  const texts = useTypingEffect("A Job Portal for internships and Silicon Magazine for industry insights and success stories", 100)
+const App = () => {
   return (
-    <main>
-      <nav>
-        <ul>
-          <li><h2>Siliconverse</h2></li>
+    <div className="w-full">
+      <div className="w-full">
+        <div className="">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/intern" element={<Interns />} />
+            <Route path="/mission" element={<Mission />} />
+            <Route path="/profile" element={<CompanyProfilePage />} />
+            <Route path="/help" element={<HelpCenter />} />
+            <Route path="/userProfile" element={<UserProfile />} />
+            <Route path="/magazine" element={<Magazine />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/signup" element={<SignUp />} />
+          </Routes>
+          {/* <Home /> */}
+        </div>
+      </div>
 
-          <li className='li'>
-            <li><Link  to={'/'} className='links'>Home</Link></li>
-            <li><Link to={"/mission"} className='links'>Our mission</Link></li>
-            <li><Link to={"/about"} className='links'>About us</Link></li>
-            <li><Link to={"/interns"} className="links">Interns</Link></li>
-            <li><Link to={"/interns"} className='links'>Hire Interns</Link></li>
-          </li>
+      <Footer />
+      <ToastContainer />
+    </div>
+  );
+};
 
-          <li className="lis">
-            <li>
-            <button className='btns' onClick={login}><Link style={{color: "white"}}>Sign In</Link></button>
-            </li>
-            <li>
-            <button className='btns' onClick={register} style={{padding : '10px'}}><Link style={{color:"white"}}>Sign Up</Link></button>
-            </li>
-          </li>
-        </ul>
-      </nav> 
-      <section className='main'>
-        <div className="grid">
-        <div className="text">
-          <h1>{text}</h1>
-          <p style={{ fontSize:"20px", paddingTop:"20px", paddingBottom:"20px"}}>{texts}</p>
-          <button className="btn">Get Started</button>
-        </div>
-        <div className="image grid">
-          <img src={Image} alt="Silicon Verse" className='img'/>
-        </div>
-        </div>
-      </section>
-        <div className="button">
-          <button className="bt">Apply for Internship</button>
-          <button className="bt bts" >Get Interns</button>
-        </div>
-      <section>
-        <Jobs/>
-      </section>
-      <Footer/>
-    </main>
-  )
-}
-
-export default App
+export default App;

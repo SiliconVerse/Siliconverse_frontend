@@ -1,8 +1,10 @@
 import React from 'react'
 
-function Main() {
+const Main = () => {
   return (
-    <div>Main</div>
+    <div>
+      main
+    </div>
   )
 }
 

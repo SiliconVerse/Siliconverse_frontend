@@ -16,7 +16,7 @@ const Header = ({ setShowMenu }) => {
           <Menu />
         </span>
         <Link to={'/'}>
-          <h2 className={styles.logo}>Silicon Verse</h2>
+          <h2 className={styles.logo}>Silicon Vers</h2>
         </Link>
       </div>
       <UserProfile />
