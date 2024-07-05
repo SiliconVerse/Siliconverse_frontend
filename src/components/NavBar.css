@@ -44,7 +44,7 @@ nav h2 {
 }
 
 /* Button Styling */
-button {
+/* button {
   padding: 0.5rem 2rem;
   border-radius: 1.5rem;
 }
@@ -64,7 +64,7 @@ button.bg-[#FF5F15] {
 
 button.bg-[#FF5F15]:hover {
   background-color: #e6500c;
-}
+} */
 
 /* Responsive Design */
 .hidden {

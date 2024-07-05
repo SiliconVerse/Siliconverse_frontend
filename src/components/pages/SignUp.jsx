@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react/no-unescaped-entities */
+import { useState } from "react";
 import Logo from "../../images/siliconlogo.png";
 import "./signup.css";
 import countryOptions from "./countryOptions";

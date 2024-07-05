@@ -17,14 +17,14 @@ const Footer = () => {
       <div className="px-6 md:px-16 py-8">
         <div className="flex items-center justify-center">
           <ul className="flex flex-col md:flex-row text-center flex-wrap gap-5 md:gap-16 mt-8">
-            {footerLinks.map((Link) => (
+            {footerLinks.map((footer) => (
               <li
-                key={Link.id}
+                key={footer.id}
                 className={`font-primary font-medium leading-6 text-[white] hover:text-gray-200 hover:font-semibold`}
               >
-                <a href="#!" className="text-[16px]">
-                  {Link.title}
-                </a>
+                <Link to={footer.id} className="text-[16px]">
+                  {footer.title}
+                </Link>
               </li>
             ))}
           </ul>
@@ -45,12 +45,16 @@ const Footer = () => {
                 to={
                   "https://www.instagram.com/siliconverse.io?igsh=Y3ZnMDRiMGp6YTVy"
                 }
-                target="blank">
+                target="blank"
+              >
                 <FaInstagram />
               </Link>
             </li>
             <li className="bg-[#126BC4] p-2 rounded-full">
-              <Link to={"https://www.linkedin.com/company/siliconvers/"} target="blank">
+              <Link
+                to={"https://www.linkedin.com/company/siliconvers/"}
+                target="blank"
+              >
                 <FaLinkedinIn />
               </Link>
             </li>
