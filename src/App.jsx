@@ -16,11 +16,7 @@ import LoginForm from "./components/pages/login/LogIn.jsx";
 import SignUp from "./components/pages/SignUp.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-<<<<<<< HEAD
 import Organization from "./components/pages/Organization.jsx";
-=======
-import CurriculumVitae from "./components/pages/CurriculumVitae.jsx";
->>>>>>> 5400f0ab4e2181a24c5933165867d5c8e69e2e50
 
 const App = () => {
   return (
