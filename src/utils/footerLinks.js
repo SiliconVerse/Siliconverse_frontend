@@ -4,7 +4,11 @@ export const footerLinks = [
     title: "About",
   },
   {
+<<<<<<< HEAD
     id: "organization",
+=======
+    id: "organisations",
+>>>>>>> 5400f0ab4e2181a24c5933165867d5c8e69e2e50
     title: "Organisations",
   },
   {
@@ -16,7 +20,11 @@ export const footerLinks = [
     title: "Terms and Conditions",
   },
   {
+<<<<<<< HEAD
     id: "review",
+=======
+    id: "/curriculumvitae",
+>>>>>>> 5400f0ab4e2181a24c5933165867d5c8e69e2e50
     title: "CV Review Services",
   },
 ];

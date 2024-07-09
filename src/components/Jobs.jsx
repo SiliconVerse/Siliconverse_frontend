@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 /* eslint-disable no-unused-vars */
 import "./../App.css";
 import React, { useEffect, useState } from "react";
+=======
+import { useEffect, useState } from "react";
+>>>>>>> 5400f0ab4e2181a24c5933165867d5c8e69e2e50
 import { Link } from "react-router-dom";
 import "./../App.css";
 

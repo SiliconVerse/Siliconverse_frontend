@@ -34,6 +34,18 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+<<<<<<< HEAD
     "vite": "^5.2.11"
   }
+=======
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.2.13"
+  },
+  "description": "<<<<<<< HEAD\r # Siliconverse_frontend\r The frontend for our web app\r =======\r # React + Vite",
+  "main": "tailwind.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+>>>>>>> 5400f0ab4e2181a24c5933165867d5c8e69e2e50
 }

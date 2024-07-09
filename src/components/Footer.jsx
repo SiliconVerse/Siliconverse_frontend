@@ -17,14 +17,14 @@ const Footer = () => {
       <div className="px-6 md:px-16 py-8">
         <div className="flex items-center justify-center">
           <ul className="flex flex-col md:flex-row text-center flex-wrap gap-5 md:gap-16 mt-8">
-            {footerLinks.map((Links) => (
+            {footerLinks.map((Link) => (
               <li
-                key={Links.id}
+                key={Link.id}
                 className={`font-primary font-medium leading-6 text-[white] hover:text-gray-200 hover:font-semibold`}
               >
-                <Link to={`/${Links.id}`} className="text-[16px]">
-                  {Links.title}
-                </Link>
+                <a href="#!" className="text-[16px]">
+                  {Link.title}
+                </a>
               </li>
             ))}
           </ul>
