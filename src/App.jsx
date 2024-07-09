@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 import Footer from "../src/components/Footer";
 import Navbar from "../src/components/Navbar";
 import Home from "../src/components/pages/Home";
