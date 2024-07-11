@@ -18,6 +18,8 @@ import SignUp from "./components/pages/SignUp.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Organization from "./components/pages/Organization.jsx";
+import CurriculumVitae from "./components/pages/CurriculumVitae.jsx";
+import PrivacyPolicy from "./components/pages/PrivacyPolicy.jsx";
 
 const App = () => {
   return (
@@ -38,6 +40,7 @@ const App = () => {
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/organization" element={<Organization />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
           </Routes>
           {/* <Home /> */}
         </div>
