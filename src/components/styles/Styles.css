@@ -1,29 +1,35 @@
-.landing-container{
+.landing-container {
     height: 100vh;
     width: 100vw;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.nav-bars{
+
+.nav-bars {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin: auto;
 }
-.nav-bars a{
+
+.nav-bars a {
     text-decoration: none;
     color: #000000;
 }
-.landing-link{
+
+.landing-link {
     text-decoration: none;
     color: #000000;
 }
-link{
+
+link {
     text-decoration: none;
 }
-.hero-text{
+
+.hero-text {
     font-size: larger;
 }
-.get-started-btn{
+
+.get-started-btn {
     width: 202px;
     height: 66px;
     top: 708px;
@@ -35,14 +41,15 @@ link{
     background-color: #FF5F15;
     color: #ffffff;
 }
-.sub-container{
+
+.sub-container {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 20px;
 }
 
-.image-container{
+.image-container {
     width: 375px;
     height: 419px;
     top: 241px;
@@ -52,10 +59,10 @@ link{
     background-image: url(../src/img/hero-image.png);
     background-repeat: none;
     background-size: cover;
-    background-position:  center;
+    background-position: center;
 }
 
-.text-container h2{
+.text-container h2 {
     width: 665px;
     height: 180px;
     top: 284px;
@@ -64,21 +71,24 @@ link{
     font-weight: 700;
     font-size: 48px;
     line-height: 60.38px;
-    color:#000000;
+    color: #000000;
 }
-.text-container p{
+
+.text-container p {
     width: 365px;
     height: 70px;
     margin-top: 20px;
     line-height: 30.19px;
     color: #000000;
 }
-.second-layer{
+
+.second-layer {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
-.second-layer button{
+
+.second-layer button {
     width: 200px;
     height: 46px;
     margin-top: 90px;
@@ -88,7 +98,8 @@ link{
     color: #FFFFFF;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.third-layer{
+
+.third-layer {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -99,7 +110,8 @@ link{
     font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
-.third-layer form{
+
+.third-layer form {
     margin: auto;
     margin-top: 10px;
     border: 2px solid #FFFFFF;
@@ -109,19 +121,22 @@ link{
     text-align: center;
     height: 30px;
 }
-.third-layer select{
+
+.third-layer select {
     border: none;
     margin-top: 5px;
 }
-.third-layer label{
+
+.third-layer label {
     margin: auto;
-   
+
 }
-.find-internship{
+
+.find-internship {
     border: 0;
 }
 
-.card-container{
+.card-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -132,67 +147,78 @@ link{
     border: 1px solid #000000;
     background-color: #FFFFFF;
 
-    
+
 }
-.card-image{
+
+.card-image {
     border: 2px solid grey;
     background-color: grey;
-    border-radius: 100%; 
+    border-radius: 100%;
     width: 150px;
     height: 150px;
     margin: 30px 40px;
 }
-.footer-nav{
+
+.footer-nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 40px 350px;
 }
 
-.social-links{
+.social-links {
     display: flex;
     flex-direction: row;
     justify-content: center;
     height: 70px;
 }
-.social-links, a{
+
+.social-links,
+a {
     text-decoration: none;
     color: #FFFFFF;
     margin-left: 10px;
 }
-.first-layer{
+
+.first-layer {
     background-color: #FDEFE9;
     width: 100vw;
     height: 100vh;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.footer-container{
+
+.footer-container {
     background-color: #FF5F15;
     color: #ffffff;
 }
-.footer-container, link{
+
+.footer-container,
+link {
     text-decoration: none;
     color: #ffffff;
 }
 
-.fourth-layer{
+.fourth-layer {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 20px;
 }
-.signup-container{
-    background: linear-gradient(to right, #FF5F15 0%, #FF5F15 50%, #dad7cd 50%,#dad7cd 100%);
+
+.signup-container {
+    background: linear-gradient(to right, #FF5F15 0%, #FF5F15 50%, #dad7cd 50%, #dad7cd 100%);
     width: 720px;
     height: 1024px;
     opacity: 90%;
     font-family: 'Poppins', sans-serif;
 }
-.signupBtn{
+
+.signupBtn {
     display: flex;
     text-align: center;
 }
-.signup-text-container h2{
+
+.signup-text-container h2 {
     width: 482px;
     height: 48px;
     margin-top: 200px;
@@ -201,7 +227,8 @@ link{
     font-size: 55px;
     color: #FFFFFF;
 }
-.signup-text-container h3{
+
+.signup-text-container h3 {
     width: 151px;
     height: 39px;
     margin-top: 6px;
@@ -211,38 +238,44 @@ link{
     color: #FFFFFF;
     text-align: center;
 }
-.form-container{
+
+.form-container {
     opacity: 90%;
 }
-.login-form-container form{
+
+.login-form-container form {
     gap: 10px;
     border: 2px solid #ffffff;
     background-color: #FFFFFF;
     margin-top: 30px;
     width: 400px;
     border-radius: 20px;
-    height:440px;
+    height: 440px;
 }
-.signup-form-container{
+
+.signup-form-container {
     gap: 10px;
     border: 2px solid #ffffff;
     background-color: #FFFFFF;
     margin-top: 40px;
     width: 400px;
     border-radius: 20px;
-    height:550px;
+    height: 550px;
 }
-.signup-form-container h2{
+
+.signup-form-container h2 {
     text-align: center;
     color: #FF5F15;
 
 }
-.signup-container hr{
+
+.signup-container hr {
     background-color: #FF5F15;
     width: 50px;
     border: 2px solid #FF5F15;
 }
-.signup-form-container button{
+
+.signup-form-container button {
     margin: auto;
     border-radius: 10px;
     width: 100px;
@@ -253,10 +286,12 @@ link{
     font-size: larger;
     margin-left: 150px;
 }
-.login-form-container{
+
+.login-form-container {
     width: 400px;
 }
-.login-form-container button{
+
+.login-form-container button {
     border-radius: 10px;
     width: 100px;
     height: 40px;
@@ -266,22 +301,28 @@ link{
     font-size: larger;
     margin-left: 150px;
 }
-.login-form-container h2{
+
+.login-form-container h2 {
     text-align: center;
     color: #FF5F15;
 
 }
-.login-form-container hr{
+
+.login-form-container hr {
     background-color: #FF5F15;
     width: 50px;
     border: 2px solid #FF5F15;
 }
-.form-container,label, input{
+
+.form-container,
+label,
+input {
     margin-left: 40px;
 }
-input{
+
+input {
     border: none;
-    border-bottom: 2px solid rgba(0,0,0, 0.3);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
     width: 300px;
     font-family: "Bellota Text" sans-serif;
     font-weight: 700;
@@ -294,11 +335,13 @@ input{
     color: #000000;
 
 }
-::placeholder{
-    color:#AEAEAE;
+
+::placeholder {
+    color: #AEAEAE;
     opacity: 30%;
 }
-.form-container button{
+
+.form-container button {
     margin-left: 150px;
     width: 100px;
     margin-top: 20px;
@@ -308,10 +351,13 @@ input{
     color: #FFFFFF;
 
 }
-.footer-container, p{
+
+.footer-container,
+p {
     text-align: center;
 }
-.signup-container{
+
+.signup-container {
     height: 100vh;
     width: 100vw;
     display: flex;

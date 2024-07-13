@@ -2,25 +2,25 @@ import { useState } from 'react';
 import styles from './companyProfile.module.css';
 import CompanyProfileForm from './companyProfileForm';
 import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
-import { CiEdit } from "react-icons/ci";
+import { CiEdit } from 'react-icons/ci';
+
+const userInfomation = {
+  ceo: 'Olaoluwa vincent',
+  state: 'Lagos',
+  country: 'Nigeria',
+  address: 'Shagari Estate Alimosho',
+  organisation: 'Silicon Verse',
+  type: 'Tech Hub',
+};
+
 const CompanyProfile = () => {
+  const { user, isAuthenticated, isLoading } = useKindeAuth();
+  const [userData] = useState(userInfomation);
 
-  const {user, isAuthenticated, isLoading} = useKindeAuth();
-
-
-  if(isLoading){
-    return <p> Name Loading...</p>
+  if (isLoading) {
+    return <p> Name Loading...</p>;
   }
 
-  const userInfomation = {
-    ceo: 'Olaoluwa vincent',
-    state: 'Lagos',
-    country: 'Nigeria',
-    address: 'Shagari Estate Alimosho',
-    organisation: 'Silicon Verse',
-    type: 'Tech Hub',
-  };
-  const [userData] = useState(userInfomation);
   return (
     <>
       <section className={styles.container}>
@@ -31,16 +31,22 @@ const CompanyProfile = () => {
             and conversations
           </p>
 
-          <div className="">
-            <button className={styles.btn}> <CiEdit/>  Edit</button>
+          <div className=''>
+            <button className={styles.btn}>
+              {' '}
+              <CiEdit /> Edit
+            </button>
           </div>
         </div>
         <div className={styles.userInfo}>
-          { isAuthenticated ? (
-          <aside>
-            <h5>Name of CEO</h5>
-            <p>{user.given_name} <span style={{marginLeft:"20px"}}>{user.family_name}</span></p>
-          </aside>
+          {isAuthenticated ? (
+            <aside>
+              <h5>Name of CEO</h5>
+              <p>
+                {user.given_name}{' '}
+                <span style={{ marginLeft: '20px' }}>{user.family_name}</span>
+              </p>
+            </aside>
           ) : (
             <p> Name Loading...</p>
           )}

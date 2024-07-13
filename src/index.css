@@ -3,29 +3,21 @@
 @tailwind utilities;
 
 
-
-
-
-
-
-/* 
-:root {
-  font-family: 'Poppins', sans-serif;
-  --primary-color: #FF5F15;
-  --green: #2EB67D;
-  --red: #FF0000;
-  --white: #FFFFFF;
-  --text-color: #222222;
-  color: var(--text-color);
+.signUp-bg-image {
+  background-image: url('./images/auth-placeholder_image.png');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
-*,
-::before,
-::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: inherit;
-  color: inherit;
-
-} */
+.signUp-bg-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
