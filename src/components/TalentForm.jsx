@@ -68,14 +68,17 @@ const TalentForm = () => {
   };
 
   return (
-    <div className='talent-form relative bg-white/10'>
-      <form onSubmit={handleSubmit}>
+    <div className='talent-form  relative bg-white/10 flex-col-reverse lg:flex-row gap-5 font-roboto'>
+      <form
+        onSubmit={handleSubmit}
+        className='flex-shrink-0'>
         <h2>Talent Signup</h2>
 
-        <div className='name'>
-          <div>
+        <div className='w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8'>
+          <div className='w-full'>
             <label htmlFor='firstName'>First name:</label>
             <input
+              className='w-full'
               type='text'
               name='firstName'
               placeholder='First Name'
@@ -85,9 +88,10 @@ const TalentForm = () => {
             />
           </div>
 
-          <div>
+          <div className='w-full'>
             <label htmlFor='lastName'>Last name:</label>
             <input
+              className='w-full'
               type='text'
               name='lastName'
               placeholder='Last Name'
@@ -98,8 +102,8 @@ const TalentForm = () => {
           </div>
         </div>
 
-        <div className='contact'>
-          <div>
+        <div className='w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8'>
+          <div className='w-full'>
             <label htmlFor='email'>Email:</label>
             <input
               type='email'
@@ -111,7 +115,7 @@ const TalentForm = () => {
             />
           </div>
 
-          <div>
+          <div className='w-full'>
             <label htmlFor='tel'>Phone number:</label>
             <input
               type='tel'
@@ -124,52 +128,58 @@ const TalentForm = () => {
           </div>
         </div>
 
-        <select
-          name='skillset'
-          value={formValues.skillset}
-          onChange={handleChange}
-          required>
-          <option
-            value=''
-            disabled>
-            Select Skillset
-          </option>
-          <option value='frontend'>Frontend Development</option>
-          <option value='backend'>Backend Development</option>
-          <option value='fullstack'>Full Stack Development</option>
-          <option value='dataScience'>Data Science</option>
-          <option value='machineLearning'>Machine Learning</option>
-          <option value='devOps'>DevOps</option>
-          <option value='cyberSecurity'>Cyber Security</option>
-          <option value='mobileDevelopment'>Mobile Development</option>
-          <option value='uiuxDesign'>UI/UX Design</option>
-          <option value='graphicDesign'>Graphic Design</option>
-          <option value='photography'>Photography</option>
-          <option value='projectManagement'>Project management</option>
-          <option value='productManagement'>Product management</option>
-          {/* Add more options */}
-        </select>
+        <div className='py-3'>
+          <select
+            name='skillset'
+            value={formValues.skillset}
+            onChange={handleChange}
+            required>
+            <option
+              value=''
+              disabled>
+              Select Skillset
+            </option>
+            <option value='frontend'>Frontend Development</option>
+            <option value='backend'>Backend Development</option>
+            <option value='fullstack'>Full Stack Development</option>
+            <option value='dataScience'>Data Science</option>
+            <option value='machineLearning'>Machine Learning</option>
+            <option value='devOps'>DevOps</option>
+            <option value='cyberSecurity'>Cyber Security</option>
+            <option value='mobileDevelopment'>Mobile Development</option>
+            <option value='uiuxDesign'>UI/UX Design</option>
+            <option value='graphicDesign'>Graphic Design</option>
+            <option value='photography'>Photography</option>
+            <option value='projectManagement'>Project management</option>
+            <option value='productManagement'>Product management</option>
+            {/* Add more options */}
+          </select>
+        </div>
 
-        <div className='age-location'>
-          <div>
+        <div className='w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8'>
+          <div className='w-full'>
             <label htmlFor='date'>Date of Birth:</label>
             <input
               type='date'
               name='dob'
               placeholder='Date of Birth'
+              className='!m-0'
               value={formValues.dob}
               onChange={handleChange}
               required
             />
           </div>
 
-          <div>
+          <div className='w-full'>
+            <label htmlFor='country'>Current Location:</label>
+
             <select
               name='country'
               value={formValues.country}
               onChange={handleChange}
               required
-              style={{ width: '80%', marginLeft: '25%', marginTop: '13%' }}>
+              id='country'
+              className='!m-0'>
               <option
                 value=''
                 disabled>
@@ -186,18 +196,20 @@ const TalentForm = () => {
           </div>
         </div>
 
-        <label htmlFor='state'>State:</label>
-        <input
-          type='text'
-          name='state'
-          placeholder='State'
-          value={formValues.state}
-          onChange={handleChange}
-          required
-        />
+        <div className='py-3'>
+          <label htmlFor='state'>State:</label>
+          <input
+            type='text'
+            name='state'
+            placeholder='State'
+            value={formValues.state}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <div className='password'>
-          <div>
+        <div className='w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8'>
+          <div className='w-full'>
             <label htmlFor='password'>Password:</label>
             <input
               type='password'
@@ -209,7 +221,7 @@ const TalentForm = () => {
             />
           </div>
 
-          <div>
+          <div className='w-full'>
             <label htmlFor='confirmPassword'>Confirm password:</label>
             <input
               type='password'
@@ -222,32 +234,39 @@ const TalentForm = () => {
           </div>
         </div>
 
-        <button
-          className='talent-signup-button'
-          type='submit'>
-          Sign Up
-        </button>
-
-        <p>
-          By signing up, you accept our{' '}
-          <span style={{ color: '#ff5f15' }}>terms and conditions</span>
-        </p>
-        <p>
-          Already have an account?
-          <Link to='/login'>
-            <span style={{ color: '#ff5f15' }}>Log in</span>
-          </Link>
-        </p>
+        <div>
+          <button
+            className='talent-signup-button'
+            type='submit'>
+            Sign Up
+          </button>
+          <p>
+            By signing up, you accept our{' '}
+            <span className='text-primaryColor text-base md:text-lg drop-shadow-md font-roboto'>
+              terms and conditions
+            </span>
+          </p>
+          <p>
+            Already have an account?
+            <Link to='/login'>
+              <span className='text-primaryColor text-base md:text-lg drop-shadow-md font-roboto'>
+                Log in
+              </span>
+            </Link>
+          </p>
+        </div>
       </form>
-      <div className='text-talent'>
-        <h3>
-          <b className='text-title'>Welcome to Siliconverse</b>
-          <br />
+
+      <div className='border border-primaryColor p-4 text-white mx-auto flex flex-col gap-4 items-center justify-center'>
+        <h3 className='text-center font-roboto font-bold text-xl md:text-xl'>
+          Welcome to Siliconverse
+        </h3>
+        <p>
           Siliconverse is a tech space for tech talents, who wish to look for
           internship, jobs and further their knowledge on the tech space. <br />{' '}
           Siliconverse is a tech space for tech talents, who wish to look for
           internship, jobs and further their knowledge on the tech space.
-        </h3>
+        </p>
       </div>
     </div>
   );

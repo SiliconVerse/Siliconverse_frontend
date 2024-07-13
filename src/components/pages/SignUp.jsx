@@ -23,15 +23,15 @@ const SignUp = () => {
   };
 
   return (
-    <div className='flex items-center justify-center flex-col p-14 min-h-[calc(100vh-106px)] signUp-bg-image '>
+    <div className='flex items-center justify-center flex-col p-7 md:p-11 lg:p-14 min-h-[calc(100vh-106px)] signUp-bg-image w-full '>
       {formType == null && (
-        <section className='relative bg-primaryColor/50 flex gap-5 flex-col w-full rounded-lg py-[10%]'>
+        <section className='relative bg-primaryColor/50 flex gap-5 flex-col w-full rounded-lg py-[10%] p-3'>
           {/* logo */}
-          <div className='absolute top-4 left-4 bg-primaryColor border-2 border-white capitalize rounded-lg p-3 font-roboto text-white text-center w-fit text-sm'>
+          <div className='absolute left-1/2 -translate-x-1/2 md:translate-x-0 top-4 md:left-4 bg-primaryColor border-2 border-white capitalize rounded-lg p-3 font-roboto text-white text-center w-fit text-sm'>
             <p>Silicon Verse</p>
           </div>
           {/* content */}
-          <article className='text-white text-center font-roboto'>
+          <article className='text-white text-center font-roboto mt-14'>
             <h3 className='font-bold mb-4 text-xl md:text-2xl'>
               Welcome to Siliconverse
             </h3>

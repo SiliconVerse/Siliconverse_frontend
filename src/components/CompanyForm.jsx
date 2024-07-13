@@ -73,12 +73,14 @@ const CompanyForm = () => {
   };
 
   return (
-    <div className='talent-form relative bg-white/10'>
-      <form onSubmit={handleSubmit}>
+    <div className='talent-form relative bg-white/10 flex-col-reverse lg:flex-row gap-5 font-roboto'>
+      <form
+        onSubmit={handleSubmit}
+        className='flex-shrink-0'>
         <h2>Company Signup</h2>
 
-        <div className='name'>
-          <div>
+        <div className='w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8'>
+          <div className='w-full'>
             <label htmlFor='firstName'>First name:</label>
             <input
               type='text'
@@ -90,7 +92,7 @@ const CompanyForm = () => {
             />
           </div>
 
-          <div>
+          <div className='w-full'>
             <label htmlFor='lastName'>Last name:</label>
             <input
               type='text'
@@ -103,8 +105,8 @@ const CompanyForm = () => {
           </div>
         </div>
 
-        <div className='contact'>
-          <div>
+        <div className='w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8'>
+          <div className='w-full'>
             <label htmlFor='companyEmail'>Organization Email:</label>
             <input
               type='email'
@@ -116,7 +118,7 @@ const CompanyForm = () => {
             />
           </div>
 
-          <div>
+          <div className='w-full'>
             <label htmlFor='tel'>Organization phone number:</label>
             <input
               type='tel'
@@ -129,8 +131,8 @@ const CompanyForm = () => {
           </div>
         </div>
 
-        <div className='age-location'>
-          <div>
+        <div className='w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8'>
+          <div className='w-full'>
             <label htmlFor='organizationName'>Organization name:</label>
             <input
               type='text'
@@ -142,13 +144,14 @@ const CompanyForm = () => {
             />
           </div>
 
-          <div>
+          <div className='w-full'>
+            <label htmlFor='location'>Current Location</label>
             <select
+              id='location'
               name='location'
               value={formData.location}
               onChange={handleChange}
-              required
-              style={{ width: '80%', marginLeft: '25%', marginTop: '13%' }}>
+              required>
               <option
                 value=''
                 disabled>
@@ -165,18 +168,20 @@ const CompanyForm = () => {
           </div>
         </div>
 
-        <label htmlFor='state'>State located:</label>
-        <input
-          type='text'
-          name='state'
-          placeholder='State'
-          value={formData.state}
-          onChange={handleChange}
-          required
-        />
+        <div className='py-3'>
+          <label htmlFor='state'>State located:</label>
+          <input
+            type='text'
+            name='state'
+            placeholder='State'
+            value={formData.state}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <div className='password'>
-          <div>
+        <div className='w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8'>
+          <div className='w-full'>
             <label htmlFor='password'>Password:</label>
             <input
               type='password'
@@ -188,7 +193,7 @@ const CompanyForm = () => {
             />
           </div>
 
-          <div>
+          <div className='w-full'>
             <label htmlFor='confirmPassword'>Confirm password:</label>
             <input
               type='password'
@@ -201,32 +206,38 @@ const CompanyForm = () => {
           </div>
         </div>
 
-        <button
-          className='talent-signup-button'
-          type='submit'>
-          Sign Up
-        </button>
-
-        <p>
-          By signing up, you accept our{' '}
-          <span style={{ color: '#ff5f15' }}>terms and conditions</span>
-        </p>
-        <p>
-          Already have an account?
-          <Link to='/login'>
-            <span style={{ color: '#ff5f15' }}>Log in</span>
-          </Link>
-        </p>
+        <div>
+          <button
+            className='talent-signup-button'
+            type='submit'>
+            Sign Up
+          </button>
+          <p>
+            By signing up, you accept our{' '}
+            <span className='text-primaryColor text-base md:text-lg drop-shadow-md font-roboto'>
+              terms and conditions
+            </span>
+          </p>
+          <p>
+            Already have an account?
+            <Link to='/login'>
+              <span className='text-primaryColor text-base md:text-lg drop-shadow-md font-roboto'>
+                Log in
+              </span>
+            </Link>
+          </p>
+        </div>
       </form>
-      <div className='text-talent'>
-        <h3>
-          <b className='text-title'>Welcome to Siliconverse</b>
-          <br />
+      <div className='border border-primaryColor p-4 text-white mx-auto flex flex-col gap-4 items-center justify-center'>
+        <h3 className='text-center font-roboto font-bold text-xl md:text-xl'>
+          Welcome to Siliconverse
+        </h3>
+        <p>
           Siliconverse is a tech space for tech talents, who wish to look for
           internship, jobs and further their knowledge on the tech space. <br />{' '}
           Siliconverse is a tech space for tech talents, who wish to look for
           internship, jobs and further their knowledge on the tech space.
-        </h3>
+        </p>
       </div>
     </div>
   );
