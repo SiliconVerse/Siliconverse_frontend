@@ -257,7 +257,7 @@ const TalentForm = () => {
         </div>
       </form>
 
-      <div className='border border-primaryColor p-4 text-white mx-auto flex flex-col gap-4 items-center justify-center'>
+      <div className='rounded-lg text-sm md:text-base border border-primaryColor p-4 text-white mx-auto flex flex-col gap-4 items-center justify-center'>
         <h3 className='text-center font-roboto font-bold text-xl md:text-xl'>
           Welcome to Siliconverse
         </h3>
