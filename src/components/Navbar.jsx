@@ -19,9 +19,11 @@ const Navbar = () => {
     <div className='p-8 bg-[#FDEFE9]'>
       <div className='hidden md:block'>
         <nav className='flex justify-between items-center'>
-          <div>
-            <h1 className='text-2xl font-bold'>Siliconverse</h1>
-          </div>
+          <Link
+            to={'/'}
+            className='block text-2xl font-bold'>
+            Siliconverse
+          </Link>
 
           <div className='flex justify-between items-center'>
             {navLinks.map((navLink) => (

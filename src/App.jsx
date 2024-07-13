@@ -48,7 +48,10 @@ const App = () => {
               path='/profile'
               element={<CompanyProfilePage />}
             />
-            {/* <Route path="/curriculumvitae" element={<CurriculumVitae />} /> */}
+            <Route
+              path='/curriculumvitae'
+              element={<CurriculumVitae />}
+            />
             <Route
               path='/help'
               element={<HelpCenter />}

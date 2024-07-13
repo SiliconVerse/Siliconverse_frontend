@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  @apply font-roboto
+}
+
 
 .signUp-bg-image {
   background-image: url('./images/latestNews.png');

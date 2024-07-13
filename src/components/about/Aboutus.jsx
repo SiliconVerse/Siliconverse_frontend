@@ -1,11 +1,13 @@
 function Aboutus() {
   return (
-    <div>
-      <div className="text-center mt-8">
-        <p className="text-[#FF5F15] font-medium text-[0.8rem]">WHO WE ARE</p>
-        <h1 className="text-[1.7rem] font-bold">About us</h1>
+    <div className='font-roboto'>
+      <div className='text-center mt-8'>
+        <p className='text-primaryColor font-medium text-[0.8rem]'>
+          WHO WE ARE
+        </p>
+        <h1 className='text-[1.7rem] font-bold'>About us</h1>
       </div>
-      <p className="text-justify text-[19px] mt-5">
+      <p className='text-justify text-[19px] mt-5'>
         Siliconverse is a tech space for tech talents, who wish to look for
         internship, jobs and further their knowledge on the tech space. At
         Siliconverse, we believe that every individual has unique skills waiting
