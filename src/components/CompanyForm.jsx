@@ -1,11 +1,11 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import countryOptions from '../utils/country-options';
+import SignUpTC from './signup-tc';
 
-const CompanyForm = () => {
+const CompanyForm = ({ handleTalentClick }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -77,7 +77,20 @@ const CompanyForm = () => {
       <form
         onSubmit={handleSubmit}
         className='flex-shrink-0'>
-        <h2>Company Signup</h2>
+        <div className='flex items-center justify-evenly gap-5 max-w-md bg-primaryColor border-white px-3 rounded-2xl my-4 mx-auto'>
+          <button
+            type='button'
+            onClick={handleTalentClick}
+            className='block !border-primaryColor !bg-white !text-primaryColor !text-sm !capitalize !rounded-2xl !px-3 !p-2 hover:!bg-white/70'>
+            Talent Signup
+          </button>
+          <button
+            type='button'
+            className='block !border-primaryColor !bg-white !text-primaryColor !text-sm !capitalize !rounded-2xl !px-3 !p-2 hover:!bg-white/70 font-bold'>
+            Company Signup
+          </button>
+        </div>
+        <h2 className='text-lg md:text-2xl'>Company Signup</h2>
 
         <div className='w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8'>
           <div className='w-full'>
@@ -205,28 +218,7 @@ const CompanyForm = () => {
             />
           </div>
         </div>
-
-        <div>
-          <button
-            className='talent-signup-button'
-            type='submit'>
-            Sign Up
-          </button>
-          <p>
-            By signing up, you accept our{' '}
-            <span className='text-primaryColor text-base md:text-lg drop-shadow-md font-roboto'>
-              terms and conditions
-            </span>
-          </p>
-          <p>
-            Already have an account?
-            <Link to='/login'>
-              <span className='text-primaryColor text-base md:text-lg drop-shadow-md font-roboto'>
-                Log in
-              </span>
-            </Link>
-          </p>
-        </div>
+        <SignUpTC />
       </form>
       <div className='rounded-lg text-sm md:text-base border border-primaryColor p-4 text-white mx-auto flex flex-col gap-4 items-center justify-center'>
         <h3 className='text-center font-roboto font-bold text-xl md:text-xl'>

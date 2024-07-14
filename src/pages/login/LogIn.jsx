@@ -1,6 +1,5 @@
-/* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './logIn.css';
 import { toast } from 'react-toastify';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -9,16 +8,13 @@ import { auth } from '../../hooks/auth/firebase';
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Authentication logic
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      console.log('User logged in successfully');
-
-      window.location.href = '/UserProfile';
+      navigate('/UserProfile', { replace });
 
       toast.success('Logged in successfully 🎉', { position: 'top-center' });
     } catch (error) {
@@ -26,9 +22,6 @@ const LoginForm = () => {
 
       toast.error(error.message, { position: 'bottom-center' });
     }
-    console.log('Email:', email);
-    console.log('Password:', password);
-    // Insert logic here, and put the begining before handleSubmit
   };
 
   return (

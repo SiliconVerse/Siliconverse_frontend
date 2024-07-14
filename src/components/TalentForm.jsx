@@ -1,11 +1,12 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import countryOptions from '../utils/country-options';
+import SignUpTC from './signup-tc';
+import { skillSet } from '../utils/skillset';
 
-const TalentForm = () => {
+const TalentForm = ({ handleCompanyClick }) => {
   const [formValues, setFormValues] = useState({
     firstName: '',
     lastName: '',
@@ -72,7 +73,21 @@ const TalentForm = () => {
       <form
         onSubmit={handleSubmit}
         className='flex-shrink-0'>
-        <h2>Talent Signup</h2>
+        <div className='flex items-center justify-evenly gap-5 max-w-md bg-primaryColor border-white px-3 rounded-2xl my-4 mx-auto'>
+          <button
+            type='button'
+            className='block !border-primaryColor !bg-white !text-primaryColor !text-sm !capitalize !rounded-2xl !px-3 !p-2 hover:!bg-white/70 font-bold'>
+            Talent Signup
+          </button>
+          <button
+            type='button'
+            onClick={handleCompanyClick}
+            className='block !border-primaryColor !bg-white !text-primaryColor !text-sm !capitalize !rounded-2xl !px-3 !p-2 hover:!bg-white/70'>
+            Company Signup
+          </button>
+        </div>
+        {/*  */}
+        <h2 className='text-lg md:text-2xl'>Talent Signup</h2>
 
         <div className='w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8'>
           <div className='w-full'>
@@ -135,24 +150,13 @@ const TalentForm = () => {
             onChange={handleChange}
             required>
             <option
-              value=''
-              disabled>
+              value={'defaultValue'}
+              selected>
               Select Skillset
             </option>
-            <option value='frontend'>Frontend Development</option>
-            <option value='backend'>Backend Development</option>
-            <option value='fullstack'>Full Stack Development</option>
-            <option value='dataScience'>Data Science</option>
-            <option value='machineLearning'>Machine Learning</option>
-            <option value='devOps'>DevOps</option>
-            <option value='cyberSecurity'>Cyber Security</option>
-            <option value='mobileDevelopment'>Mobile Development</option>
-            <option value='uiuxDesign'>UI/UX Design</option>
-            <option value='graphicDesign'>Graphic Design</option>
-            <option value='photography'>Photography</option>
-            <option value='projectManagement'>Project management</option>
-            <option value='productManagement'>Product management</option>
-            {/* Add more options */}
+            {skillSet.map((skill) => (
+              <option value={skill.value}>{skill.text}</option>
+            ))}
           </select>
         </div>
 
@@ -234,27 +238,7 @@ const TalentForm = () => {
           </div>
         </div>
 
-        <div>
-          <button
-            className='talent-signup-button'
-            type='submit'>
-            Sign Up
-          </button>
-          <p>
-            By signing up, you accept our{' '}
-            <span className='text-primaryColor text-base md:text-lg drop-shadow-md font-roboto'>
-              terms and conditions
-            </span>
-          </p>
-          <p>
-            Already have an account?
-            <Link to='/login'>
-              <span className='text-primaryColor text-base md:text-lg drop-shadow-md font-roboto'>
-                Log in
-              </span>
-            </Link>
-          </p>
-        </div>
+        <SignUpTC />
       </form>
 
       <div className='rounded-lg text-sm md:text-base border border-primaryColor p-4 text-white mx-auto flex flex-col gap-4 items-center justify-center'>
