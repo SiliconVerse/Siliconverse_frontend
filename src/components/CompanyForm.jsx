@@ -77,16 +77,16 @@ const CompanyForm = ({ handleTalentClick }) => {
       <form
         onSubmit={handleSubmit}
         className='flex-shrink-0'>
-        <div className='flex items-center justify-evenly gap-5 max-w-md bg-primaryColor border-white px-3 rounded-2xl my-4 mx-auto'>
+        <div className='flex items-center justify-evenly gap-5 max-w-md bg-primaryColor border-white px-2 rounded-2xl my-4 mx-auto'>
           <button
             type='button'
             onClick={handleTalentClick}
-            className='block !border-primaryColor !bg-white !text-primaryColor !text-sm !capitalize !rounded-2xl !px-3 !p-2 hover:!bg-white/70'>
+            className='block !border-primaryColor !bg-white !text-primaryColor !text-sm !capitalize !rounded-2xl !px-2 !p-2 hover:!bg-white/70 text-nowrap'>
             Talent Signup
           </button>
           <button
             type='button'
-            className='block !border-primaryColor !bg-white !text-primaryColor !text-sm !capitalize !rounded-2xl !px-3 !p-2 hover:!bg-white/70 font-bold'>
+            className='block !border-primaryColor !bg-white !text-primaryColor !text-sm !capitalize !rounded-2xl !px-2 !p-2 hover:!bg-white/70 font-bold text-nowrap'>
             Company Signup
           </button>
         </div>

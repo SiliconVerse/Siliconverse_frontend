@@ -16,7 +16,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className='flex items-center justify-center flex-col p-7 md:p-11 lg:p-14 min-h-[calc(100vh-106px)] signUp-bg-image w-full '>
+    <div className='flex items-center justify-center flex-col p-4 md:p-11 lg:p-14 min-h-[calc(100vh-106px)] signUp-bg-image w-full '>
       {formType == null && (
         <SignUpIntro
           handleCompanyClick={handleCompanyClick}
