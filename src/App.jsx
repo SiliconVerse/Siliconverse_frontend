@@ -17,6 +17,7 @@ import { ToastContainer } from 'react-toastify';
 import Organization from './pages/Organization.jsx';
 import 'react-toastify/dist/ReactToastify.css';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
+import NotFound from './pages/notFound.jsx';
 
 const App = () => {
   return (
@@ -79,6 +80,11 @@ const App = () => {
           <Route
             path='/privacy'
             element={<PrivacyPolicy />}
+          />
+
+          <Route
+            path='*'
+            element={<NotFound />}
           />
         </Routes>
       </div>
