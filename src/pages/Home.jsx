@@ -1,5 +1,5 @@
-import Jobs from '../Jobs';
-import { images } from '../..';
+import Jobs from '../components/Jobs';
+import { hero } from '../utils/images-export';
 import { NavLink } from 'react-router-dom';
 
 const Home = () => {
@@ -33,8 +33,8 @@ const Home = () => {
 
           <div>
             <img
-              src={images.hero}
-              alt=''
+              src={hero}
+              alt='banner image'
               className='w-[500px] h-[500px]'
             />
           </div>

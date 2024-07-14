@@ -1,11 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import Logo from '../../../images/siliconlogo.png';
 import './logIn.css';
 import { toast } from 'react-toastify';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../auth/firebase';
+import { auth } from '../../hooks/auth/firebase';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');

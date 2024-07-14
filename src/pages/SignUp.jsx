@@ -1,15 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
-import Logo from '../../images/siliconlogo.png';
 import './signup.css';
-import countryOptions from './countryOptions';
-import { NavLink } from 'react-router-dom';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, db } from '../auth/firebase';
-import { setDoc, doc } from 'firebase/firestore';
-import { toast } from 'react-toastify';
-import TalentForm from '../TalentForm';
-import CompanyForm from '../CompanyForm';
+import TalentForm from '../components/TalentForm';
+import CompanyForm from '../components/CompanyForm';
 
 const SignUp = () => {
   const [formType, setFormType] = useState(null);

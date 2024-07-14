@@ -1,32 +1,31 @@
 .layout_body {
- display: grid;
- grid-template-columns: repeat(12, 1fr);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
 }
 
 .layout_content {
- height: calc(100dvh - 120px);
- /* max-height: calc(100dvh - 120px); */
- overflow-y: auto;
- grid-column: 4/-1;
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+    grid-column: 4 / -1;
+    scrollbar-width: thin;
+    scrollbar-color: #ff5f15 #88888886 !important;
 
- /* Customize scrollbar */
- &::-webkit-scrollbar {
-  width: 8px;
- }
+    /* WebKit (Safari, Chrome) scrollbar customization */
+    &::-webkit-scrollbar {
+        width: 2px;
+    }
 
+    &::-webkit-scrollbar-track {
+        background-color: #f0f0f0;
+    }
 
- &::-webkit-scrollbar-track {
-  background-color: #f0f0f0;
- }
+    &::-webkit-scrollbar-thumb {
+        background-color: #ff5f15;
+        border-radius: 10px;
+    }
 
- & {
-  scrollbar-width: thin;
-  scrollbar-color: #ff5f1596 #88888886;
-  /* thumb color and track color */
- }
-
-
- @media screen and (width < 768px) {
-  grid-column: 1/-1
- }
+    /* Media query for smaller screens */
+    @media screen and (max-width: 767px) {
+        grid-column: 1 / -1;
+    }
 }

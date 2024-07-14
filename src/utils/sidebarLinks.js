@@ -1,7 +1,7 @@
 export const company_profile_links = [
   {
     link: 'profile',
-    url: 'profile',
+    url: '/profile',
   },
   {
     link: 'account settings',

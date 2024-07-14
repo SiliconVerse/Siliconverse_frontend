@@ -3,7 +3,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import countryOptions from './pages/countryOptions';
+import countryOptions from '../utils/country-options';
 
 const TalentForm = () => {
   const [formValues, setFormValues] = useState({

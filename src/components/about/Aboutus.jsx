@@ -1,11 +1,9 @@
 function Aboutus() {
   return (
     <div className='font-roboto'>
-      <div className='text-center mt-8'>
-        <p className='text-primaryColor font-medium text-[0.8rem]'>
-          WHO WE ARE
-        </p>
-        <h1 className='text-[1.7rem] font-bold'>About us</h1>
+      <div className='text-center'>
+        <p className='text-primaryColor font-medium text-sm'>WHO WE ARE</p>
+        <h1 className='text-2xl font-bold'>About us</h1>
       </div>
       <p className='text-justify text-[19px] mt-5'>
         Siliconverse is a tech space for tech talents, who wish to look for

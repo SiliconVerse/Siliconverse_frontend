@@ -1,11 +1,11 @@
 import { Facebook, Github, Instagram, Linkedin, Twitter } from 'lucide-react';
-import { teamDetails } from '../..';
+import { teamDetails } from '../../utils/team-details';
 import { Link } from 'react-router-dom';
 
 function Team() {
   return (
     <div>
-      <div className='text-center mt-14 mb-10'>
+      <div className='text-center'>
         <h1 className='text-[1.7rem] font-bold'>Meet Our Team</h1>
       </div>
       <div>

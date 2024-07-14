@@ -6,9 +6,20 @@
   @apply font-roboto
 }
 
+:root {
+  --primary-color: #FF5F15;
+  --silicon-green: #2EB67D;
+  --silcon-red: #FF0000;
+  --white: #FFFFFF;
+  --text-color: #222222;
+  --silicon-gray: #2F2E2E;
+  --background-color: #FDEFE9;
+}
+
+
 
 .signUp-bg-image {
-  background-image: url('./images/latestNews.png');
+  background-image: url('./assets/latestNews.png');
   background-size: cover;
   background-position: center;
   width: 100%;
