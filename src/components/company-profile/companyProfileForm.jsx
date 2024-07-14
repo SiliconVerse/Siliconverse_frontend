@@ -53,10 +53,12 @@ const CompanyProfileForm = () => {
             <aside className={styles.formGroup_btns}>
               <button
                 type='button'
-                className={styles.formGroup_btn + ' ' + styles.btn_1}
-              >
+                className='flex gap-4 items-center'>
                 <span>
-                  <Upload size={20} />
+                  <Upload
+                    size={20}
+                    className='text-black text-center'
+                  />
                 </span>
                 Upload File
               </button>
@@ -66,8 +68,7 @@ const CompanyProfileForm = () => {
               <button
                 type='button'
                 className={styles.formGroup_btn + ' ' + styles.btn_2}
-                onClick={handleSaveClick}
-              >
+                onClick={handleSaveClick}>
                 Save
               </button>
             </aside>
@@ -82,7 +83,10 @@ const CompanyProfileForm = () => {
         // The Portal can receive the setShow state to close the modal also
         <ReactPortal setState={setShow}>
           {/* This should Recieve a state to rerun the post request when a user clicks on try Again */}
-          <CompanyModalUpdates status={'loading'} setState={setShow} />
+          <CompanyModalUpdates
+            status={'loading'}
+            setState={setShow}
+          />
         </ReactPortal>
       )}
     </>

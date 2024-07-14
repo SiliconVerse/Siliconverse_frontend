@@ -3,11 +3,9 @@ import styles from './sidebar.module.css';
 import profileBigImg from '../../assets/profileImgBig.png';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { company_profile_links } from '../../utils/sidebarLinks';
-import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
 import { useState } from 'react';
 
 const SideBar = ({ showMenu }) => {
-  const { user, isAuthenticated, isLoading } = useKindeAuth();
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const [imageUrl, setImageUrl] = useState(profileBigImg);
@@ -46,53 +44,41 @@ const SideBar = ({ showMenu }) => {
       return !location.search;
     }
   }
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
   return (
     <div className={showMenu ? styles.showMenu : styles.sidebar}>
-      {isAuthenticated ? (
-        <div className={styles.profile}>
-          <aside className={styles.profile_images}>
-            <span style={{ position: 'relative' }}>
-              <img
-                src={imageUrl}
-                alt='Profile Image of user'
-                className={styles.profileImg}
-              />
-              <input
-                className={styles.floatIcon}
-                onChange={editImage}
-                type='file'
-                accept='image/*'
-              />
-            </span>
-          </aside>
-          <aside className={styles.profile_details}>
-            <p className={styles.profile_name}>
-              {user.given_name} {user.family_name}
-            </p>
-            {isEditingLocation ? (
-              <input
-                type='text'
-                value={locationText}
-                onChange={handleLocationChange}
-                onBlur={handleLocationBlur}
-                color='black'
-                autoFocus
-                className={styles.locationInput}
-              />
-            ) : (
-              <p onClick={editLocation}>{locationText}</p>
-            )}
-            <p>Nigeria</p>
-          </aside>
-        </div>
-      ) : (
-        <p>Please Sign Up or Log In</p>
-      )}
+      <div className={styles.profile}>
+        <aside className={styles.profile_images}>
+          <span style={{ position: 'relative' }}>
+            <img
+              src={imageUrl}
+              alt='Profile Image of user'
+              className={styles.profileImg}
+            />
+            {/* <input
+              className={styles.floatIcon}
+              onChange={editImage}
+              type='file'
+              accept='image/*'
+            /> */}
+          </span>
+        </aside>
+        <aside className={styles.profile_details}>
+          {isEditingLocation ? (
+            <input
+              type='text'
+              value={locationText}
+              onChange={handleLocationChange}
+              onBlur={handleLocationBlur}
+              autoFocus
+              className='text-black'
+            />
+          ) : (
+            <p onClick={editLocation}>{locationText}</p>
+          )}
+          <p>Nigeria</p>
+        </aside>
+      </div>
+
       <div className={styles.links}>
         {company_profile_links.map((item, index) => (
           <Link

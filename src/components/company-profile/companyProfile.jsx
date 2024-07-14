@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styles from './companyProfile.module.css';
 import CompanyProfileForm from './companyProfileForm';
-import { useKindeAuth } from '@kinde-oss/kinde-auth-react';
 import { CiEdit } from 'react-icons/ci';
 
 const userInfomation = {
@@ -14,12 +13,7 @@ const userInfomation = {
 };
 
 const CompanyProfile = () => {
-  const { user, isAuthenticated, isLoading } = useKindeAuth();
   const [userData] = useState(userInfomation);
-
-  if (isLoading) {
-    return <p> Name Loading...</p>;
-  }
 
   return (
     <>
@@ -39,17 +33,6 @@ const CompanyProfile = () => {
           </div>
         </div>
         <div className={styles.userInfo}>
-          {isAuthenticated ? (
-            <aside>
-              <h5>Name of CEO</h5>
-              <p>
-                {user.given_name}{' '}
-                <span style={{ marginLeft: '20px' }}>{user.family_name}</span>
-              </p>
-            </aside>
-          ) : (
-            <p> Name Loading...</p>
-          )}
           <aside>
             <h5>Location</h5>
             <p>
