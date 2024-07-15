@@ -9,7 +9,7 @@ import CompanyProfilePage from './pages/CompanyProfilePage.jsx';
 import Layout from './components/layout/layout.jsx';
 import CurriculumVitae from './pages/CurriculumVitae.jsx';
 import HelpCenter from './pages/HelpCenter.jsx';
-import UserProfile from './components/user-profile/userProfile.jsx';
+import UserProfile from './pages/UserProfilePage.jsx';
 import Magazine from './pages/Magazine.jsx';
 import LoginForm from './pages/login/LogIn.jsx';
 import SignUp from './pages/SignUp.jsx';
@@ -41,12 +41,15 @@ const App = () => {
             path='/mission'
             element={<Mission />}
           />
-          <Route
-            path='/profile'
-            element={<Layout />}>
+          {/* Wrapper */}
+          <Route element={<Layout />}>
             <Route
-              index
+              path='company-profile'
               element={<CompanyProfilePage />}
+            />
+            <Route
+              path='/user-profile'
+              element={<UserProfile />}
             />
           </Route>
           <Route
@@ -56,10 +59,6 @@ const App = () => {
           <Route
             path='/help'
             element={<HelpCenter />}
-          />
-          <Route
-            path='/user-profile'
-            element={<UserProfile />}
           />
           <Route
             path='/magazine'

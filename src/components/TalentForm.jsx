@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import countryOptions from '../utils/country-options';
 import SignUpTC from './signup-tc';
 import { skillSet } from '../utils/skillset';
+import { auth } from '../hooks/auth/firebase';
 
 const TalentForm = ({ handleCompanyClick }) => {
   const [formValues, setFormValues] = useState({
@@ -47,6 +48,7 @@ const TalentForm = ({ handleCompanyClick }) => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
+      console.log(user);
 
       if (user) {
         await setDoc(doc(db, 'Users', user.uid), {
@@ -62,10 +64,8 @@ const TalentForm = ({ handleCompanyClick }) => {
       }
       toast.success('Registered successfully 🎉', { position: 'top-center' });
     } catch (error) {
-      console.log(error.message);
       toast.success(error.message, { position: 'bottom-center' });
     }
-    console.log('Form submitted successfully', formValues);
   };
 
   return (
@@ -155,7 +155,11 @@ const TalentForm = ({ handleCompanyClick }) => {
               Select Skill
             </option>
             {skillSet.map((skill) => (
-              <option value={skill.value}>{skill.text}</option>
+              <option
+                key={skill.value}
+                value={skill.value}>
+                {skill.text}
+              </option>
             ))}
           </select>
         </div>

@@ -19,7 +19,7 @@ export const footerLinks = [
     title: 'Organisations',
   },
   {
-    id: '/privacypolicy',
+    id: '/privacy',
     title: 'Privacy Policy',
   },
   {
@@ -27,7 +27,7 @@ export const footerLinks = [
     title: 'Terms and Conditions',
   },
   {
-    id: '/review',
+    id: '/curriculumvitae',
     title: 'CV Review Services',
   },
   {

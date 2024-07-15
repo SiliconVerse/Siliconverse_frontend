@@ -1,14 +1,15 @@
 .layout_body {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    position: relative;
 }
 
 .layout_content {
-    height: calc(100vh - 120px);
+    height: calc(100vh - 100px);
     overflow-y: auto;
-    grid-column: 4 / -1;
+    grid-column: 3 / -1;
     scrollbar-width: thin;
-    scrollbar-color: #ff5f15 #88888886 !important;
+    scrollbar-color: var(--primary-color) #88888886 !important;
 
     /* WebKit (Safari, Chrome) scrollbar customization */
     &::-webkit-scrollbar {
@@ -20,12 +21,19 @@
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: #ff5f15;
+        background-color: var(--primary-color);
         border-radius: 10px;
     }
 
     /* Media query for smaller screens */
-    @media screen and (max-width: 767px) {
-        grid-column: 1 / -1;
+    grid-column: 1 / -1;
+
+    @media screen and (width >=768px) {
+        height: calc(100vh - 106px);
+        grid-column: 4 / -1;
+    }
+
+    @media screen and (width >=1024px) {
+        grid-column: 3 / -1;
     }
 }

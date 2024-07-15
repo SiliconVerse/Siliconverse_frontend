@@ -14,12 +14,10 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/UserProfile', { replace });
+      navigate('/user-profile');
 
       toast.success('Logged in successfully 🎉', { position: 'top-center' });
     } catch (error) {
-      console.log(error.message);
-
       toast.error(error.message, { position: 'bottom-center' });
     }
   };

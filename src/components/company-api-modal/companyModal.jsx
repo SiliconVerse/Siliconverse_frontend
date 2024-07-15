@@ -14,14 +14,16 @@ const CompanyModalUpdates = ({ status, setState }) => {
 
       {status == 'success' && (
         <div className={styles.modal_content}>
-          <FileText size={240} style={{ color: 'var(--green)' }} />
+          <FileText
+            size={240}
+            style={{ color: 'var(--green)' }}
+          />
           <p
             style={{
               color: 'var(--primary-color)',
               fontWeight: '700',
               textAlign: 'center',
-            }}
-          >
+            }}>
             Uploaded Successfully
           </p>
           <p style={{ fontWeight: '500' }}>
@@ -32,22 +34,23 @@ const CompanyModalUpdates = ({ status, setState }) => {
 
       {status == 'error' && (
         <div className={styles.modal_content}>
-          <BarChart size={240} style={{ color: 'var(--red)' }} />
+          <BarChart
+            size={240}
+            style={{ color: 'var(--red)' }}
+          />
           <p
             style={{
               color: 'var(--red)',
               fontWeight: '700',
               textAlign: 'center',
-            }}
-          >
+            }}>
             Couldn’t upload magazine post
           </p>
           <p style={{ fontWeight: '700' }}>Check your internet connection</p>
           <div className={styles.btn_container}>
             <button
               className={styles.btn + ' ' + styles.btn_1}
-              onClick={() => setState((prev) => !prev)}
-            >
+              onClick={() => setState((prev) => !prev)}>
               Cancel
             </button>
             <button className={styles.btn + ' ' + styles.btn_2}>

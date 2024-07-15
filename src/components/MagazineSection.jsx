@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { FaSearch, FaArrowRight } from 'react-icons/fa';
-import siliconQuotes from '../../assets/siliconQuotes.png';
-import image from '../../assets/latestNews.png';
-import headerImage from '../../assets/quotes.png';
-import siliconQuote from '../../assets/siliconQuote.png';
-import firstFigCap from '../../assets/latest2.png';
-import secondFigCap from '../../assets/latest3.png';
+import { FaSearch } from 'react-icons/fa';
+import siliconQuotes from '../assets/siliconQuotes.png';
+import image from '../assets/latestNews.png';
+import headerImage from '../assets/quotes.png';
+import siliconQuote from '../assets/siliconQuote.png';
+import firstFigCap from '../assets/latest2.png';
+import secondFigCap from '../assets/latest3.png';
 
-const Section = () => {
+const MagazineSection = () => {
   const [LatestNews, setLatestNews] = useState([
     {
       title: 'Ameachi Tech Hub to host Siliconverse meet up 2024',
@@ -215,4 +215,4 @@ const Section = () => {
   );
 };
 
-export default Section;
+export default MagazineSection;

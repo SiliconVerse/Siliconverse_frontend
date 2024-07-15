@@ -1,13 +1,7 @@
-import Header from '../components/magazine-page/Header';
-import Section from '../components/magazine-page/Section';
+import MagazineSection from '../components/MagazineSection';
 
 const Magazine = () => {
-  return (
-    <>
-      <Header />
-      <Section />
-    </>
-  );
+  return <MagazineSection />;
 };
 
 export default Magazine;

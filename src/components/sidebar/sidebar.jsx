@@ -1,16 +1,26 @@
-/* eslint-disable react/prop-types */
 import styles from './sidebar.module.css';
 import profileBigImg from '../../assets/profileImgBig.png';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { company_profile_links } from '../../utils/sidebarLinks';
-import { useState } from 'react';
+import {
+  company_profile_links,
+  user_profile_links,
+} from '../../utils/sidebarLinks';
+import { useMemo, useState } from 'react';
 
-const SideBar = ({ showMenu }) => {
+const SideBar = () => {
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const [imageUrl, setImageUrl] = useState(profileBigImg);
-  const [isEditingLocation, setIsEditingLocation] = useState(false);
-  const [locationText, setLocationText] = useState('Location : ');
+
+  const pathName = useMemo(() => location.pathname, [location]);
+
+  const urlLocationMemo = useMemo(() => {
+    const isCompany = !!location.pathname.includes('/company-profile');
+    if (isCompany) {
+      return company_profile_links;
+    }
+    return user_profile_links;
+  }, [pathName]);
 
   function editImage(event) {
     const file = event.target.files[0];
@@ -23,64 +33,47 @@ const SideBar = ({ showMenu }) => {
     }
   }
 
-  function editLocation() {
-    setIsEditingLocation(!isEditingLocation);
-  }
-
-  function handleLocationChange(event) {
-    setLocationText(event.target.value);
-  }
-
-  function handleLocationBlur() {
-    setIsEditingLocation(false);
-  }
-
   function getActiveRoute(route) {
     if (route.includes('=')) {
       const userValue = route.split('=')[1];
-      const userParam = searchParams.get('user');
+      const userParam =
+        pathName == '/company-profile'
+          ? searchParams.get('company')
+          : searchParams.get('user');
       return userValue === userParam;
     } else {
       return !location.search;
     }
   }
   return (
-    <div className={showMenu ? styles.showMenu : styles.sidebar}>
-      <div className={styles.profile}>
-        <aside className={styles.profile_images}>
-          <span style={{ position: 'relative' }}>
+    <div className={styles.sidebar + ' font-roboto'}>
+      <div className='w-24 aspect-square mx-auto'>
+        <aside className='relative overflow-hidden rounded-full'>
+          <label
+            htmlFor='profile'
+            className='cursor-pointer'>
             <img
               src={imageUrl}
               alt='Profile Image of user'
-              className={styles.profileImg}
+              className='h-full w-full object-cover'
             />
-            {/* <input
-              className={styles.floatIcon}
-              onChange={editImage}
-              type='file'
-              accept='image/*'
-            /> */}
-          </span>
+          </label>
+          <input
+            id='profile'
+            className='hidden'
+            onChange={editImage}
+            type='file'
+            accept='image/*'
+          />
         </aside>
-        <aside className={styles.profile_details}>
-          {isEditingLocation ? (
-            <input
-              type='text'
-              value={locationText}
-              onChange={handleLocationChange}
-              onBlur={handleLocationBlur}
-              autoFocus
-              className='text-black'
-            />
-          ) : (
-            <p onClick={editLocation}>{locationText}</p>
-          )}
+        <aside className={'space-y-1 text-center font-bold'}>
+          <h2>Username</h2>
           <p>Nigeria</p>
         </aside>
       </div>
 
       <div className={styles.links}>
-        {company_profile_links.map((item, index) => (
+        {urlLocationMemo.map((item, index) => (
           <Link
             to={item.url}
             key={index + 1}
@@ -88,9 +81,6 @@ const SideBar = ({ showMenu }) => {
             {item.link}
           </Link>
         ))}
-      </div>
-      <div className={styles.signout}>
-        <button>SignOut</button>
       </div>
       <div className={styles.footer}>
         <Link to='/help'>
