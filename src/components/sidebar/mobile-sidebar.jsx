@@ -47,7 +47,7 @@ function MobileSideBar() {
     <section className='grid col-span-12'>
       <button
         onClick={handleShowNav}
-        className='flex w-full bg-primaryColor/50 justify-between p-2'>
+        className='flex md:hidden w-full bg-primaryColor/50 justify-between p-2'>
         <span>Username here...</span> <ChevronDown size='28' />
       </button>
       <div
