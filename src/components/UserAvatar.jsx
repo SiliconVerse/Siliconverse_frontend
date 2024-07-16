@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import profileBigImg from '../assets/profileImgBig.png';
 import { LogOut, User2Icon } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../hooks/userAuth';
 
 function UserAvatar() {
   const [openUserMenu, setOpenUserMenu] = useState(false);
@@ -43,6 +44,8 @@ function UserAvatar() {
 export default UserAvatar;
 
 function UserMenu({ componentRef }) {
+  const { signout } = useAuth();
+
   return (
     <div
       ref={componentRef}
@@ -55,7 +58,9 @@ function UserMenu({ componentRef }) {
         </span>
         <span>Profile</span>
       </Link>
-      <button className='flex gap-3 hover:bg-primaryColor/90 p-2 rounded-lg text-primaryColor hover:text-white w-full'>
+      <button
+        onClick={() => signout()}
+        className='flex gap-3 hover:bg-primaryColor/90 p-2 rounded-lg text-primaryColor hover:text-white w-full'>
         <span>
           <LogOut size={28} />
         </span>

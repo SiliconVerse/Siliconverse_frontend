@@ -1,13 +1,15 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import countryOptions from '../utils/country-options';
 import SignUpTC from './signup-tc';
 import { skillSet } from '../utils/skillset';
-import { auth } from '../hooks/auth/firebase';
+import { useAuth } from '../hooks/userAuth';
+import { db } from '../hooks/auth/firebase';
 
 const TalentForm = ({ handleCompanyClick }) => {
+  const { signup, updateUser } = useAuth();
+
   const [formValues, setFormValues] = useState({
     firstName: '',
     lastName: '',
@@ -46,11 +48,11 @@ const TalentForm = ({ handleCompanyClick }) => {
     } = formValues;
     // Form submission logic
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      const user = auth.currentUser;
-      console.log(user);
+      const { user } = await signup(email, password);
 
+      console.log(user);
       if (user) {
+        console.log(user.uid);
         await setDoc(doc(db, 'Users', user.uid), {
           email: user.email,
           firstName: firstName,
@@ -60,8 +62,12 @@ const TalentForm = ({ handleCompanyClick }) => {
           dateOfBirth: dob,
           country: country,
           stateOfResdidence: state,
+          role: 'talent',
         });
+        console.log(user);
+        await updateUser(user.uid);
       }
+
       toast.success('Registered successfully 🎉', { position: 'top-center' });
     } catch (error) {
       toast.success(error.message, { position: 'bottom-center' });

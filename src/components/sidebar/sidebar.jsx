@@ -6,11 +6,13 @@ import {
   user_profile_links,
 } from '../../utils/sidebarLinks';
 import { useMemo, useState } from 'react';
+import { useAuth } from '../../hooks/userAuth';
 
 const SideBar = () => {
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const [imageUrl, setImageUrl] = useState(profileBigImg);
+  const { user } = useAuth();
 
   const pathName = useMemo(() => location.pathname, [location]);
 
@@ -67,8 +69,8 @@ const SideBar = () => {
           />
         </aside>
         <aside className={'space-y-1 text-center font-bold'}>
-          <h2>Username</h2>
-          <p>Nigeria</p>
+          <h2>{user?.firstName}</h2>
+          <p>{user?.country}</p>
         </aside>
       </div>
 

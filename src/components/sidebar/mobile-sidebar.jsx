@@ -6,12 +6,14 @@ import {
   user_profile_links,
 } from '../../utils/sidebarLinks';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useAuth } from '../../hooks/userAuth';
 
 function MobileSideBar() {
   const [searchParams] = useSearchParams();
   const [showNav, setShowNav] = useState(false);
   const location = useLocation();
   const pathName = useMemo(() => location.pathname, [location]);
+  const { user } = useAuth();
 
   //   for closing the menu onClick
   const handleLinkClick = () => showNav && setShowNav(false);
@@ -48,7 +50,7 @@ function MobileSideBar() {
       <button
         onClick={handleShowNav}
         className='flex w-full bg-primaryColor/50 justify-between p-2'>
-        <span>Username here...</span> <ChevronDown size='28' />
+        <span>{user?.firstName}</span> <ChevronDown size='28' />
       </button>
       <div
         className={
@@ -60,7 +62,7 @@ function MobileSideBar() {
           <button
             onClick={handleShowNav}
             className='flex w-full bg-primaryColor/50 justify-between p-2'>
-            <span>Username here...</span> <ChevronUp size='28' />
+            <span>{user?.firstName}</span> <ChevronUp size='28' />
           </button>
           {urlLocationMemo.map((item, index) => (
             <Link

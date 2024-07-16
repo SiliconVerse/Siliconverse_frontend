@@ -1,11 +1,15 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import countryOptions from '../utils/country-options';
 import SignUpTC from './signup-tc';
+import { db } from '../hooks/auth/firebase';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../hooks/userAuth';
 
 const CompanyForm = ({ handleTalentClick }) => {
+  const navigate = useNavigate();
+  const { signUp, updateUser } = useAuth();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -44,10 +48,9 @@ const CompanyForm = ({ handleTalentClick }) => {
       state,
     } = formData;
     // Form submission logic
+
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      const user = auth.currentUser;
-      console.log(user);
+      const { user } = await signUp(email, password);
 
       if (user) {
         await setDoc(doc(db, 'Users', user.uid), {
@@ -58,18 +61,16 @@ const CompanyForm = ({ handleTalentClick }) => {
           organizationName: organizationName,
           location: location,
           stateOfResdidence: state,
+          role: 'company',
         });
+        await updateUser(user.uid);
       }
-      console.log('Company successfully registered');
       toast.success('Registered Company successfully 🎉', {
         position: 'top-center',
       });
     } catch (error) {
-      console.log(error.message);
       toast.success(error.message, { position: 'bottom-center' });
     }
-
-    console.log('Form data submitted:', formData);
   };
 
   return (

@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import { navLinks } from '../utils/links';
 import NavbarAuth from './navbar-auth';
 import UserAvatar from './UserAvatar';
+import { useAuth } from '../hooks/userAuth';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { user } = useAuth();
 
   const handleOpen = () => {
     setOpen(!open);
@@ -36,8 +38,8 @@ const Navbar = () => {
           ))}
         </div>
 
-        <NavbarAuth />
-        <UserAvatar />
+        {user && <UserAvatar />}
+        {!user && <NavbarAuth />}
       </nav>
 
       {/* Mobile Navbar */}

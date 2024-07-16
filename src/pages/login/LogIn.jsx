@@ -2,20 +2,18 @@ import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './logIn.css';
 import { toast } from 'react-toastify';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../hooks/auth/firebase';
+import { useAuth } from '../../hooks/userAuth';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const { signin, updateUser } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate('/user-profile');
-
+      const userData = await signin(email, password);
+      await updateUser(userData?.user?.uid);
       toast.success('Logged in successfully 🎉', { position: 'top-center' });
     } catch (error) {
       toast.error(error.message, { position: 'bottom-center' });

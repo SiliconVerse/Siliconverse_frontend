@@ -48,7 +48,7 @@ const App = () => {
               element={<CompanyProfilePage />}
             />
             <Route
-              path='/user-profile'
+              path='/talent-profile'
               element={<UserProfile />}
             />
           </Route>
