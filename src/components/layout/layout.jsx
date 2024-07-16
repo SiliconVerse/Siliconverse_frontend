@@ -15,11 +15,11 @@ function Layout() {
     }
   }, [user]);
 
-  // console.log(auth?.currentUser);
   return (
     <>
       <section className={styles.layout_body}>
         <SideBar />
+        {/*  */}
         <MobileSideBar />
         <section className={styles.layout_content}>
           <Outlet />

@@ -12,7 +12,7 @@ const SideBar = () => {
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const [imageUrl, setImageUrl] = useState(profileBigImg);
-  const { user } = useAuth();
+  const { user,signout } = useAuth();
 
   const pathName = useMemo(() => location.pathname, [location]);
 
@@ -85,6 +85,7 @@ const SideBar = () => {
         ))}
       </div>
       <div className={styles.footer}>
+        <button onClick={()=>signout()} className={`${styles.btn_help} my-3`}>Log Out</button>
         <Link to='/help'>
           <button className={styles.btn_help}>Help Center</button>
         </Link>
