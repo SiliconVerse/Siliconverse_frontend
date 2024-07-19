@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { BiMenuAltLeft } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { navLinks } from '../utils/links';
 import NavbarAuth from './navbar-auth';
 import UserAvatar from './UserAvatar';
@@ -9,17 +9,24 @@ import { useAuth } from '../hooks/userAuth';
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { user } = useAuth();
+  const navigate = useNavigate();
+  const router = useLocation();
 
   const handleOpen = () => {
     setOpen(!open);
   };
 
-  const handleClose = () => {
+  const handleClose = (link) => {
     setOpen(false);
+    navigate(link);
   };
 
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
+
   return (
-    <div className='p-8 bg-[#FDEFE9]'>
+    <div className='md:p-8 bg-[#FDEFE9] fixed z-[200] md:z-auto md:relative top-0 right-0 w-full'>
       <nav className='hidden md:flex justify-between items-center'>
         <Link
           to={'/'}
@@ -44,7 +51,7 @@ const Navbar = () => {
 
       {/* Mobile Navbar */}
       <section className='md:hidden relative'>
-        <div className='flex justify-between w-full'>
+        <div className='flex justify-between items-center border-b-2 border-white h-[90px] px-5'>
           <div>
             <Link
               to='/'
@@ -53,26 +60,29 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className='text-4xl'>
-            <BiMenuAltLeft onClick={handleOpen} />
+          <div className='flex gap-3'>
+            {user && <UserAvatar />}
+            <BiMenuAltLeft
+              onClick={handleOpen}
+              size={36}
+            />
           </div>
         </div>
 
         {open && (
-          <div className='bg-[#FDEFE9] absolute w-full flex justify-center items-center flex-col gap-2 p-10'>
-            {navLinks.map((navLink) => (
-              <h2
-                key={navLink.id}
-                className='px-5 text-2xl font-semibold hover:underline'>
-                <Link
-                  to={navLink.id}
-                  onClick={handleClose}
-                  className='links'>
+          <aside className='absolute w-full flex justify-center items-center flex-col gap-2 p-10 z-[200] top-[90px] h-[calc(100vh-90px)] bg-[#FDEFE9]'>
+            <div className='flex justify-center items-center flex-col'>
+              {navLinks.map((navLink) => (
+                <p
+                  key={navLink.id}
+                  className='px-5 text-lg font-semibold hover:underline hover:underline-offset-2'
+                  onClick={() => handleClose(navLink.id)}>
                   {navLink.title}
-                </Link>
-              </h2>
-            ))}
-          </div>
+                </p>
+              ))}
+              {!user && <NavbarAuth />}
+            </div>
+          </aside>
         )}
       </section>
     </div>

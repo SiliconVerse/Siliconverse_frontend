@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function NavbarAuth() {
   return (
-    <div className='flex justify-between items-center gap-5'>
+    <div className='flex flex-col md:flex-row justify-between items-center gap-5 mt-16 md:mt-0'>
       <Link
         to='/login'
         className='border border-primaryColor py-2 px-8 rounded-3xl text-black'>
