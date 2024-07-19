@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Team() {
   return (
-    <div>
+    <div className='w-full'>
       <div className='text-center'>
         <h1 className='text-[1.7rem] font-bold'>Meet Our Team</h1>
       </div>

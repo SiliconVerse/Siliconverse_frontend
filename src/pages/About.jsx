@@ -7,17 +7,17 @@ const About = () => {
   return (
     <>
       <div className='grid  grid-cols-12 place-content-center w-full my-8 gap-10'>
-        <div className='col-start-2 col-end-12'>
+        <div className='col-start-2 col-end-12 px-4'>
           <Aboutus />
         </div>
-        <div className='col-start-1 col-end-13 px-10'>
+        <div className='col-start-2 col-end-12 md:col-start-1 md:col-end-13 md:px-10 px-4'>
           <Team />
         </div>
-        <div className='col-start-2 col-end-12'>
+        <div className='col-start-2 col-end-12 px-4'>
           <Values />
         </div>
 
-        <div className='col-start-2 col-end-12'>
+        <div className='col-start-2 col-end-12 px-4'>
           <h2 className='text-primaryColor text-[19px] font-bold'>
             Join the Siliconverse Community
           </h2>
