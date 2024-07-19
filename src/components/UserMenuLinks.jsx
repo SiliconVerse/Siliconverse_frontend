@@ -8,7 +8,7 @@ function UserMenu({ componentRef }) {
   return (
     <div
       ref={componentRef}
-      className='absolute top-10 z-20 right-0 w-[200px] bg-white rounded-lg border border-primaryColor p-2'>
+      className='absolute top-10 z-[201] right-0 w-[200px] bg-white rounded-lg border border-primaryColor p-2'>
       <Link
         to={`/${user.role}-profile`}
         className='flex gap-3 hover:bg-primaryColor/90 p-2 rounded-lg text-primaryColor hover:text-white'>
