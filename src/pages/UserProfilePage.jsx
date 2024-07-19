@@ -12,8 +12,8 @@ const UserProfilePage = () => {
   const location = useLocation();
 
   return (
-    <div className=' '>
-      {!location.search && location.pathname == '/user-profile' && (
+    <div>
+      {!location.search && location.pathname == '/talent-profile' && (
         <UserProfile />
       )}
 
