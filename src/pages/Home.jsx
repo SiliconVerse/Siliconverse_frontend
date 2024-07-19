@@ -49,7 +49,7 @@ const Home = () => {
           </button>
         </div>
       </div>
-      <Jobs />
+      {/* <Jobs /> */}
     </>
   );
 };
