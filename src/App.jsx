@@ -18,12 +18,14 @@ import Organization from './pages/Organization.jsx';
 import 'react-toastify/dist/ReactToastify.css';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import NotFound from './pages/notFound.jsx';
+import ScrollToTop from './hooks/scroll-top.jsx';
 
 const App = () => {
   return (
     <div className='w-full'>
       <Navbar />
-      <div className='w-full min-h-[calc(100vh-106px)]'>
+      <ScrollToTop />
+      <div className='w-full mt-[90px] md:mt-0 min-h-[calc(100vh-106px)]'>
         <Routes>
           <Route
             path='/'
@@ -52,6 +54,7 @@ const App = () => {
               element={<UserProfile />}
             />
           </Route>
+
           <Route
             path='/curriculumvitae'
             element={<CurriculumVitae />}
