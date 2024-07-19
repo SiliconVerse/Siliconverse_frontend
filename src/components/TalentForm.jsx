@@ -50,9 +50,7 @@ const TalentForm = ({ handleCompanyClick }) => {
     try {
       const { user } = await signup(email, password);
 
-      console.log(user);
       if (user) {
-        console.log(user.uid);
         await setDoc(doc(db, 'Users', user.uid), {
           email: user.email,
           firstName: firstName,

@@ -9,7 +9,7 @@ import { useAuth } from '../hooks/userAuth';
 
 const CompanyForm = ({ handleTalentClick }) => {
   const navigate = useNavigate();
-  const { signUp, updateUser } = useAuth();
+  const { signup, updateUser } = useAuth();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -50,7 +50,7 @@ const CompanyForm = ({ handleTalentClick }) => {
     // Form submission logic
 
     try {
-      const { user } = await signUp(email, password);
+      const { user } = await signup(email, password);
 
       if (user) {
         await setDoc(doc(db, 'Users', user.uid), {
