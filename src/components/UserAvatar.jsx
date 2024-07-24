@@ -35,7 +35,12 @@ function UserAvatar() {
         />
       </div>
 
-      {openUserMenu && <UserMenu componentRef={modalRef} />}
+      {openUserMenu && (
+        <UserMenu
+          componentRef={modalRef}
+          closeModal={handleClick}
+        />
+      )}
     </section>
   );
 }

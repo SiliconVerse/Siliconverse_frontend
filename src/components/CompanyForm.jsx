@@ -5,6 +5,7 @@ import countryOptions from '../utils/country-options';
 import SignUpTC from './signup-tc';
 import { db } from '../hooks/auth/firebase';
 import { useAuth } from '../hooks/userAuth';
+import { sendEmailVerification } from 'firebase/auth';
 
 const CompanyForm = ({ handleTalentClick }) => {
   const { signup } = useAuth();
@@ -61,6 +62,7 @@ const CompanyForm = ({ handleTalentClick }) => {
           stateOfResdidence: state,
           role: 'company',
         });
+        await sendEmailVerification(user);
       }
       toast.success('Registered Company successfully 🎉', {
         position: 'top-center',

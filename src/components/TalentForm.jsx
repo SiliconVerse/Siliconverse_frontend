@@ -6,6 +6,7 @@ import SignUpTC from './signup-tc';
 import { skillSet } from '../utils/skillset';
 import { useAuth } from '../hooks/userAuth';
 import { db } from '../hooks/auth/firebase';
+import { sendEmailVerification } from 'firebase/auth';
 
 const TalentForm = ({ handleCompanyClick }) => {
   const { signup } = useAuth();
@@ -62,6 +63,7 @@ const TalentForm = ({ handleCompanyClick }) => {
           stateOfResdidence: state,
           role: 'talent',
         });
+        await sendEmailVerification(user);
       }
 
       toast.success('Registered successfully 🎉', { position: 'top-center' });

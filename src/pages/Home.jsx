@@ -1,11 +1,17 @@
+import { useMemo } from 'react';
 import Jobs from '../components/Jobs';
 import { useAuth } from '../hooks/userAuth';
 import { hero } from '../utils/images-export';
 import { NavLink } from 'react-router-dom';
+import { sendEmailVerification } from 'firebase/auth';
 
 const Home = () => {
   const { user } = useAuth();
-  console.log(user);
+  const isVerified = useMemo(() => user?.emailVerified, [user]);
+
+  const verifyEmail = async () => {
+    await sendEmailVerification(auth.currentUser);
+  };
   return (
     <>
       <div className='mx-auto px-auto bg-[#FDEFE9] px-5 md:px-10 pb-5'>
@@ -32,6 +38,13 @@ const Home = () => {
                   style={{ textDecoration: 'none' }}>
                   Get Started
                 </NavLink>
+              </button>
+            )}
+            {!isVerified && (
+              <button
+                className='bg-[#FF5F15] py-2 px-10 rounded-3xl text-white'
+                onClick={verifyEmail}>
+                Verify Email to Proceed
               </button>
             )}
           </div>
