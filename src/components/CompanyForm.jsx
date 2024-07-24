@@ -4,12 +4,10 @@ import { toast } from 'react-toastify';
 import countryOptions from '../utils/country-options';
 import SignUpTC from './signup-tc';
 import { db } from '../hooks/auth/firebase';
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/userAuth';
 
 const CompanyForm = ({ handleTalentClick }) => {
-  const navigate = useNavigate();
-  const { signup, updateUser } = useAuth();
+  const { signup } = useAuth();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -63,7 +61,6 @@ const CompanyForm = ({ handleTalentClick }) => {
           stateOfResdidence: state,
           role: 'company',
         });
-        await updateUser(user.uid);
       }
       toast.success('Registered Company successfully 🎉', {
         position: 'top-center',

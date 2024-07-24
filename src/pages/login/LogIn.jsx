@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './logIn.css';
 import { toast } from 'react-toastify';
 import { useAuth } from '../../hooks/userAuth';
@@ -7,13 +7,12 @@ import { useAuth } from '../../hooks/userAuth';
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { signin, updateUser } = useAuth();
+  const { signin } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const userData = await signin(email, password);
-      await updateUser(userData?.user?.uid);
       toast.success('Logged in successfully 🎉', { position: 'top-center' });
     } catch (error) {
       toast.error(error.message, { position: 'bottom-center' });

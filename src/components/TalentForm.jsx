@@ -8,7 +8,7 @@ import { useAuth } from '../hooks/userAuth';
 import { db } from '../hooks/auth/firebase';
 
 const TalentForm = ({ handleCompanyClick }) => {
-  const { signup, updateUser } = useAuth();
+  const { signup } = useAuth();
 
   const [formValues, setFormValues] = useState({
     firstName: '',
@@ -62,8 +62,6 @@ const TalentForm = ({ handleCompanyClick }) => {
           stateOfResdidence: state,
           role: 'talent',
         });
-        console.log(user);
-        await updateUser(user.uid);
       }
 
       toast.success('Registered successfully 🎉', { position: 'top-center' });

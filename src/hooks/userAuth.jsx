@@ -1,4 +1,3 @@
-// src/hooks/useAuth.js
 import { useState, useEffect, useContext, createContext } from 'react';
 import { auth, db } from './auth/firebase';
 import { getDoc, doc } from 'firebase/firestore';
@@ -23,34 +22,35 @@ export function AuthProvider({ children }) {
 export const useAuth = () => {
   return useContext(AuthContext);
 };
-
-// Custom hook to manage Firebase Authentication
 function useAuthProvider() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
+  const updateUser = async (uid, user) => {
+    const docRef = doc(db, 'Users', uid);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const userData = { ...docSnap.data(), ...user };
+      localStorage.setItem('user', JSON.stringify(userData));
+      setUser(userData);
+      navigate(`/${docSnap.data().role}-profile`);
+    }
+  };
+
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        setUser(user);
+        await updateUser(user.uid, user);
       } else {
         setUser(null);
+        localStorage.removeItem('user');
       }
     });
 
     // Cleanup subscription on unmount
     return () => unsubscribe();
-  }, []);
-
-  const updateUser = async (uid) => {
-    const docRef = doc(db, 'Users', uid);
-    const docSnap = await getDoc(docRef);
-
-    if (docSnap.exists()) {
-      setUser((prev) => ({ ...prev, ...docSnap.data() }));
-      navigate(`/${docSnap.data().role}-profile`);
-    }
-  };
+  }, [auth]);
 
   const signin = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
@@ -67,7 +67,6 @@ function useAuthProvider() {
 
   return {
     user,
-    updateUser,
     signin,
     signup,
     signout,

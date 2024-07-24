@@ -1,8 +1,11 @@
 import Jobs from '../components/Jobs';
+import { useAuth } from '../hooks/userAuth';
 import { hero } from '../utils/images-export';
 import { NavLink } from 'react-router-dom';
 
 const Home = () => {
+  const { user } = useAuth();
+  console.log(user);
   return (
     <>
       <div className='mx-auto px-auto bg-[#FDEFE9] px-5 md:px-10 pb-5'>
@@ -21,14 +24,16 @@ const Home = () => {
               </h2>
             </div>
 
-            <button className='bg-[#FF5F15] py-2 px-10 rounded-3xl text-white'>
-              <NavLink
-                to='/signup'
-                className='block w-full h-full text-white text-center'
-                style={{ textDecoration: 'none' }}>
-                Get Started
-              </NavLink>
-            </button>
+            {!user && (
+              <button className='bg-[#FF5F15] py-2 px-10 rounded-3xl text-white'>
+                <NavLink
+                  to='/signup'
+                  className='block w-full h-full text-white text-center'
+                  style={{ textDecoration: 'none' }}>
+                  Get Started
+                </NavLink>
+              </button>
+            )}
           </div>
 
           <div>
