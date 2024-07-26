@@ -1,0 +1,86 @@
+import useAuth from '@/stores/auth';
+import { jwtDecode } from 'jwt-decode';
+import axios from 'axios';
+
+const axiosInstance = axios.create({
+  baseURL: process.env.BACKEND_URL,
+});
+
+async function refreshToken(refreshToken) {
+  const auth = useAuth(); // Assuming this works due to context or similar mechanism
+  const response = await axiosInstance.post('/users/refresh-token', {
+    refreshToken,
+  });
+
+  if (response.data) {
+    auth.setUser(response.data);
+    return true;
+  }
+
+  return false;
+}
+
+let isRefreshing = false;
+let refreshPromise;
+
+axiosInstance.interceptors.request.use(
+  async (config) => {
+    const auth = useAuth();
+    const token = auth.token;
+    const refresh_token = auth.refreshToken;
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+
+      const decodedToken = jwtDecode(token);
+      const expirationTime = decodedToken.exp * 1000;
+      const currentTime = Date.now();
+      const timeUntilExpiration = expirationTime - currentTime;
+      const fiveMinutes = 1 * 60 * 1000;
+
+      if (timeUntilExpiration < fiveMinutes && !isRefreshing) {
+        isRefreshing = true;
+        const res = await refreshToken(refresh_token);
+        if (res) {
+          isRefreshing = false;
+          refreshPromise = null;
+        }
+      }
+    }
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+export default axiosInstance;
+
+export async function handleRequest(method, url) {
+  try {
+    const res = await axiosInstance[method](url);
+    if (!res.data) {
+      throw new Error('Please try again later');
+    }
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function handleSubmit(method, url, data) {
+  try {
+    const res = await axiosInstance[method](url, data);
+    if (!res.data) {
+      throw new Error('Please try again later');
+    }
+    return res.data;
+  } catch (error) {
+    if (error.response) {
+      throw error.response.data.message || error.message;
+    } else {
+      throw error.message;
+    }
+  }
+}

@@ -40,7 +40,7 @@ const Home = () => {
                 </NavLink>
               </button>
             )}
-            {!isVerified && (
+            {user && !isVerified && (
               <button
                 className='bg-[#FF5F15] py-2 px-10 rounded-3xl text-white'
                 onClick={verifyEmail}>
