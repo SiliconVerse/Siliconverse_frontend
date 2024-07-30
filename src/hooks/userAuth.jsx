@@ -1,13 +1,13 @@
-import { useState, useEffect, useContext, createContext } from 'react';
-import { auth, db } from './auth/firebase';
-import { getDoc, doc } from 'firebase/firestore';
+import { useState, useEffect, useContext, createContext } from "react";
+import { auth, db } from "./auth/firebase";
+import { getDoc, doc } from "firebase/firestore";
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
   createUserWithEmailAndPassword,
-} from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+} from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 // Create a context for the auth
 const AuthContext = createContext();
@@ -27,12 +27,12 @@ function useAuthProvider() {
   const navigate = useNavigate();
 
   const updateUser = async (uid, user) => {
-    const docRef = doc(db, 'Users', uid);
+    const docRef = doc(db, "Users", uid);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
       const userData = { ...docSnap.data(), ...user };
-      localStorage.setItem('user', JSON.stringify(userData));
+      localStorage.setItem("user", JSON.stringify(userData));
       setUser(userData);
       navigate(`/${docSnap.data().role}-profile`);
     }
@@ -40,11 +40,16 @@ function useAuthProvider() {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      console.log(user);
       if (user) {
-        await updateUser(user.uid, user);
+        if (!user.emailVerified) {
+          navigate(`/login`);
+        } else {
+          await updateUser(user.uid, user);
+        }
       } else {
         setUser(null);
-        localStorage.removeItem('user');
+        localStorage.removeItem("user");
       }
     });
 
@@ -62,7 +67,7 @@ function useAuthProvider() {
 
   const signout = () => {
     signOut(auth);
-    navigate('/');
+    navigate("/");
   };
 
   return {
