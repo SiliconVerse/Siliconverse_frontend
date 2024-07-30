@@ -63,7 +63,9 @@ const TalentForm = ({ handleCompanyClick }) => {
           stateOfResdidence: state,
           role: 'talent',
         });
-        await sendEmailVerification(user);
+        await sendEmailVerification(user,{
+          url:"https://siliconverse-frontend.vercel.app/login"
+        });
       }
 
       toast.success('Registered successfully 🎉', { position: 'top-center' });
