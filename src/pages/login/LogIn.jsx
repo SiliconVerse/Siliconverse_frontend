@@ -3,21 +3,33 @@ import { NavLink } from "react-router-dom";
 import "./logIn.css";
 import { toast } from "react-toastify";
 import { useAuth } from "../../hooks/userAuth";
+import Spinner from "../../components/spinner";
+import SubmitButton from "../../components/submit-btn";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { signin } = useAuth();
   const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
-      await signin(email, password);
-      setErrorMessage('')
+      const { user } = await signin(email, password);
+      if (!user.emailVerified) {
+        await sendEmailVerification(user, {
+          url: "https://siliconverse-frontend.vercel.app/login",
+        });
+        toast.info("Please check your mail for verification");
+      }
+      setErrorMessage("");
       toast.success("Logged in successfully 🎉", { position: "top-center" });
     } catch (error) {
       setErrorMessage(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -30,7 +42,9 @@ const LoginForm = () => {
         {/* logo */}
 
         <div className="mt-10 text-white w-full">
-            <p className="text-center font-bold text-red-500 text-lg">{errorMessage && errorMessage}</p>
+          <p className="text-center font-bold text-red-500 text-lg">
+            {errorMessage && errorMessage}
+          </p>
           <div className="form-titles">
             <h2 className="font-bold text-xl">Log in</h2>
           </div>
@@ -58,7 +72,10 @@ const LoginForm = () => {
 
             <div>
               <span className="text-primaryColor">Forgot Password?</span>
-              <button type="submit">Login</button>
+              <SubmitButton
+                text="Login"
+                isLoading={isLoading}
+              />
               <p className="text-center">
                 Don't have an account?
                 <NavLink to="/signup">

@@ -40,7 +40,6 @@ function useAuthProvider() {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      console.log(user);
       if (user) {
         if (!user.emailVerified) {
           navigate(`/login`);

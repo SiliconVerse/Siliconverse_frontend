@@ -8,6 +8,7 @@ import { useAuth } from "../hooks/userAuth";
 import { sendEmailVerification } from "firebase/auth";
 
 const CompanyForm = ({ handleTalentClick }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const { signup } = useAuth();
   const [formData, setFormData] = useState({
     firstName: "",
@@ -30,6 +31,7 @@ const CompanyForm = ({ handleTalentClick }) => {
   };
 
   const handleSubmit = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
@@ -72,24 +74,26 @@ const CompanyForm = ({ handleTalentClick }) => {
       });
     } catch (error) {
       toast.success(error.message, { position: "bottom-center" });
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="talent-form relative bg-white/10 flex-col-reverse lg:flex-row gap-5 font-roboto">
-      <form onSubmit={handleSubmit} className="flex-shrink-0">
+      <form
+        onSubmit={handleSubmit}
+        className="flex-shrink-0">
         <div className="flex items-center justify-evenly gap-5 max-w-md bg-primaryColor border-white px-2 rounded-2xl my-4 mx-auto">
           <button
             type="button"
             onClick={handleTalentClick}
-            className="block !border-primaryColor !bg-white !text-primaryColor !text-sm !capitalize !rounded-2xl !px-2 !p-2 hover:!bg-white/70 text-nowrap"
-          >
+            className="block !border-primaryColor !bg-white !text-primaryColor !text-sm !capitalize !rounded-2xl !px-2 !p-2 hover:!bg-white/70 text-nowrap">
             Talent Signup
           </button>
           <button
             type="button"
-            className="block !border-primaryColor !bg-white !text-primaryColor !text-sm !capitalize !rounded-2xl !px-2 !p-2 hover:!bg-white/70 font-bold text-nowrap"
-          >
+            className="block !border-primaryColor !bg-white !text-primaryColor !text-sm !capitalize !rounded-2xl !px-2 !p-2 hover:!bg-white/70 font-bold text-nowrap">
             Company Signup
           </button>
         </div>
@@ -167,13 +171,16 @@ const CompanyForm = ({ handleTalentClick }) => {
               name="location"
               value={formData.location}
               onChange={handleChange}
-              required
-            >
-              <option value="" disabled>
+              required>
+              <option
+                value=""
+                disabled>
                 Current Location (Country)
               </option>
               {countryOptions.map((country) => (
-                <option key={country} value={country}>
+                <option
+                  key={country}
+                  value={country}>
                   {country}
                 </option>
               ))}
@@ -218,7 +225,7 @@ const CompanyForm = ({ handleTalentClick }) => {
             />
           </div>
         </div>
-        <SignUpTC />
+        <SignUpTC isLoading={isLoading} />
       </form>
       <div className="rounded-lg text-sm md:text-base border border-primaryColor p-4 text-white mx-auto flex flex-col gap-4 items-center justify-center">
         <h3 className="text-center font-roboto font-bold text-xl md:text-xl">
