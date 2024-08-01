@@ -16,11 +16,6 @@ const TalentForm = ({ handleCompanyClick }) => {
     firstName: "",
     lastName: "",
     email: "",
-    phone: "",
-    skillset: "",
-    dob: "",
-    country: "",
-    state: "",
     password: "",
     confirmPassword: "",
   });
@@ -39,17 +34,7 @@ const TalentForm = ({ handleCompanyClick }) => {
       return;
     }
 
-    const {
-      email,
-      password,
-      firstName,
-      lastName,
-      phone,
-      skillset,
-      dob,
-      country,
-      state,
-    } = formValues;
+    const { email, password, firstName, lastName } = formValues;
     // Form submission logic
     try {
       const { user } = await signup(email, password);
@@ -59,11 +44,6 @@ const TalentForm = ({ handleCompanyClick }) => {
           email: user.email,
           firstName: firstName,
           lastName: lastName,
-          phone: phone,
-          skillset: skillset,
-          dateOfBirth: dob,
-          country: country,
-          stateOfResdidence: state,
           role: "talent",
         });
         await sendEmailVerification(user, {
@@ -140,91 +120,6 @@ const TalentForm = ({ handleCompanyClick }) => {
               required
             />
           </div>
-
-          <div className="w-full">
-            <label htmlFor="tel">Phone number:</label>
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone Number"
-              value={formValues.phone}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </div>
-
-        <div className="py-3">
-          <select
-            name="skillset"
-            value={formValues.skillset}
-            onChange={handleChange}
-            required>
-            <option
-              value={"defaultValue"}
-              defaultValue={"default"}>
-              Select Skill
-            </option>
-            {skillSet.map((skill) => (
-              <option
-                key={skill.value}
-                value={skill.value}>
-                {skill.text}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8">
-          <div className="w-full">
-            <label htmlFor="date">Date of Birth:</label>
-            <input
-              type="date"
-              name="dob"
-              placeholder="Date of Birth"
-              className="!m-0"
-              value={formValues.dob}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="w-full">
-            <label htmlFor="country">Current Location:</label>
-
-            <select
-              name="country"
-              value={formValues.country}
-              onChange={handleChange}
-              required
-              id="country"
-              className="!m-0">
-              <option
-                value=""
-                disabled>
-                Current Location (Country)
-              </option>
-              {countryOptions.map((country) => (
-                <option
-                  key={country}
-                  value={country}>
-                  {country}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        <div className="py-3">
-          <label htmlFor="state">State:</label>
-          <input
-            type="text"
-            name="state"
-            placeholder="State"
-            value={formValues.state}
-            onChange={handleChange}
-            required
-          />
         </div>
 
         <div className="w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8">

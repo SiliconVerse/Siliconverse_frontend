@@ -14,12 +14,9 @@ const CompanyForm = ({ handleTalentClick }) => {
     firstName: "",
     lastName: "",
     companyEmail: "",
-    companyPhone: "",
     organizationName: "",
-    location: "",
     password: "",
     confirmPassword: "",
-    state: "",
   });
 
   const handleChange = (e) => {
@@ -43,10 +40,7 @@ const CompanyForm = ({ handleTalentClick }) => {
       password,
       firstName,
       lastName,
-      companyPhone,
       organizationName,
-      location,
-      state,
     } = formData;
     // Form submission logic
 
@@ -58,10 +52,7 @@ const CompanyForm = ({ handleTalentClick }) => {
           email: user.email,
           firstName: firstName,
           lastName: lastName,
-          companyPhone: companyPhone,
           organizationName: organizationName,
-          location: location,
-          stateOfResdidence: state,
           role: "company",
         });
 
@@ -137,21 +128,6 @@ const CompanyForm = ({ handleTalentClick }) => {
               required
             />
           </div>
-
-          <div className="w-full">
-            <label htmlFor="tel">Organization phone number:</label>
-            <input
-              type="tel"
-              name="companyPhone"
-              placeholder="Company Phone Number"
-              value={formData.companyPhone}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </div>
-
-        <div className="w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8">
           <div className="w-full">
             <label htmlFor="organizationName">Organization name:</label>
             <input
@@ -163,41 +139,6 @@ const CompanyForm = ({ handleTalentClick }) => {
               required
             />
           </div>
-
-          <div className="w-full">
-            <label htmlFor="location">Current Location</label>
-            <select
-              id="location"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              required>
-              <option
-                value=""
-                disabled>
-                Current Location (Country)
-              </option>
-              {countryOptions.map((country) => (
-                <option
-                  key={country}
-                  value={country}>
-                  {country}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        <div className="py-3">
-          <label htmlFor="state">State located:</label>
-          <input
-            type="text"
-            name="state"
-            placeholder="State"
-            value={formData.state}
-            onChange={handleChange}
-            required
-          />
         </div>
 
         <div className="w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8">
