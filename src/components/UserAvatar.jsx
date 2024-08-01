@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
-import profileBigImg from '../assets/profileImgBig.png';
-import UserMenu from './UserMenuLinks';
+import { useEffect, useRef, useState } from "react";
+import profileBigImg from "../assets/profileImgBig.png";
+import UserMenu from "./UserMenuLinks";
+import { useAuth } from "../hooks/userAuth";
 
 function UserAvatar() {
   const [openUserMenu, setOpenUserMenu] = useState(false);
   const modalRef = useRef();
+  const { user } = useAuth();
 
   // Helper function for closing the modal on outside click
   useEffect(() => {
@@ -14,10 +16,10 @@ function UserAvatar() {
       }
     };
 
-    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
 
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, []);
 
@@ -25,12 +27,12 @@ function UserAvatar() {
     setOpenUserMenu(!openUserMenu);
   };
   return (
-    <section className='relative'>
-      <div className='h-10 aspect-square rounded-full overflow-hidden border-2 border-white'>
+    <section className="relative">
+      <div className="h-10 aspect-square rounded-full overflow-hidden border-2 border-white">
         <img
-          src={profileBigImg}
-          alt='Profile Picture'
-          className='w-full h-full object-cover object-top'
+          src={user?.profilePicture ?? profileBigImg}
+          alt="Profile Picture"
+          className="w-full h-full object-cover object-top"
           onClick={handleClick}
         />
       </div>
