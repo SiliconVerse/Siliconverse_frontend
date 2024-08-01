@@ -40,7 +40,7 @@ const SideBar = () => {
       <div className="w-24 aspect-square mx-auto">
         <aside className="relative overflow-hidden rounded-full group">
           {/* Profile Picture */}
-          <SidebarPhoto uid={user?.uid} />
+          <SidebarPhoto key={"desktop"} />
         </aside>
         <aside className={"space-y-1 text-center font-bold"}>
           <h2>{user?.firstName}</h2>
