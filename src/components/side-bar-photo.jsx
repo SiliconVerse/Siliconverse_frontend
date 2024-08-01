@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
 import { doc, updateDoc } from "firebase/firestore";
 import { PencilIcon } from "lucide-react";
 import profileBigImg from "../assets/profileImgBig.png";
@@ -50,12 +55,17 @@ function SidebarPhoto() {
       const userRef = doc(db, "Users", user?.uid);
       await updateDoc(userRef, { profilePicture: downloadURL });
       await updateUser(user);
+
+      if (user?.profilePicture) {
+        const oldImageRef = ref(storage, user.profilePicture);
+        await deleteObject(oldImageRef);
+      }
     } catch (error) {
       console.error("Error uploading file: ", error);
       alert("Error uploading file.");
     } finally {
       setUploading(false);
-      setPreview(null); // Reset the preview after successful upload
+      setPreview(null);
     }
   };
 
