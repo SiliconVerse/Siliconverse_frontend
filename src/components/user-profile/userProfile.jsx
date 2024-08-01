@@ -9,7 +9,7 @@ const UserProfile = () => {
 
   return (
     <section>
-      <div className="md:hidden aspect-square h-40 mx-auto overflow-hidden relative mb-4">
+      <div className="md:hidden aspect-square h-40 mx-auto overflow-hidden relative mb-4 rounded-full">
         <SidebarPhoto key={"mobile"} />
       </div>
       <div>
