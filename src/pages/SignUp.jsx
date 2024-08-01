@@ -1,22 +1,22 @@
-import { useState } from 'react';
-import './signup.css';
-import TalentForm from '../components/TalentForm';
-import CompanyForm from '../components/CompanyForm';
-import SignUpIntro from '../components/signup-intro';
+import { useState } from "react";
+import "../styles/signup.css";
+import TalentForm from "../components/TalentForm";
+import CompanyForm from "../components/CompanyForm";
+import SignUpIntro from "../components/signup-intro";
 
 const SignUp = () => {
   const [formType, setFormType] = useState(null);
 
   const handleTalentClick = () => {
-    setFormType('talent');
+    setFormType("talent");
   };
 
   const handleCompanyClick = () => {
-    setFormType('company');
+    setFormType("company");
   };
 
   return (
-    <div className='flex items-center justify-center flex-col p-4 md:p-11 lg:p-14 min-h-[calc(100vh-106px)] signUp-bg-image w-full '>
+    <div className="flex items-center justify-center flex-col p-4 md:p-11 lg:p-14 min-h-[calc(100vh-106px)] signUp-bg-image w-full ">
       {formType == null && (
         <SignUpIntro
           handleCompanyClick={handleCompanyClick}
@@ -24,10 +24,10 @@ const SignUp = () => {
         />
       )}
 
-      {formType === 'talent' && (
+      {formType === "talent" && (
         <TalentForm handleCompanyClick={handleCompanyClick} />
       )}
-      {formType === 'company' && (
+      {formType === "company" && (
         <CompanyForm handleTalentClick={handleTalentClick} />
       )}
     </div>

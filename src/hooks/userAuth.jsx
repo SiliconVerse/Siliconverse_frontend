@@ -26,8 +26,8 @@ function useAuthProvider() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const updateUser = async (uid, user) => {
-    const docRef = doc(db, "Users", uid);
+  const updateUser = async (user) => {
+    const docRef = doc(db, "Users", user.uid);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
@@ -44,7 +44,7 @@ function useAuthProvider() {
         if (!user.emailVerified) {
           navigate(`/login`);
         } else {
-          await updateUser(user.uid, user);
+          await updateUser(user);
         }
       } else {
         setUser(null);
@@ -74,5 +74,6 @@ function useAuthProvider() {
     signin,
     signup,
     signout,
+    updateUser,
   };
 }

@@ -1,14 +1,13 @@
-import useAuth from '@/stores/auth';
-import { jwtDecode } from 'jwt-decode';
-import axios from 'axios';
+import axios from "axios";
+import { useAuth } from "../hooks/userAuth";
 
 const axiosInstance = axios.create({
-  baseURL: process.env.BACKEND_URL,
+  baseURL: "https://siliconverse-backend.onrender.com",
 });
 
 async function refreshToken(refreshToken) {
   const auth = useAuth(); // Assuming this works due to context or similar mechanism
-  const response = await axiosInstance.post('/users/refresh-token', {
+  const response = await axiosInstance.post("/users/refresh-token", {
     refreshToken,
   });
 
@@ -23,45 +22,29 @@ async function refreshToken(refreshToken) {
 let isRefreshing = false;
 let refreshPromise;
 
-axiosInstance.interceptors.request.use(
-  async (config) => {
-    const auth = useAuth();
-    const token = auth.token;
-    const refresh_token = auth.refreshToken;
-
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-
-      const decodedToken = jwtDecode(token);
-      const expirationTime = decodedToken.exp * 1000;
-      const currentTime = Date.now();
-      const timeUntilExpiration = expirationTime - currentTime;
-      const fiveMinutes = 1 * 60 * 1000;
-
-      if (timeUntilExpiration < fiveMinutes && !isRefreshing) {
-        isRefreshing = true;
-        const res = await refreshToken(refresh_token);
-        if (res) {
-          isRefreshing = false;
-          refreshPromise = null;
-        }
+const updateToken = (token) => {
+  axiosInstance.interceptors.request.use(
+    async (config) => {
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
       }
-    }
 
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
+};
 
 export default axiosInstance;
 
-export async function handleRequest(method, url) {
+export async function handleRequest(method, url, token) {
   try {
+    updateToken(token);
     const res = await axiosInstance[method](url);
     if (!res.data) {
-      throw new Error('Please try again later');
+      throw new Error("Please try again later");
     }
     return res.data;
   } catch (error) {
@@ -69,11 +52,12 @@ export async function handleRequest(method, url) {
   }
 }
 
-export async function handleSubmit(method, url, data) {
+export async function handleSubmit(method, url, data, token) {
   try {
+    updateToken(token);
     const res = await axiosInstance[method](url, data);
     if (!res.data) {
-      throw new Error('Please try again later');
+      throw new Error("Please try again later");
     }
     return res.data;
   } catch (error) {

@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import styles from './companyProfile.module.css';
-import { ReactPortal } from '../../hooks/portal';
-import { Upload } from 'lucide-react';
-import CompanyModalUpdates from '../company-api-modal/companyModal';
+import { useState } from "react";
+import styles from "./companyProfile.module.css";
+import { ReactPortal } from "../../hooks/portal";
+import { Upload } from "lucide-react";
+import CompanyModalUpdates from "../company-api-modal/companyModal";
 
 const CompanyProfileForm = () => {
-  const [caption, setCaption] = useState('');
-  const [post, setPost] = useState('');
+  const [caption, setCaption] = useState("");
+  const [post, setPost] = useState("");
   const [show, setShow] = useState(false);
   function handleSaveClick() {
     setShow(true);
@@ -25,18 +25,18 @@ const CompanyProfileForm = () => {
           <section className={styles.formGroup_container}>
             <div className={styles.formGroup}>
               <aside>
-                <label htmlFor='caption'>{'Caption:'}</label>
+                <label htmlFor="caption">{"Caption:"}</label>
                 <input
-                  type='text'
-                  id='caption'
-                  placeholder='Enter caption here...'
+                  type="text"
+                  id="caption"
+                  placeholder="Enter caption here..."
                   value={caption}
                   onChange={(e) => setCaption(e.target.value)}
                 />
               </aside>
               <textarea
-                name='post'
-                placeholder='Write your post...'
+                name="post"
+                placeholder="Write your post..."
                 value={post}
                 rows={
                   post.length > 300
@@ -52,12 +52,12 @@ const CompanyProfileForm = () => {
             </div>
             <aside className={styles.formGroup_btns}>
               <button
-                type='button'
-                className='flex gap-4 items-center'>
+                type="button"
+                className="flex gap-4 items-center">
                 <span>
                   <Upload
                     size={20}
-                    className='text-black text-center'
+                    className="text-black text-center"
                   />
                 </span>
                 Upload File
@@ -66,8 +66,8 @@ const CompanyProfileForm = () => {
                 You can Upload a media or document file
               </span>
               <button
-                type='button'
-                className={styles.formGroup_btn + ' ' + styles.btn_2}
+                type="button"
+                className={styles.formGroup_btn + " " + styles.btn_2}
                 onClick={handleSaveClick}>
                 Save
               </button>
@@ -84,7 +84,7 @@ const CompanyProfileForm = () => {
         <ReactPortal setState={setShow}>
           {/* This should Recieve a state to rerun the post request when a user clicks on try Again */}
           <CompanyModalUpdates
-            status={'loading'}
+            status={"loading"}
             setState={setShow}
           />
         </ReactPortal>
