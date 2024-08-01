@@ -2,9 +2,11 @@ import { useState } from "react";
 import { db } from "../hooks/auth/firebase";
 import { useAuth } from "../hooks/userAuth";
 import { doc, updateDoc } from "firebase/firestore";
+import SubmitButton from "./submit-btn";
 
 const UserDataForm = ({ userData, setState }) => {
   const { updateUser } = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     phone: userData.phone ?? "",
     firstName: userData.firstName ?? "",
@@ -23,13 +25,16 @@ const UserDataForm = ({ userData, setState }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const userRef = doc(db, "Users", userData.uid);
-      const res = await updateDoc(userRef, formData);
+      await updateDoc(userRef, formData);
       await updateUser(userData);
       setState(false);
     } catch (e) {
       console.error("Error updating document: ", e);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -160,11 +165,12 @@ const UserDataForm = ({ userData, setState }) => {
         </div>
       </div>
       <div className="mt-4">
-        <button
-          type="submit"
-          className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primaryColor hover:bg-primaryColor/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primaryColor">
-          Submit
-        </button>
+        <SubmitButton
+          className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primaryColor hover:bg-primaryColor/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primaryColor"
+          text="Update"
+          isLoading={isLoading}
+        />
+
         <button
           type="button"
           onClick={() => setState(false)}

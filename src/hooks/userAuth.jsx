@@ -1,4 +1,10 @@
-import { useState, useEffect, useContext, createContext } from "react";
+import {
+  useState,
+  useEffect,
+  useContext,
+  createContext,
+  useCallback,
+} from "react";
 import { auth, db } from "./auth/firebase";
 import { getDoc, doc } from "firebase/firestore";
 import {
@@ -26,12 +32,12 @@ function useAuthProvider() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const updateUser = async (user) => {
-    const docRef = doc(db, "Users", user.uid);
+  const updateUser = async (data) => {
+    const docRef = doc(db, "Users", data.uid);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      const userData = { ...docSnap.data(), ...user };
+      const userData = { ...data, ...docSnap.data() };
       localStorage.setItem("user", JSON.stringify(userData));
       setUser(userData);
       navigate(`/${docSnap.data().role}-profile`);
@@ -44,7 +50,7 @@ function useAuthProvider() {
         if (!user.emailVerified) {
           navigate(`/login`);
         } else {
-          await updateUser(user);
+          updateUser(user);
         }
       } else {
         setUser(null);
