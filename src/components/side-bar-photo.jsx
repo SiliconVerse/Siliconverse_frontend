@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ref,
   uploadBytes,
@@ -69,6 +69,15 @@ function SidebarPhoto() {
     }
   };
 
+  // Trigger the file input click event after setting up the event listener
+  useEffect(() => {
+    const fileInput = document.getElementById("profile");
+    fileInput.addEventListener("change", handleFileChange);
+    return () => {
+      fileInput.removeEventListener("change", handleFileChange);
+    };
+  }, []);
+
   return (
     <div className="relative group">
       <label
@@ -87,7 +96,7 @@ function SidebarPhoto() {
             <button
               onClick={handleUpload}
               disabled={uploading}
-              className="text-black font-bold underline">
+              className="text-white font-bold underline">
               {uploading ? "Uploading..." : "Upload"}
             </button>
           ) : (
