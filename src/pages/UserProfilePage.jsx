@@ -18,8 +18,8 @@ const UserProfilePage = () => {
       )}
 
       {userParam == "settings" && <UserSettings />}
-      {userParam == "projects" && <UserProjects />}
-      {userParam == "portfolio" && <UserPortfolio />}
+      {/* {userParam == "projects" && <UserProjects />} */}
+      {/* {userParam == "portfolio" && <UserPortfolio />} */}
       {userParam == "history" && <UserHistory />}
       {userParam == "preference" && <UserPreferences />}
     </div>

@@ -16,7 +16,24 @@ const UserDataForm = ({ userData, setState }) => {
     skillset: userData.skillset ?? "",
     university: userData.university ?? "",
     degree: userData.degree ?? "",
+    github: userData.github ?? "",
+    linkedIn: userData.linkedIn ?? "",
+    website: userData.website ?? "",
   });
+
+  function isValidUrlRegex(url) {
+    const regex =
+      /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+    return regex.test(url);
+  }
+
+  function getFormattedUrl(url) {
+    if (isValidUrlRegex(url)) {
+      return true;
+    } else {
+      false;
+    }
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -163,6 +180,72 @@ const UserDataForm = ({ userData, setState }) => {
             onChange={handleChange}
           />
         </div>
+        {/* Social handles */}
+        {/* <aside> */}
+        <div>
+          <label
+            className="block text-sm font-medium"
+            htmlFor="github">
+            Github
+            {formData.github.length > 1 && (
+              <span className="ml-3 text-red-500 text-sm">
+                {!getFormattedUrl(formData.github) &&
+                  "Invalid Link, do include http or https"}
+              </span>
+            )}
+          </label>
+          <input
+            className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
+            type="text"
+            id="github"
+            name="github"
+            value={formData.github}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label
+            className="block text-sm font-medium"
+            htmlFor="linkedIn">
+            LinkedIn
+            {formData.linkedIn.length > 1 && (
+              <span className="ml-3 text-red-500 text-sm">
+                {!getFormattedUrl(formData.linkedIn) &&
+                  "Invalid Link, do include http or https"}
+              </span>
+            )}
+          </label>
+          <input
+            className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
+            type="text"
+            id="linkedIn"
+            name="linkedIn"
+            value={formData.linkedIn}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label
+            className="block text-sm font-medium"
+            htmlFor="website">
+            Website
+            {formData.website.length > 1 && (
+              <span className="ml-3 text-red-500 text-sm">
+                {!getFormattedUrl(formData.website) &&
+                  "Invalid Link, do include http or https"}
+              </span>
+            )}
+          </label>
+          <input
+            className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
+            type="text"
+            id="website"
+            name="website"
+            value={formData.website}
+            onChange={handleChange}
+          />
+        </div>
+        {/* </aside> */}
       </div>
       <div className="mt-4">
         <SubmitButton
