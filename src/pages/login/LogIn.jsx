@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import "./logIn.css";
 import { toast } from "react-toastify";
 import { useAuth } from "../../hooks/userAuth";
-import Spinner from "../../components/spinner";
 import SubmitButton from "../../components/submit-btn";
 
 const LoginForm = () => {
