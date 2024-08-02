@@ -1,4 +1,4 @@
-import PasswordUpdate from "./PasswordUpdate";
+import PasswordUpdate from "../PasswordUpdate";
 
 function UserSettings() {
   return (
