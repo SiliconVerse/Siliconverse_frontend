@@ -1,9 +1,7 @@
 import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import countryOptions from "../utils/country-options";
 import SignUpTC from "./signup-tc";
-import { skillSet } from "../utils/skillset";
 import { useAuth } from "../hooks/userAuth";
 import { db } from "../hooks/auth/firebase";
 import { sendEmailVerification } from "firebase/auth";
@@ -45,6 +43,7 @@ const TalentForm = ({ handleCompanyClick }) => {
           firstName: firstName,
           lastName: lastName,
           role: "talent",
+          internship_status: "pending",
         });
         await sendEmailVerification(user, {
           url: "https://siliconverse-frontend.vercel.app/login",

@@ -1,7 +1,6 @@
 import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import countryOptions from "../utils/country-options";
 import SignUpTC from "./signup-tc";
 import { db } from "../hooks/auth/firebase";
 import { useAuth } from "../hooks/userAuth";
