@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BiMenuAltLeft } from "react-icons/bi";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { navLinks } from "../utils/links";
 import NavbarAuth from "./navbar-auth";
 import UserAvatar from "./UserAvatar";

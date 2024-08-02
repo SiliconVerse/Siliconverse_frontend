@@ -44,6 +44,7 @@ const TalentForm = ({ handleCompanyClick }) => {
           lastName: lastName,
           role: "talent",
           internship_status: "pending",
+          date_joined: new Date(Date.now()).toLocaleString().split(",")[0],
         });
         await sendEmailVerification(user, {
           url: "https://siliconverse-frontend.vercel.app/login",
