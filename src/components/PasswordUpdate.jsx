@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SubmitButton from "../submit-btn";
+import SubmitButton from "./submit-btn";
 import { getAuth, signOut, updatePassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
