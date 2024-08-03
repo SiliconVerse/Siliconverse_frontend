@@ -1,91 +1,97 @@
-import { Routes, Route } from 'react-router-dom';
-import Footer from './components/Footer.jsx';
-import Navbar from './components/Navbar.jsx';
-import Home from './pages/Home.jsx';
-import About from './pages/About.jsx';
-import Interns from './pages/Interns.jsx';
-import Mission from './pages/Mission.jsx';
-import CompanyProfilePage from './pages/CompanyProfilePage.jsx';
-import Layout from './components/layout/layout.jsx';
-import CurriculumVitae from './pages/CurriculumVitae.jsx';
-import HelpCenter from './pages/HelpCenter.jsx';
-import UserProfile from './pages/UserProfilePage.jsx';
-import Magazine from './pages/Magazine.jsx';
-import LoginForm from './pages/login/LogIn.jsx';
-import SignUp from './pages/SignUp.jsx';
-import { ToastContainer } from 'react-toastify';
-import Organization from './pages/Organization.jsx';
-import 'react-toastify/dist/ReactToastify.css';
-import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
-import NotFound from './pages/notFound.jsx';
-import ScrollToTop from './hooks/scroll-top.jsx';
+import { Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer.jsx";
+import Navbar from "./components/Navbar.jsx";
+import Home from "./pages/Home.jsx";
+import About from "./pages/About.jsx";
+import Interns from "./pages/Interns.jsx";
+import Mission from "./pages/Mission.jsx";
+import CompanyProfilePage from "./pages/CompanyProfilePage.jsx";
+import Layout from "./components/layout/layout.jsx";
+import CurriculumVitae from "./pages/CurriculumVitae.jsx";
+import HelpCenter from "./pages/HelpCenter.jsx";
+import UserProfile from "./pages/UserProfilePage.jsx";
+import Magazine from "./pages/Magazine.jsx";
+import LoginForm from "./pages/login/LogIn.jsx";
+import SignUp from "./pages/SignUp.jsx";
+import { ToastContainer } from "react-toastify";
+import Organization from "./pages/Organization.jsx";
+import "react-toastify/dist/ReactToastify.css";
+import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
+import NotFound from "./pages/notFound.jsx";
+import ScrollToTop from "./hooks/scroll-top.jsx";
+import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 
 const App = () => {
   return (
-    <div className='w-full'>
+    <div className="w-full">
       <Navbar />
       <ScrollToTop />
-      <div className='w-full mt-[90px] md:mt-0 min-h-[calc(100vh-106px)]'>
+      <div className="w-full mt-[90px] md:mt-0 min-h-[calc(100vh-106px)]">
         <Routes>
           <Route
-            path='/'
+            path="/"
             element={<Home />}
           />
           <Route
-            path='/about'
+            path="/about"
             element={<About />}
           />
           <Route
-            path='/interns'
+            path="/interns"
             element={<Interns />}
           />
           <Route
-            path='/mission'
+            path="/mission"
             element={<Mission />}
           />
           {/* Wrapper */}
           <Route element={<Layout />}>
             <Route
-              path='company-profile'
+              path="company-profile"
               element={<CompanyProfilePage />}
             />
             <Route
-              path='/talent-profile'
+              path="/talent-profile"
               element={<UserProfile />}
             />
           </Route>
+          {/* Wrapper */}
 
           <Route
-            path='/curriculumvitae'
+            path="/curriculumvitae"
             element={<CurriculumVitae />}
           />
           <Route
-            path='/help'
+            path="/terms"
+            element={<TermsAndConditions />}
+          />
+          <Route
+            path="/help"
             element={<HelpCenter />}
           />
           <Route
-            path='/magazine'
+            path="/magazine"
             element={<Magazine />}
           />
           <Route
-            path='/login'
+            path="/login"
             element={<LoginForm />}
           />
           <Route
-            path='/signup'
+            path="/signup"
             element={<SignUp />}
           />
           <Route
-            path='/organization'
+            path="/organization"
             element={<Organization />}
           />
           <Route
-            path='/privacy'
+            path="/privacy"
             element={<PrivacyPolicy />}
           />
 
           <Route
-            path='*'
+            path="*"
             element={<NotFound />}
           />
         </Routes>

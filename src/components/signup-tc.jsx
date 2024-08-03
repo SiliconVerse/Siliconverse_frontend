@@ -11,9 +11,11 @@ function SignUpTC({ isLoading }) {
       />
       <p>
         By signing up, you accept our{" "}
-        <span className="text-primaryColor text-base md:text-lg drop-shadow-md font-roboto">
+        <Link
+          to="/terms"
+          className="text-primaryColor text-base md:text-lg drop-shadow-md font-roboto">
           terms and conditions
-        </span>
+        </Link>
       </p>
       <p>
         Already have an account?

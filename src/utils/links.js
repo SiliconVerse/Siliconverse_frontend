@@ -3,10 +3,10 @@ export const navLinks = [
     id: "/about",
     title: "About",
   },
-  {
-    id: "/mission",
-    title: "Mission",
-  },
+  // {
+  //   id: "/mission",
+  //   title: "Mission",
+  // },
   {
     id: "/organization",
     title: "Organisations",
@@ -35,7 +35,7 @@ export const footerLinks = [
     title: "Privacy Policy",
   },
   {
-    id: "/tandc",
+    id: "/terms",
     title: "Terms and Conditions",
   },
   {
