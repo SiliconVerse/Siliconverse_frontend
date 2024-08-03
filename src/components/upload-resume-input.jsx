@@ -39,9 +39,9 @@ function UploadResumeInput() {
             </p>
           )}
         </div>
-        <button className="bg-primaryColor text-white p-2 mt-3 px-5 rounded-lg text-xs w-full">
+        {/* <button className="bg-primaryColor text-white p-2 mt-3 px-5 rounded-lg text-xs w-full">
           Share
-        </button>
+        </button> */}
       </div>
     </div>
   );
