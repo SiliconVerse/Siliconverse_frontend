@@ -3,6 +3,7 @@ import { db } from "../hooks/auth/firebase";
 import { useAuth } from "../hooks/userAuth";
 import { doc, updateDoc } from "firebase/firestore";
 import SubmitButton from "./submit-btn";
+import { skillSet } from "../utils/skillset";
 
 const UserDataForm = ({ userData, setState }) => {
   const { updateUser } = useAuth();
@@ -13,6 +14,7 @@ const UserDataForm = ({ userData, setState }) => {
     lastName: userData.lastName ?? "",
     email: userData.email ?? "",
     location: userData.country ?? "",
+    stateOfResdidence: userData.stateOfResdidence ?? "",
     skillset: userData.skillset ?? "",
     university: userData.university ?? "",
     degree: userData.degree ?? "",
@@ -59,6 +61,12 @@ const UserDataForm = ({ userData, setState }) => {
     <form
       className="max-w-4xl mx-auto p-4"
       onSubmit={handleSubmit}>
+      <button
+        type="button"
+        onClick={() => setState(false)}
+        className="text-white underline mx-auto text-center block">
+        Cancel
+      </button>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white">
         <div>
           <label
@@ -124,7 +132,7 @@ const UserDataForm = ({ userData, setState }) => {
           <label
             className="block text-sm font-medium"
             htmlFor="location">
-            Location
+            Country
           </label>
           <input
             className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
@@ -138,17 +146,38 @@ const UserDataForm = ({ userData, setState }) => {
         <div>
           <label
             className="block text-sm font-medium"
-            htmlFor="skillset">
-            Skillset
+            htmlFor="stateOfResdidence">
+            City/State of Residence
           </label>
           <input
             className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
             type="text"
-            id="skillset"
-            name="skillset"
-            value={formData.skillset}
+            id="stateOfResdidence"
+            name="stateOfResdidence"
+            value={formData.stateOfResdidence}
             onChange={handleChange}
           />
+        </div>
+        <div>
+          <label
+            className="block text-sm font-medium"
+            htmlFor="skillset">
+            Skillset
+          </label>
+          <select
+            name="skillset"
+            className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
+            id="skillset"
+            value={formData.skillset} // Controlled by state
+            onChange={handleChange}>
+            {skillSet.map((skill, idx) => (
+              <option
+                key={idx + skill}
+                value={skill}>
+                {skill}
+              </option>
+            ))}
+          </select>
         </div>
         <div>
           <label
@@ -228,7 +257,7 @@ const UserDataForm = ({ userData, setState }) => {
           <label
             className="block text-sm font-medium"
             htmlFor="website">
-            Website
+            Portfolio Link
             {formData.website.length > 1 && (
               <span className="ml-3 text-red-500 text-sm">
                 {!getFormattedUrl(formData.website) &&
