@@ -4,6 +4,7 @@ import "./logIn.css";
 import { toast } from "react-toastify";
 import { useAuth } from "../../hooks/userAuth";
 import SubmitButton from "../../components/submit-btn";
+import { sendEmailVerification } from "firebase/auth";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
