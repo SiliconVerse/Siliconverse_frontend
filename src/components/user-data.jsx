@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import UserDataForm from "./update-user-data";
 import { useAuth } from "../hooks/userAuth";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import TalentSocials from "./talentSocials";
 
 function UserData() {
   const { user } = useAuth();
@@ -25,39 +26,7 @@ function UserData() {
               <span className="block font-semibold">Email</span>
               {userData.email}
             </p>
-            <div className="flex gap-3 items-end">
-              {userData.linkedIn && (
-                <a
-                  href={userData.linkedIn}
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  <FaLinkedin
-                    size={32}
-                    className="text-blue-600"
-                  />
-                </a>
-              )}
-              {userData.github && (
-                <a
-                  href={userData.github}
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  <FaGithub
-                    size={32}
-                    className="text-gray-900"
-                  />
-                </a>
-              )}
-              {userData.website && (
-                <a
-                  href={userData.website}
-                  target="_blank"
-                  className="text-primaryColor underline underline-offset-4"
-                  rel="noopener noreferrer">
-                  Porfolio
-                </a>
-              )}
-            </div>
+            <TalentSocials userData={userData} />
             <div className="flex gap-3">
               {userData.country && (
                 <p className="capitalize">

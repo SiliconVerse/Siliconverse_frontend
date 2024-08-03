@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../hooks/auth/firebase";
 import internsImageBanner from "../assets/internspageimage.png";
+import SingleIntern from "../components/singleIntern";
 
 const Interns = () => {
   const [interns, setInterns] = useState([]);
@@ -50,30 +51,15 @@ const Interns = () => {
         </div>
       </div>
 
-      {interns &&
-        interns.map((intern) => (
-          <div
-            className="flex"
-            key={intern.id}>
-            <aside>
-              <div className="relative w-[220px] md:max-w-[300px] rounded-2xl aspect-square">
-                <img
-                  src={internsImageBanner}
-                  alt="interns banner image"
-                  className="relative w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <p className="capitalize text-primaryColor font-semibold">
-                  {intern.firstName.toLowerCase() +
-                    " " +
-                    intern.lastName.toLowerCase()}
-                </p>
-              </div>
-            </aside>
-            <aside></aside>
-          </div>
-        ))}
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 border p-5 gap-4 gap-y-6">
+        {interns &&
+          interns.map((intern) => (
+            <SingleIntern
+              intern={intern}
+              key={intern.id}
+            />
+          ))}
+      </div>
     </section>
   );
 };
