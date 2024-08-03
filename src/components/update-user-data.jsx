@@ -188,6 +188,7 @@ const UserDataForm = ({ userData, setState }) => {
             id="skillset"
             value={formData.skillset} // Controlled by state
             onChange={handleChange}>
+            <option value="select">Choose a skillset</option>
             {skillSet.map((skill, idx) => (
               <option
                 key={idx + skill}
