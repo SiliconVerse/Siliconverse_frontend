@@ -18,7 +18,8 @@ function UserData() {
               <span className="block font-semibold">Full Name</span>
               {userData.firstName.toLowerCase() +
                 " " +
-                userData.lastName.toLowerCase()}
+                userData.lastName.toLowerCase()}{" "}
+              {userData.gender && `(${userData.gender})`}
             </p>
             <p className="w-1/2">
               <span className="block font-semibold">Email</span>
