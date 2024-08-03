@@ -14,7 +14,7 @@ const UserDataForm = ({ userData, setState }) => {
     lastName: userData.lastName ?? "",
     gender: userData.gender ?? "",
     email: userData.email ?? "",
-    location: userData.country ?? "",
+    country: userData.country ?? "",
     stateOfResdidence: userData.stateOfResdidence ?? "",
     skillset: userData.skillset ?? "",
     university: userData.university ?? "",
@@ -111,6 +111,7 @@ const UserDataForm = ({ userData, setState }) => {
             className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
             value={formData.gender}
             onChange={handleChange}>
+            <option value="select">Choose Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
@@ -148,15 +149,15 @@ const UserDataForm = ({ userData, setState }) => {
         <div>
           <label
             className="block text-sm font-medium"
-            htmlFor="location">
+            htmlFor="country">
             Country
           </label>
           <input
             className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
             type="text"
-            id="location"
-            name="location"
-            value={formData.location}
+            id="country"
+            name="country"
+            value={formData.country}
             onChange={handleChange}
           />
         </div>

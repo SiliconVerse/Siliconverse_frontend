@@ -31,16 +31,16 @@ const Interns = () => {
 
   return (
     <section>
-      <div className="flex flex-col md:flex-row px-5 pt-10 gap-3 md:justify-around mx-auto w-full bg-background-color">
+      <div className="flex flex-col md:flex-row px-5 py-14 gap-3 md:justify-around mx-auto w-full bg-background-color">
         <div>
-          <h3 className="font-bold text-xl md:text-3xl max-w-[80%]">
+          <h3 className="font-bold text-xl md:2xl lg:text-3xl max-w-[80%]">
             Get to know your interns in one view
           </h3>
-          <p className="my-2">
+          <p className="my-2 max-w-[80%]">
             Let&#39;s get you started on getting that intern you want.
           </p>
         </div>
-        <div className="relative mx-auto md:max-w-md rounded-2xl ">
+        <div className="relative mx-auto max-w-xs lg:max-w-md rounded-2xl ">
           <div className="hidden md:block absolute -left-8 rounded-2xl w-full h-full bg-primaryColor -top-8"></div>
           <img
             src={internsImageBanner}
@@ -52,7 +52,9 @@ const Interns = () => {
 
       {interns &&
         interns.map((intern) => (
-          <div className="flex">
+          <div
+            className="flex"
+            key={intern.id}>
             <aside>
               <div className="relative w-[220px] md:max-w-[300px] rounded-2xl aspect-square">
                 <img

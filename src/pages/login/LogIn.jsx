@@ -34,6 +34,7 @@ const LoginForm = () => {
           url: "https://siliconverse-frontend.vercel.app/login",
         });
         toast.info("Please check your mail for verification");
+        return;
       }
       setErrorMessage("");
       toast.success("Logged in successfully 🎉", { position: "top-center" });
