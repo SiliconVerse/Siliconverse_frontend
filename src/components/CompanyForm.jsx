@@ -5,6 +5,7 @@ import SignUpTC from "./signup-tc";
 import { db } from "../hooks/auth/firebase";
 import { useAuth } from "../hooks/userAuth";
 import { sendEmailVerification } from "firebase/auth";
+import PasswordViewer from "./password-viewer";
 
 const CompanyForm = ({ handleTalentClick }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -31,6 +32,13 @@ const CompanyForm = ({ handleTalentClick }) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
+      setIsLoading(false);
+      return;
+    }
+
+    if (formData.password.length < 7) {
+      alert("Password too short");
+      setIsLoading(false);
       return;
     }
 
@@ -141,29 +149,18 @@ const CompanyForm = ({ handleTalentClick }) => {
         </div>
 
         <div className="w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8">
-          <div className="w-full">
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="w-full">
-            <label htmlFor="confirmPassword">Confirm password:</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <PasswordViewer
+            label={"password"}
+            value={formData.password}
+            name={"password"}
+            setPassword={handleChange}
+          />
+          <PasswordViewer
+            label={"Confirm Password"}
+            name={"confirmPassword"}
+            value={formData.confirmPassword}
+            setPassword={handleChange}
+          />
         </div>
         <SignUpTC isLoading={isLoading} />
       </form>

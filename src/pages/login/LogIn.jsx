@@ -5,10 +5,21 @@ import { toast } from "react-toastify";
 import { useAuth } from "../../hooks/userAuth";
 import SubmitButton from "../../components/submit-btn";
 import { sendEmailVerification } from "firebase/auth";
+import PasswordViewer from "../../components/password-viewer";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
   const { signin } = useAuth();
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +28,7 @@ const LoginForm = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const { user } = await signin(email, password);
+      const { user } = await signin(formData.email, formData.password);
       if (!user.emailVerified) {
         await sendEmailVerification(user, {
           url: "https://siliconverse-frontend.vercel.app/login",
@@ -54,21 +65,18 @@ const LoginForm = () => {
               <input
                 className="text-black"
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 required
               />
             </div>
-            <div>
-              <label htmlFor="password">Password:</label>
-              <input
-                className="text-black"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
+            <PasswordViewer
+              name={"password"}
+              label={"Password"}
+              value={formData.password}
+              setPassword={handleChange}
+            />
 
             <div>
               <span className="text-primaryColor">Forgot Password?</span>

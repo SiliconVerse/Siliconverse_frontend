@@ -5,6 +5,7 @@ import SignUpTC from "./signup-tc";
 import { useAuth } from "../hooks/userAuth";
 import { db } from "../hooks/auth/firebase";
 import { sendEmailVerification } from "firebase/auth";
+import PasswordViewer from "./password-viewer";
 
 const TalentForm = ({ handleCompanyClick }) => {
   const { signup } = useAuth();
@@ -29,11 +30,17 @@ const TalentForm = ({ handleCompanyClick }) => {
 
     if (formValues.password !== formValues.confirmPassword) {
       alert("Passwords do not match!");
+      setIsLoading(false);
+      return;
+    }
+    if (formValues.password.length < 7) {
+      alert("Password too short");
+      setIsLoading(false);
+
       return;
     }
 
     const { email, password, firstName, lastName } = formValues;
-    // Form submission logic
     try {
       const { user } = await signup(email, password);
 
@@ -123,29 +130,18 @@ const TalentForm = ({ handleCompanyClick }) => {
         </div>
 
         <div className="w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8">
-          <div className="w-full">
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formValues.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="w-full">
-            <label htmlFor="confirmPassword">Confirm password:</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              value={formValues.confirmPassword}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <PasswordViewer
+            label={"password"}
+            value={formValues.password}
+            name={"password"}
+            setPassword={handleChange}
+          />
+          <PasswordViewer
+            label={"Confirm Password"}
+            name={"confirmPassword"}
+            value={formValues.confirmPassword}
+            setPassword={handleChange}
+          />
         </div>
 
         <SignUpTC isLoading={isLoading} />
