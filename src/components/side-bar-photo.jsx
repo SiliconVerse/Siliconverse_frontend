@@ -83,18 +83,26 @@ function SidebarPhoto() {
       <label
         htmlFor="profile"
         className="cursor-pointer relative block">
-        <img
-          src={preview || user?.profilePicture || imageUrl}
-          alt="Profile Image of user"
-          className="h-full w-full object-cover rounded-full"
-        />
-        <PencilIcon className="h-6 w-6 bg-white p-0.5 rounded-full text-primaryColor absolute top-0 right-0 z-10" />
+        <div className="aspect-square">
+          <img
+            src={preview || user?.profilePicture || imageUrl}
+            alt="Profile Image of user"
+            className="h-full w-full object-cover rounded-full"
+          />
+        </div>
+
+        <div className="p-1 bg-white rounded-full text-primaryColor absolute top-0 right-0 z-10 border border-primaryColor">
+          <PencilIcon
+            size={24}
+            className=""
+          />
+        </div>
       </label>
       {preview && (
         <button
           onClick={handleUpload}
           disabled={uploading}
-          className="text-white font-bold underline bg-black p-1 rounded-md mx-auto text-center mt-1">
+          className="text-white font-bold underline bg-black p-1 rounded-md mx-auto text-center mt-1 text-sm">
           {uploading ? "Uploading..." : "Save"}
         </button>
       )}

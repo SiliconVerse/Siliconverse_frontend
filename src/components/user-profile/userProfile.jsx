@@ -8,7 +8,7 @@ const UserProfile = () => {
 
   return (
     <section>
-      <div className="md:hidden aspect-square h-32 mx-auto relative mb-4 rounded-full">
+      <div className="md:hidden aspect-square h-32 mx-auto relative mb-4 rounded-full group">
         <SidebarPhoto key={"mobile"} />
       </div>
       <div className="mt-10">
