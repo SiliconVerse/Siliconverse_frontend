@@ -48,7 +48,8 @@ function useAuthProvider() {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         if (!user.emailVerified) {
-          navigate(`/login`);
+          signOut(auth);
+          navigate(`/login?message=` + user.email);
         } else {
           updateUser(user);
         }

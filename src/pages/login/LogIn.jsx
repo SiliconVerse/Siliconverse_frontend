@@ -1,15 +1,25 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useMemo, useState } from "react";
+import { NavLink, useLocation, useSearchParams } from "react-router-dom";
 import "./logIn.css";
 import { toast } from "react-toastify";
 import { useAuth } from "../../hooks/userAuth";
 import SubmitButton from "../../components/submit-btn";
-import { sendEmailVerification } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  sendEmailVerification,
+  signInWithPopup,
+} from "firebase/auth";
 import PasswordViewer from "../../components/password-viewer";
+import { auth, provider } from "../../hooks/auth/firebase";
+import GoogleLogo from "../../assets/google-logo.png";
 
 const LoginForm = () => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+
+  const message = useMemo(() => queryParams.get("message"), [queryParams]);
   const [formData, setFormData] = useState({
-    email: "",
+    email: message ?? "",
     password: "",
   });
 
@@ -20,6 +30,7 @@ const LoginForm = () => {
       [name]: value,
     });
   };
+
   const { signin } = useAuth();
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -30,11 +41,15 @@ const LoginForm = () => {
     try {
       const { user } = await signin(formData.email, formData.password);
       if (!user.emailVerified) {
-        await sendEmailVerification(user, {
-          url: "https://siliconverse-frontend.vercel.app/login",
-        });
-        toast.info("Please check your mail for verification");
-        return;
+        try {
+          await sendEmailVerification(user, {
+            url: "https://siliconverse-frontend.vercel.app/login",
+          });
+          toast.info("Please check your mail for verification");
+          return;
+        } catch (error) {
+          setErrorMessage("Please Verify your email account");
+        }
       }
       setErrorMessage("");
       toast.success("Logged in successfully 🎉", { position: "top-center" });
@@ -45,22 +60,35 @@ const LoginForm = () => {
     }
   };
 
+  const handleSignInwithGoogle = async () => {
+    const result = await signInWithPopup(auth, provider);
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+  };
+
   return (
     <div className="login-container flex items-center justify-center flex-col  p-7 md:p-11 lg:p-14 min-h-[calc(100vh-106px) font-roboto w-full">
       <div className="login-form rounded-lg gap-5 md:gap-10  bg-black/20 relative flex flex-col-reverse md:flex-row w-full justify-between">
-        <div className="hidden absolute left-1/2 -translate-x-1/2 md:translate-x-0 top-4 md:left-4 bg-primaryColor border-2 border-white capitalize rounded-lg p-3 font-roboto text-white text-center w-fit text-sm">
-          <p>Silicon Verse</p>
-        </div>
-        {/* logo */}
-
         <div className="mt-10 text-white w-full">
           <p className="text-center font-bold text-red-500 text-lg">
             {errorMessage && errorMessage}
+            {message && "Please check your email for verification"}
           </p>
-          <div className="form-titles">
-            <h2 className="font-bold text-xl">Log in</h2>
+          <div className="form-titles flex-col">
+            <h2 className="font-bold text-xl text-center">Log in</h2>
           </div>
           <form onSubmit={handleSubmit}>
+            {!message && (
+              <div
+                onClick={handleSignInwithGoogle}
+                className="flex flex-shrink-0 gap-2 rounded-lg my-4 cursor-pointer py-2 bg-white text-primaryColor items-center mx-auto px-5 justify-center md:w-[60%]">
+                <p className="text-center w-fit">Sign in with Google</p>
+                <img
+                  src={GoogleLogo}
+                  alt="google logo"
+                  className="aspect-square object-cover bg-none border-none block h-8 w-8 md:h-8 md:w-h-8 rounded-full mx-auto "
+                />
+              </div>
+            )}
             <div>
               <label htmlFor="email">Email:</label>
               <input

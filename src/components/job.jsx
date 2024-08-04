@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactTimeago from "react-timeago";
+import { handleRequest } from "../requests/axios";
 
 function Job({ job }) {
+  const [company, setCompany] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await handleRequest("get", "/companies/" + job.company);
+      console.log(company);
+      setCompany(response);
+    };
+
+    fetchData();
+  }, []);
   return (
     <aside className="flex items-center w-full p-2 rounded-md boxShadow overflow-hidden">
       <div className="h-[80px] w-[80px] md:h-[120px] md:w-[120px] bg-gray-900 rounded-full overflow-hidden border">
