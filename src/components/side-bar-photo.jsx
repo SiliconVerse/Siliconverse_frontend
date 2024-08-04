@@ -79,31 +79,25 @@ function SidebarPhoto() {
   }, []);
 
   return (
-    <div className="relative group">
+    <div className="relative group mx-auto text-center">
       <label
         htmlFor="profile"
         className="cursor-pointer relative block">
         <img
           src={preview || user?.profilePicture || imageUrl}
           alt="Profile Image of user"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover rounded-full"
         />
-        <div
-          className={`absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 ${
-            preview ? "" : "hidden"
-          } group-hover:flex`}>
-          {preview ? (
-            <button
-              onClick={handleUpload}
-              disabled={uploading}
-              className="text-white font-bold underline">
-              {uploading ? "Uploading..." : "Upload"}
-            </button>
-          ) : (
-            <PencilIcon className="h-8 w-8 text-white" />
-          )}
-        </div>
+        <PencilIcon className="h-6 w-6 bg-white p-0.5 rounded-full text-primaryColor absolute top-0 right-0 z-10" />
       </label>
+      {preview && (
+        <button
+          onClick={handleUpload}
+          disabled={uploading}
+          className="text-white font-bold underline bg-black p-1 rounded-md mx-auto text-center mt-1">
+          {uploading ? "Uploading..." : "Save"}
+        </button>
+      )}
       <input
         id="profile"
         className="hidden"

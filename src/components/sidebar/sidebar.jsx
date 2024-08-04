@@ -38,7 +38,7 @@ const SideBar = () => {
   return (
     <div className={styles.sidebar + " font-roboto"}>
       <div className="w-24 aspect-square mx-auto">
-        <aside className="relative overflow-hidden rounded-full aspect-square group">
+        <aside className="relative rounded-full aspect-square group">
           {/* Profile Picture */}
           <SidebarPhoto key={"desktop"} />
         </aside>
