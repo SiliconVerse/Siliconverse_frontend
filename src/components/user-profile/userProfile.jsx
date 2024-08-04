@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { useAuth } from "../../hooks/userAuth";
 import UserData from "../user-data";
 import CompanyProfileForm from "../company-profile/companyProfileForm";
@@ -9,10 +8,10 @@ const UserProfile = () => {
 
   return (
     <section>
-      <div className="md:hidden aspect-square h-40 mx-auto overflow-hidden relative mb-4 rounded-full">
+      <div className="md:hidden aspect-square h-32 mx-auto relative mb-4 rounded-full">
         <SidebarPhoto key={"mobile"} />
       </div>
-      <div>
+      <div className="mt-10">
         <h3 className="text-lg md:text-xl font-bold">My Information</h3>
         <p>
           Updating your information will offer you the most relevant content and
