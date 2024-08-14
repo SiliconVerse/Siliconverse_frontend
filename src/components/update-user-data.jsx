@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { db } from "../hooks/auth/firebase";
 import { useAuth } from "../hooks/userAuth";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import SubmitButton from "./submit-btn";
 import { skillSet } from "../utils/skillset";
 
@@ -48,7 +48,7 @@ const UserDataForm = ({ userData, setState }) => {
     setIsLoading(true);
     try {
       const userRef = doc(db, "Users", userData.uid);
-      await updateDoc(userRef, formData);
+      await setDoc(userRef, formData, { merge: true });
       await updateUser(userData);
       setState(false);
     } catch (e) {
