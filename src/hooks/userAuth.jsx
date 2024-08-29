@@ -35,10 +35,8 @@ function useAuthProvider() {
   const updateUser = async (data, route) => {
     const docRef = doc(db, "Users", data.uid);
     const docSnap = await getDoc(docRef);
-    console.log(docSnap.exists());
 
     if (!data?.emailVerified) {
-      console.log(data);
       signOut(auth);
       navigate(`/login?message=` + data.email);
     }
@@ -48,7 +46,6 @@ function useAuthProvider() {
       localStorage.setItem("user", JSON.stringify(userData));
       setUser(userData);
       if (route) {
-        console.log("routinng");
         navigate(`/${docSnap.data().role}-profile`);
       }
     }
@@ -79,6 +76,8 @@ function useAuthProvider() {
 
   const signout = () => {
     signOut(auth);
+    setUser(null);
+    localStorage.removeItem("user");
     navigate("/");
   };
 
