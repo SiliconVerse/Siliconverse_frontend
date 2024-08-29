@@ -26,3 +26,5 @@ dist-ssr
 
 
 .qdrant-initialized
+
+.env
