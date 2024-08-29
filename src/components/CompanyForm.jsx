@@ -66,6 +66,7 @@ const CompanyForm = ({ handleTalentClick }) => {
         await sendEmailVerification(user, {
           url: "https://siliconverse-frontend.vercel.app/login",
         });
+        await updateUser(user);
       }
       toast.success("Registered Company successfully 🎉", {
         position: "top-center",

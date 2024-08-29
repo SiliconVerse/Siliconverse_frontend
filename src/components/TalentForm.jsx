@@ -8,7 +8,7 @@ import { sendEmailVerification } from "firebase/auth";
 import PasswordViewer from "./password-viewer";
 
 const TalentForm = ({ handleCompanyClick }) => {
-  const { signup } = useAuth();
+  const { signup, updateUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
 
   const [formValues, setFormValues] = useState({
@@ -56,6 +56,7 @@ const TalentForm = ({ handleCompanyClick }) => {
         await sendEmailVerification(user, {
           url: "https://siliconverse-frontend.vercel.app/login",
         });
+        await updateUser(user);
       }
 
       toast.success("Registered successfully 🎉", { position: "top-center" });

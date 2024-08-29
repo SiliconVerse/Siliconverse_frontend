@@ -32,31 +32,37 @@ function useAuthProvider() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const updateUser = async (data) => {
+  const updateUser = async (data, route) => {
     const docRef = doc(db, "Users", data.uid);
     const docSnap = await getDoc(docRef);
+    console.log(docSnap.exists());
 
-    if (docSnap.exists()) {
+    if (!data?.emailVerified) {
+      console.log(data);
+      signOut(auth);
+      navigate(`/login?message=` + data.email);
+    }
+
+    if (docSnap.exists() && data?.emailVerified) {
       const userData = { ...data, ...docSnap.data() };
       localStorage.setItem("user", JSON.stringify(userData));
       setUser(userData);
-      navigate(`/${docSnap.data().role}-profile`);
+      if (route) {
+        console.log("routinng");
+        navigate(`/${docSnap.data().role}-profile`);
+      }
     }
   };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        if (!user.emailVerified) {
-          signOut(auth);
-          navigate(`/login?message=` + user.email);
-        } else {
-          updateUser(user);
-        }
-      } else {
-        setUser(null);
-        localStorage.removeItem("user");
-      }
+      // if
+      // }
+      // }(user) {
+      //   // if (!user.emailVerified) {
+      //   //   signOut(auth);
+      //   //   navigate(`/login?message=` + user.email);
+      //   // }
     });
 
     // Cleanup subscription on unmount

@@ -31,7 +31,7 @@ const LoginForm = () => {
     });
   };
 
-  const { signin } = useAuth();
+  const { signin, updateUser } = useAuth();
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -52,6 +52,7 @@ const LoginForm = () => {
         }
       }
       setErrorMessage("");
+      updateUser(user, true);
       toast.success("Logged in successfully 🎉", { position: "top-center" });
     } catch (error) {
       setErrorMessage(error.message);
