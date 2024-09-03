@@ -1,19 +1,14 @@
-import { useLayoutEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
-import styles from './layout.module.css';
-import SideBar from '../sidebar/sidebar';
-import MobileSideBar from '../sidebar/mobile-sidebar';
+import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../../hooks/userAuth';
+import MobileSideBar from '../sidebar/mobile-sidebar';
+import SideBar from '../sidebar/sidebar';
+import styles from './layout.module.css';
 
 function Layout() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { user } = useAuth();
 
-  useLayoutEffect(() => {
-    if (!user) {
-      navigate('/');
-    }
-  }, [user]);
+  if (!user) return <Navigate to={'/login'} />;
 
   return (
     <>
