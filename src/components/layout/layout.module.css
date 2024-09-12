@@ -5,7 +5,7 @@
 }
 
 .layout_content {
-  min-height: calc(100vh - 100px);
+  height: calc(100vh - 100px);
   overflow-y: auto;
   grid-column: 3 / -1;
   scrollbar-width: thin;
@@ -29,7 +29,7 @@
   grid-column: 1 / -1;
 
   @media screen and (width >=768px) {
-    min-height: calc(100vh - 106px);
+    height: calc(100vh - 106px);
     grid-column: 4 / -1;
   }
 
