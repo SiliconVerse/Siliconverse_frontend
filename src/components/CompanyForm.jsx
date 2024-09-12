@@ -9,7 +9,7 @@ import PasswordViewer from "./password-viewer";
 
 const CompanyForm = ({ handleTalentClick }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const { signup } = useAuth();
+  const { signup, updateUser } = useAuth();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",

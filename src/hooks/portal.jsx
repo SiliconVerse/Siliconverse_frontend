@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types */
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 export function ReactPortal({ children, setState }) {
   const [wrapperElement, setWrapperElement] = useState(null);
 
-  function handleVisibility() {
-    if (typeof setState !== 'function') {
+  const ref = useRef();
+
+  function handleVisibility(event) {
+    if (typeof setState !== 'function' || event.target !== ref.current) {
       return;
     }
+
     setState(false);
   }
 
@@ -38,6 +41,7 @@ export function ReactPortal({ children, setState }) {
           alignItems: 'center',
           zIndex: 9999, // Ensure it's on top of other content
         }}
+        ref={ref}
       >
         {children}
       </div>
