@@ -22,7 +22,7 @@ export default function ProtectedHeader() {
         />
         <p className='flex flex-col capitalize text-xs font-bold md:text-sm '>
           <span>Hello</span>
-          <span>{user?.firstName} john</span>
+          <span>{user?.firstName || 'Anon'}</span>
         </p>
       </div>
     </header>

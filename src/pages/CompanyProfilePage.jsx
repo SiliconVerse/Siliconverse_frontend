@@ -7,7 +7,7 @@ import CompanySettings from '../components/company-profile/CompanySettings';
 
 const CompanyProfilePage = () => {
   const [searchParams] = useSearchParams();
-  const userParam = searchParams.get('company');
+  const userParam = searchParams.get('tab');
 
   const tabs = {
     settings: <CompanySettings />,

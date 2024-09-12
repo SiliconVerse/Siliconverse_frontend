@@ -17,6 +17,9 @@ export default {
         'background-color': '#FDEFE9',
         'off-white': '#D9D9D9',
       },
+      borderRadius: {
+        sl: '10px',
+      },
     },
   },
 

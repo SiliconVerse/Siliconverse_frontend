@@ -1,11 +1,11 @@
 export const user_profile_links = [
   {
-    link: "profile",
-    url: "?",
+    link: 'profile',
+    url: '?',
   },
   {
-    link: "account settings",
-    url: "?user=settings",
+    link: 'account settings',
+    url: '?tab=settings',
   },
   // {
   //   link: 'projects',
@@ -16,37 +16,37 @@ export const user_profile_links = [
   //   url: "?user=portfolio",
   // },
   {
-    link: "history",
-    url: "?user=history",
+    link: 'history',
+    url: '?tab=history',
   },
   {
-    link: "preference",
-    url: "?user=preference",
+    link: 'preference',
+    url: '?tab=preference',
   },
 ];
 export const company_profile_links = [
   {
-    link: "profile",
-    url: "?",
+    link: 'profile',
+    url: '?',
   },
   {
-    link: "account settings",
-    url: "?company=settings",
+    link: 'account settings',
+    url: '?tab=settings',
   },
   // {
   //   link: 'projects',
   //   url: '?company=projects',
   // },
   {
-    link: "portfolio",
-    url: "?company=portfolio",
+    link: 'portfolio',
+    url: '?tab=portfolio',
   },
   {
-    link: "history",
-    url: "?company=history",
+    link: 'history',
+    url: '?tab=history',
   },
   {
-    link: "preference",
-    url: "?company=preference",
+    link: 'preference',
+    url: '?tab=preference',
   },
 ];
