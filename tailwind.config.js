@@ -15,6 +15,7 @@ export default {
         'text-color': '#222222',
         'silicon-gray': ' #2F2E2E',
         'background-color': '#FDEFE9',
+        'off-white': '#D9D9D9',
       },
     },
   },
