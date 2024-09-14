@@ -49,20 +49,21 @@ const CompanyProfile = () => {
           <aside>
             <h5>Location</h5>
             <p>
-              {user.state} <span>{`(${user.country})`}</span>
+              {user.state || '-'}{' '}
+              {user.country ? <span>{`(${user.country})`}</span> : null}
             </p>
           </aside>
           <aside>
             <h5>Address</h5>
-            <p>{user.address}</p>
+            <p>{user.address || '-'}</p>
           </aside>
           <aside>
             <h5>Name of Company or Organisation</h5>
-            <p>{user.organisation}</p>
+            <p>{user.organizationName || '-'}</p>
           </aside>
           <aside>
             <h5>Company Type</h5>
-            <p>{user.type}</p>
+            <p>{user.type || '-'}</p>
           </aside>
         </div>
       </section>
