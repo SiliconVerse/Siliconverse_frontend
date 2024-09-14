@@ -1,19 +1,13 @@
 import {
-  useState,
-  useEffect,
-  useContext,
-  createContext,
-  useCallback,
-} from "react";
-import { auth, db } from "./auth/firebase";
-import { getDoc, doc } from "firebase/firestore";
-import {
+  createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
-  createUserWithEmailAndPassword,
-} from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+} from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { auth, db } from './auth/firebase';
 
 // Create a context for the auth
 const AuthContext = createContext();
@@ -29,11 +23,14 @@ export const useAuth = () => {
   return useContext(AuthContext);
 };
 function useAuthProvider() {
+  // const [user, loading,error] = useAuthState(auth);
+
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const updateUser = async (data, route) => {
-    const docRef = doc(db, "Users", data.uid);
+    const docRef = doc(db, 'Users', data.uid);
     const docSnap = await getDoc(docRef);
 
     if (!data?.emailVerified) {
@@ -42,8 +39,12 @@ function useAuthProvider() {
     }
 
     if (docSnap.exists() && data?.emailVerified) {
-      const userData = { ...data, ...docSnap.data() };
-      localStorage.setItem("user", JSON.stringify(userData));
+      const userData = {
+        emailVerified: data.emailVerified,
+        uid: data.uid,
+        ...docSnap.data(),
+      };
+      localStorage.setItem('user', JSON.stringify(userData));
       setUser(userData);
       if (route) {
         navigate(`/${docSnap.data().role}-profile`);
@@ -52,21 +53,21 @@ function useAuthProvider() {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      // if
-      // }
-      // }(user) {
-      //   // if (!user.emailVerified) {
-      //   //   signOut(auth);
-      //   //   navigate(`/login?message=` + user.email);
-      //   // }
+    const unsubscribe = onAuthStateChanged(auth, async (authUser) => {
+      if (authUser) {
+        !user && updateUser(authUser);
+      } else {
+        setUser(null);
+      }
+
+      setLoading(false);
     });
 
     // Cleanup subscription on unmount
     return () => unsubscribe();
-  }, [auth]);
+  }, []);
 
-  const signin = (email, password) => {
+  const signin = async (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -74,11 +75,10 @@ function useAuthProvider() {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const signout = () => {
-    signOut(auth);
-    setUser(null);
-    localStorage.removeItem("user");
-    navigate("/");
+  const signout = async () => {
+    await signOut(auth);
+    localStorage.removeItem('user');
+    navigate('/login');
   };
 
   return {
@@ -87,5 +87,6 @@ function useAuthProvider() {
     signup,
     signout,
     updateUser,
+    loading,
   };
 }

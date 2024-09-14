@@ -1,4 +1,6 @@
+import { doc, updateDoc } from 'firebase/firestore';
 import React, { useState } from 'react';
+import { db } from '../../hooks/auth/firebase';
 import { ReactPortal } from '../../hooks/portal';
 import SubmitButton from '../submit-btn';
 
@@ -11,7 +13,14 @@ export default function CompanyProfileEditForm({
   setEditCompanyProfile,
   closeEditModal,
 }) {
-  const [formData, setFormData] = useState(user);
+  const [formData, setFormData] = useState({
+    ceo: user?.ceo || '',
+    state: user?.state || '',
+    country: user?.country || '',
+    address: user?.address || '',
+    organizationName: user?.organizationName || '',
+    type: user?.type || '',
+  });
 
   const { updateUser } = useAuth();
 
@@ -26,11 +35,13 @@ export default function CompanyProfileEditForm({
     event.preventDefault();
     setIsLoading(true);
     try {
-      // await updateUser(formData, true);
+      const docRef = doc(db, 'Users', user.uid);
+      await updateDoc(docRef, formData);
+      updateUser({ ...formData, ...user });
       toast.success('company profile updated successfully!');
+      closeEditModal();
     } catch (error) {
       console.log(error);
-
       toast.error('update failed!');
     } finally {
       setIsLoading(false);
@@ -49,21 +60,32 @@ export default function CompanyProfileEditForm({
             onChange={handleFormChange}
             label={'CEO Name'}
             id={'ceo'}
+            placeholder='John Doe'
           />
           <InputField
-            value={formData.organisation}
+            value={formData.organizationName}
             onChange={handleFormChange}
             label={'Company Name'}
-            id={'organisation'}
+            id={'organizationName'}
+            placeholder='SiliconVerse'
           />
         </div>
 
-        <div className='my-3'>
+        <div className='my-3 max-sm:flex-col gap-3 flex'>
           <InputField
             value={formData.address}
             onChange={handleFormChange}
             label={'Address'}
             id={'address'}
+            placeholder='123 express avenue'
+          />
+          <InputField
+            value={formData.type}
+            onChange={handleFormChange}
+            label={'Company Type'}
+            placeholder='Tech Hub'
+            id={'type'}
+            required={false}
           />
         </div>
 
@@ -73,12 +95,14 @@ export default function CompanyProfileEditForm({
             onChange={handleFormChange}
             label={'State'}
             id={'state'}
+            placeholder='Lagos'
           />
           <InputField
             value={formData.country}
             onChange={handleFormChange}
             label={'Country'}
             id={'country'}
+            placeholder='Nigeria'
           />
         </div>
 
@@ -111,6 +135,7 @@ function InputField({
   label,
   id,
   required = true,
+  ...otherProps
 }) {
   return (
     <label className='flex flex-col gap-1'>
@@ -123,6 +148,7 @@ function InputField({
         onChange={onChange}
         className='border border-black/60 rounded-md py-1 w-full px-2'
         required={required}
+        {...otherProps}
       />
     </label>
   );
