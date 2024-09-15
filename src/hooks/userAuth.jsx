@@ -5,7 +5,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "./auth/firebase";
 
@@ -23,9 +23,8 @@ export const useAuth = () => {
   return useContext(AuthContext);
 };
 function useAuthProvider() {
-  // const [user, loading,error] = useAuthState(auth);
-
-  const [user, setUser] = useState(null);
+  const userLocalData = JSON.parse(localStorage.getItem("user"));
+  const [user, setUser] = useState(userLocalData);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -55,21 +54,6 @@ function useAuthProvider() {
       }
     }
   };
-
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, async (authUser) => {
-  //     if (authUser) {
-  //       !user && updateUser(authUser);
-  //     } else {
-  //       setUser(null);
-  //     }
-
-  //     setLoading(false);
-  //   });
-
-  //   // Cleanup subscription on unmount
-  //   return () => unsubscribe();
-  // }, []);
 
   const signin = async (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
