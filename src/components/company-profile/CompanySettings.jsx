@@ -1,7 +1,6 @@
-// import PasswordUpdate from "../PasswordUpdate";
 import { useState } from "react";
 import MediaConnects from "./MediaConnects";
-import ResetEmail from "./ResetEmail";
+// import ResetEmail from "./ResetEmail";
 import ResetPassword from "./ResetPassword";
 import { useAuth } from "../../hooks/userAuth";
 
