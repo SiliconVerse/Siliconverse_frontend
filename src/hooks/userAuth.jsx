@@ -3,11 +3,11 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
-} from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
-import { createContext, useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { auth, db } from './auth/firebase';
+} from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { auth, db } from "./auth/firebase";
 
 // Create a context for the auth
 const AuthContext = createContext();
@@ -30,7 +30,7 @@ function useAuthProvider() {
   const navigate = useNavigate();
 
   const updateUser = async (data, route) => {
-    const docRef = doc(db, 'Users', data.uid);
+    const docRef = doc(db, "Users", data.uid);
     const docSnap = await getDoc(docRef);
 
     if (!data?.emailVerified) {
@@ -44,28 +44,29 @@ function useAuthProvider() {
         uid: data.uid,
         ...docSnap.data(),
       };
-      localStorage.setItem('user', JSON.stringify(userData));
+      localStorage.setItem("user", JSON.stringify(userData));
       setUser(userData);
+      setLoading(false);
       if (route) {
         navigate(`/${docSnap.data().role}-profile`);
       }
     }
   };
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (authUser) => {
-      if (authUser) {
-        !user && updateUser(authUser);
-      } else {
-        setUser(null);
-      }
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, async (authUser) => {
+  //     if (authUser) {
+  //       !user && updateUser(authUser);
+  //     } else {
+  //       setUser(null);
+  //     }
 
-      setLoading(false);
-    });
+  //     setLoading(false);
+  //   });
 
-    // Cleanup subscription on unmount
-    return () => unsubscribe();
-  }, []);
+  //   // Cleanup subscription on unmount
+  //   return () => unsubscribe();
+  // }, []);
 
   const signin = async (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
@@ -77,8 +78,8 @@ function useAuthProvider() {
 
   const signout = async () => {
     await signOut(auth);
-    localStorage.removeItem('user');
-    navigate('/login');
+    localStorage.removeItem("user");
+    navigate("/login");
   };
 
   return {
