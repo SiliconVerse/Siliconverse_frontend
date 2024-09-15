@@ -6,7 +6,6 @@ import { useAuth } from "../../hooks/userAuth";
 
 function CompanySettings() {
   const { user } = useAuth();
-  console.log(user);
   const [isEmailButtonActive, setIsEmailButtonActive] = useState(false);
   return (
     <section className="space-y-4">
