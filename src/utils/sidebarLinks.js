@@ -1,52 +1,41 @@
 export const user_profile_links = [
   {
-    link: 'profile',
-    url: '?',
+    link: "profile",
+    url: "?",
   },
   {
-    link: 'account settings',
-    url: '?tab=settings',
-  },
-  // {
-  //   link: 'projects',
-  //   url: '?user=projects',
-  // },
-  // {
-  //   link: "portfolio",
-  //   url: "?user=portfolio",
-  // },
-  {
-    link: 'history',
-    url: '?tab=history',
+    link: "account settings",
+    url: "?tab=settings",
   },
   {
-    link: 'preference',
-    url: '?tab=preference',
+    link: "history",
+    url: "?tab=history",
+  },
+  {
+    link: "preference",
+    url: "?tab=preference",
   },
 ];
 export const company_profile_links = [
   {
-    link: 'profile',
-    url: '?',
+    link: "profile",
+    url: "?",
   },
   {
-    link: 'account settings',
-    url: '?tab=settings',
+    link: "account settings",
+    url: "?tab=settings",
   },
-  // {
-  //   link: 'projects',
-  //   url: '?company=projects',
-  // },
+
   {
-    link: 'portfolio',
-    url: '?tab=portfolio',
+    link: "Post Job",
+    url: "?tab=create",
   },
   {
-    link: 'history',
-    url: '?tab=history',
+    link: "Applications",
+    url: "?tab=applications",
   },
   {
-    link: 'preference',
-    url: '?tab=preference',
+    link: "preference",
+    url: "?tab=preference",
   },
 ];

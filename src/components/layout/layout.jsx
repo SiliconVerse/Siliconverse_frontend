@@ -5,10 +5,15 @@ import MobileSideBar from "../sidebar/mobile-sidebar";
 import SideBar from "../sidebar/sidebar";
 import Spinner from "../spinner";
 import styles from "./layout.module.css";
+import { useEffect } from "react";
 
 function Layout() {
-  const { user, loading } = useAuth();
+  const { user, loading, updateUser } = useAuth();
   const { pathname, search } = useLocation();
+
+  useEffect(() => {
+    updateUser(JSON.parse(localStorage.getItem("user")));
+  }, [loading, user]);
 
   if (loading) {
     return (

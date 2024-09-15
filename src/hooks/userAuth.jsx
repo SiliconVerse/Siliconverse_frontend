@@ -30,6 +30,9 @@ function useAuthProvider() {
   const navigate = useNavigate();
 
   const updateUser = async (data, route) => {
+    if (!data) {
+      return navigate("/login");
+    }
     const docRef = doc(db, "Users", data.uid);
     const docSnap = await getDoc(docRef);
 
@@ -79,6 +82,7 @@ function useAuthProvider() {
   const signout = async () => {
     await signOut(auth);
     localStorage.removeItem("user");
+    setUser(null);
     navigate("/login");
   };
 
