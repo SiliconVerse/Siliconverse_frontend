@@ -1,13 +1,12 @@
 import {
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
-} from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
-import { createContext, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { auth, db } from "./auth/firebase";
+} from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
+import { createContext, useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { auth, db } from './auth/firebase';
 
 // Create a context for the auth
 const AuthContext = createContext();
@@ -23,16 +22,15 @@ export const useAuth = () => {
   return useContext(AuthContext);
 };
 function useAuthProvider() {
-  const userLocalData = JSON.parse(localStorage.getItem("user"));
+  const userLocalData = JSON.parse(localStorage.getItem('user'));
   const [user, setUser] = useState(userLocalData);
-  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const updateUser = async (data, route) => {
     if (!data) {
-      return navigate("/login");
+      return navigate('/login');
     }
-    const docRef = doc(db, "Users", data.uid);
+    const docRef = doc(db, 'Users', data.uid);
     const docSnap = await getDoc(docRef);
 
     if (!data?.emailVerified) {
@@ -46,9 +44,8 @@ function useAuthProvider() {
         uid: data.uid,
         ...docSnap.data(),
       };
-      localStorage.setItem("user", JSON.stringify(userData));
+      localStorage.setItem('user', JSON.stringify(userData));
       setUser(userData);
-      setLoading(false);
       if (route) {
         navigate(`/${docSnap.data().role}-profile`);
       }
@@ -65,9 +62,9 @@ function useAuthProvider() {
 
   const signout = async () => {
     await signOut(auth);
-    localStorage.removeItem("user");
+    localStorage.removeItem('user');
     setUser(null);
-    navigate("/login");
+    navigate('/login');
   };
 
   return {
@@ -76,6 +73,5 @@ function useAuthProvider() {
     signup,
     signout,
     updateUser,
-    loading,
   };
 }

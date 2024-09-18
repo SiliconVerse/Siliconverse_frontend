@@ -1,13 +1,15 @@
-import axios from "axios";
-import { useAuth } from "../hooks/userAuth";
+import axios from 'axios';
+import { useAuth } from '../hooks/userAuth';
+
+const baseUrl = import.meta.env.VITE_BACKEND_URL;
 
 const axiosInstance = axios.create({
-  baseURL: "https://siliconverse-backend.onrender.com",
+  baseURL: baseUrl,
 });
 
 async function refreshToken(refreshToken) {
   const auth = useAuth(); // Assuming this works due to context or similar mechanism
-  const response = await axiosInstance.post("/users/refresh-token", {
+  const response = await axiosInstance.post('/users/refresh-token', {
     refreshToken,
   });
 
@@ -44,7 +46,7 @@ export async function handleRequest(method, url, token) {
     updateToken(token);
     const res = await axiosInstance[method](url);
     if (!res.data) {
-      throw new Error("Please try again later");
+      throw new Error('Please try again later');
     }
     return res.data;
   } catch (error) {
@@ -57,7 +59,7 @@ export async function handleSubmit(method, url, data, token) {
     updateToken(token);
     const res = await axiosInstance[method](url, data);
     if (!res.data) {
-      throw new Error("Please try again later");
+      throw new Error('Please try again later');
     }
     return res.data;
   } catch (error) {
