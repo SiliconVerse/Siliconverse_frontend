@@ -16,7 +16,11 @@ export default {
         'silicon-gray': ' #2F2E2E',
         'background-color': '#FDEFE9',
         'off-white': '#D9D9D9',
+        gray: {
+          700: '#A3A3A3',
+        },
       },
+
       borderRadius: {
         sl: '10px',
       },
