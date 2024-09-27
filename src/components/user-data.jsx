@@ -3,6 +3,7 @@ import UserDataForm from "./update-user-data";
 import { useAuth } from "../hooks/userAuth";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import TalentSocials from "./talentSocials";
+// import BioDisplay from './global/biobox/BioDisplay.jsx'
 
 function UserData() {
   const { user } = useAuth();
@@ -16,21 +17,21 @@ function UserData() {
         <>
           <aside className="flex flex-col gap-3 justify-start md:gap-5 my-2 md:my-4 w-full md:justify-evenly text-sm md:text-base">
             <p className="capitalize">
-              <span className="block font-semibold">Full Name</span>
+              <span className="block font-semibold">Full Name*</span>
               {userData.firstName.toLowerCase() +
                 " " +
                 userData.lastName.toLowerCase()}{" "}
               {userData.gender && `(${userData.gender})`}
             </p>
             <p className="w-1/2">
-              <span className="block font-semibold">Email</span>
+              <span className="block font-semibold">Email*</span>
               {userData.email}
             </p>
             <TalentSocials userData={userData} />
             <div className="flex gap-3">
               {userData.country && (
                 <p className="capitalize">
-                  <span className="block font-semibold">Country</span>
+                  <span className="block font-semibold">Country*</span>
                   {userData.country.toLowerCase()}
                 </p>
               )}
@@ -60,6 +61,18 @@ function UserData() {
                 </p>
               )}
             </div>
+
+            <div className="flex gap-3">
+              {userData.bio && (
+                <p className="capitalize">
+                  <span className="block font-semibold">Bio</span>
+                  {userData.bio.toLowerCase()}
+                </p>
+              )}
+            </div>
+
+
+
 
             <button
               onClick={() => setOpenUpdate(!openUpdate)}

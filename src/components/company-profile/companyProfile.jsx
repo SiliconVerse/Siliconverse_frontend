@@ -61,6 +61,10 @@ const CompanyProfile = () => {
             <h5>Company Type</h5>
             <p>{user.type || "-"}</p>
           </aside>
+          <aside>
+            <h5>BIO</h5>
+            <p>{user.bio || "-"}</p>
+          </aside>
         </div>
       </section>
       {editCompanyProfile && (
