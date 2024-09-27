@@ -3,7 +3,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth, db } from './auth/firebase';
@@ -46,9 +46,30 @@ function useAuthProvider() {
       };
       localStorage.setItem('user', JSON.stringify(userData));
       setUser(userData);
+
       if (route) {
         navigate(`/${docSnap.data().role}-profile`);
       }
+    }
+
+    if (
+      !docSnap.exists() &&
+      data?.emailVerified &&
+      data.providerData[0].providerId === 'google.com'
+    ) {
+      await setDoc(doc(db, 'Users', data.uid), {
+        email: data.email,
+        firstName: data.displayName,
+      });
+      const userData = {
+        email: data.email,
+        firstName: data.displayName,
+        uid: data.uid,
+        emailVerified: data.emailVerified,
+      };
+      localStorage.setItem('user', JSON.stringify(userData));
+      setUser(userData);
+      navigate('/complete-signup', { replace: true });
     }
   };
 

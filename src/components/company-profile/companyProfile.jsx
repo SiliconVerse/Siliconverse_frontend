@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { CiEdit } from "react-icons/ci";
-import { useAuth } from "../../hooks/userAuth";
-import CompanyProfileEditForm from "./company-profile-edit-form";
-import styles from "./companyProfile.module.css";
+import { useState } from 'react';
+import { CiEdit } from 'react-icons/ci';
+import { useAuth } from '../../hooks/userAuth';
+import CompanyProfileEditForm from './company-profile-edit-form';
+import styles from './companyProfile.module.css';
 
 const CompanyProfile = () => {
   const { user } = useAuth();
@@ -22,17 +22,15 @@ const CompanyProfile = () => {
     <>
       <section className={styles.container}>
         <div className={styles.head}>
-          <h3>My Information</h3>
+          <h3 className='font-bold md:text-2xl text-xl'>My Information</h3>
           <p>
             Updating your information will offer you the most relevant content
             and conversations
           </p>
 
-          <div className="">
-            <button
-              className={styles.btn}
-              onClick={openEditModal}>
-              {" "}
+          <div className=''>
+            <button className={styles.btn} onClick={openEditModal}>
+              {' '}
               <CiEdit /> Edit
             </button>
           </div>
@@ -40,26 +38,26 @@ const CompanyProfile = () => {
         <div className={styles.userInfo}>
           <aside>
             <h5>CEO</h5>
-            <p>{user.ceo || "-"}</p>
+            <p>{user.ceo || '-'}</p>
           </aside>
           <aside>
             <h5>Location</h5>
             <p>
-              {user.state || "-"}{" "}
+              {user.state || '-'}{' '}
               {user.country ? <span>{`(${user.country})`}</span> : null}
             </p>
           </aside>
           <aside>
             <h5>Address</h5>
-            <p>{user.address || "-"}</p>
+            <p>{user.address || '-'}</p>
           </aside>
           <aside>
             <h5>Name of Company or Organisation</h5>
-            <p>{user.organizationName || "-"}</p>
+            <p>{user.organizationName || '-'}</p>
           </aside>
           <aside>
             <h5>Company Type</h5>
-            <p>{user.type || "-"}</p>
+            <p>{user.type || '-'}</p>
           </aside>
         </div>
       </section>

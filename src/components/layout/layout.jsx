@@ -12,6 +12,10 @@ function Layout() {
   if (!user)
     return <Navigate to={'/login'} state={{ from: pathname + search }} />;
 
+  if (user && !user.role) {
+    return <Navigate to='/complete-signup' replace />;
+  }
+
   return (
     <>
       <ProtectedHeader />

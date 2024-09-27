@@ -29,18 +29,7 @@ export function ReactPortal({ children, setState }) {
     <>
       <div
         onClick={handleVisibility}
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          background: 'rgba(0, 0, 0, 0.5)',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          zIndex: 9999, // Ensure it's on top of other content
-        }}
+        className='overflow-hidden size-full z-[9999] bg-black/50 inset-0 fixed flex justify-center items-center'
         ref={ref}
       >
         {children}

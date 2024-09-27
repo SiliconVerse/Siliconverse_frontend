@@ -39,14 +39,7 @@ const LoginForm = () => {
     try {
       const { user } = await signin(formData.email, formData.password);
       if (!user.emailVerified) {
-        try {
-          await sendEmailVerification(user, {
-            url: 'https://siliconverse-frontend.vercel.app/login',
-          });
-          toast.info('Please check your mail for verification');
-        } catch (error) {
-          setErrorMessage('Please Verify your email account');
-        }
+        return sendVerificationEmail(user);
       }
       setErrorMessage('');
       updateUser(user, true);
@@ -58,9 +51,26 @@ const LoginForm = () => {
     }
   };
 
+  const sendVerificationEmail = async (user) => {
+    try {
+      await sendEmailVerification(user, {
+        url: 'https://siliconverse-frontend.vercel.app/login',
+      });
+      toast.info('Please check your mail for verification');
+    } catch (error) {
+      setErrorMessage('Please Verify your email account');
+    }
+  };
+
   const handleSignInwithGoogle = async () => {
-    await signInWithPopup(auth, provider);
-    // const credential = GoogleAuthProvider.credentialFromResult(result);
+    const result = await signInWithPopup(auth, provider);
+
+    if (!result.user.emailVerified) {
+      return sendVerificationEmail(result);
+    }
+    setErrorMessage('');
+    updateUser(result.user, true);
+    toast.success('Logged in successfully 🎉', { position: 'top-center' });
   };
 
   if (authUser && authUser.role) {
@@ -71,8 +81,8 @@ const LoginForm = () => {
 
   return (
     <div className='login-container flex items-center justify-center flex-col  p-7 md:p-11 lg:p-14 min-h-[calc(100vh-106px) font-roboto w-full'>
-      <div className='login-form rounded-lg gap-5 md:gap-10  bg-black/20 relative flex flex-col-reverse md:flex-row w-full justify-between'>
-        <div className='mt-10 text-white w-full'>
+      <div className='login-form rounded-lg gap-5 md:gap-10  bg-black/20 relative flex flex-col-reverse md:grid md:grid-cols-2 w-full justify-between'>
+        <div className='mt-10 text-white w-full max-w-sm mx-auto'>
           <p className='text-center font-bold text-red-500 text-lg'>
             {errorMessage && errorMessage}
             {message && 'Please check your email for verification'}
@@ -84,9 +94,11 @@ const LoginForm = () => {
             {!message && (
               <div
                 onClick={handleSignInwithGoogle}
-                className='flex flex-shrink-0 gap-2 rounded-lg my-4 cursor-pointer py-2 bg-white text-primaryColor items-center mx-auto px-5 justify-center md:w-[60%]'
+                className='flex flex-shrink-0 gap-2 rounded-lg my-4 cursor-pointer py-2 bg-white text-primaryColor items-center mx-auto px-5 justify-center w-fit'
               >
-                <p className='text-center w-fit'>Sign in with Google</p>
+                <p className='text-center w-fit text-nowrap'>
+                  Sign in with Google
+                </p>
                 <img
                   src={GoogleLogo}
                   alt='google logo'

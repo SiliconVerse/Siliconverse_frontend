@@ -1,27 +1,21 @@
-import { useAuth } from "../../hooks/userAuth";
-import UserData from "../user-data";
-import CompanyProfileForm from "../company-profile/companyProfileForm";
-import SidebarPhoto from "../side-bar-photo";
+import { useAuth } from '../../hooks/userAuth';
+import UploadResumeInput from '../upload-resume-input';
+import UserData from '../user-data';
 
 const UserProfile = () => {
   const { user } = useAuth();
 
   return (
-    <section>
-      <div className="md:hidden aspect-square h-32 mx-auto relative mb-4 rounded-full group">
-        <SidebarPhoto key={"mobile"} />
-      </div>
-      <div className="mt-10">
-        <h3 className="text-lg md:text-xl font-bold">My Information</h3>
+    <section className='space-y-6'>
+      <UserData user={user} />
+      <div className='boxShadow rounded-sl py-4 px-3 md:px-7 md:pt-5 md:pb-2 border max-w-screen-lg'>
+        <h2 className='font-bold text-xl md:text-2xl'>Resume</h2>
         <p>
-          Updating your information will offer you the most relevant content and
-          conversations
+          After you upload a resume, it will be used to pre-fill internship
+          applications that you submit via Easy Apply.
         </p>
-      </div>
-      {/* User Initial Details */}
-      <div>
-        {user && <UserData />}
-        <CompanyProfileForm />
+
+        <UploadResumeInput userId={user.uid} />
       </div>
     </section>
   );
