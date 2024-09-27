@@ -36,29 +36,33 @@ const CompanyProfile = () => {
           </div>
         </div>
         <div className={styles.userInfo}>
-          <aside>
+          <div>
             <h5>CEO</h5>
             <p>{user.ceo || '-'}</p>
-          </aside>
-          <aside>
+          </div>
+          <div>
             <h5>Location</h5>
             <p>
               {user.state || '-'}{' '}
               {user.country ? <span>{`(${user.country})`}</span> : null}
             </p>
-          </aside>
-          <aside>
+          </div>
+          <div>
             <h5>Address</h5>
             <p>{user.address || '-'}</p>
-          </aside>
-          <aside>
+          </div>
+          <div>
             <h5>Name of Company or Organisation</h5>
             <p>{user.organizationName || '-'}</p>
-          </aside>
-          <aside>
+          </div>
+          <div>
             <h5>Company Type</h5>
             <p>{user.type || '-'}</p>
-          </aside>
+          </div>
+          <div>
+            <h5>Bio</h5>
+            <p>{user.bio || '-'}</p>
+          </div>
         </div>
       </section>
       {editCompanyProfile && (

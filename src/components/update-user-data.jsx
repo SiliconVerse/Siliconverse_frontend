@@ -7,6 +7,7 @@ import { useAuth } from '../hooks/userAuth';
 import { skillSet } from '../utils/skillset';
 import InputField from './input-field';
 import SubmitButton from './submit-btn';
+import './update-user-data.css';
 
 const UserDataForm = ({ userData, setState }) => {
   const { updateUser } = useAuth();
@@ -25,7 +26,11 @@ const UserDataForm = ({ userData, setState }) => {
     github: userData.github ?? '',
     linkedIn: userData.linkedIn ?? '',
     website: userData.website ?? '',
+    bio: userData.bio ?? '',
   });
+
+  const [charCount, setCharCount] = useState(userData.bio?.length || 0);
+  const maxCharLimit = 2000;
 
   function isValidUrlRegex(url) {
     const regex = /^(https?:\/\/)([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
@@ -43,6 +48,10 @@ const UserDataForm = ({ userData, setState }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    if (name === 'bio') {
+      setCharCount(value.length); // Update char count for bio
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -67,7 +76,7 @@ const UserDataForm = ({ userData, setState }) => {
   return (
     <ReactPortal setState={setState}>
       <form
-        className='bg-white max-sm:w-5/6 w-1/2 px-3 py-2 rounded-md overflow-y-scroll mx-auto h-[85%]'
+        className='bg-white max-sm:w-5/6 w-1/2 px-3 py-2 rounded-md overflow-y-scroll mx-auto h-[95%]'
         onSubmit={handleSubmit}
       >
         <div className='my-3 grid grid-cols-1 md:grid-cols-2 gap-4'>
@@ -198,9 +207,28 @@ const UserDataForm = ({ userData, setState }) => {
               </span>
             )}
           </InputField>
+          <div className='flex flex-col gap-1 col-span-full'>
+            <label className='block' htmlFor='bio'>
+              Bio
+            </label>
+
+            <textarea
+              name='bio'
+              value={formData.bio}
+              onChange={handleChange}
+              placeholder='Tell us about yourself...'
+              rows={2}
+              cols={50}
+              maxLength={maxCharLimit}
+              className='border border-black/60 rounded-md py-1 w-full px-2 focus-visible:border-primaryColor bg-white outline-none focus-visible:outline-primaryColor/20'
+            />
+            <p className='text-[#666] text-right text-sm'>
+              {charCount}/{maxCharLimit}
+            </p>
+          </div>
         </div>
 
-        <div className='mt-4 flex items-center justify-end gap-3'>
+        <div className='mt-2 flex items-center justify-end gap-3'>
           <button
             type='button'
             onClick={() => setState(false)}

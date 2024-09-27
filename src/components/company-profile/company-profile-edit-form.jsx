@@ -21,13 +21,20 @@ export default function CompanyProfileEditForm({
     address: user?.address || '',
     organizationName: user?.organizationName || '',
     type: user?.type || '',
+    bio: user?.bio || '',
   });
+  const [charCount, setCharCount] = useState(user.bio?.length || 0);
+  const maxCharLimit = 2000;
 
   const { updateUser } = useAuth();
 
   const handleFormChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (name === 'bio') {
+      setCharCount(value.length); // Update char count for bio
+    }
   };
 
   const [isLoading, setIsLoading] = useState(false);
@@ -109,7 +116,29 @@ export default function CompanyProfileEditForm({
           />
         </div>
 
-        <div className='flex justify-end items-center gap-3'>
+        {/* Bio Section */}
+        <div className='flex flex-col gap-1'>
+          <label className='' htmlFor='bio'>
+            Bio
+          </label>
+          <div className=''>
+            <textarea
+              name='bio'
+              value={formData.bio}
+              onChange={handleFormChange}
+              placeholder='Tell us about company...'
+              rows={2}
+              cols={50}
+              maxLength={maxCharLimit}
+              className='border border-black/60 rounded-md py-1 w-full px-2 focus-visible:border-primaryColor bg-white outline-none focus-visible:outline-primaryColor/20'
+            />
+            <p className='text-[#666] text-right text-sm'>
+              {charCount}/{maxCharLimit}
+            </p>
+          </div>
+        </div>
+
+        <div className='flex justify-end items-center gap-3 mt-2'>
           <button
             type='button'
             className='bg-red-500 rounded-lg capitalize text-white py-1 px-5 hover:opacity-85 transition-all ease-linear duration-200 focus-visible:ring-red-500'

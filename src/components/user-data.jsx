@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CiEdit } from 'react-icons/ci';
 import UserDataForm from './update-user-data';
 
 export default function UserData({ user }) {
-  // const { user } = useAuth();
-  // const [userData, setUserData] = useState();
-
   const [openUpdateModal, setOpenUpdateModal] = useState(false);
 
   const toggleEditModal = () => {
@@ -43,7 +40,7 @@ export default function UserData({ user }) {
 
           <Field
             title={'Location*'}
-            value={`${user?.state || '-'}${
+            value={`${user?.stateOfResidence || '-'}${
               user.country ? `(${user?.country})` : ''
             }`}
             valueStyles='capitalize'
@@ -60,8 +57,18 @@ export default function UserData({ user }) {
           <Field title={'Phone*'} value={user?.phoneNumber || '-'} />
           <Field title={'Email*'} value={user?.email || '-'} />
           <Field
-            title={'Community*'}
+            title={'Skillset*'}
             value={user?.skillset || '-'}
+            valueStyles='capitalize'
+          />
+          <Field
+            title={'Gender'}
+            value={user?.gender || '-'}
+            valueStyles='capitalize'
+          />
+          <Field
+            title={'Bio'}
+            value={user?.bio || '-'}
             valueStyles='capitalize'
           />
         </div>
