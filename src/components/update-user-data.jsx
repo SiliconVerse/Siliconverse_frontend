@@ -4,7 +4,6 @@ import { useAuth } from "../hooks/userAuth";
 import { doc, setDoc } from "firebase/firestore";
 import SubmitButton from "./submit-btn";
 import { skillSet } from "../utils/skillset";
-import './update-user-data.css';
 
 const UserDataForm = ({ userData, setState }) => {
   const { updateUser } = useAuth();
@@ -23,28 +22,25 @@ const UserDataForm = ({ userData, setState }) => {
     github: userData.github ?? "",
     linkedIn: userData.linkedIn ?? "",
     website: userData.website ?? "",
-    bio: userData.bio ?? "",
   });
-  
-  const [charCount, setCharCount] = useState(userData.bio?.length || 0);
-  const maxCharLimit = 2000;
 
   function isValidUrlRegex(url) {
-    const regex = /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+    const regex =
+      /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
     return regex.test(url);
   }
 
   function getFormattedUrl(url) {
-    return isValidUrlRegex(url);
+    if (isValidUrlRegex(url)) {
+      return true;
+    } else {
+      false;
+    }
   }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    
-    if (name === "bio") {
-      setCharCount(value.length);  // Update char count for bio
-    }
   };
 
   const handleSubmit = async (e) => {
@@ -63,36 +59,46 @@ const UserDataForm = ({ userData, setState }) => {
   };
 
   return (
-    <form className="max-w-4xl mx-auto pt-40" onSubmit={handleSubmit}>
+    <form
+      className="max-w-4xl mx-auto p-4"
+      onSubmit={handleSubmit}>
+      <button
+        type="button"
+        onClick={() => setState(false)}
+        className="text-white underline mx-auto text-center block">
+        Cancel
+      </button>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white">
-        {/* Form Fields */}
         <div>
-          <label className="block text-sm font-medium" htmlFor="firstname">
+          <label
+            className="block text-sm font-medium"
+            htmlFor="firstname">
             First Name
           </label>
           <input
-            className="mt-1 block w-full border text-black p-1 rounded-md"
+            className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
             type="text"
             id="firstname"
-            name="firstName"
+            name="firstname"
             value={formData.firstName}
             onChange={handleChange}
           />
         </div>
         <div>
-          <label className="block text-sm font-medium" htmlFor="lastname">
+          <label
+            className="block text-sm font-medium"
+            htmlFor="lastname">
             Last Name
           </label>
           <input
-            className="mt-1 block w-full border text-black p-1 rounded-md"
+            className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
             type="text"
             id="lastname"
-            name="lastName"
+            name="lastname"
             value={formData.lastName}
             onChange={handleChange}
           />
         </div>
-        {/* other socials */}
         <div>
           <label
             className="block text-sm font-medium"
@@ -140,7 +146,6 @@ const UserDataForm = ({ userData, setState }) => {
             onChange={handleChange}
           />
         </div>
-        {/* country & SOO */}
         <div>
           <label
             className="block text-sm font-medium"
@@ -171,68 +176,6 @@ const UserDataForm = ({ userData, setState }) => {
             onChange={handleChange}
           />
         </div>
-
-
-        {/* Social Handles */}
-        <div>
-          <label className="block text-sm font-medium" htmlFor="github">
-            Github
-            {formData.github.length > 1 && !getFormattedUrl(formData.github) && (
-              <span className="ml-3 text-red-500 text-sm">
-                Invalid Link, include http or https
-              </span>
-            )}
-          </label>
-          <input
-            className="mt-1 block w-full border text-black p-1 rounded-md"
-            type="text"
-            id="github"
-            name="github"
-            value={formData.github}
-            onChange={handleChange}
-          />
-        </div>
-        {/* Additional social fields */}
-        <div>
-          <label className="block text-sm font-medium" htmlFor="gilinkedInthub">
-            linkedIn
-            {formData.linkedIn.length > 1 && !getFormattedUrl(formData.linkedIn) && (
-              <span className="ml-3 text-red-500 text-sm">
-                Invalid Link, include http or https
-              </span>
-            )}
-          </label>
-          <input
-            className="mt-1 block w-full border text-black p-1 rounded-md"
-            type="text"
-            id="linkedIn"
-            name="linkedIn"
-            value={formData.linkedIn}
-            onChange={handleChange}
-          />
-        </div>
-
-
-        <div>
-          <label className="block text-sm font-medium" htmlFor="website">
-            Portfolio
-            {formData.website.length > 1 && !getFormattedUrl(formData.website) && (
-              <span className="ml-3 text-red-500 text-sm">
-                Invalid Link, include http or https
-              </span>
-            )}
-          </label>
-          <input
-            className="mt-1 block w-full border text-black p-1 rounded-md"
-            type="text"
-            id="website"
-            name="website"
-            value={formData.website}
-            onChange={handleChange}
-          />
-        </div>
-
-        {/* skill */}
         <div>
           <label
             className="block text-sm font-medium"
@@ -255,39 +198,110 @@ const UserDataForm = ({ userData, setState }) => {
             ))}
           </select>
         </div>
-      </div>
-
-
-      
-
-      {/* Bio Section */}
-      <div className="text-white gap-4 pt-3">
-        <label className="block text-sm font-medium" htmlFor="bio">
-          Bio
-        </label>
-        <div className="bio_text_box">
-          <textarea
-            name="bio"
-            value={formData.bio}
+        <div>
+          <label
+            className="block text-sm font-medium"
+            htmlFor="university">
+            University
+          </label>
+          <input
+            className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
+            type="text"
+            id="university"
+            name="university"
+            value={formData.university}
             onChange={handleChange}
-            placeholder="Tell us about yourself..."
-            rows={10}
-            cols={50}
-            maxLength={maxCharLimit}
           />
-          <div className="char-count">
-            {charCount}/{maxCharLimit}
-          </div>
         </div>
+        <div>
+          <label
+            className="block text-sm font-medium"
+            htmlFor="degree">
+            Degree
+          </label>
+          <input
+            className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
+            type="text"
+            id="degree"
+            name="degree"
+            value={formData.degree}
+            onChange={handleChange}
+          />
+        </div>
+        {/* Social handles */}
+        {/* <aside> */}
+        <div>
+          <label
+            className="block text-sm font-medium"
+            htmlFor="github">
+            Github
+            {formData.github.length > 1 && (
+              <span className="ml-3 text-red-500 text-sm">
+                {!getFormattedUrl(formData.github) &&
+                  "Invalid Link, do include http or https"}
+              </span>
+            )}
+          </label>
+          <input
+            className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
+            type="text"
+            id="github"
+            name="github"
+            value={formData.github}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label
+            className="block text-sm font-medium"
+            htmlFor="linkedIn">
+            LinkedIn
+            {formData.linkedIn.length > 1 && (
+              <span className="ml-3 text-red-500 text-sm">
+                {!getFormattedUrl(formData.linkedIn) &&
+                  "Invalid Link, do include http or https"}
+              </span>
+            )}
+          </label>
+          <input
+            className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
+            type="text"
+            id="linkedIn"
+            name="linkedIn"
+            value={formData.linkedIn}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label
+            className="block text-sm font-medium"
+            htmlFor="website">
+            Portfolio Link
+            {formData.website.length > 1 && (
+              <span className="ml-3 text-red-500 text-sm">
+                {!getFormattedUrl(formData.website) &&
+                  "Invalid Link, do include http or https"}
+              </span>
+            )}
+          </label>
+          <input
+            className="mt-1 block w-full border border-none text-black p-1 rounded-md shadow-sm focus:ring-primaryColor focus:border-primaryColor"
+            type="text"
+            id="website"
+            name="website"
+            value={formData.website}
+            onChange={handleChange}
+          />
+        </div>
+        {/* </aside> */}
       </div>
-
-      {/* Submit and Cancel */}
       <div className="mt-4">
         <SubmitButton
-          className="inline-flex justify-center py-2 px-4 text-white bg-primaryColor"
+          className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primaryColor hover:bg-primaryColor/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primaryColor"
           text="Update"
           isLoading={isLoading}
         />
+
         <button
           type="button"
           onClick={() => setState(false)}

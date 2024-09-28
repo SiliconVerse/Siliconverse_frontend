@@ -20,21 +20,13 @@ export default function CompanyProfileEditForm({
     address: user?.address || '',
     organizationName: user?.organizationName || '',
     type: user?.type || '',
-    bio: user?.bio || '',
   });
-  const [charCount, setCharCount] = useState(user.bio?.length || 0);
-  const maxCharLimit = 2000;
-  
 
   const { updateUser } = useAuth();
 
   const handleFormChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-
-    if (name === "bio") {
-      setCharCount(value.length);  // Update char count for bio
-    }
   };
 
   const [isLoading, setIsLoading] = useState(false);
@@ -113,27 +105,6 @@ export default function CompanyProfileEditForm({
             placeholder='Nigeria'
           />
         </div>
-
-        {/* Bio Section */}
-      <div className="text-white gap-4 pt-3">
-        <label className="text-lg font-medium text-black" htmlFor="bio">
-          Bio
-        </label>
-        <div className="bio_text_box">
-          <textarea
-            name="bio"
-            value={formData.bio}
-            onChange={handleFormChange}
-            placeholder="Tell us about company..."
-            rows={10}
-            cols={50}
-            maxLength={maxCharLimit}
-          />
-          <div className="char-count">
-            {charCount}/{maxCharLimit}
-          </div>
-        </div>
-      </div>
 
         <div className='flex justify-end items-center gap-3'>
           <button
