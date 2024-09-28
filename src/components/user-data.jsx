@@ -3,6 +3,7 @@ import UserDataForm from "./update-user-data";
 import { useAuth } from "../hooks/userAuth";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import TalentSocials from "./talentSocials";
+import './update-user-data.css';
 
 function UserData() {
   const { user } = useAuth();
@@ -60,6 +61,16 @@ function UserData() {
                 </p>
               )}
             </div>
+            {/* bio section */}
+            <div className="flex gap-3">
+              {userData.skillset && (
+                <p className="capitalize">
+                  <span className="block font-semibold">Bio</span>
+                  {userData.bio.toLowerCase()}
+                </p>
+              )}
+            </div>
+
 
             <button
               onClick={() => setOpenUpdate(!openUpdate)}
