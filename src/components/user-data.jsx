@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import { CiEdit } from 'react-icons/ci';
+import { PencilIcon } from 'lucide-react';
+import { useState } from 'react';
 import UserDataForm from './update-user-data';
+import './update-user-data.css';
 
 export default function UserData({ user }) {
-  // const { user } = useAuth();
-  // const [userData, setUserData] = useState();
-
   const [openUpdateModal, setOpenUpdateModal] = useState(false);
 
   const toggleEditModal = () => {
@@ -22,12 +20,13 @@ export default function UserData({ user }) {
 
       <button
         className={
-          'block mt-2 hover:text-primaryColor/80 transition-all duration-200 ease-linear'
+          'mt-2 hover:text-primaryColor/80 transition-all duration-200 ease-linear flex items-center border-b border-primaryColor gap-2 text-nowrap'
         }
         onClick={toggleEditModal}
       >
         {' '}
-        <CiEdit /> Edit
+        Edit
+        <PencilIcon size={20} />
       </button>
       <div className='md:grid md:grid-cols-3 mt-6 md:gap-8'>
         <div className='space-y-5'>
@@ -43,7 +42,7 @@ export default function UserData({ user }) {
 
           <Field
             title={'Location*'}
-            value={`${user?.state || '-'}${
+            value={`${user?.stateOfResidence || '-'}${
               user.country ? `(${user?.country})` : ''
             }`}
             valueStyles='capitalize'
@@ -57,13 +56,14 @@ export default function UserData({ user }) {
         </div>
 
         <div className='space-y-5'>
-          <Field title={'Phone*'} value={user?.phoneNumber || '-'} />
+          <Field title={'Phone*'} value={user?.phone || '-'} />
           <Field title={'Email*'} value={user?.email || '-'} />
           <Field
-            title={'Community*'}
+            title={'Skillset*'}
             value={user?.skillset || '-'}
             valueStyles='capitalize'
           />
+          <Field title={'Bio'} value={user?.bio || '-'} />
         </div>
       </div>
 

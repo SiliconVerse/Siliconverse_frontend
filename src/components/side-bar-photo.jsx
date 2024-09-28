@@ -85,7 +85,7 @@ function SidebarPhoto() {
           <img
             src={preview || user?.profilePicture || imageUrl}
             alt='Profile Image of user'
-            className='h-full w-full object-cover rounded-full'
+            className='h-full w-full object-cover object-top rounded-full'
           />
         </div>
 

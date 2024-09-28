@@ -12,20 +12,23 @@ const UserDataForm = ({ userData, setState }) => {
   const { updateUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
-    phoneNumber: userData.phoneNumber ?? '',
+    phone: userData.phone ?? '',
     firstName: userData.firstName ?? '',
     lastName: userData.lastName ?? '',
     gender: userData.gender ?? '',
     email: userData.email ?? '',
     country: userData.country ?? '',
-    stateOfResidence: userData.stateOfResidence ?? '',
+    stateOfResdidence: userData.stateOfResdidence ?? '',
     skillset: userData.skillset ?? '',
     university: userData.university ?? '',
     degree: userData.degree ?? '',
     github: userData.github ?? '',
     linkedIn: userData.linkedIn ?? '',
     website: userData.website ?? '',
+    bio: userData.bio ?? '',
   });
+  const [charCount, setCharCount] = useState(userData.bio?.length || 0);
+  const maxCharLimit = 2000;
 
   function isValidUrlRegex(url) {
     const regex = /^(https?:\/\/)([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
@@ -43,6 +46,10 @@ const UserDataForm = ({ userData, setState }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    if (name === 'bio') {
+      setCharCount(value.length); // Update char count for bio
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -198,6 +205,27 @@ const UserDataForm = ({ userData, setState }) => {
               </span>
             )}
           </InputField>
+        </div>
+
+        {/* Bio Section */}
+        <div className='text-white gap-4 pt-3'>
+          <label className='block text-sm font-medium' htmlFor='bio'>
+            Bio
+          </label>
+          <div className='bio_text_box'>
+            <textarea
+              name='bio'
+              value={formData.bio}
+              onChange={handleChange}
+              placeholder='Tell us about yourself...'
+              rows={10}
+              cols={50}
+              maxLength={maxCharLimit}
+            />
+            <div className='char-count'>
+              {charCount}/{maxCharLimit}
+            </div>
+          </div>
         </div>
 
         <div className='mt-4 flex items-center justify-end gap-3'>
