@@ -23,7 +23,7 @@ const CompanyProfile = () => {
       <section className={styles.container}>
         <div className={styles.head}>
           <h3>My Information</h3>
-          <p className="">
+          <p>
             Updating your information will offer you the most relevant content
             and conversations
           </p>
