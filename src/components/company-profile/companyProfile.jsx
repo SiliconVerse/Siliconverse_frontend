@@ -3,6 +3,8 @@ import { CiEdit } from "react-icons/ci";
 import { useAuth } from "../../hooks/userAuth";
 import CompanyProfileEditForm from "./company-profile-edit-form";
 import styles from "./companyProfile.module.css";
+import SidebarPhoto from "../side-bar-photo";
+import { PencilIcon } from "lucide-react";
 
 const CompanyProfile = () => {
   const { user } = useAuth();
@@ -21,8 +23,11 @@ const CompanyProfile = () => {
   return (
     <>
       <section className={styles.container}>
+        <div className="md:hidden aspect-square h-32 mx-auto relative mb-4 rounded-full group">
+          <SidebarPhoto key={"mobile"} />
+        </div>
         <div className={styles.head}>
-          <h3>My Information</h3>
+          <h3 className="text-lg md:text-xl font-bold">My Information</h3>
           <p>
             Updating your information will offer you the most relevant content
             and conversations
@@ -30,10 +35,11 @@ const CompanyProfile = () => {
 
           <div className="">
             <button
-              className={styles.btn}
+              className={
+                "my-2 border-b border-primaryColor text-nowrap flex items-center gap-2"
+              }
               onClick={openEditModal}>
-              {" "}
-              <CiEdit /> Edit
+              Edit <PencilIcon size={20} />
             </button>
           </div>
         </div>
