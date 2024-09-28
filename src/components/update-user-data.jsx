@@ -5,6 +5,7 @@ import { doc, setDoc } from "firebase/firestore";
 import SubmitButton from "./submit-btn";
 import { skillSet } from "../utils/skillset";
 
+
 const UserDataForm = ({ userData, setState }) => {
   const { updateUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
@@ -22,25 +23,27 @@ const UserDataForm = ({ userData, setState }) => {
     github: userData.github ?? "",
     linkedIn: userData.linkedIn ?? "",
     website: userData.website ?? "",
+    bio: userData.bio ?? "",
   });
+  const [charCount, setCharCount] = useState(userData.bio?.length || 0);
+  const maxCharLimit = 2000;
 
   function isValidUrlRegex(url) {
-    const regex =
-      /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+    const regex = /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
     return regex.test(url);
   }
 
   function getFormattedUrl(url) {
-    if (isValidUrlRegex(url)) {
-      return true;
-    } else {
-      false;
-    }
+    return isValidUrlRegex(url);
   }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    
+    if (name === "bio") {
+      setCharCount(value.length);  // Update char count for bio
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -58,16 +61,18 @@ const UserDataForm = ({ userData, setState }) => {
     }
   };
 
+
+
   return (
     <form
-      className="max-w-4xl mx-auto p-4"
+      className="max-w-4xl mx-auto pt-40"
       onSubmit={handleSubmit}>
-      <button
+      {/* <button
         type="button"
         onClick={() => setState(false)}
         className="text-white underline mx-auto text-center block">
         Cancel
-      </button>
+      </button> */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white">
         <div>
           <label
@@ -294,7 +299,30 @@ const UserDataForm = ({ userData, setState }) => {
           />
         </div>
         {/* </aside> */}
+
       </div>
+
+      {/* Bio Section */}
+      <div className="text-white gap-4 pt-3">
+        <label className="block text-sm font-medium" htmlFor="bio">
+          Bio
+        </label>
+        <div className="bio_text_box">
+          <textarea
+            name="bio"
+            value={formData.bio}
+            onChange={handleChange}
+            placeholder="Tell us about yourself..."
+            rows={10}
+            cols={50}
+            maxLength={maxCharLimit}
+          />
+          <div className="char-count">
+            {charCount}/{maxCharLimit}
+          </div>
+        </div>
+      </div>
+
       <div className="mt-4">
         <SubmitButton
           className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primaryColor hover:bg-primaryColor/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primaryColor"
