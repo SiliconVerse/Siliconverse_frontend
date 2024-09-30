@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
+import { doc, updateDoc } from 'firebase/firestore';
 import {
+  deleteObject,
+  getDownloadURL,
   ref,
   uploadBytes,
-  getDownloadURL,
-  deleteObject,
-} from "firebase/storage";
-import { doc, updateDoc } from "firebase/firestore";
-import { PencilIcon } from "lucide-react";
-import profileBigImg from "../assets/profileImgBig.png";
-import { db, storage } from "../hooks/auth/firebase";
-import { useAuth } from "../hooks/userAuth";
+} from 'firebase/storage';
+import { PencilIcon } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import profileBigImg from '../assets/Generic-Profile-Image.webp';
+import { db, storage } from '../hooks/auth/firebase';
+import { useAuth } from '../hooks/userAuth';
 
 function SidebarPhoto() {
   const [file, setFile] = useState(null);
@@ -33,7 +33,7 @@ function SidebarPhoto() {
 
   const handleUpload = async () => {
     if (!file) {
-      alert("Please select a file first.");
+      alert('Please select a file first.');
       return;
     }
 
@@ -52,7 +52,7 @@ function SidebarPhoto() {
       const downloadURL = await getDownloadURL(storageRef);
 
       // Save the URL to Firestore
-      const userRef = doc(db, "Users", user?.uid);
+      const userRef = doc(db, 'Users', user?.uid);
       await updateDoc(userRef, { profilePicture: downloadURL });
       await updateUser(user);
 
@@ -61,8 +61,8 @@ function SidebarPhoto() {
         await deleteObject(oldImageRef);
       }
     } catch (error) {
-      console.error("Error uploading file: ", error);
-      alert("Error uploading file.");
+      console.error('Error uploading file: ', error);
+      alert('Error uploading file.');
     } finally {
       setUploading(false);
       setPreview(null);
@@ -71,47 +71,43 @@ function SidebarPhoto() {
 
   // Trigger the file input click event after setting up the event listener
   useEffect(() => {
-    const fileInput = document.getElementById("profile");
-    fileInput.addEventListener("change", handleFileChange);
+    const fileInput = document.getElementById('profile');
+    fileInput.addEventListener('change', handleFileChange);
     return () => {
-      fileInput.removeEventListener("change", handleFileChange);
+      fileInput.removeEventListener('change', handleFileChange);
     };
   }, []);
 
   return (
-    <div className="relative group mx-auto text-center">
-      <label
-        htmlFor="profile"
-        className="cursor-pointer relative block">
-        <div className="aspect-square">
+    <div className='relative group mx-auto text-center'>
+      <label htmlFor='profile' className='cursor-pointer relative block'>
+        <div className='aspect-square'>
           <img
             src={preview || user?.profilePicture || imageUrl}
-            alt="Profile Image of user"
-            className="h-full w-full object-cover object-top rounded-full"
+            alt='Profile Image of user'
+            className='h-full w-full object-cover object-top rounded-full'
           />
         </div>
 
-        <div className="p-1 bg-white rounded-full text-primaryColor absolute top-0 right-0 z-10 border border-primaryColor">
-          <PencilIcon
-            size={24}
-            className=""
-          />
+        <div className='p-1 bg-white rounded-full text-primaryColor absolute top-0 right-0 z-10 border border-primaryColor'>
+          <PencilIcon size={24} className='' />
         </div>
       </label>
       {preview && (
         <button
           onClick={handleUpload}
           disabled={uploading}
-          className="text-white font-bold underline bg-black p-1 rounded-md mx-auto text-center mt-1 text-sm">
-          {uploading ? "Uploading..." : "Save"}
+          className='text-white font-bold underline bg-black p-1 rounded-md mx-auto text-center mt-1 text-sm'
+        >
+          {uploading ? 'Uploading...' : 'Save'}
         </button>
       )}
       <input
-        id="profile"
-        className="hidden"
+        id='profile'
+        className='hidden'
         onChange={handleFileChange}
-        type="file"
-        accept="image/*"
+        type='file'
+        accept='image/*'
       />
     </div>
   );

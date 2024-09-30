@@ -6,6 +6,7 @@ import SubmitButton from '../submit-btn';
 
 import { toast } from 'react-toastify';
 import { useAuth } from '../../hooks/userAuth';
+import InputField from '../input-field';
 
 export default function CompanyProfileEditForm({
   user,
@@ -69,11 +70,12 @@ export default function CompanyProfileEditForm({
             label={'CEO Name'}
             id={'ceo'}
             placeholder='John Doe'
+            required={false}
           />
           <InputField
             value={formData.organizationName}
             onChange={handleFormChange}
-            label={'Company Name'}
+            label={'Company Name*'}
             id={'organizationName'}
             placeholder='SiliconVerse'
           />
@@ -86,6 +88,7 @@ export default function CompanyProfileEditForm({
             label={'Address'}
             id={'address'}
             placeholder='123 express avenue'
+            required={false}
           />
           <InputField
             value={formData.type}
@@ -101,14 +104,14 @@ export default function CompanyProfileEditForm({
           <InputField
             value={formData.state}
             onChange={handleFormChange}
-            label={'State'}
+            label={'State*'}
             id={'state'}
             placeholder='Lagos'
           />
           <InputField
             value={formData.country}
             onChange={handleFormChange}
-            label={'Country'}
+            label={'Country*'}
             id={'country'}
             placeholder='Nigeria'
           />
@@ -138,7 +141,7 @@ export default function CompanyProfileEditForm({
         <div className='flex justify-end items-center gap-3'>
           <button
             type='button'
-            className='bg-red-500 rounded-lg capitalize text-white py-1 px-5'
+            className='bg-red-500 rounded-lg capitalize text-white py-1 px-5 hover:opacity-85 transition-all ease-linear duration-200 focus-visible:ring-red-500'
             onClick={closeEditModal}
           >
             cancel
@@ -147,38 +150,12 @@ export default function CompanyProfileEditForm({
           <SubmitButton
             text={'save'}
             className={
-              'bg-green-500 rounded-lg capitalize text-white py-1 px-5'
+              'bg-green-500 rounded-lg capitalize text-white py-1 px-5 hover:opacity-85 transition-all ease-linear duration-200 focus-visible:ring-green-500'
             }
             isLoading={isLoading}
           />
         </div>
       </form>
     </ReactPortal>
-  );
-}
-
-function InputField({
-  type = 'text',
-  value,
-  onChange,
-  label,
-  id,
-  required = true,
-  ...otherProps
-}) {
-  return (
-    <label className='flex flex-col gap-1'>
-      {label}
-      <input
-        type={type}
-        id={id}
-        name={id}
-        value={value}
-        onChange={onChange}
-        className='border border-black/60 rounded-md py-1 w-full px-2'
-        required={required}
-        {...otherProps}
-      />
-    </label>
   );
 }

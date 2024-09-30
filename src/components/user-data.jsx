@@ -1,98 +1,84 @@
-import React, { useMemo, useState } from "react";
-import UserDataForm from "./update-user-data";
-import { useAuth } from "../hooks/userAuth";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
-import TalentSocials from "./talentSocials";
+import { PencilIcon } from 'lucide-react';
+import { useState } from 'react';
+import UserDataForm from './update-user-data';
 import './update-user-data.css';
 
-function UserData() {
-  const { user } = useAuth();
-  // const [userData, setUserData] = useState();
+export default function UserData({ user }) {
+  const [openUpdateModal, setOpenUpdateModal] = useState(false);
 
-  const userData = useMemo(() => ({ ...user }), [user]);
-  const [openUpdate, setOpenUpdate] = useState(false);
+  const toggleEditModal = () => {
+    setOpenUpdateModal((prev) => !prev);
+  };
+
   return (
-    <>
-      {userData && (
-        <>
-          <aside className="flex flex-col gap-3 justify-start md:gap-5 my-2 md:my-4 w-full md:justify-evenly text-sm md:text-base">
-            <p className="capitalize">
-              <span className="block font-semibold">Full Name</span>
-              {userData.firstName.toLowerCase() +
-                " " +
-                userData.lastName.toLowerCase()}{" "}
-              {userData.gender && `(${userData.gender})`}
-            </p>
-            <p className="w-1/2">
-              <span className="block font-semibold">Email</span>
-              {userData.email}
-            </p>
-            <TalentSocials userData={userData} />
-            <div className="flex gap-3">
-              {userData.country && (
-                <p className="capitalize">
-                  <span className="block font-semibold">Country</span>
-                  {userData.country.toLowerCase()}
-                </p>
-              )}
-              {userData.stateOfResdidence && (
-                <p className="capitalize">
-                  <span className="block font-semibold">
-                    State of Residence
-                  </span>
+    <div className='boxShadow rounded-sl py-4 px-3 md:p-7 border w-full max-w-screen-lg'>
+      <h1 className='font-bold text-2xl mb-1'>My Information</h1>
+      <p>
+        Updating your information will offer you the most relevant content and
+        conversations
+      </p>
 
-                  {userData.stateOfResdidence.toLowerCase()}
-                </p>
-              )}
-            </div>
+      <button
+        className={
+          'mt-2 hover:text-primaryColor/80 transition-all duration-200 ease-linear flex items-center border-b border-primaryColor gap-2 text-nowrap'
+        }
+        onClick={toggleEditModal}
+      >
+        {' '}
+        Edit
+        <PencilIcon size={20} />
+      </button>
+      <div className='md:grid md:grid-cols-3 mt-6 md:gap-8'>
+        <div className='space-y-5'>
+          <Field
+            title={'Internship status*'}
+            value={user?.status || 'Pending'}
+          />
+          <Field
+            title={'Full name*'}
+            value={`${user?.firstName || '-'} ${user?.lastName || ''}`}
+            valueStyles='capitalize'
+          />
 
-            <div className="flex gap-3">
-              {userData.skillset && (
-                <p className="capitalize">
-                  <span className="block font-semibold">Skillset</span>
-                  {userData.skillset.toLowerCase()}
-                </p>
-              )}
-              {userData.university && (
-                <p className="capitalize">
-                  <span className="block font-semibold">University</span>
+          <Field
+            title={'Location*'}
+            value={`${user?.stateOfResidence || '-'}${
+              user.country ? `(${user?.country})` : ''
+            }`}
+            valueStyles='capitalize'
+          />
 
-                  {userData.university.toLowerCase()}
-                </p>
-              )}
-            </div>
-            {/* bio section */}
-            <div className="flex gap-3">
-              {userData.skillset && (
-                <p className="capitalize">
-                  <span className="block font-semibold">Bio</span>
-                  {userData.bio.toLowerCase()}
-                </p>
-              )}
-            </div>
+          <Field
+            title={'University or college'}
+            value={user?.university || '-'}
+          />
+          <Field title={'Degree type'} value={user?.degree || '-'} />
+        </div>
 
+        <div className='space-y-5'>
+          <Field title={'Phone*'} value={user?.phone || '-'} />
+          <Field title={'Email*'} value={user?.email || '-'} />
+          <Field
+            title={'Skillset*'}
+            value={user?.skillset || '-'}
+            valueStyles='capitalize'
+          />
+          <Field title={'Bio'} value={user?.bio || '-'} />
+        </div>
+      </div>
 
-            <button
-              onClick={() => setOpenUpdate(!openUpdate)}
-              className="rounded-lg bg-primaryColor text-white text-center px-5 py-1.5 w-fit">
-              Update Profile
-            </button>
-          </aside>
-
-          {openUpdate && (
-            <div className="overflow-auto fixed top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 h-[100vh] w-[100vw] bg-black/95 z-[220]">
-              <div className="flex items-center justify-center lg:h-full w-full overflow-auto">
-                <UserDataForm
-                  setState={setOpenUpdate}
-                  userData={userData}
-                />
-              </div>
-            </div>
-          )}
-        </>
+      {openUpdateModal && (
+        <UserDataForm userData={user} setState={setOpenUpdateModal} />
       )}
-    </>
+    </div>
   );
 }
 
-export default UserData;
+const Field = ({ title, value, valueStyles = '' }) => {
+  return (
+    <div className='text-xl'>
+      <h4 className='font-normal text-nowrap'>{title}</h4>
+      <p className={`text-primaryColor truncate ${valueStyles}`}>{value}</p>
+    </div>
+  );
+};

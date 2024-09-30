@@ -20,6 +20,7 @@ import PrivacyPolicy from '../pages/PrivacyPolicy.jsx';
 import SignUp from '../pages/SignUp.jsx';
 import TermsAndConditions from '../pages/TermsAndConditions.jsx';
 import UserProfile from '../pages/UserProfilePage.jsx';
+import CompleteSignup from '../pages/complete-signup.jsx';
 import LoginForm from '../pages/login/LogIn.jsx';
 import NotFound from '../pages/notFound.jsx';
 
@@ -45,6 +46,8 @@ const routes = createRoutesFromElements(
       <Route path='/help' element={<HelpCenter />} />
     </Route>
     {/* Wrapper */}
+
+    <Route path='complete-signup' element={<CompleteSignup />} />
 
     <Route path='*' element={<NotFound />} />
   </Route>
