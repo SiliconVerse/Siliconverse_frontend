@@ -1,41 +1,45 @@
 export const user_profile_links = [
   {
-    link: "profile",
-    url: "?",
+    link: 'profile',
+    url: '?',
   },
   {
-    link: "account settings",
-    url: "?tab=settings",
+    link: 'account settings',
+    url: '?tab=settings',
   },
   {
-    link: "history",
-    url: "?tab=history",
+    link: 'apply for jobs',
+    url: '?tab=jobs',
   },
   {
-    link: "preference",
-    url: "?tab=preference",
+    link: 'history',
+    url: '?tab=history',
+  },
+  {
+    link: 'preference',
+    url: '?tab=preference',
   },
 ];
 export const company_profile_links = [
   {
-    link: "profile",
-    url: "?",
+    link: 'profile',
+    url: '?',
   },
   {
-    link: "account settings",
-    url: "?tab=settings",
+    link: 'account settings',
+    url: '?tab=settings',
   },
 
   {
-    link: "Post Job",
-    url: "?tab=create",
+    link: 'Post Job',
+    url: '?tab=create',
   },
   {
-    link: "Applications",
-    url: "?tab=applications",
+    link: 'Applications',
+    url: '?tab=applications',
   },
   {
-    link: "preference",
-    url: "?tab=preference",
+    link: 'preference',
+    url: '?tab=preference',
   },
 ];
