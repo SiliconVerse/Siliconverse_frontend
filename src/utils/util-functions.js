@@ -1,4 +1,4 @@
-import { formatDistanceToNow } from 'date-fns';
+import { formatDistanceToNowStrict } from 'date-fns';
 
 export function formatDate(
   dateString,
@@ -16,5 +16,5 @@ export function formatDate(
 }
 
 export function getTimeAgo(date) {
-  return formatDistanceToNow(new Date(date), { addSuffix: true });
+  return formatDistanceToNowStrict(new Date(date), { addSuffix: true });
 }

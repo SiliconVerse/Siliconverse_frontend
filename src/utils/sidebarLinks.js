@@ -8,11 +8,11 @@ export const user_profile_links = [
     url: '?tab=settings',
   },
   {
-    link: 'apply for jobs',
+    link: 'apply for job',
     url: '?tab=jobs',
   },
   {
-    link: 'history',
+    link: 'application history',
     url: '?tab=history',
   },
   {
