@@ -22,7 +22,7 @@ export default function UserHistory() {
   }, []);
 
   return (
-    <section className='max-w-screen-xl py-2 px-3'>
+    <section className='max-w-screen-2xl py-2 md:px-3'>
       <div className='overflow-x-scroll'>
         {/* heading section */}
         <div className='capitalize border-y border-[#FF7F44] flex text-center gap-3 min-w-[45rem] lg:grid lg:grid-cols-7 py-4 md:text-xl text-lg font-semibold w-full'>
@@ -86,7 +86,7 @@ function ReadMoreModal({ setState, message, isAccepted }) {
 
   return (
     <ReactPortal setState={setState}>
-      <div className='bg-white w-3/5 flex flex-col justify-center items-center min-h-72 py-10 rounded-sl gap-12'>
+      <div className='bg-white w-5/6 md:w-3/5 flex flex-col justify-center items-center min-h-72 py-10 rounded-sl gap-12 max-w-screen-sm'>
         <p
           className={`${
             isAccepted ? 'text-[#34A853]' : ''
@@ -170,11 +170,11 @@ function ApplicationRow({
   return (
     <div className='flex gap-3 md:gap-5 lg:gap-7 min-w-[45rem] lg:grid lg:grid-cols-7 items-start'>
       {/* Job description */}
-      <div className='flex items-start min-w-64 md:col-span-3 gap-3'>
+      <div className='flex items-center md:items-start min-w-64 md:col-span-3 gap-3'>
         <img
           src={companyLogo}
           alt={companyName}
-          className='border-[0.5px] border-[#9A9A9A] rounded-full w-16 md:w-[4.5rem]'
+          className='border-[0.5px] border-[#9A9A9A] rounded-full w-10 md:w-16'
           width={100}
           height={100}
         />
@@ -189,7 +189,7 @@ function ApplicationRow({
 
       {/* Job location and category(remote,hybrid,onsite) */}
       <p className='min-w-36 flex items-center gap-2 text-center'>
-        <span className='truncate'>{location}</span>
+        <span className='max-sm:truncate'>{location}</span>
         <span className='inline-block py-[3px] px-[6px] rounded-lg bg-black text-white capitalize text-sm'>
           {category}
         </span>
@@ -205,7 +205,7 @@ function ApplicationRow({
       <div className='flex flex-col items-end gap-4'>
         <>{statusDisplay[status]}</>
         <button
-          className='text-nowrap text-[#FF7F44] underline text-sm'
+          className='text-nowrap text-[#FF7F44] underline text-sm transition-all duration-200 ease-in-out hover:opacity-85 hover:text-black'
           onClick={() => handleReadMore(status, modalMessages[status])}
         >
           Read more
