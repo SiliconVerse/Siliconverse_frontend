@@ -67,10 +67,12 @@ const CompanyProfile = () => {
             <h5>Company Type</h5>
             <p>{user.type || '-'}</p>
           </aside>
-          <aside>
+          <div className="bio__style">
+          <aside >
             <h5>BIO</h5>
-            <p>{user.bio || '-'}</p>
+            <p className='bio_style'>{user.bio || '-'}</p>
           </aside>
+          </div>
         </div>
       </section>
       {editCompanyProfile && (

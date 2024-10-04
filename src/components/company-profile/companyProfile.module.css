@@ -11,9 +11,11 @@
 
 
 .userInfo {
+
  display: flex;
  gap: 10px;
  flex-direction: column;
+ 
 
  h5 {
   font-weight: 400;
@@ -181,4 +183,8 @@
  &.btn_2 {
   background: var(--primary-color);
  }
+}
+.bio__style{
+    width: 10%;
+
 }
