@@ -148,6 +148,7 @@ const CompanyForm = ({ handleTalentClick }) => {
             />
           </div>
         </div>
+        {/* work */}
 
         <div className="w-full flex flex-col md:flex-row justify-between gap-3 md:gap-8">
           <PasswordViewer

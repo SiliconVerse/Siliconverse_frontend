@@ -68,7 +68,7 @@ const CompanyPortfolio = () => {
           ))}
         </div>
       </div>
-
+          {/* work */}
       {/* Post Job Section */}
       <div className="company_postjobs_main">
         <div className="company__postjobs">
