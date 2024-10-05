@@ -28,12 +28,13 @@ const UserDataForm = ({ userData, setState }) => {
     bio: userData.bio ?? '',
   });
   const [charCount, setCharCount] = useState(userData.bio?.length || 0);
-  const maxCharLimit = 2000;
+  const maxCharLimit = 200;
 
   function isValidUrlRegex(url) {
     const regex = /^(https?:\/\/)([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
     return regex.test(url);
   }
+  {/* work */}
 
   function getFormattedUrl(url) {
     if (isValidUrlRegex(url)) {
