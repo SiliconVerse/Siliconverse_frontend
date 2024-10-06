@@ -92,12 +92,12 @@ const ResetPassword = () => {
           <button
             disabled={isLoading}
             onClick={cancelAll}
-            className="bg-silcon-red h-[50%] text-white text-sm py-[6px] px-7 rounded-md">
+            className="bg-silcon-red lg:h-[50%] w-[40%] text-white text-sm py-[6px] px-7 rounded-md">
             Cancel
           </button>
           <button
             disabled={isLoading}
-            className="bg-primaryColor h-[50%] text-white text-sm py-[6px] px-7 rounded-md">
+            className="bg-primaryColor lg:h-[50%] w-[40%] text-white text-sm py-[6px] px-7 rounded-md">
             Save
           </button>
         </div>

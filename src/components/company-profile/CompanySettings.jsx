@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MediaConnects from "./MediaConnects";
-// import ResetEmail from "./ResetEmail";
+import ResetEmail from "./ResetEmail";
 import ResetPassword from "./ResetPassword";
 import { useAuth } from "../../hooks/userAuth";
 
@@ -18,13 +18,17 @@ function CompanySettings() {
             </p>
           </div>
           <div className="flex flex-wrap gap-4 justify-between">
-            <div className={`w-[200px] text-sm`}>
+            <div 
+              onClick={() => setIsEmailButtonActive(true)}
+              className={`w-[200px] text-sm cursor-pointer ${
+                !isEmailButtonActive ? "opacity-50" : "opacity-100"
+              }`}>
               {/* <h4>Email & Password</h4> */}
               <p>Email address</p>
               <p className="text-[#FF5F15]">{user.email}</p>
             </div>
             <div
-              onClick={() => setIsEmailButtonActive(!isEmailButtonActive)}
+              onClick={() => setIsEmailButtonActive(false)}
               className={`w-[200px] text-sm cursor-pointer ${
                 !isEmailButtonActive ? "opacity-100" : "opacity-50"
               }`}>
@@ -36,7 +40,7 @@ function CompanySettings() {
             </div>
           </div>
         </div>
-        <div>{isEmailButtonActive && <ResetPassword />}</div>
+        <div>{isEmailButtonActive ? <ResetEmail /> : <ResetPassword />}</div>
       </div>
       <MediaConnects />
     </section>
