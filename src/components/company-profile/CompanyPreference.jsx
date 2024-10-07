@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 
 function CompanyPreference() {
 
@@ -10,21 +9,8 @@ function CompanyPreference() {
     "Something else",
   ];
 
-  // const [states, setStates] = useState([])
-
-  // useEffect( 
-  //   ()=>{
-  //     fetch("https://nigeria-states-towns-lgas.onrender.com/api/states")
-  //     .then(res => res.json())
-  //     .then(data => setStates(data))
-  //     .catch(err => console.log(err))
-  //   }
-  //   , [])
-
-  //   console.log(states)
-
-    const states = ['Abia State', 'Adamawa', 'Akwa Ibom', 'Anambra', 'Bauchi', 'Bayelsa', 'Benue', 'Borno', 'Cross River', 'Delta', 'Ebonyi', 'Edo', 'Ekiti', 'Enugu', 'Gombe', 'Imo', 'Jigawa', 'Kaduna', 'Kano', 'Katsina', 'Kebbi', 'Kogi', 'Kwara', 'Lagos', 'Nasarawa', 'Niger', 'Ogun', 'Ondo', 'Osun', 'Oyo', 'Plateau', 'Rivers', 'Sokoto', 'Taraba', 'Yobe', 'Zamfara', 'Federal Capital Territory'
-    ]
+  const states = ['Abia State', 'Adamawa', 'Akwa Ibom', 'Anambra', 'Bauchi', 'Bayelsa', 'Benue', 'Borno', 'Cross River', 'Delta', 'Ebonyi', 'Edo', 'Ekiti', 'Enugu', 'Gombe', 'Imo', 'Jigawa', 'Kaduna', 'Kano', 'Katsina', 'Kebbi', 'Kogi', 'Kwara', 'Lagos', 'Nasarawa', 'Niger', 'Ogun', 'Ondo', 'Osun', 'Oyo', 'Plateau', 'Rivers', 'Sokoto', 'Taraba', 'Yobe', 'Zamfara', 'Federal Capital Territory']
+  
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg">
       <h1 className="text-2xl font-bold mb-2">Your preferences</h1>
