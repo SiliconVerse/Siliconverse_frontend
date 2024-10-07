@@ -105,7 +105,7 @@
 }
 
 .custom-radio1 .radio-label::before {
-    content: 'InPerson';
+    content: 'On-site';
 }
 
 .custom-radio2 .radio-label::before {
