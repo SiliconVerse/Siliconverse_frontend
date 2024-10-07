@@ -54,15 +54,17 @@ export default function JobDetails({ jobId, setSearchParams }) {
       <p className=''>{job.description}</p>
 
       <div className='flex items-center gap-2 w-full mt-auto'>
+
+
         <button
-          className='w-full rounded-lg border border-primaryColor py-2 px-5 capitalize text-primaryColor transition-all duration-200 ease-linear hover:text-opacity-50'
+          className='w-full rounded-lg bg-primaryColor py-2 px-5 capitalize text-white transition-all duration-200 ease-linear hover:bg-opacity-80'
           onClick={handleCancel}
         >
-          cancel
+          Cancel
         </button>
 
         <button
-          className='w-full rounded-lg bg-primaryColor py-2 px-5 capitalize text-white transition-all duration-200 ease-linear hover:bg-opacity-50'
+          className='w-full rounded-lg bg-primaryColor py-2 px-5 capitalize text-white transition-all duration-200 ease-linear hover:bg-opacity-80'
           onClick={handleApply}
         >
           apply
