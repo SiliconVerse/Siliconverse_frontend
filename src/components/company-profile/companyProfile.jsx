@@ -51,7 +51,7 @@ const CompanyProfile = () => {
           <aside>
             <h5>Location</h5>
             <p>
-              {user.state || '-'}{' '}
+              {user.stateOfResidence || '-'}{' '}
               {user.country ? <span>{`(${user.country})`}</span> : null}
             </p>
           </aside>
