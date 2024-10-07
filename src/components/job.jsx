@@ -7,7 +7,6 @@ function Job({ job }) {
   useEffect(() => {
     const fetchData = async () => {
       const response = await handleRequest("get", "/companies/" + job.company);
-      console.log(company);
       setCompany(response);
     };
 
