@@ -16,18 +16,17 @@ function Organization() {
           organization.
         </p>
         <p className="pb-5">
-          Body text for your whole article or post. We will put in some lorem
-          ipsum to show how a filled-out page might look:
+          {/* Body text for your whole article or post. We will put in some lorem
+          ipsum to show how a filled-out page might look: */}
         </p>
         <p className="text-sm md:text-base pb-5">
-          Excepteur efficient emerging, minim veniam anim aute carefully curated
-          Ginza conversation exquisite perfect nostrud nisi intricate Content.
-          Qui international first-class nulla ut. Punctual adipisicing,
-          essential lovely queen tempor eiusmod irure. Exclusive izakaya
-          charming Scandinavian impeccable aute quality of life soft power
-          pariatur Melbourne occaecat discerning. Qui wardrobe aliquip, et
-          Porter destination Toto remarkable officia Helsinki excepteur Basset
-          hound. Zürich sleepy perfect consectetur.
+        Siliconverse collaborates with a diverse range of organizations, 
+        providing access to top talent and innovative solutions. 
+        From startups to established enterprises, our partners benefit 
+        from our pool of skilled talents.
+        Join our network of forward-thinking organizations and 
+        grab the talents you need to drive your business forward.
+
         </p>
       </div>
 
