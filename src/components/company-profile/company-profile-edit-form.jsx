@@ -104,7 +104,7 @@ export default function CompanyProfileEditForm({
             value={formData.stateOfResidence}
             onChange={handleFormChange}
             label={'State*'}
-            id={'state'}
+            id={'stateOfResidence'}
             placeholder='Lagos'
           />
           <InputField
