@@ -5,9 +5,12 @@ import { useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 import { db, storage } from '../hooks/auth/firebase';
 import Spinner from './spinner';
+import { useAuth } from '../hooks/userAuth';
 
-function UploadResumeInput({ userId }) {
+function UploadResumeInput({ user }) {
+  const {updateUser} =useAuth()
   const [selectedFile, setSelectedFile] = useState(null);
+
 
   const [isSaving, setIsSaving] = useState(false);
   const fileSize = useMemo(() => {
@@ -25,26 +28,28 @@ function UploadResumeInput({ userId }) {
   };
 
   const handleSave = async () => {
-    if (!userId || !selectedFile) return;
+    if (!user.uid || !selectedFile) return;
     setIsSaving(true);
 
     // first upload file to firebase storage
     // get file url
     // upload file to firestore
 
-    const storageRef = ref(storage, `resumes/${userId}/${selectedFile.name}`);
+    const storageRef = ref(storage, `resumes/${user.uid}/${selectedFile.name}`);
     try {
       await uploadBytes(storageRef, selectedFile);
       const resumeUrl = await getDownloadURL(storageRef);
-      const userRef = doc(db, 'Users', userId);
+      const userRef = doc(db, 'Users', user.uid);
       await updateDoc(userRef, { resume: resumeUrl });
       toast.success('Resume updated!');
+      await updateUser(user)
     } catch (e) {
       console.error('Error uploading resume ', e);
 
       toast.error('Error uploading resume ');
     } finally {
       setIsSaving(false);
+      setSelectedFile(null)
     }
   };
   return (
@@ -55,21 +60,24 @@ function UploadResumeInput({ userId }) {
           <p className='font-bold text-xl'>Upload Resume</p>
         </div>
 
-        <p className='ml-6 text-sm'>Use a Pdf, docx, doc</p>
+        <p className='ml-6 text-sm'>Only PDF are allowed</p>
         <input
           type='file'
           name='cv'
           id='cv'
           className='hidden'
-          accept='.pdf,.doc,.docx,.odt,.rtf,.txt,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+          accept='.pdf'
           onChange={handleFileChange}
         />
+
+
         {selectedFile && (
           <p className='mt-2 font-semibold'>
             {selectedFile.name} {fileSize}
           </p>
         )}
       </label>
+
       {selectedFile ? (
         <button
           type='button'
@@ -79,6 +87,12 @@ function UploadResumeInput({ userId }) {
           {isSaving ? <Spinner /> : 'Save'}
         </button>
       ) : null}
+
+      {user.resume && !selectedFile && <p className='absolute right-2 bottom-1 md:bottom-3 bg-primaryColor text-white rounded-sl inline-block px-3'>
+        <a href={user.resume} target="_blank" rel="noopener noreferrer"
+        >Veiw
+        </a>
+      </p>}
     </div>
   );
 }
