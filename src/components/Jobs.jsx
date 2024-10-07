@@ -6,11 +6,14 @@ import Job from "./job";
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [option, setOption] = useState("");
+  const {user} = useAuth()
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await handleRequest("get", "/jobs");
-      setJobs(response);
+      const response = await handleRequest("get", "/jobs",user.uid);
+      if (response) {
+        setJobs(response.data);
+      }
     };
 
     fetchData();

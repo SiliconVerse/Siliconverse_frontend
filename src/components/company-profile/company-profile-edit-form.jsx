@@ -10,13 +10,12 @@ import InputField from '../input-field';
 
 export default function CompanyProfileEditForm({
   user,
-  editCompanyProfile,
   setEditCompanyProfile,
   closeEditModal,
 }) {
   const [formData, setFormData] = useState({
     ceo: user?.ceo || '',
-    state: user?.state || '',
+    stateOfResidence: user?.stateOfResidence || '',
     country: user?.country || '',
     address: user?.address || '',
     organizationName: user?.organizationName || '',
@@ -102,7 +101,7 @@ export default function CompanyProfileEditForm({
 
         <div className='flex gap-3 items-center mb-3'>
           <InputField
-            value={formData.state}
+            value={formData.stateOfResidence}
             onChange={handleFormChange}
             label={'State*'}
             id={'state'}
