@@ -89,7 +89,7 @@ const CompanyPortfolio = () => {
           <div className="jobscategory">
             <h1 className="jobscategory__head">Select Category</h1>
             <div className="radio-group">
-              {['In Person', 'Hybrid', 'Remote'].map((option, index) => (
+              {['On-site', 'Hybrid', 'Remote'].map((option, index) => (
                 <label
                   className={`custom-radio custom-radio${index + 1}`}
                   role="radio"
