@@ -75,7 +75,6 @@ const CompanyProfile = () => {
       </section>
       {editCompanyProfile && (
         <CompanyProfileEditForm
-          editCompanyProfile={editCompanyProfile}
           setEditCompanyProfile={setEditCompanyProfile}
           closeEditModal={closeEditModal}
           user={user}

@@ -46,7 +46,7 @@ const SideBar = () => {
         <aside className={"space-y-1 text-center font-bold"}>
           <h2>{user?.firstName}</h2>
           <div className="flex gap-2 font-normal">
-            <p>{user?.country}</p>-<p>{user?.state}</p>
+            <p>{user?.country}</p>-<p>{user?.stateOfResidence}</p>
           </div>
         </aside>
       </div>
