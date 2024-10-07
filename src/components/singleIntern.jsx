@@ -16,9 +16,8 @@ function SingleIntern({ intern }) {
         </div>
         <div className="flex flex-col gap-1 p-2">
           <p className="capitalize text-primaryColor font-semibold">
-            {intern.firstName.toLowerCase() +
-              " " +
-              intern.lastName.toLowerCase()}
+            {intern?.firstName.toLowerCase() +
+              " " + intern?.lastName||""}
           </p>
           <p className="flex flex-col text-sm font-semibold">
             Intership status

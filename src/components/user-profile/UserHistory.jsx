@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 import { ReactPortal } from '../../hooks/portal';
+import { IoIosInformationCircleOutline } from "react-icons/io";
 import { applicationHistory } from '../../utils/jobs';
 import { getTimeAgo } from '../../utils/util-functions';
 import { Icons } from '../Icons';
@@ -88,9 +89,8 @@ function ReadMoreModal({ setState, message, isAccepted }) {
     <ReactPortal setState={setState}>
       <div className='bg-white w-5/6 md:w-3/5 flex flex-col justify-center items-center min-h-72 py-10 rounded-sl gap-12 max-w-screen-sm'>
         <p
-          className={`${
-            isAccepted ? 'text-[#34A853]' : ''
-          } max-w-sm text-center font-semibold`}
+          className={`${isAccepted ? 'text-[#34A853]' : ''
+            } max-w-sm text-center font-semibold`}
         >
           {message}
         </p>
@@ -188,9 +188,9 @@ function ApplicationRow({
       </div>
 
       {/* Job location and category(remote,hybrid,onsite) */}
-      <p className='min-w-36 flex items-center gap-2 text-center'>
+      <p className='min-w-36 flex flex-col items-center gap-2 text-center'>
         <span className='max-sm:truncate'>{location}</span>
-        <span className='inline-block py-[3px] px-[6px] rounded-lg bg-black text-white capitalize text-sm'>
+        <span className='inline-block py-[3px] px-[6px] rounded-lg bg-black text-white capitalize text-sm text-nowrap'>
           {category}
         </span>
       </p>
@@ -202,14 +202,12 @@ function ApplicationRow({
       <p className='min-w-20 truncate text-center'>{timeAgo}</p>
 
       {/* Status */}
-      <div className='flex flex-col items-end gap-4'>
-        <>{statusDisplay[status]}</>
-        <button
-          className='text-nowrap text-[#FF7F44] underline text-sm transition-all duration-200 ease-in-out hover:opacity-85 hover:text-black'
+      <div className='flex items-center'>
+        <p  className='text-sm'>{statusDisplay[status]}</p>
+        <IoIosInformationCircleOutline size={28}
+          className='text-nowrap flex-shrink-0 text-primaryColor underline text-sm transition-all duration-200 ease-in-out hover:opacity-85 hover:text-black'
           onClick={() => handleReadMore(status, modalMessages[status])}
-        >
-          Read more
-        </button>
+        />
       </div>
     </div>
   );

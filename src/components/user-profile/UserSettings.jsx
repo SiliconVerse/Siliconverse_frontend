@@ -1,3 +1,4 @@
+import ResetPassword from "../company-profile/ResetPassword";
 import PasswordUpdate from "../PasswordUpdate";
 
 function UserSettings() {
@@ -11,7 +12,7 @@ function UserSettings() {
         </p>
       </div>
       {/* Update Password */}
-      <PasswordUpdate />
+      <ResetPassword />
     </section>
   );
 }
