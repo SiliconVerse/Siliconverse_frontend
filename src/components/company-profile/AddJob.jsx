@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { MdCancel } from "react-icons/md";
 import { useAuth } from "../../hooks/userAuth";
 import { handleRequest, handleSubmit } from "../../requests/axios";
-import { JOBPRESENCE, JOBTYPE } from "../../utils/jobs";
 import { toast } from "react-toastify";
 import { useSearchParams } from "react-router-dom";
+
+
 
 function AddJob({ setState, reload }) {
   const [categories, setCategories] = useState([]);
@@ -30,6 +31,7 @@ function AddJob({ setState, reload }) {
       setCategories(res.data);
     });
   }, []);
+  
   // Fetch Job to edit
   useEffect(() => {
     if (jobId) {
@@ -243,3 +245,8 @@ function AddJob({ setState, reload }) {
 }
 
 export default AddJob;
+
+
+
+const JOBTYPE = ["Internship", "Full Time", "Part Time", "Contract"];
+const JOBPRESENCE = ["On Site", "Remote", "Hybrid"];
