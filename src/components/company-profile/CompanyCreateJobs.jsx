@@ -3,26 +3,28 @@ import AddJob from "./AddJob.jsx";
 import JobCard from "./JobCard.jsx";
 import { ReactPortal } from "../../hooks/portal.jsx";
 import { handleRequest } from "../../requests/axios.js";
+import { useSearchParams } from "react-router-dom";
 
 const CompanyPortfolio = () => {
-  const [openJob, setOpenJob] = useState(false);
+  const [openJobModal, setOpenJobModal] = useState(false);
   const [allJobs, setAllJobs] = useState([]);
+  const [_, setSearchParams] = useSearchParams();
+  const [reload, setReload] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    handleRequest("get", "/jobs")
+    setIsLoading(true);
+    handleRequest("get", "/jobs?sortBy=updatedAt&orderBy=asc")
       .then((res) => {
-        console.log(res.data);
         setAllJobs(res.data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+      .finally(() => setIsLoading(false));
+  }, [reload]);
 
   return (
     <section className="space-y-10">
       <button
-        onClick={() => setOpenJob(!openJob)}
+        onClick={() => setOpenJob(!openJobModal)}
         className="text-white rounded-sm bg-silicon-green py-1 px-2"
         title="Add a new Job"
       >
@@ -31,13 +33,27 @@ const CompanyPortfolio = () => {
 
       {allJobs &&
         allJobs.map((job) => {
-          return <JobCard job={job} />;
+          return (
+            <JobCard
+              key={job._id}
+              job={job}
+              reload={setReload}
+              setState={setOpenJobModal}
+              setSearch={setSearchParams}
+            />
+          );
         })}
 
-      {!allJobs.length && <p className="animate-pulse">Loading...</p>}
-      {openJob && (
-        <ReactPortal setState={setOpenJob}>
-          <AddJob setState={setOpenJob} />
+      {!allJobs.length && isLoading && (
+        <p className="animate-pulse">Loading...</p>
+      )}
+      {openJobModal && (
+        <ReactPortal setState={setOpenJobModal}>
+          <AddJob
+            setState={setOpenJobModal}
+            reload={setReload}
+            setSearch={setSearchParams}
+          />
         </ReactPortal>
       )}
     </section>
