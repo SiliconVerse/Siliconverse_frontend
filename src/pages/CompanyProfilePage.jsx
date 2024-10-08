@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import CompanyHistory from '../components/company-profile/CompanyHistory';
-import CompanyPortfolio from '../components/company-profile/CompanyPortfolio';
+import CompanyCreateJobs from '../components/company-profile/CompanyCreateJobs';
 import CompanyPreference from '../components/company-profile/CompanyPreference';
 import CompanyProfile from '../components/company-profile/companyProfile';
 import CompanySettings from '../components/company-profile/CompanySettings';
@@ -11,7 +11,7 @@ const CompanyProfilePage = () => {
 
   const tabs = {
     settings: <CompanySettings />,
-    create: <CompanyPortfolio />,
+    create: <CompanyCreateJobs />,
     applications: <CompanyHistory />,
     preference: <CompanyPreference />,
   };
