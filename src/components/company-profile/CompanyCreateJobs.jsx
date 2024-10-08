@@ -11,7 +11,7 @@ const CompanyPortfolio = () => {
   useEffect(() => {
     handleRequest("get", "/jobs")
       .then((res) => {
-        console.log(res.data)
+        console.log(res.data);
         setAllJobs(res.data);
       })
       .catch((err) => {
@@ -28,13 +28,13 @@ const CompanyPortfolio = () => {
       >
         Post Job
       </button>
-      
+
       {allJobs &&
         allJobs.map((job) => {
           return <JobCard job={job} />;
         })}
 
-        {!allJobs.length && <p className="animate-pulse">Loading...</p>}
+      {!allJobs.length && <p className="animate-pulse">Loading...</p>}
       {openJob && (
         <ReactPortal setState={setOpenJob}>
           <AddJob setState={setOpenJob} />
