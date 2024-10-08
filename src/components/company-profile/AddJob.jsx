@@ -1,27 +1,59 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdCancel } from "react-icons/md";
 import { useAuth } from "../../hooks/userAuth";
-import { handleSubmit } from "../../requests/axios";
+import { handleRequest, handleSubmit } from "../../requests/axios";
+import { toast } from "react-toastify";
+import { useSearchParams } from "react-router-dom";
 
-function AddJob({ setState }) {
+
+
+function AddJob({ setState, reload }) {
+  const [categories, setCategories] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const jobId = searchParams.get("jobId");
   const { user } = useAuth();
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     category: "",
     companyId: user.uid,
-    jobType: "",
-    jobPresence: "",
-    logo:user.profilePicture,
+    jobType: JOBTYPE[1],
+    jobPresence: JOBPRESENCE[0],
+    logo: user.profilePicture,
     location: "",
     salary: { min: "", max: "" },
-    status: "open", // Default status can be set to "open"
+    status: "open", //? Default status can be set to "open"
   });
+
+  // ?Fetcn all categories
+  useEffect(() => {
+    handleRequest("get", "/defaults/categories").then((res) => {
+      setCategories(res.data);
+    });
+  }, []);
+  
+  // Fetch Job to edit
+  useEffect(() => {
+    if (jobId) {
+      handleRequest("get", "/jobs/" + jobId).then((res) => {
+        setFormData({
+          ...formData,
+          title: res.title,
+          description: res.description,
+          jobType: res.jobType,
+          jobPresence: res.jobPresence,
+          location: res.location,
+          salary: res.salary,
+          status: res.status,
+          logo: res.logo,
+        });
+      });
+    }
+  }, [jobId]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // Handle nested state for salary
+    //? Handle nested state for salary
     if (name === "min" || name === "max") {
       setFormData((prev) => ({
         ...prev,
@@ -36,9 +68,21 @@ function AddJob({ setState }) {
   };
 
   const handleSubmitData = (e) => {
+    const url = !jobId ? "/jobs/create" : `/jobs/${jobId}/update`;
+    const method = !jobId ? "post" : "put";
     e.preventDefault();
-    handleSubmit("post", "/jobs/create", formData)
-    // Handle submission logic here, e.g., send formData to your API
+    handleSubmit(method, url, formData)
+      .then(() => {
+        toast.success("Job created Successfully");
+        setState(false);
+      })
+      .catch(() => {
+        toast.error("Failed to upload, kinldy try again later.");
+      })
+      .finally(() => {
+        reload((prev) => !prev);
+        setSearchParams({ tab: "create" });
+      });
   };
 
   return (
@@ -79,9 +123,11 @@ function AddJob({ setState }) {
               <option value="" disabled>
                 Select
               </option>
-              <option value="remote">Remote</option>
-              <option value="onsite">On-Site</option>
-              <option value="hybrid">Hybrid</option>
+              {JOBPRESENCE.map((presence, idx) => (
+                <option key={idx + 1} value={presence}>
+                  {presence}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -97,9 +143,11 @@ function AddJob({ setState }) {
               <option value="" disabled>
                 Select
               </option>
-              <option value="fulltime">Full-time</option>
-              <option value="parttime">Part-Time</option>
-              <option value="internship">Internship</option>
+              {JOBTYPE.map((type, idx) => (
+                <option key={idx + 1} value={type}>
+                  {type}
+                </option>
+              ))}
             </select>
           </div>
         </aside>
@@ -117,16 +165,24 @@ function AddJob({ setState }) {
         </div>
 
         <aside className="flex gap-5">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 w-full">
             <label htmlFor="category">Category</label>
-            <input
-              type="text"
-              id="category"
+            <select
+              className="py-2 flex-shrink-0 block rounded-md pl-2"
               name="category"
-              className="border rounded-md w-full border-silicon-gray outline-none p-2"
+              id="category"
               value={formData.category}
               onChange={handleChange}
-            />
+            >
+              <option value="" disabled>
+                Select
+              </option>
+              {categories.map((cat, idx) => (
+                <option key={idx + 1} value={cat._id}>
+                  {cat.name}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="flex flex-col gap-2 w-full">
             <label htmlFor="location">Location</label>
@@ -181,7 +237,7 @@ function AddJob({ setState }) {
           type="submit"
           className="px-4 py-2 text-white w-40 text-center mx-auto block bg-silicon-green rounded-md"
         >
-          Submit
+          {jobId ? "Update" : "Submit"}
         </button>
       </form>
     </section>
@@ -189,3 +245,8 @@ function AddJob({ setState }) {
 }
 
 export default AddJob;
+
+
+
+const JOBTYPE = ["Internship", "Full Time", "Part Time", "Contract"];
+const JOBPRESENCE = ["On Site", "Remote", "Hybrid"];

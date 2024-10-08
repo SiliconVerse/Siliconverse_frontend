@@ -4,15 +4,30 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { TbEdit } from "react-icons/tb";
 import { getTimeAgo } from "../../utils/util-functions";
 import { useAuth } from "../../hooks/userAuth";
+import { handleSubmit } from "../../requests/axios";
+import { toast } from "react-toastify";
 
-function JobCard({ job }) {
+function JobCard({ job, setState, setSearch, reload }) {
   const { user } = useAuth();
+
+  const handleEdit = () => {
+    setSearch({ tab: "create", jobId: job._id });
+    setState(true);
+  };
+  const handleDelete = () => {
+    handleSubmit("delete", `/jobs/${job._id}/delete`)
+      .then((res) => {
+        toast.info("Job has been deleted");
+      })
+      .finally(() => reload((prev) => !prev));
+  };
+
   return (
     <section className="flex gap-8">
       <section className="p-3 rounded-md bg-white boxShadow w-full md:max-w-screen-sm flex gap-3 items-center lg:items-start">
         <div className="h-32 w-32 lg:h-40 lg:w-40 items-center justify-center hidden sm:flex rounded-lg overflow-hidden flex-shrink-0">
           <img
-            src={Profile}
+            src={job.logo || Profile}
             alt="company"
             className="object-fit object-cover h-full w-full"
           />
@@ -30,11 +45,13 @@ function JobCard({ job }) {
                 size={30}
                 className="text-red-500 cursor-pointer"
                 title="Delete"
+                onClick={handleDelete}
               />
               <TbEdit
                 size={30}
                 className="text-orange-500 cursor-pointer"
                 title="Edit"
+                onClick={handleEdit}
               />
             </div>
           </div>
