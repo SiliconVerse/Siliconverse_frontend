@@ -3,12 +3,17 @@ import { TbBrandGoogleAnalytics } from "react-icons/tb";
 import { AiOutlineDelete } from "react-icons/ai";
 import { TbEdit } from "react-icons/tb";
 import { getTimeAgo } from "../../utils/util-functions";
-import { useAuth } from "../../hooks/userAuth";
-import { handleSubmit } from "../../requests/axios";
+import { handleRequest, handleSubmit } from "../../requests/axios";
 import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
 
 function JobCard({ job, setState, setSearch, reload }) {
-  const { user } = useAuth();
+  const [categoryName, setCategoryName] = useState("");
+  useEffect(() => {
+    handleRequest("get", `defaults/categories?categoryId=${job.category}`)
+      .then((res) => setCategoryName(res.data.categoryName))
+      .catch((err) => console.log("error", err));
+  }, [job]);
 
   const handleEdit = () => {
     setSearch({ tab: "create", jobId: job._id });
@@ -35,9 +40,9 @@ function JobCard({ job, setState, setSearch, reload }) {
         <aside className="space-y-3 w-full">
           <div className="flex justify-between gap-5">
             <h3 className="text-xl sm:text-lg capitalize font-bold text-nowrap flex-shrink-0">
-              {user.organizationName}
+              {job.title}
               <span className="hidden sm:inline-flex ml-3 lg:ml-5 text-sm p-1 rounded-lg bg-primaryColor text-white font-normal">
-                Engineering
+                {categoryName|| "Some Cat"}
               </span>
             </h3>
             <div className="flex gap-2">
@@ -55,7 +60,7 @@ function JobCard({ job, setState, setSearch, reload }) {
               />
             </div>
           </div>
-          <p className="text-lg font-semibold capitalize">{job.title}</p>
+          {/* <p className="text-lg font-semibold capitalize">{job.title}</p> */}
 
           <div>
             <aside className="flex items-center gap-3 gap-y-1 justify-center max-w-sm capitalize flex-wrap ">
@@ -82,7 +87,7 @@ function JobCard({ job, setState, setSearch, reload }) {
           </p>
           <div className="flex justify-between text-lg flex-shrink-0">
             <p className=" font-roboto flex flex-nowrap text-sm md:text-base">
-              {getTimeAgo(job.createdAt)}
+              {getTimeAgo(job.updatedAt)}
             </p>
             <p className="ml-10 items-end flex-nowrap text-sm md:text-base lg:hidden">
               28 engagement
