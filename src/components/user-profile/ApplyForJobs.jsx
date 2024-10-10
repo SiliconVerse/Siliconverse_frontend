@@ -54,7 +54,7 @@ function JobCard({
   description,
   jobType,
   updatedAt,
-  category,
+  jobPresence,
   status,
 }) {
   const timeAgo = getTimeAgo(updatedAt);
@@ -93,7 +93,7 @@ function JobCard({
       </div>
       <div className="text-sm flex justify-between items-center max-w-72">
         <p className="text-primaryColor">{status}</p>
-        <p className="text-[#34C759] capitalize">{category && category.slice(15)}</p>
+        <p className="text-[#34C759] capitalize">{jobPresence}</p>
         <p className="text-[#AF52DE] capitalize">{jobType}</p>
       </div>
 

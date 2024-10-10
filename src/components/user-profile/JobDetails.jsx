@@ -49,7 +49,7 @@ export default function JobDetails({ jobId, setSearchParams }) {
           {job.status}
         </p>
         <p className="bg-[#34C759] capitalize text-white py-1 px-2 rounded-lg">
-          {job.category}
+          {job.jobPresence}
         </p>
         <p className="bg-[#AF52DE] capitalize text-white py-1 px-2 rounded-lg">
           {job.jobType}
