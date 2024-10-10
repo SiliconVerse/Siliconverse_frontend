@@ -19,7 +19,7 @@ function AddJob({ setState, reload }) {
     jobPresence: JOBPRESENCE[0],
     logo: user.profilePicture,
     location: "",
-    salary: { min: "", max: "" },
+    salary: { min: 1, max: 1 },
     status: "open", //? Default status can be set to "open"
   });
 
@@ -99,7 +99,7 @@ function AddJob({ setState, reload }) {
             <label htmlFor="status">Status</label>
             <select
               name="status"
-              className=""
+              className="px-2 py-0.5"
               id="status"
               value={formData.status}
               onChange={handleChange}
@@ -116,7 +116,7 @@ function AddJob({ setState, reload }) {
             <label htmlFor="jobPresence">Job Presence</label>
             <select
               name="jobPresence"
-              className=""
+              className="px-2 py-0.5"
               id="jobPresence"
               value={formData.jobPresence}
               onChange={handleChange}
@@ -136,7 +136,7 @@ function AddJob({ setState, reload }) {
             <label htmlFor="employmentType">Employment Type</label>
             <select
               name="jobType"
-              className=""
+              className="px-2 py-0.5"
               id="employmentType"
               value={formData.jobType}
               onChange={handleChange}
@@ -200,24 +200,26 @@ function AddJob({ setState, reload }) {
 
         <aside className="flex gap-5">
           <div className="flex flex-col gap-2">
-            <label htmlFor="max">Max. Salary</label>
-            <input
-              type="number"
-              id="max"
-              name="max"
-              className="border rounded-md w-full border-silicon-gray outline-none p-2"
-              value={formData.salary.max}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="flex flex-col gap-2">
             <label htmlFor="min">Min. Salary</label>
             <input
               type="number"
               id="min"
+              min={1}
               name="min"
               className="border rounded-md w-full border-silicon-gray outline-none p-2"
               value={formData.salary.min}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="max">Max. Salary</label>
+            <input
+              type="number"
+              id="max"
+              min={1}
+              name="max"
+              className="border rounded-md w-full border-silicon-gray outline-none p-2"
+              value={formData.salary.max}
               onChange={handleChange}
             />
           </div>
