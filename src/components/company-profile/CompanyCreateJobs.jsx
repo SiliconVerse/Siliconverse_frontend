@@ -4,6 +4,7 @@ import JobCard from "./JobCard.jsx";
 import { ReactPortal } from "../../hooks/portal.jsx";
 import { handleRequest } from "../../requests/axios.js";
 import { useSearchParams } from "react-router-dom";
+import { useAuth } from "../../hooks/userAuth.jsx";
 
 const CompanyPortfolio = () => {
   const [openJobModal, setOpenJobModal] = useState(false);
@@ -11,12 +12,16 @@ const CompanyPortfolio = () => {
   const [_, setSearchParams] = useSearchParams();
   const [reload, setReload] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     setIsLoading(true);
-    handleRequest("get", "/jobs?sortBy=updatedAt&orderBy=asc")
+    handleRequest(
+      "get",
+      `/jobs?companyId=${user.uid}&sortBy=updatedAt&orderBy=desc`
+    )
       .then((res) => {
-        setAllJobs(res.data);
+        setAllJobs(res.data.reverse());
       })
       .finally(() => setIsLoading(false));
   }, [reload]);
@@ -24,7 +29,7 @@ const CompanyPortfolio = () => {
   return (
     <section className="space-y-10">
       <button
-        onClick={() => setOpenJob(!openJobModal)}
+        onClick={() => {setOpenJobModal(!openJobModal)}}
         className="text-white rounded-sm bg-silicon-green py-1 px-2"
         title="Add a new Job"
       >

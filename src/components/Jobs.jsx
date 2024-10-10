@@ -1,16 +1,14 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { handleRequest } from "../requests/axios";
-import { useAuth } from "../hooks/userAuth";
 import Job from "./job";
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [option, setOption] = useState("");
-  const {user} = useAuth()
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await handleRequest("get", "/jobs",user.uid);
+      const response = await handleRequest("get", "/jobs");
       if (response) {
         setJobs(response.data);
       }
@@ -20,9 +18,10 @@ const Jobs = () => {
   }, []);
 
   const jobPreference = useMemo(
-    () => jobs.filter((job) => job.type == option),
+    () => jobs.filter((job) => job.jobType == option),
     [option, jobs]
   );
+  
   const allJobs = useMemo(
     () => (jobPreference.length ? jobPreference : jobs),
     [jobPreference]
@@ -30,34 +29,33 @@ const Jobs = () => {
 
   return (
     <div className="mt-8">
-      <h2 className="text-center font-bold text-xl">Job Listings</h2>
+      <h2 className="text-center font-bold text-xl mb-4 ">Job Listings</h2>
       <div className="search mb-7 px-5">
         <div className="input">
-          <label
-            htmlFor="jobType"
-            className="font-semibold">
+          <label htmlFor="jobType" className="font-semibold mr-4">
             Find Internship/Jobs:
           </label>
           <select
             name="jobType"
             id="jobType"
-            onChange={(e) => setOption(e.target.value)}>
-            <option value="internship">Internship</option>
-            <option value="jobs">Jobs</option>
+            className="px-3 py-1"
+            onChange={(e) => setOption(e.target.value)}
+          >
+            {JOBTYPE.map((type, idx) => (
+              <option key={idx + 1} value={type}>
+                {type}
+              </option>
+            ))}
           </select>
         </div>
       </div>
       <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 gap-y-6 p-5 lg:p-10">
-        {allJobs &&
-          allJobs.map((job, index) => (
-            <Job
-              job={job}
-              key={index}
-            />
-          ))}
+        {allJobs && allJobs.map((job, index) => <Job job={job} key={index} />)}
       </div>
     </div>
   );
 };
 
 export default Jobs;
+
+const JOBTYPE = ["Internship", "Full Time", "Part Time", "Contract"];

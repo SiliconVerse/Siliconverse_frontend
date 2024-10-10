@@ -5,8 +5,6 @@ import { handleRequest, handleSubmit } from "../../requests/axios";
 import { toast } from "react-toastify";
 import { useSearchParams } from "react-router-dom";
 
-
-
 function AddJob({ setState, reload }) {
   const [categories, setCategories] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -31,7 +29,7 @@ function AddJob({ setState, reload }) {
       setCategories(res.data);
     });
   }, []);
-  
+
   // Fetch Job to edit
   useEffect(() => {
     if (jobId) {
@@ -73,7 +71,7 @@ function AddJob({ setState, reload }) {
     e.preventDefault();
     handleSubmit(method, url, formData)
       .then(() => {
-        toast.success("Job created Successfully");
+        toast.success("Successful");
         setState(false);
       })
       .catch(() => {
@@ -90,7 +88,10 @@ function AddJob({ setState, reload }) {
       <MdCancel
         className="text-red-500 absolute top-4 right-4 cursor-pointer"
         size={30}
-        onClick={() => setState(false)}
+        onClick={() => {
+          setState(false);
+          setSearchParams({ tab: "create" });
+        }}
       />
       <form onSubmit={handleSubmitData} className="space-y-3 w-full px-4">
         <aside className="flex flex-wrap gap-5">
@@ -245,8 +246,6 @@ function AddJob({ setState, reload }) {
 }
 
 export default AddJob;
-
-
 
 const JOBTYPE = ["Internship", "Full Time", "Part Time", "Contract"];
 const JOBPRESENCE = ["On Site", "Remote", "Hybrid"];
