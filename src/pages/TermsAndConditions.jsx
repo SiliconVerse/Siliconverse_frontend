@@ -1,4 +1,26 @@
+import React, { useState } from "react";
+
+
+
+
+
 function TermsAndConditions() {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+
+    const handleAcceptClick = () => {
+      if (isChecked) {
+        alert("You have accepted terms and conditions.");
+      }
+    };
+
+    const handleCancelClick = () => {
+      alert("Action cancelled.");
+    };
+
   return (
     <div className="p-5 md:p-10 mx-auto">
       <h1 className="font-bold text-2xl md:text-3xl my-3">
@@ -233,6 +255,37 @@ function TermsAndConditions() {
         relating to your use of the Site or information provided to or gathered
         by us with respect to such use.
       </p>
+
+       {/* Checkbox and Buttons  */}
+       <div className="flex items-center mt-5">
+        <input 
+        type="checkbox"
+        id="terms-checkbox"
+        checked={isChecked}
+        onChange={handleCheckboxChange}
+        className="mr-2" 
+        />
+        <label htmlFor="terms-checkbox" className="text-sm">
+          I confirm that I have read and accept the terms and conditions and privacy policy. 
+        </label>
+        
+        </div>   
+        <div className="flex justify-end items-center mt-3 space-x">
+          <button
+          className="text-orange-600"
+          onClick={handleCancelClick}
+          >
+            Cancel
+          </button>
+          <button
+          className={`px-5 py-2 rounded-md text-white ${isChecked ? 'bg-orange-600' : 'bg-gray-400'}`}
+          disabled={!isChecked}
+          onClick={handleAcceptClick}
+          >
+            Accept
+          </button>
+        </div>
+
     </div>
   );
 }
