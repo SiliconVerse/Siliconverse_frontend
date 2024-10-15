@@ -3,14 +3,20 @@ import { TbBrandGoogleAnalytics } from "react-icons/tb";
 import { AiOutlineDelete } from "react-icons/ai";
 import { TbEdit } from "react-icons/tb";
 import { getTimeAgo } from "../../utils/util-functions";
-import { handleRequest, handleSubmit } from "../../requests/axios";
+import {
+  handleRequest,
+  handleSubmit,
+} from "../../requests/axios";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 
 function JobCard({ job, setState, setSearch, reload }) {
   const [categoryName, setCategoryName] = useState("");
   useEffect(() => {
-    handleRequest("get", `defaults/categories?categoryId=${job.category}`)
+    handleRequest(
+      "get",
+      `defaults/categories?categoryId=${job.category}`
+    )
       .then((res) => setCategoryName(res.data.categoryName))
       .catch((err) => console.log("error", err));
   }, [job]);
@@ -41,8 +47,8 @@ function JobCard({ job, setState, setSearch, reload }) {
           <div className="flex justify-between gap-5">
             <h3 className="text-xl sm:text-lg capitalize font-bold text-nowrap flex-shrink-0">
               {job.title}
-              <span className="hidden sm:inline-flex ml-3 lg:ml-5 text-sm p-1 rounded-lg bg-primaryColor text-white font-normal">
-                {categoryName|| "Some Cat"}
+              <span className="hidden sm:inline-flex ml-3 lg:ml-5 text-sm p-1 px-2 rounded-lg bg-primaryColor text-white font-normal">
+                {job.categoryName}
               </span>
             </h3>
             <div className="flex gap-2">
@@ -75,7 +81,9 @@ function JobCard({ job, setState, setSearch, reload }) {
               </p>
               <p
                 className={`py-1 px-2 text-sm sm:text-xs rounded-xl text-white + ${
-                  job.status == "open" ? "bg-silicon-green" : "bg-silcon-red"
+                  job.status == "open"
+                    ? "bg-silicon-green"
+                    : "bg-silcon-red"
                 }`}
               >
                 {job.status}
@@ -100,7 +108,10 @@ function JobCard({ job, setState, setSearch, reload }) {
         <p className="text-xl font-bold">24</p>
         <p>Post Engagement</p>
 
-        <TbBrandGoogleAnalytics className="text-primaryColor" size={70} />
+        <TbBrandGoogleAnalytics
+          className="text-primaryColor"
+          size={70}
+        />
       </div>
     </section>
   );

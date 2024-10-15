@@ -8,8 +8,12 @@ const Jobs = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await handleRequest("get", "/jobs");
+      const response = await handleRequest(
+        "get",
+        "/jobs?sortBy=updatedAt&orderBy=asc"
+      );
       if (response) {
+        console.log(response.data);
         setJobs(response.data);
       }
     };
@@ -21,7 +25,7 @@ const Jobs = () => {
     () => jobs.filter((job) => job.jobType == option),
     [option, jobs]
   );
-  
+
   const allJobs = useMemo(
     () => (jobPreference.length ? jobPreference : jobs),
     [jobPreference]
@@ -29,10 +33,15 @@ const Jobs = () => {
 
   return (
     <div className="mt-8">
-      <h2 className="text-center font-bold text-xl mb-4 ">Job Listings</h2>
+      <h2 className="text-center font-bold text-xl mb-4 ">
+        Job Listings
+      </h2>
       <div className="search mb-7 px-5">
         <div className="input">
-          <label htmlFor="jobType" className="font-semibold mr-4">
+          <label
+            htmlFor="jobType"
+            className="font-semibold mr-4"
+          >
             Find Internship/Jobs:
           </label>
           <select
@@ -50,7 +59,10 @@ const Jobs = () => {
         </div>
       </div>
       <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 gap-y-6 p-5 lg:p-10">
-        {allJobs && allJobs.map((job, index) => <Job job={job} key={index} />)}
+        {allJobs &&
+          allJobs.map((job, index) => (
+            <Job job={job} key={index} />
+          ))}
       </div>
     </div>
   );
@@ -58,4 +70,9 @@ const Jobs = () => {
 
 export default Jobs;
 
-const JOBTYPE = ["Internship", "Full Time", "Part Time", "Contract"];
+const JOBTYPE = [
+  "Internship",
+  "Full Time",
+  "Part Time",
+  "Contract",
+];

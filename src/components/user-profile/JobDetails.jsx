@@ -1,8 +1,20 @@
 import { useEffect, useState } from "react";
-import { handleRequest } from "../../requests/axios";
+import {
+  handleRequest,
+  handleSubmit,
+} from "../../requests/axios";
+import { useAuth } from "../../hooks/userAuth";
+import { ClickButtonType } from "../submit-btn";
+import { toast } from "react-toastify";
 
-export default function JobDetails({ jobId, setSearchParams }) {
+export default function JobDetails({
+  jobId,
+  setSearchParams,
+}) {
   const [job, setJob] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const { user } = useAuth();
+
   useEffect(() => {
     handleRequest("get", `jobs/${jobId}`).then((res) => {
       setJob(res);
@@ -16,27 +28,34 @@ export default function JobDetails({ jobId, setSearchParams }) {
 
   // apply for job
   const handleApply = () => {
-    // send application to server
+    setLoading(true);
+    handleSubmit("post", "/applications/create", {
+      jobId,
+      userId: user.uid,
+    }).finally(() => {
+      toast.error("Request failed, try again later");
+      setLoading(false);
+    });
   };
 
   if (!job) return <p className="animate-pulse">Loading</p>;
 
   return (
-    <article className="flex flex-col gap-5 max-w-[57.875rem] min-h-[calc(100vh-9rem)] px-5 py-2">
+    <article className="flex flex-col gap-5 max-w-[57.875rem] min-h-[80vh] px-5 py-2">
       <div className="flex items-center gap-4">
         <img
-          src={job.companyLogo}
+          src={job.logo}
           alt={job.companyName}
-          width={64}
-          height={64}
-          className="w-10 rounded-sl "
+          className="w-20 aspect-square rounded-sl"
         />
         <div>
           <h3 className="capitalize font-medium text-xl max-sm:text-lg">
             {job.jobTitle}
           </h3>
           <p className="flex items-center gap-2">
-            <span className="truncate capitalize">{job.companyName}</span>
+            <span className="truncate capitalize">
+              {job.companyName}
+            </span>
             {/* <span className="size-1 rounded-full bg-[#E85613]"></span> */}
             {/* <span className="truncate">{`${job.totalApplicants} applicant${
               job.totalApplicants > 1 ? "s" : ""
@@ -57,7 +76,9 @@ export default function JobDetails({ jobId, setSearchParams }) {
       </div>
 
       {/* Job description */}
-      <p className="whitespace-pre-wrap">{job.description}</p>
+      <p className="whitespace-pre-wrap">
+        {job.description}
+      </p>
 
       <div className="flex items-center gap-2 w-full mt-auto">
         <button
@@ -67,12 +88,12 @@ export default function JobDetails({ jobId, setSearchParams }) {
           Cancel
         </button>
 
-        <button
+        <ClickButtonType
           className="w-full rounded-lg bg-silicon-green py-2 px-5 capitalize text-white transition-all duration-200 ease-linear hover:bg-opacity-80"
-          onClick={handleApply}
-        >
-          apply
-        </button>
+          onclickFn={handleApply}
+          text={"Apply"}
+          isLoading={loading}
+        />
       </div>
     </article>
   );
