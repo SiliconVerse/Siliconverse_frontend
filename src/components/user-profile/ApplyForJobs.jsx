@@ -10,7 +10,10 @@ export default function ApplyForJobs() {
   const [allJobs, setAllJobs] = useState([]);
 
   useEffect(() => {
-    handleRequest("get", "/jobs?sortBy=updatedAt&orderBy=desc")
+    handleRequest(
+      "get",
+      "/jobs?sortBy=updatedAt&orderBy=desc&page=2"
+    )
       .then((res) => {
         setAllJobs(res.data);
       })
@@ -22,7 +25,12 @@ export default function ApplyForJobs() {
   const jobId = searchParams.get("jobId");
 
   if (jobId) {
-    return <JobDetails jobId={jobId} setSearchParams={setSearchParams} />;
+    return (
+      <JobDetails
+        jobId={jobId}
+        setSearchParams={setSearchParams}
+      />
+    );
   }
 
   return (
@@ -31,13 +39,15 @@ export default function ApplyForJobs() {
         Find your desired job here!
       </h2>
       <p className="font-medium text-[#4A4A4A]/70 mt-1 mb-5 ">
-        Explore our newest job opportunities to discover and apply for the top
-        positions available today!
+        Explore our newest job opportunities to discover and
+        apply for the top positions available today!
       </p>
 
       <ul className="space-y-3 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 gap-3">
         {allJobs.length > 0 ? (
-          allJobs.map((job) => <JobCard key={job._id} {...job} />)
+          allJobs.map((job) => (
+            <JobCard key={job._id} {...job} />
+          ))
         ) : (
           <li>No jobs available yet</li>
         )}
@@ -83,7 +93,9 @@ function JobCard({
             {title}
           </h3>
           <p className="flex items-center gap-1">
-            <span className="capitalize font-light underline">By {companyName}</span>
+            <span className="capitalize font-light underline">
+              By {companyName}
+            </span>
             {/* <span className="size-1 rounded-full bg-[#E85613]"></span> */}
             {/* <span className="truncate">{`${totalApplicants} applicant${
               totalApplicants > 1 ? "s" : ""
@@ -93,8 +105,12 @@ function JobCard({
       </div>
       <div className="text-sm flex justify-between items-center max-w-72">
         <p className="text-primaryColor">{status}</p>
-        <p className="text-[#34C759] capitalize">{jobPresence}</p>
-        <p className="text-[#AF52DE] capitalize">{jobType}</p>
+        <p className="text-[#34C759] capitalize">
+          {jobPresence}
+        </p>
+        <p className="text-[#AF52DE] capitalize">
+          {jobType}
+        </p>
       </div>
 
       {/* Job description */}
@@ -104,7 +120,9 @@ function JobCard({
       <div className="flex items-center justify-between gap-1">
         <p className="flex items-center gap-2 text-sm truncate">
           <PiClockClockwiseThin size={30} />
-          <span className="text-[#4A4A4A]/70 truncate">Posted {timeAgo}</span>
+          <span className="text-[#4A4A4A]/70 truncate">
+            Posted {timeAgo}
+          </span>
         </p>
 
         <button

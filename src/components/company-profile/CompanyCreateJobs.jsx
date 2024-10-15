@@ -3,7 +3,7 @@ import AddJob from "./AddJob.jsx";
 import JobCard from "./JobCard.jsx";
 import { ReactPortal } from "../../hooks/portal.jsx";
 import { handleRequest } from "../../requests/axios.js";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../hooks/userAuth.jsx";
 
 const CompanyPortfolio = () => {
@@ -28,13 +28,37 @@ const CompanyPortfolio = () => {
 
   return (
     <section className="space-y-10">
-      <button
-        onClick={() => {setOpenJobModal(!openJobModal)}}
-        className="text-white rounded-sm bg-silicon-green py-1 px-2"
-        title="Add a new Job"
-      >
-        Post Job
-      </button>
+      <div>
+        {user.profilePicture ? (
+          <button
+            onClick={() => {
+              setOpenJobModal(!openJobModal);
+            }}
+            className="text-white rounded-sm bg-silicon-green py-1 px-2"
+            title="Add a new Job"
+          >
+            Post Job
+          </button>
+        ) : (
+          <p className="text-lg">
+            Kindly Complete your profile to post jobs
+            <Link
+              to={`/${user.role}-profile`}
+              className="underline underline-offset-2 text-primaryColor ml-3"
+            >
+              Profile
+            </Link>
+          </p>
+        )}
+      </div>
+
+      {!allJobs.length && isLoading && (
+        <p className="animate-pulse">Loading...</p>
+      )}
+
+      {!allJobs.length && (
+        <p>You have not posted any Job yet</p>
+      )}
 
       {allJobs &&
         allJobs.map((job) => {
@@ -49,9 +73,6 @@ const CompanyPortfolio = () => {
           );
         })}
 
-      {!allJobs.length && isLoading && (
-        <p className="animate-pulse">Loading...</p>
-      )}
       {openJobModal && (
         <ReactPortal setState={setOpenJobModal}>
           <AddJob
