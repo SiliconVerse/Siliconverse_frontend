@@ -21,7 +21,6 @@ const PrivacyPolicy = () => {
       </div>
       <div className='pt-20 space-y-10'>
         <div>
-          <h3 className='text-lg my-2'>Why you should have a good C.V</h3>
           {/* <p className='text-base my-2'>
             Body text for your whole article or post. We’ll put in some lorem
             ipsum to show how a filled-out page might look
@@ -36,6 +35,9 @@ const PrivacyPolicy = () => {
             stay informed about any updates or modifications. Your continued 
             use of the Platform after amendments to this Privacy 
             Policy indicates your continued acceptance of its terms and conditions..
+          </p>
+          <p>
+          If you have any inquiries regarding this Privacy Policy or wish to exercise any of the rights outlined herein, please don't hesitate to contact us @ siliconverse.io@gmail.com  We are committed to addressing your concerns and ensuring transparency regarding our privacy practices.
           </p>
         </div>
       </div>
