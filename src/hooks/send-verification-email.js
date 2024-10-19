@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 export default function useSendVerificationEmail() {
   async function sendEmailVerification(user) {
     const url =
-      'https://siliconverse-email-server.vercel.app/api/send-verification'; // 'http:localhost:3000/send-verification';
+      'https://siliconverse-email-server.vercel.app/api/send-verification';
 
     const email = user.email;
     const name = user?.displayName || 'there';
