@@ -1,4 +1,4 @@
-import { sendEmailVerification, signInWithPopup } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 import { useMemo, useState } from 'react';
 import { Navigate, NavLink, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -6,11 +6,15 @@ import GoogleLogo from '../../assets/google-logo.png';
 import PasswordViewer from '../../components/password-viewer';
 import SubmitButton from '../../components/submit-btn';
 import { auth, provider } from '../../hooks/auth/firebase';
+import useSendVerificationEmail from '../../hooks/send-verification-email';
 import { useAuth } from '../../hooks/userAuth';
 import './logIn.css';
 
 const LoginForm = () => {
   const location = useLocation();
+
+  const { sendEmailVerification } = useSendVerificationEmail();
+
   const queryParams = new URLSearchParams(location.search);
 
   const message = useMemo(() => queryParams.get('message'), [queryParams]);
@@ -39,7 +43,8 @@ const LoginForm = () => {
     try {
       const { user } = await signin(formData.email, formData.password);
       if (!user.emailVerified) {
-        return sendVerificationEmail(user);
+        await sendEmailVerification(user);
+        return;
       }
       setErrorMessage('');
       updateUser(user, true);
@@ -51,26 +56,20 @@ const LoginForm = () => {
     }
   };
 
-  const sendVerificationEmail = async (user) => {
-    try {
-      await sendEmailVerification(user, {
-        url: 'https://siliconverse-frontend.vercel.app/login',
-      });
-      toast.info('Please check your mail for verification');
-    } catch (error) {
-      setErrorMessage('Please Verify your email account');
-    }
-  };
-
   const handleSignInwithGoogle = async () => {
-    const result = await signInWithPopup(auth, provider);
+    try {
+      const result = await signInWithPopup(auth, provider);
 
-    if (!result.user.emailVerified) {
-      return sendVerificationEmail(result);
+      if (!result.user.emailVerified) {
+        await sendEmailVerification(result.user);
+        return;
+      }
+      setErrorMessage('');
+      updateUser(result.user, true);
+      toast.success('Logged in successfully 🎉', { position: 'top-center' });
+    } catch (error) {
+      toast.error('Error logging in with Google, please try again later.');
     }
-    setErrorMessage('');
-    updateUser(result.user, true);
-    toast.success('Logged in successfully 🎉', { position: 'top-center' });
   };
 
   if (authUser && authUser.role) {
