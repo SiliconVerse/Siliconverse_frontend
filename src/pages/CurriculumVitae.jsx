@@ -40,8 +40,7 @@ function CurriculumVitae() {
               <br /> A polished CV is your ticket to career success. It showcases your skills, experience, and achievements, leaving a lasting impression on potential employers. With a well-crafted CV, you'll stand out from the competition, secure interviews, and open doors to exciting job opportunities. Invest in your future with a stellar CV.
             </p>
           </div>
-
-          <UploadResumeInput />
+          <UploadResumeInput/>
         </div>
       </div>
     </div>

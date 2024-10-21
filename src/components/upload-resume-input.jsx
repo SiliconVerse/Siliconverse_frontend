@@ -7,7 +7,7 @@ import { db, storage } from '../hooks/auth/firebase';
 import Spinner from './spinner';
 import { useAuth } from '../hooks/userAuth';
 
-function UploadResumeInput({ user }) {
+function UploadResumeInput({ user = {} } ) {
   const {updateUser} =useAuth()
   const [selectedFile, setSelectedFile] = useState(null);
 
@@ -26,10 +26,10 @@ function UploadResumeInput({ user }) {
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
-
   const handleSave = async () => {
-    if (!user.uid || !selectedFile) return;
+    if (!user?.uid || !selectedFile) return;
     setIsSaving(true);
+    
 
     // first upload file to firebase storage
     // get file url
@@ -88,11 +88,13 @@ function UploadResumeInput({ user }) {
         </button>
       ) : null}
 
-      {user.resume && !selectedFile && <p className='absolute right-2 bottom-1 md:bottom-3 bg-primaryColor text-white rounded-sl inline-block px-3'>
-        <a href={user.resume} target="_blank" rel="noopener noreferrer"
-        >Veiw
-        </a>
-      </p>}
+{user?.resume && !selectedFile && (
+  <p className='absolute right-2 bottom-1 md:bottom-3 bg-primaryColor text-white rounded-sl inline-block px-3'>
+    <a href={user.resume} target="_blank" rel="noopener noreferrer">
+      View
+    </a>
+  </p>
+)}
     </div>
   );
 }
