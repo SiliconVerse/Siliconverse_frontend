@@ -27,234 +27,47 @@ function TermsAndConditions() {
         Welcome to SiliconVerse
       </h1>
       <p className="text-sm md:text-base">
-        This site is provided as a service to our visitors and may be used for
-        informational purposes only. Because the Terms and Conditions contain
-        legal obligations, please read them carefully.
+      Effective from July 1st, 2024, please take a moment to review the terms governing your use of our Website(s), Products, Services, and Application, collectively referred to as the "Platform". These Terms of Service ("Terms") establish a binding agreement between Siliconverse and you, or the legal entity you represent upon signing up for any Service. 
       </p>
-      <h2 className="font-semibold text-lg md:text-xl py-2">
-        1. YOUR AGREEMENT
-      </h2>
-      <p className="text-sm md:text-base">
-        By using this Site, you agree to be bound by, and to comply with, these
-        Terms and Conditions. If you do not agree to these Terms and Conditions,
-        please do not use this site. <strong>PLEASE NOTE:</strong> We reserve
-        the right, at our sole discretion, to change, modify or otherwise alter
-        these Terms and Conditions at any time. Unless otherwise indicated,
-        amendments will become effective immediately. Please review these Terms
-        and Conditions periodically. Your continued use of the Site following
-        the posting of changes and/or modifications will constitute your
-        acceptance of the revised Terms and Conditions and the reasonableness of
-        these standards for notice of changes. For your information, this page
-        was last updated as of the date at the top of these terms and
-        conditions.
+      <br/>
+      <p>
+      Applicable to all visitors and users of our Services, you must agree to and accept all these Terms to access Siliconverse Services. By utilizing any of the Siliconverse Services, you signify your agreement to these Terms, which shall remain in effect throughout your usage of our Services.
       </p>
-      <h2 className="font-semibold text-lg md:text-xl py-2">2. PRIVACY</h2>
-      <p className="text-sm md:text-base">
-        Please review our Privacy Policy, which also governs your visit to this
-        Site, to understand our practices.
+      <br/>
+      <p>
+      These Terms encompass the provisions outlined in this document and are supplemented by our Privacy Policy. Should you have any questions, comments, or concerns about these Terms of Service, please reach out to us at siliconverse.io@gmail.com.
       </p>
-      <h2 className="font-semibold text-lg md:text-xl py-2">3. LINKED SITES</h2>
-      <p className="text-sm md:text-base">
-        This Site may contain links to other independent third-party Web sites
-        ("Linked Sites”). These Linked Sites are provided solely as a
-        convenience to our visitors. Such Linked Sites are not under our
-        control, and we are not responsible for and do not endorse the content
-        of such Linked Sites, including any information or materials contained
-        on such Linked Sites. You will need to make your own independent
-        judgment regarding your interaction with these Linked Sites.
-      </p>
-      <h2 className="font-semibold text-lg md:text-xl py-2">
-        4. FORWARD LOOKING STATEMENTS
-      </h2>
-      <p className="text-sm md:text-base">
-        All materials reproduced on this site speak as of the original date of
-        publication or filing. The fact that a document is available on this
-        site does not mean that the information contained in such document has
-        not been modified or superseded by events or by a subsequent document or
-        filing. We have no duty or policy to update any information or
-        statements contained on this site and, therefore, such information or
-        statements should not be relied upon as being current as of the date you
-        access this site.
-      </p>
-      <h2 className="font-semibold text-lg md:text-xl py-2">
-        5. DISCLAIMER OF WARRANTIES AND LIMITATION OF LIABILITY
-      </h2>
-      <h3 className="font-semibold py-1">A. Disclaimer of Warranties</h3>
-      <p className="text-sm md:text-base">
-        This Site may contain inaccuracies and typographical errors. We do not
-        warrant the accuracy or completeness of the materials or the reliability
-        of any advice, opinion, statement or other information displayed or
-        distributed through the Site. You expressly understand and agree that:
-      </p>
-      <ul className="flex flex-col gap-2 md:ml-4 text-sm md:text-base">
-        <li>
-          (i) Your use of the Site, including any reliance on any such opinion,
-          advice, statement, memorandum, or information contained herein, shall
-          be at your sole risk;
-        </li>
-        <li>
-          (ii) The Site is provided on an "AS IS" and "AS AVAILABLE" basis;
-        </li>
-        <li>
-          (iii) Except as expressly provided herein we disclaim all warranties
-          of any kind, whether express or implied, including, but not limited to
-          implied warranties of merchantability, fitness for a particular
-          purpose, workmanlike effort, title and non-infringement;
-        </li>
-        <li>
-          (iv) We make no warranty with respect to the results that may be
-          obtained from this Site, the products or services advertised or
-          offered or merchants involved;
-        </li>
-        <li>
-          (v) Any material downloaded or otherwise obtained through the use of
-          the Site is done at your own discretion and risk; and
-        </li>
-        <li>
-          (vi) You will be solely responsible for any damage to your computer
-          system or for any loss of data that results from the download of any
-          such material.
-        </li>
-      </ul>
-      <h3 className="font-semibold py-1">B. Limitation of Liability</h3>
-      <p className="text-sm md:text-base">
-        You understand and agree that under no circumstances, including, but not
-        limited to, negligence, shall we be liable for any direct, indirect,
-        incidental, special, punitive or consequential damages that result from
-        the use of, or the inability to use, any of our sites or materials or
-        functions on any such site, even if we have been advised of the
-        possibility of such damages. The foregoing limitations shall apply
-        notwithstanding any failure of essential purpose of any limited remedy.
-      </p>
-      <h2 className="font-semibold text-lg md:text-xl py-2">
-        6. EXCLUSIONS AND LIMITATIONS
-      </h2>
-      <p className="text-sm md:text-base">
-        Some jurisdictions do not allow the exclusion of certain warranties or
-        the limitation or exclusion of liability for incidental or consequential
-        damages. Accordingly, our liability in such jurisdiction shall be
-        limited to the maximum extent permitted by law.
-      </p>
-      <h2 className="font-semibold text-lg md:text-xl py-2">
-        7. OUR PROPRIETARY RIGHTS
-      </h2>
-      <p className="text-sm md:text-base">
-        This Site and all its Contents are intended solely for personal,
-        non-commercial use. Except as expressly provided, nothing within the
-        Site shall be construed as conferring any license under our or any third
-        party's intellectual property rights, whether by estoppel, implication,
-        waiver, or otherwise. Without limiting the generality of the foregoing,
-        you acknowledge and agree that all content available through and used to
-        operate the Site and its services is protected by copyright, trademark,
-        patent, or other proprietary rights. You agree not to:
-      </p>
-      <ul className="flex flex-col gap-2 md:ml-4 text-sm md:text-base">
-        <li>
-          (a) Modify, alter, or deface any of the trademarks, service marks,
-          trade dress (collectively "Trademarks") or other intellectual property
-          made available by us in connection with the Site;
-        </li>
-        <li>
-          (b) Hold yourself out as in any way sponsored by, affiliated with, or
-          endorsed by us, or any of our affiliates or service providers;
-        </li>
-        <li>
-          (c) Use any of the Trademarks or other content accessible through the
-          Site for any purpose other than the purpose for which we have made it
-          available to you;
-        </li>
-        <li>
-          (d) Defame or disparage us, our Trademarks, or any aspect of the Site;
-          and
-        </li>
-        <li>
-          (e) Adapt, translate, modify, decompile, disassemble, or reverse
-          engineer the Site or any software or programs used in connection with
-          it or its products and services. The framing, mirroring, scraping or
-          data mining of the Site or any of its content in any form and by any
-          method is expressly prohibited.
-        </li>
-      </ul>
-      <h2 className="font-semibold text-lg md:text-xl py-2">8. INDEMNITY</h2>
-      <p className="text-sm md:text-base">
-        By using the Site web sites you agree to indemnify us and affiliated
-        entities (collectively "Indemnities") and hold them harmless from any
-        and all claims and expenses, including (without limitation) attorney's
-        fees, arising from your use of the Site web sites, your use of the
-        Products and Services, or your submission of ideas and/or related
-        materials to us or from any person's use of any ID, membership or
-        password you maintain with any portion of the Site, regardless of
-        whether such use is authorized by you.
-      </p>
-      <h2 className="font-semibold text-lg md:text-xl py-2">
-        9. COPYRIGHT AND TRADEMARK NOTICE
-      </h2>
-      <p className="text-sm md:text-base">
-        Except our generated dummy copy, which is free to use for private and
-        commercial use, all other text is copyrighted.
-        generator.lorem-ipsum.info © 2013, all rights reserved
-      </p>
-      <h2 className="font-semibold text-lg md:text-xl py-2">
-        10. INTELLECTUAL PROPERTY INFRINGEMENT CLAIMS
-      </h2>
-      <p className="text-sm md:text-base">
-        It is our policy to respond expeditiously to claims of intellectual
-        property infringement. We will promptly process and investigate notices
-        of alleged infringement and will take appropriate actions under the
-        Digital Millennium Copyright Act ("DMCA") and other applicable
-        intellectual property laws. Notices of claimed infringement should be
-        directed to:
-      </p>
-      {/* <address>
-        generator.lorem-ipsum.info
-        <br />
-        126 Electricov St.
-        <br />
-        Kiev, Kiev 04176 Ukraine
-        <br />
-        <a href="mailto:contact@lorem-ipsum.info">contact@lorem-ipsum.info</a>
-      </address> */}
-      <h2 className="font-semibold text-lg md:text-xl py-2">
-        11. PLACE OF PERFORMANCE
-      </h2>
-      <p className="text-sm md:text-base">
-        This Site is controlled, operated and administered by us from our office
-        in Kiev, Ukraine. We make no representation that materials at this site
-        are appropriate or available for use at other locations outside of
-        Ukraine and access to them from territories where their contents are
-        illegal is prohibited. If you access this Site from a location outside
-        of Ukraine, you are responsible for compliance with all local laws.
-      </p>
-      <h2 className="font-semibold text-lg md:text-xl py-2">12. GENERAL</h2>
-      <h3 className="font-semibold py-1">A. Severability</h3>
-      <p className="text-sm md:text-base">
-        If any provision of these Terms and Conditions is held to be invalid or
-        unenforceable, the provision shall be removed (or interpreted, if
-        possible, in a manner as to be enforceable), and the remaining
-        provisions shall be enforced. Headings are for reference purposes only
-        and in no way define, limit, construe or describe the scope or extent of
-        such section. Our failure to act with respect to a breach by you or
-        others does not waive our right to act with respect to subsequent or
-        similar breaches. These Terms and Conditions set forth the entire
-        understanding and agreement between us with respect to the subject
-        matter contained herein and supersede any other agreement, proposals and
-        communications, written or oral, between our representatives and you
-        with respect to the subject matter hereof, including any terms and
-        conditions on any of customer's documents or purchase orders.
-      </p>
-      <h3 className="font-semibold py-1">
-        B. No Joint Venture, No Derogation of Rights
-      </h3>
-      <p className="text-sm md:text-base">
-        You agree that no joint venture, partnership, employment, or agency
-        relationship exists between you and us as a result of these Terms and
-        Conditions or your use of the Site. Our performance of these Terms and
-        Conditions is subject to existing laws and legal process, and nothing
-        contained herein is in derogation of our right to comply with
-        governmental, court, and law enforcement requests or requirements
-        relating to your use of the Site or information provided to or gathered
-        by us with respect to such use.
-      </p>
+      <br/>
+      <p>
+      These Terms are subject to updates at any time, with or without prior notice. We reserve the right to modify these Terms, and you agree to regularly review them. Changes may be communicated through notices on the Siliconverse Website, our social media channels, email, or other means.
+      Continued use of any Siliconverse Services following changes to the Terms indicates your acceptance of those changes. 
+     </p>
+     <br/>
+     <p>These terms and conditions govern the provision of services by Siliconverse to users.
+     </p>
+     <li className="font-semibold">We can't guarantee job placement, the final decision lies with the recruiting company.</li>
+     <li className="font-semibold">Our Site contains verified information from third parties (Advertisers/Employers/Job Seekers)
+     </li>
+     <li className="font-semibold">We do not guarantee a specific number of job advertisements /information per month. Job advertisements/information are published based on availability of Jobs.
+     </li>
+     <li className="font-semibold">We are not responsible for any message undelivered due to network glitch by service  provider or other reason.</li>
+     <li className="font-semibold">We do not way certify that users of this service are authentic and not responsible for any fraud that may arise from information obtained from this service.</li>
+     <li className="font-semibold">Our service may include external links, we do not endorse or bear any responsibility to any of the links or information from these links.
+     </li>
+     <li className="font-semibold">We do not delete job postings placed on the website after expiry. We only disable the application process.
+     </li>
+     <li className="font-semibold">We shall not be liable for any claim arising out of the performance, non-performance, delay in delivery of or defect in the service nor for any special, indirect, economic or consequential loss or damage howsoever arising or howsoever caused (including loss of profit or loss of revenue) whether from negligence or otherwise in connection with the supply, functioning or use of the Service.
+     </li>
+     <br/>
+      <p>
+      At Siliconverse, we hold the privacy and security of our Users in high regard. By utilizing any Siliconverse Services, you acknowledge and consent to the collection, use, and disclosure of both personally-identifiable information and non-personally-identifiable information, as outlined in our Privacy Policy. 
+     </p>
+     <br/>
+     <p>
+     Our Privacy Policy forms an integral part of these Terms, and your understanding of and agreement to its contents are essential. We are committed to ensuring transparency and protecting your information to the best of our ability. If you have any questions or concerns regarding our privacy practices, please refer to our Privacy Policy or reach out to us directly.
+     </p>
+
+      
 
        {/* Checkbox and Buttons  */}
        <div className="flex items-center mt-5">
