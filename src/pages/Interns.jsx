@@ -17,7 +17,6 @@ const Interns = () => {
         id: doc.id,
         ...doc.data(),
       }));
-      // console.log(users);
       return users;
     } catch (error) {
       console.error("Error getting users by role:", error);

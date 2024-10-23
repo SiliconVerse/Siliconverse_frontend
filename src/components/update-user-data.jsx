@@ -12,13 +12,13 @@ const UserDataForm = ({ userData, setState }) => {
   const { updateUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
-    phone: userData.phone ?? '',
+    phone: userData.phoneNumber ?? '',
     firstName: userData.firstName ?? '',
     lastName: userData.lastName ?? '',
     gender: userData.gender ?? '',
     email: userData.email ?? '',
     country: userData.country ?? '',
-    stateOfResdidence: userData.stateOfResdidence ?? '',
+    stateOfResidence: userData.stateOfResidence ?? '',
     skillset: userData.skillset ?? '',
     university: userData.university ?? '',
     degree: userData.degree ?? '',
@@ -34,6 +34,7 @@ const UserDataForm = ({ userData, setState }) => {
     const regex = /^(https?:\/\/)([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
     return regex.test(url);
   }
+  {/* work */}
 
   function getFormattedUrl(url) {
     if (isValidUrlRegex(url)) {

@@ -4,7 +4,9 @@ import { useAuth } from "../hooks/userAuth";
 import { hero } from "../utils/images-export";
 import { NavLink } from "react-router-dom";
 import { sendEmailVerification } from "firebase/auth";
-
+import {Link, animateScroll  as scroll} from 'react-scroll'
+// import Jobs from "../components/Jobs";
+// import { useNavigate, Link } from "react-router-dom";
 const Home = () => {
   const { user } = useAuth();
   const isVerified = useMemo(() => user?.emailVerified, [user]);
@@ -59,12 +61,19 @@ const Home = () => {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-10 mt-10 px-4">
+          <Link to ='Job-List'
+          smooth={true} 
+          duration={500}
+          >
           <button className="w-full md:w-fit px-4 bg-black py-2 rounded-md text-white font-semibold">
             Apply for internship
-          </button>
-          <button className="w-full md:w-fit px-4 bg-black py-2 rounded-md text-white font-semibold">
-            Get Interns
-          </button>
+          </button>          
+          </Link>
+          <NavLink to="/interns">
+            <button className="w-full md:w-fit px-4 bg-black py-2 rounded-md text-white font-semibold">
+              Get Interns
+            </button>
+          </NavLink>
         </div>
       </div>
       <Jobs />

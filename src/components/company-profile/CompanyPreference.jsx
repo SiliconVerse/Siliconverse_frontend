@@ -1,6 +1,6 @@
-import React from "react";
 
 function CompanyPreference() {
+
   const moreChecks = [
     "I want to hire Paid tech talents",
     "I want to hire volunteer tech talents",
@@ -9,6 +9,8 @@ function CompanyPreference() {
     "Something else",
   ];
 
+  const states = ['Abia State', 'Adamawa', 'Akwa Ibom', 'Anambra', 'Bauchi', 'Bayelsa', 'Benue', 'Borno', 'Cross River', 'Delta', 'Ebonyi', 'Edo', 'Ekiti', 'Enugu', 'Gombe', 'Imo', 'Jigawa', 'Kaduna', 'Kano', 'Katsina', 'Kebbi', 'Kogi', 'Kwara', 'Lagos', 'Nasarawa', 'Niger', 'Ogun', 'Ondo', 'Osun', 'Oyo', 'Plateau', 'Rivers', 'Sokoto', 'Taraba', 'Yobe', 'Zamfara', 'Federal Capital Territory']
+  
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg">
       <h1 className="text-2xl font-bold mb-2">Your preferences</h1>
@@ -24,7 +26,7 @@ function CompanyPreference() {
 
       <h2 className="text-xl font-semibold mb-4">Organization type</h2>
 
-      <div className="flex items-center gap-10 mb-6">
+      <div className="flex gap-6 md:items-center flex-col md:flex-row md:gap-10 mb-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Organization type
@@ -39,8 +41,9 @@ function CompanyPreference() {
             Location
           </label>
           <select className="w-64 p-2 py-3 text-gray-500 border shadow-md rounded-md">
-            <option>Calabar</option>
-            <option>Kaduna</option>
+              {
+                states.map((state, id) => <option key={id}>{state}</option>)
+              }
           </select>
         </div>
       </div>

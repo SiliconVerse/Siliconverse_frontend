@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useAuth } from '../hooks/userAuth';
+import { auth } from '../hooks/auth/firebase';
 
 const baseUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -43,6 +44,7 @@ export default axiosInstance;
 
 export async function handleRequest(method, url, token) {
   try {
+    
     updateToken(token);
     const res = await axiosInstance[method](url);
     if (!res.data) {
@@ -56,7 +58,7 @@ export async function handleRequest(method, url, token) {
 
 export async function handleSubmit(method, url, data, token) {
   try {
-    updateToken(token);
+    updateToken(auth.currentUser.accessToken);
     const res = await axiosInstance[method](url, data);
     if (!res.data) {
       throw new Error('Please try again later');
