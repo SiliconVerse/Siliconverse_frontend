@@ -6,6 +6,7 @@ import {
 import { useAuth } from "../../hooks/userAuth";
 import { ClickButtonType } from "../submit-btn";
 import { toast } from "react-toastify";
+import { formatCurrency } from "../../utils/util-functions";
 
 export default function JobDetails({
   jobId,
@@ -32,10 +33,18 @@ export default function JobDetails({
     handleSubmit("post", "/applications/create", {
       jobId,
       userId: user.uid,
-    }).finally(() => {
-      toast.error("Request failed, try again later");
-      setLoading(false);
-    });
+    })
+      .then((res) => {
+        toast.success("Request was Successful");
+      })
+      .catch((err) => {
+        toast.error(
+          "Network Error, or you've already applied for this job"
+        );
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   if (!job) return <p className="animate-pulse">Loading</p>;
@@ -78,6 +87,11 @@ export default function JobDetails({
       {/* Job description */}
       <p className="whitespace-pre-wrap">
         {job.description}
+      </p>
+
+      <p className="py-1 px-2 text-center font-semibold underline underline-offset-2 text-lg">
+        {formatCurrency(job.salary.min)} {" - "}
+        {formatCurrency(job.salary.max)}
       </p>
 
       <div className="flex items-center gap-2 w-full mt-auto">

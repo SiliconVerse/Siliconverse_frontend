@@ -8,18 +8,21 @@ import { handleRequest } from "../../requests/axios";
 export default function ApplyForJobs() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [allJobs, setAllJobs] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     handleRequest(
       "get",
-      "/jobs?sortBy=updatedAt&orderBy=desc&page=2"
+      "/jobs?sortBy=updatedAt&orderBy=desc&"
     )
       .then((res) => {
         setAllJobs(res.data);
       })
       .catch((err) => {
         console.log(err);
-      });
+      })
+      .finally(() => setLoading(false));
   }, []);
 
   const jobId = searchParams.get("jobId");
@@ -42,9 +45,13 @@ export default function ApplyForJobs() {
         Explore our newest job opportunities to discover and
         apply for the top positions available today!
       </p>
-
+      {loading && (
+        <p className="animate-pulse text-red-400 text-lg">
+          Loading...
+        </p>
+      )}
       <ul className="space-y-3 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-        {allJobs.length > 0 ? (
+        {!loading && allJobs.length > 0 ? (
           allJobs.map((job) => (
             <JobCard key={job._id} {...job} />
           ))

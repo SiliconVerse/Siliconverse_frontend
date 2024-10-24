@@ -13,7 +13,7 @@ const Jobs = () => {
     const fetchData = async () => {
       const response = await handleRequest(
         "get",
-        "/jobs?sortBy=updatedAt&orderBy=asc"
+        "/jobs?sortBy=updatedAt&orderBy=desc"
       );
       if (response) {
         console.log(response.data);
