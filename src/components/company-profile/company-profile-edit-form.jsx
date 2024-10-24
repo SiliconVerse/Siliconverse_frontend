@@ -23,7 +23,7 @@ export default function CompanyProfileEditForm({
     bio: user?.bio || '',
   });
   const [charCount, setCharCount] = useState(user.bio?.length || 0);
-  const maxCharLimit = 2000;
+  const maxCharLimit = 200;
   
 
   const { updateUser } = useAuth();
