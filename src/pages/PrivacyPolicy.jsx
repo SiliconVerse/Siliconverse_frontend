@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
       </div>
       <div>
         <div>
-        <h1 className='text-[60px] font-bold'>The Kind of Information That May Be Collected By Siliconverse.</h1>
+        <h1 className= "font-bold text-2xl md:text-3xl my-3">The Kind of Information That May Be Collected By Siliconverse.</h1>
           <p>
           Siliconverse may gather information that can personally identify you (“Identifying Personal Information”), including your name and contact details (email address, physical address, and phone number). Additionally, we may collect Device-Specific Information, such as your hardware model, unique device identifiers, and mobile network information, including your phone number. Depending on the nature of your activities or inquiries on the Platform, we may also request other relevant information to enhance your experience and use of the Platform. 
           </p>
@@ -47,7 +47,7 @@ const PrivacyPolicy = () => {
           </p>
           <br/>
           <br/>
-          <h1 className='text-[60px] font-bold'>How Siliconverse May Use The Collected Information</h1>
+          <h1 className= "font-bold text-2xl md:text-3xl my-3">How Siliconverse May Use The Collected Information</h1>
           <p>
           Siliconverse holds a strict policy against sharing any of your Identifying Personal Information or Transactional data with any external entity, except as explicitly outlined in this Privacy Policy. Your Identifying Personal Information and transactional data remain confidential and are not disclosed to third parties, unless you opt to share it with parties beyond our control. Limited details about your physical location are shared with third parties only when you initiate a search for local job opportunities on our Platform.
           </p>
@@ -96,7 +96,7 @@ const PrivacyPolicy = () => {
           </p>
           <br/>
           <br/>
-          <h1 className='text-[60px] font-bold'>Data Retention</h1>
+          <h1 className= "font-bold text-2xl md:text-3xl my-3">Data Retention</h1>
           <p>
           We adhere to a strict retention policy concerning your Identifying Personal Information. This information will only be retained for the duration necessary to fulfill the purposes for which it was collected. This includes the duration of your usage of the Platform and until you inform us of your decision to discontinue using the Platform.
           </p>
@@ -106,7 +106,7 @@ const PrivacyPolicy = () => {
           </p>
           <br/>
           <br/>
-          <h1 className='text-[60px] font-bold'>With Whom We May Share Information We Collect</h1>
+          <h1 className="font-bold text-2xl md:text-3xl my-3">With Whom We May Share Information We Collect</h1>
           <p>
           Your personal information will not be shared with third parties except as outlined in this Privacy Policy, or unless we provide advance notice and give you the opportunity to opt out.
           </p>
@@ -125,7 +125,7 @@ const PrivacyPolicy = () => {
           <p>- For legitimate business or commercial purposes</p>
           <br/>
           <br/>
-          <h1 className='text-[60px] font-bold'>Security</h1>
+          <h1 className= "font-bold text-2xl md:text-3xl my-3">Security</h1>
           <p>
           Security is of paramount importance to us. We are dedicated to safeguarding your information and employ commercially reasonable physical, electronic, and other security measures to prevent unauthorized access, alteration, or disclosure of personal information.
           </p>
@@ -139,7 +139,7 @@ const PrivacyPolicy = () => {
           <p>Rest assured, we continuously monitor and enhance our security protocols to ensure the utmost protection of your information.</p>
           <br/>
           <br/>
-          <h1 className='text-[60px] font-bold'>Third-Party Links</h1>
+          <h1 className= "font-bold text-2xl md:text-3xl my-3">Third-Party Links</h1>
           <p>
           The Siliconverse Website and Platform may contain links to websites or applications operated by third parties over which we have no control. We do not monitor, control, or endorse the information collection or privacy practices of any third-party websites or applications.Please note that this Privacy Policy solely pertains to information collected through the Siliconverse Website and Platform and does not extend to any third-party applications or websites. It is advisable to review the privacy policies of these third-party websites or applications before providing any personal information.
           </p>
@@ -149,13 +149,13 @@ const PrivacyPolicy = () => {
           </p>
           <br/>
           <br/>
-          <h1 className='text-[60px] font-bold'>Privacy Policy Changes</h1>
+          <h1 className= "font-bold text-2xl md:text-3xl my-3">Privacy Policy Changes</h1>
           <p>
           Siliconverse retains the right to amend, modify, add, or remove sections of this Privacy Policy at any time and without prior notice. Any alterations will take effect immediately upon being posted, unless stated otherwise. We advise you to periodically review this Privacy Policy to stay informed about any updates or modifications. Your continued use of the Platform after amendments to this Privacy Policy indicates your continued acceptance of its terms and conditions.
           </p>
           <br/>
           <br/>
-          <h1 className='text-[60px] font-bold'>Contact Us</h1>
+          <h1 className= "font-bold text-2xl md:text-3xl my-3">Contact Us</h1>
           <p>
           If you have any inquiries regarding this Privacy Policy or wish to exercise any of the rights outlined herein, please don't hesitate to contact us @ siliconverse.io@gmail.com  We are committed to addressing your concerns and ensuring transparency regarding our privacy practices.
           </p>
