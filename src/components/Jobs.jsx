@@ -2,8 +2,8 @@ import React, { useEffect, useMemo, useState } from "react";
 import { handleRequest } from "../requests/axios";
 import Job from "./job";
 // import Home from "../pages/Home";
-import { Element, Link as scroll} from 'react-scroll'
-
+import { Element, Link as scroll } from "react-scroll";
+import { auth } from "../hooks/auth/firebase";
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
@@ -16,12 +16,12 @@ const Jobs = () => {
         "/jobs?sortBy=updatedAt&orderBy=desc"
       );
       if (response) {
-        console.log(response.data);
         setJobs(response.data);
       }
     };
 
     fetchData();
+    console.log(auth.currentUser);
   }, []);
 
   const jobPreference = useMemo(
@@ -36,7 +36,7 @@ const Jobs = () => {
 
   return (
     <div className="mt-8">
-      <Element name= 'Job-List'>
+      <Element name="Job-List">
         <h2 className="text-center font-bold text-xl mb-4 ">
           Job Listings
         </h2>

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useAuth } from "../hooks/userAuth";
 import { auth } from "../hooks/auth/firebase";
 
 const baseUrl = import.meta.env.VITE_BACKEND_URL;
@@ -27,6 +26,8 @@ export default axiosInstance;
 
 export async function handleRequest(method, url, token) {
   try {
+    await updateToken(token);
+
     const res = await axiosInstance[method](url);
     if (!res.data) {
       throw new Error("Please try again later");

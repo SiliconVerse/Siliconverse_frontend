@@ -41,15 +41,11 @@ const ResetPassword = () => {
   return (
     <>
       <div>
-        <p className="text-silcon-red">{errorMessage}</p>
+        <p className="text-silicon-red">{errorMessage}</p>
       </div>
-      <form
-        onSubmit={(e) => update(e)}
-        className="grid md:grid-cols-2 gap-y-4 gap-x-8 pb-4">
+      <form onSubmit={(e) => update(e)} className="grid md:grid-cols-2 gap-y-4 gap-x-8 pb-4">
         <div className="flex flex-col gap-2">
-          <label
-            htmlFor="currPassword"
-            className="cursor-pointer text-sm">
+          <label htmlFor="currPassword" className="cursor-pointer text-sm">
             Current Password
           </label>
           <input
@@ -61,9 +57,7 @@ const ResetPassword = () => {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label
-            htmlFor="newPassword"
-            className="cursor-pointer text-sm">
+          <label htmlFor="newPassword" className="cursor-pointer text-sm">
             New Password
           </label>
           <input
@@ -75,9 +69,7 @@ const ResetPassword = () => {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label
-            htmlFor="confPassword"
-            className="cursor-pointer text-sm">
+          <label htmlFor="confPassword" className="cursor-pointer text-sm">
             Re-enter Password
           </label>
           <input
@@ -92,12 +84,14 @@ const ResetPassword = () => {
           <button
             disabled={isLoading}
             onClick={cancelAll}
-            className="bg-silcon-red lg:h-[50%] w-[40%] text-white text-sm py-[6px] px-7 rounded-md">
+            className="bg-silicon-red lg:h-[50%] w-[40%] text-white text-sm py-[6px] px-7 rounded-md"
+          >
             Cancel
           </button>
           <button
             disabled={isLoading}
-            className="bg-primaryColor lg:h-[50%] w-[40%] text-white text-sm py-[6px] px-7 rounded-md">
+            className="bg-primaryColor lg:h-[50%] w-[40%] text-white text-sm py-[6px] px-7 rounded-md"
+          >
             Save
           </button>
         </div>
