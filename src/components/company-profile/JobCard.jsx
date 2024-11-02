@@ -2,10 +2,7 @@ import Profile from "../../assets/Rectangle 101.svg";
 import { TbBrandGoogleAnalytics } from "react-icons/tb";
 import { AiOutlineDelete } from "react-icons/ai";
 import { TbEdit } from "react-icons/tb";
-import {
-  formatCurrency,
-  getTimeAgo,
-} from "../../utils/util-functions";
+import { formatCurrency, getTimeAgo } from "../../utils/util-functions";
 import { handleSubmit } from "../../requests/axios";
 import { toast } from "react-toastify";
 
@@ -70,9 +67,7 @@ function JobCard({ job, setState, setSearch, reload }) {
               </p>
               <p
                 className={`py-1 px-2 text-sm sm:text-xs rounded-xl text-white + ${
-                  job.status == "open"
-                    ? "bg-silicon-green"
-                    : "bg-silcon-red"
+                  job.status == "open" ? "bg-silicon-green" : "bg-silicon-red"
                 }`}
               >
                 {job.status}
@@ -95,15 +90,10 @@ function JobCard({ job, setState, setSearch, reload }) {
       </section>
       {/* Job Engagement */}
       <div className="p-5 bg-white boxShadow min-w-48 text-center items-center flex-col rounded-md hidden lg:flex justify-evenly">
-        <p className="text-xl font-bold">
-          {job.totalApplications}
-        </p>
+        <p className="text-xl font-bold">{job.totalApplications}</p>
         <p>Application</p>
 
-        <TbBrandGoogleAnalytics
-          className="text-primaryColor"
-          size={70}
-        />
+        <TbBrandGoogleAnalytics className="text-primaryColor" size={70} />
       </div>
     </section>
   );
