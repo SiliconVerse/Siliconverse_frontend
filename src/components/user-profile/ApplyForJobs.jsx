@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { handleRequest } from "../../requests/axios";
 import JobApplicationCard from "./JobApplicationCard";
 import { useAuth } from "../../hooks/userAuth";
+import Spinner from "../spinner";
 
 export default function ApplyForJobs() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -48,7 +49,11 @@ export default function ApplyForJobs() {
         today!
       </p>
 
-      {loading && <p className="animate-pulse text-red-400 text-lg">Loading...</p>}
+      {loading && (
+        <div className="flex items-center justify-center h-[70vh]">
+          <Spinner className={"!text-primaryColor !h-10 !w-10"} />
+        </div>
+      )}
       <ul className="space-y-3 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 gap-3">
         {allJobs &&
           allJobs.length > 0 &&
