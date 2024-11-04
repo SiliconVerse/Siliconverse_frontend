@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import ArrowDown from "../../assets/ArrowDown.png";
 import { CircleChevronDown } from "lucide-react";
 
 function UserPreferences() {
