@@ -30,6 +30,7 @@ export default function JobDetails({ jobId, setSearchParams }) {
     })
       .then((res) => {
         toast.success("Request was Successful");
+        handleCancel();
       })
       .catch((err) => {
         toast.error("Network Error, or you've already applied for this job");
