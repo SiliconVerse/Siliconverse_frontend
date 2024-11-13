@@ -51,7 +51,7 @@ const CompanyProfile = () => {
           <aside>
             <h5>Location</h5>
             <p>
-              {user.state || '-'}{' '}
+              {user.stateOfResidence || '-'}{' '}
               {user.country ? <span>{`(${user.country})`}</span> : null}
             </p>
           </aside>
@@ -67,15 +67,16 @@ const CompanyProfile = () => {
             <h5>Company Type</h5>
             <p>{user.type || '-'}</p>
           </aside>
-          <aside>
+          <div className="bio__style">
+          <aside >
             <h5>BIO</h5>
-            <p>{user.bio || '-'}</p>
+            <p className='bio_style'>{user.bio || '-'}</p>
           </aside>
+          </div>
         </div>
       </section>
       {editCompanyProfile && (
         <CompanyProfileEditForm
-          editCompanyProfile={editCompanyProfile}
           setEditCompanyProfile={setEditCompanyProfile}
           closeEditModal={closeEditModal}
           user={user}

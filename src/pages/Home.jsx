@@ -4,6 +4,7 @@ import { useAuth } from "../hooks/userAuth";
 import { hero } from "../utils/images-export";
 import { NavLink } from "react-router-dom";
 import { sendEmailVerification } from "firebase/auth";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const Home = () => {
   const { user } = useAuth();
@@ -19,14 +20,13 @@ const Home = () => {
           <div className="md:w-1/2 space-y-5 md:space-y-10">
             <div className="lg:text-5xl text-3xl font-bold">
               <h1 className="w-full">
-                Digital platform designed to connect Tech Startups, SMEs, and
-                Tech Talents.
+                Digital platform designed to connect Tech Startups, SMEs, and Tech Talents.
               </h1>
             </div>
             <div className="md:text-xl font-semibold">
               <h2 className="max-w-md">
-                A Job Portal for internships and Silicon Magazine for industry
-                insights and success stories.
+                A Job Portal for internships and Silicon Magazine for industry insights and success
+                stories.
               </h2>
             </div>
 
@@ -35,7 +35,8 @@ const Home = () => {
                 <NavLink
                   to="/signup"
                   className="block w-full h-full text-white text-center"
-                  style={{ textDecoration: "none" }}>
+                  style={{ textDecoration: "none" }}
+                >
                   Get Started
                 </NavLink>
               </button>
@@ -43,28 +44,29 @@ const Home = () => {
             {user && !isVerified && (
               <button
                 className="bg-[#FF5F15] py-2 px-10 rounded-3xl text-white"
-                onClick={verifyEmail}>
+                onClick={verifyEmail}
+              >
                 Verify Email to Proceed
               </button>
             )}
           </div>
 
           <div>
-            <img
-              src={hero}
-              alt="banner image"
-              className="w-[500px] h-[500px]"
-            />
+            <img src={hero} alt="banner image" className="w-[500px] h-[500px]" />
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-10 mt-10 px-4">
-          <button className="w-full md:w-fit px-4 bg-black py-2 rounded-md text-white font-semibold">
-            Apply for internship
-          </button>
-          <button className="w-full md:w-fit px-4 bg-black py-2 rounded-md text-white font-semibold">
-            Get Interns
-          </button>
+          <Link to="Job-List" smooth={true} duration={500}>
+            <button className="w-full md:w-fit px-4 bg-black py-2 rounded-md text-white font-semibold">
+              Apply for internship
+            </button>
+          </Link>
+          <NavLink to="/interns">
+            <button className="w-full md:w-fit px-4 bg-black py-2 rounded-md text-white font-semibold">
+              Get Interns
+            </button>
+          </NavLink>
         </div>
       </div>
       <Jobs />

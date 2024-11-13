@@ -5,10 +5,12 @@ const SubmitButton = ({ text, isLoading, className }) => {
   return (
     <button
       className={
-        "flex gap-4 text-center justify-center items-center " + className
+        "flex gap-4 text-center justify-center items-center " +
+        className
       }
       type="submit"
-      disabled={isLoading}>
+      disabled={isLoading}
+    >
       {!isLoading && text}
       {isLoading && <Spinner />}
     </button>
@@ -16,3 +18,25 @@ const SubmitButton = ({ text, isLoading, className }) => {
 };
 
 export default SubmitButton;
+
+export const ClickButtonType = ({
+  text,
+  isLoading,
+  className,
+  onclickFn,
+}) => {
+  return (
+    <button
+      onClick={onclickFn}
+      className={
+        "flex gap-4 text-center justify-center items-center " +
+        className
+      }
+      type="submit"
+      disabled={isLoading}
+    >
+      {!isLoading && text}
+      {isLoading && <Spinner />}
+    </button>
+  );
+};

@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
-import profileBigImg from '../assets/Generic-Profile-Image.webp';
-import { useAuth } from '../hooks/userAuth';
-import UserMenu from './UserMenuLinks';
+import { useEffect, useRef, useState } from "react";
+import profileBigImg from "../assets/Generic-Profile-Image.webp";
+import { useAuth } from "../hooks/userAuth";
+import UserMenu from "./UserMenuLinks";
 
 function UserAvatar() {
   const [openUserMenu, setOpenUserMenu] = useState(false);
@@ -16,10 +16,10 @@ function UserAvatar() {
       }
     };
 
-    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
 
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, []);
 
@@ -27,19 +27,17 @@ function UserAvatar() {
     setOpenUserMenu(!openUserMenu);
   };
   return (
-    <section className='relative'>
-      <div className='h-10 aspect-square rounded-full overflow-hidden border-2 border-white'>
+    <section className="relative cursor-pointer">
+      <div className="h-10 aspect-square rounded-full overflow-hidden border-2 border-white">
         <img
           src={user?.profilePicture ?? profileBigImg}
-          alt='Profile Picture'
-          className='w-full h-full object-cover object-top'
+          alt="Profile Picture"
+          className="w-full h-full object-cover object-top"
           onClick={handleClick}
         />
       </div>
 
-      {openUserMenu && (
-        <UserMenu componentRef={modalRef} closeModal={handleClick} />
-      )}
+      {openUserMenu && <UserMenu componentRef={modalRef} closeModal={handleClick} />}
     </section>
   );
 }

@@ -2,11 +2,11 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-} from 'firebase/auth';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { createContext, useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { auth, db } from './auth/firebase';
+} from "firebase/auth";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { auth, db } from "./auth/firebase";
 
 // Create a context for the auth
 const AuthContext = createContext();
@@ -14,7 +14,11 @@ const AuthContext = createContext();
 // Provide the auth context to your app
 export function AuthProvider({ children }) {
   const auth = useAuthProvider();
-  return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={auth}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 // Hook for using the auth context
@@ -22,15 +26,17 @@ export const useAuth = () => {
   return useContext(AuthContext);
 };
 function useAuthProvider() {
-  const userLocalData = JSON.parse(localStorage.getItem('user'));
+  const userLocalData = JSON.parse(
+    localStorage.getItem("user-siliconverse")
+  );
   const [user, setUser] = useState(userLocalData);
   const navigate = useNavigate();
 
   const updateUser = async (data, route) => {
     if (!data) {
-      return navigate('/login');
+      return navigate("/login");
     }
-    const docRef = doc(db, 'Users', data.uid);
+    const docRef = doc(db, "Users", data.uid);
     const docSnap = await getDoc(docRef);
 
     if (!data?.emailVerified) {
@@ -44,7 +50,10 @@ function useAuthProvider() {
         uid: data.uid,
         ...docSnap.data(),
       };
-      localStorage.setItem('user', JSON.stringify(userData));
+      localStorage.setItem(
+        "user-siliconverse",
+        JSON.stringify(userData)
+      );
       setUser(userData);
 
       if (route) {
@@ -55,9 +64,9 @@ function useAuthProvider() {
     if (
       !docSnap.exists() &&
       data?.emailVerified &&
-      data.providerData[0].providerId === 'google.com'
+      data.providerData[0].providerId === "google.com"
     ) {
-      await setDoc(doc(db, 'Users', data.uid), {
+      await setDoc(doc(db, "Users", data.uid), {
         email: data.email,
         firstName: data.displayName,
       });
@@ -67,25 +76,36 @@ function useAuthProvider() {
         uid: data.uid,
         emailVerified: data.emailVerified,
       };
-      localStorage.setItem('user', JSON.stringify(userData));
+      localStorage.setItem(
+        "user-siliconverse",
+        JSON.stringify(userData)
+      );
       setUser(userData);
-      navigate('/complete-signup', { replace: true });
+      navigate("/complete-signup", { replace: true });
     }
   };
 
   const signin = async (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password);
+    return signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
   };
 
   const signup = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
   };
 
   const signout = async () => {
     await signOut(auth);
-    localStorage.removeItem('user');
+    localStorage.removeItem("user-siliconverse");
     setUser(null);
-    navigate('/login');
+    navigate("/login");
   };
 
   return {

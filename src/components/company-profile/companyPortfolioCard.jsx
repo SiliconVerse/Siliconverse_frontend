@@ -7,8 +7,7 @@ import Time from '../../assets/Vector.svg';
 const FolioCard = ({image, head, description, duration, approval, time, share, date, chatBox, approveImg}) => {
     return(   
                 <div className="postjobs__cont">
-                    <div className="postjobs__img" >
-                        {/* work */}
+                    <div className="postjobs__img">
                         <img 
                             src={image}
                             alt="company_photo"

@@ -25,7 +25,7 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <div className="md:p-8 bg-[#FDEFE9] fixed z-[200] md:z-auto md:relative top-0 right-0 w-full">
+    <div className="md:p-8 bg-[#FDEFE9] fixed z-[100] md:relative top-0 right-0 w-full drop-shadow-md">
       <nav className="hidden md:flex justify-between items-center">
         <Link
           to={"/"}
@@ -71,14 +71,16 @@ const Navbar = () => {
         {open && (
           <aside className="absolute w-full flex justify-center items-center flex-col gap-2 p-10 z-[200] top-[90px] h-[calc(100vh-90px)] bg-[#FDEFE9]">
             <div className="flex justify-center items-center flex-col">
-              {navLinks.map((navLink) => (
-                <p
-                  key={navLink.id}
-                  className="px-5 text-lg font-semibold hover:underline hover:underline-offset-2"
-                  onClick={() => handleClose(navLink.id)}>
-                  {navLink.title}
-                </p>
-              ))}
+              <ul className="flex flex-col gap-5 items-center justify-center">
+                {navLinks.map((navLink) => (
+                  <li
+                    key={navLink.id}
+                    className="px-5 text-lg font-semibold hover:underline hover:underline-offset-2"
+                    onClick={() => handleClose(navLink.id)}>
+                    {navLink.title}
+                  </li>
+                ))}
+              </ul>
               {!user && <NavbarAuth />}
             </div>
           </aside>

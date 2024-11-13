@@ -14,43 +14,33 @@ const CompanyModalUpdates = ({ status, setState }) => {
 
       {status == "success" && (
         <div className={styles.modal_content}>
-          <FileText
-            size={240}
-            className="text-silicon-green"
-          />
+          <FileText size={240} className="text-silicon-green" />
           <p
             style={{
               color: "var(--primary-color)",
               fontWeight: "700",
               textAlign: "center",
-            }}>
+            }}
+          >
             Uploaded Successfully
           </p>
-          <p style={{ fontWeight: "500" }}>
-            Your post has been successfully updated.
-          </p>
+          <p style={{ fontWeight: "500" }}>Your post has been successfully updated.</p>
         </div>
       )}
 
       {status == "error" && (
         <div className={styles.modal_content}>
-          <BarChart
-            size={240}
-            className="text-silcon-red"
-          />
-          <p className="text-silcon-red font-bold text-center">
-            Couldn’t upload magazine post
-          </p>
+          <BarChart size={240} className="text-silicon-red" />
+          <p className="text-silicon-red font-bold text-center">Couldn’t upload magazine post</p>
           <p style={{ fontWeight: "700" }}>Check your internet connection</p>
           <div className={styles.btn_container}>
             <button
               className={styles.btn + " " + styles.btn_1}
-              onClick={() => setState((prev) => !prev)}>
+              onClick={() => setState((prev) => !prev)}
+            >
               Cancel
             </button>
-            <button className={styles.btn + " " + styles.btn_2}>
-              Try again
-            </button>
+            <button className={styles.btn + " " + styles.btn_2}>Try again</button>
           </div>
         </div>
       )}

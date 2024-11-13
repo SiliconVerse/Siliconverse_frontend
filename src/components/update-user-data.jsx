@@ -12,13 +12,13 @@ const UserDataForm = ({ userData, setState }) => {
   const { updateUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
-    phone: userData.phone ?? '',
+    phone: userData.phoneNumber ?? '',
     firstName: userData.firstName ?? '',
     lastName: userData.lastName ?? '',
     gender: userData.gender ?? '',
     email: userData.email ?? '',
     country: userData.country ?? '',
-    stateOfResdidence: userData.stateOfResdidence ?? '',
+    stateOfResidence: userData.stateOfResidence ?? '',
     skillset: userData.skillset ?? '',
     university: userData.university ?? '',
     degree: userData.degree ?? '',

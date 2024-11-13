@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { useAuth } from '../hooks/userAuth';
+import axios from "axios";
+import { auth } from "../hooks/auth/firebase";
 
 const baseUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -7,24 +7,7 @@ const axiosInstance = axios.create({
   baseURL: baseUrl,
 });
 
-async function refreshToken(refreshToken) {
-  const auth = useAuth(); // Assuming this works due to context or similar mechanism
-  const response = await axiosInstance.post('/users/refresh-token', {
-    refreshToken,
-  });
-
-  if (response.data) {
-    auth.setUser(response.data);
-    return true;
-  }
-
-  return false;
-}
-
-let isRefreshing = false;
-let refreshPromise;
-
-const updateToken = (token) => {
+const updateToken = async (token) => {
   axiosInstance.interceptors.request.use(
     async (config) => {
       if (token) {
@@ -43,10 +26,11 @@ export default axiosInstance;
 
 export async function handleRequest(method, url, token) {
   try {
-    updateToken(token);
+    await updateToken(token);
+
     const res = await axiosInstance[method](url);
     if (!res.data) {
-      throw new Error('Please try again later');
+      throw new Error("Please try again later");
     }
     return res.data;
   } catch (error) {
@@ -54,12 +38,12 @@ export async function handleRequest(method, url, token) {
   }
 }
 
-export async function handleSubmit(method, url, data, token) {
+export async function handleSubmit(method, url, data) {
   try {
-    updateToken(token);
+    await updateToken(auth.currentUser.accessToken);
     const res = await axiosInstance[method](url, data);
     if (!res.data) {
-      throw new Error('Please try again later');
+      throw new Error("Please try again later");
     }
     return res.data;
   } catch (error) {

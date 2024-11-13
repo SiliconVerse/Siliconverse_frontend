@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useLayoutEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
+import { useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 export function ReactPortal({ children, setState }) {
   const [wrapperElement, setWrapperElement] = useState(null);
@@ -8,7 +8,7 @@ export function ReactPortal({ children, setState }) {
   const ref = useRef();
 
   function handleVisibility(event) {
-    if (typeof setState !== 'function' || event.target !== ref.current) {
+    if (typeof setState !== "function" || event.target !== ref.current) {
       return;
     }
 
@@ -16,7 +16,7 @@ export function ReactPortal({ children, setState }) {
   }
 
   useLayoutEffect(() => {
-    let element = document.getElementById('modal_id');
+    let element = document.getElementById("modal_id");
     if (element) {
       setWrapperElement(element);
     }
@@ -29,7 +29,7 @@ export function ReactPortal({ children, setState }) {
     <>
       <div
         onClick={handleVisibility}
-        className='overflow-hidden size-full z-[9999] bg-black/50 inset-0 fixed flex justify-center items-center'
+        className="overflow-hidden size-full z-[9999] bg-black/50 inset-0 fixed flex justify-center items-center"
         ref={ref}
       >
         {children}

@@ -4,6 +4,7 @@ import ProtectedHeader from '../protected-header';
 import MobileSideBar from '../sidebar/mobile-sidebar';
 import SideBar from '../sidebar/sidebar';
 import styles from './layout.module.css';
+import Navbar from '../Navbar';
 
 function Layout() {
   const { user } = useAuth();
@@ -18,10 +19,9 @@ function Layout() {
 
   return (
     <>
-      <ProtectedHeader />
+      <Navbar />
       <section className={styles.layout_body}>
         <SideBar />
-        {/*  */}
         <MobileSideBar />
         <section className={styles.layout_content}>
           <Outlet />
