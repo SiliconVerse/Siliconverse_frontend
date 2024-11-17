@@ -6,6 +6,7 @@ import {
 import 'react-toastify/dist/ReactToastify.css';
 import App from '../App';
 import Layout from '../components/layout/layout.jsx';
+import MagazineAdminLayout from '../components/layout/magazine-layout.jsx';
 import RootLayout from '../components/layout/root-layout.jsx';
 import About from '../pages/About.jsx';
 import CompanyProfilePage from '../pages/CompanyProfilePage.jsx';
@@ -14,6 +15,7 @@ import HelpCenter from '../pages/HelpCenter.jsx';
 import Home from '../pages/Home.jsx';
 import Interns from '../pages/Interns.jsx';
 import Magazine from '../pages/Magazine.jsx';
+import MagazineAdminDashboard from '../pages/MagazineAdminDashboard.jsx';
 import Mission from '../pages/Mission.jsx';
 import Organization from '../pages/Organization.jsx';
 import PrivacyPolicy from '../pages/PrivacyPolicy.jsx';
@@ -39,6 +41,15 @@ const routes = createRoutesFromElements(
       <Route path='/organization' element={<Organization />} />
       <Route path='/privacy' element={<PrivacyPolicy />} />
     </Route>
+
+    {/* MAGAZINE ADMIN SECTION START */}
+
+    <Route path='magazine-admin' element={<MagazineAdminLayout />}>
+      <Route index element={<MagazineAdminDashboard />} />
+    </Route>
+
+    {/* MAGAZINE ADMIN SECTION END */}
+
     {/* Wrapper */}
     <Route element={<Layout />}>
       <Route path='company-profile' element={<CompanyProfilePage />} />
