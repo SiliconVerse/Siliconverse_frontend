@@ -1,25 +1,17 @@
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../../hooks/userAuth';
 import { magazineAdminSidebarLinks } from '../../../utils/magazineAdminLinks';
 import SidebarPhoto from '../../side-bar-photo';
 
 export default function MagazineSidebar() {
   const { user, signout } = useAuth();
-  const [searchParams] = useSearchParams();
 
   const [isSidebarVisible, setIsSidebarvisible] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarvisible((prev) => !prev);
-  };
-
-  // check if a tab is the current active tab
-  const isActive = (url) => {
-    const tab = searchParams.get('tab');
-
-    return tab === url;
   };
 
   return (
@@ -62,19 +54,19 @@ export default function MagazineSidebar() {
 
         <nav className='py-4 flex flex-col gap-6 md:gap-4 px-2 md:w-fit md:mx-auto md:px-0'>
           {magazineAdminSidebarLinks.map((sidebarLink) => {
-            const isTabActive = isActive(sidebarLink.href);
-
             return (
-              <Link
+              <NavLink
                 key={sidebarLink.id}
-                to={`?tab=${sidebarLink.href}`}
-                className={`capitalize md:text-sm relative after:content-[""] after:absolute after:w-[5px] after:h-full after:top-0 after:left-0 pl-2 md:after:-left-2 md:pl-0 after:bg-white  ${
-                  isTabActive ? 'after:block' : 'after:hidden'
+                to={`/magazine-admin/${sidebarLink.href}`}
+                className={({
+                  isActive,
+                }) => `capitalize md:text-sm relative after:content-[""] after:absolute after:w-[5px] after:h-full after:top-0 after:left-0 pl-2 md:after:-left-2 md:pl-0 after:bg-white  ${
+                  isActive ? 'after:block' : 'after:hidden'
                 }
               `}
               >
                 {sidebarLink.name}
-              </Link>
+              </NavLink>
             );
           })}
         </nav>

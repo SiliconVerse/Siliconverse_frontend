@@ -12,7 +12,7 @@ export default function MagazineAdminLayout() {
       <MagazineTopbar />
       <div className='grid md:grid-cols-4 w-full h-[calc(100vh-9rem)] overflow-hidden relative'>
         <MagazineSidebar />
-        <main className='overflow-y-auto  md:col-span-3'>
+        <main className='overflow-y-auto  md:col-span-3 my-10 mx-5 md:mx-10'>
           <Outlet />
         </main>
       </div>

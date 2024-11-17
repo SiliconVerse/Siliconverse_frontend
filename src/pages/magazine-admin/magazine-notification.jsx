@@ -53,7 +53,7 @@ export default function MagazineAdminNotification() {
     <>
       <h1 className='mb-8 font-medium'>Notification</h1>
       <button
-        className='border border-[#FF5F153B] rounded-sl py-[6px] flex text-nowrap gap-2 px-3'
+        className='border border-[#FF5F153B] rounded-sl py-[6px] flex text-nowrap gap-2 px-3 transition-colors ease-linear duration-200 hover:text-primaryColor hover:border-primaryColor'
         onClick={handleMarkAllAsRead}
       >
         <CheckCheck />

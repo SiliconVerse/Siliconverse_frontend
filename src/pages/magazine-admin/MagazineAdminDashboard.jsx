@@ -1,3 +1,3 @@
 export default function MagazineAdminDashboard() {
-  return <>magazine-dashboard</>;
+  return <>magazine admin dashboard</>;
 }

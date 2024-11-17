@@ -15,7 +15,6 @@ import HelpCenter from '../pages/HelpCenter.jsx';
 import Home from '../pages/Home.jsx';
 import Interns from '../pages/Interns.jsx';
 import Magazine from '../pages/Magazine.jsx';
-import MagazineAdminDashboard from '../pages/MagazineAdminDashboard.jsx';
 import Mission from '../pages/Mission.jsx';
 import Organization from '../pages/Organization.jsx';
 import PrivacyPolicy from '../pages/PrivacyPolicy.jsx';
@@ -24,6 +23,12 @@ import TermsAndConditions from '../pages/TermsAndConditions.jsx';
 import UserProfile from '../pages/UserProfilePage.jsx';
 import CompleteSignup from '../pages/complete-signup.jsx';
 import LoginForm from '../pages/login/LogIn.jsx';
+import MagazineAdminDashboard from '../pages/magazine-admin/MagazineAdminDashboard.jsx';
+import MagazineAdminAdvertising from '../pages/magazine-admin/magazine-admin-advertising.jsx';
+import MagazineAdminSettings from '../pages/magazine-admin/magazine-admin-settings.jsx';
+import ContentManagement from '../pages/magazine-admin/magazine-content-management.jsx';
+import MagazineMessageCenter from '../pages/magazine-admin/magazine-message-center.jsx';
+import MagazineAdminNotification from '../pages/magazine-admin/magazine-notification.jsx';
 import NotFound from '../pages/notFound.jsx';
 
 const routes = createRoutesFromElements(
@@ -44,8 +49,32 @@ const routes = createRoutesFromElements(
 
     {/* MAGAZINE ADMIN SECTION START */}
 
-    <Route path='magazine-admin' element={<MagazineAdminLayout />}>
-      <Route index element={<MagazineAdminDashboard />} />
+    <Route element={<MagazineAdminLayout />}>
+      <Route
+        path='magazine-admin/content-management'
+        element={<ContentManagement />}
+      />
+      <Route
+        path='magazine-admin/dashboard'
+        element={<MagazineAdminDashboard />}
+      />
+      <Route
+        path='magazine-admin/notification'
+        element={<MagazineAdminNotification />}
+      />
+      <Route
+        path='magazine-admin/advertising'
+        element={<MagazineAdminAdvertising />}
+      />
+
+      <Route
+        path='magazine-admin/settings'
+        element={<MagazineAdminSettings />}
+      />
+      <Route
+        path='magazine-admin/message-center'
+        element={<MagazineMessageCenter />}
+      />
     </Route>
 
     {/* MAGAZINE ADMIN SECTION END */}
