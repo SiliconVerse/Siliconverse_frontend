@@ -27,5 +27,5 @@ export default function MagazineAdminDashboard() {
     return <Navigate to={'?tab=content-management'} />;
   }
 
-  return <main className='my-10 mx-5'>{tabs[tab]}</main>;
+  return <main className='my-10 mx-5 md:mx-10'>{tabs[tab]}</main>;
 }

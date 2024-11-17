@@ -1,5 +1,10 @@
+import { format } from 'date-fns';
 import { EllipsisVertical } from 'lucide-react';
-import { formatCustomDate, formatNumber } from '../../utils/util-functions';
+import {
+  formatDayWithOrdinal,
+  formatNumber,
+  formatTime12Hours,
+} from '../../utils/util-functions';
 
 export default function MagazineArticle({
   createdAt,
@@ -11,11 +16,24 @@ export default function MagazineArticle({
   AdDuration,
   targetAudience,
 }) {
-  const publishedDate = formatCustomDate(createdAt);
-
   const formattedViews = formatNumber(views);
 
   const formattedComments = formatNumber(comments);
+
+  const formatCustomDate = (datetimeString) => {
+    const date = new Date(datetimeString);
+
+    const day = formatDayWithOrdinal(date);
+
+    const month = format(date, 'MMM');
+
+    const time = formatTime12Hours(date);
+
+    return `${day} ${month} at ${time}`;
+  };
+
+  const publishedDate = formatCustomDate(createdAt);
+
   return (
     <div
       key={id}

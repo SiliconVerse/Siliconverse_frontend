@@ -41,7 +41,7 @@ export function formatNumber(num) {
   return formatter.format(num);
 }
 
-const getOrdinal = (day) => {
+export const getOrdinal = (day) => {
   const suffixes = ['th', 'st', 'nd', 'rd'];
 
   // take the last two digits
@@ -50,14 +50,12 @@ const getOrdinal = (day) => {
   return day + (suffixes[(value - 20) % 10] || suffixes[value] || suffixes[0]);
 };
 
-export const formatCustomDate = (datetimeString) => {
-  const date = new Date(datetimeString);
-
+export function formatDayWithOrdinal(date) {
   const day = getOrdinal(parseInt(format(date, 'd')));
 
-  const month = format(date, 'MMM');
+  return day;
+}
 
-  const time = format(date, 'h:mmaaa');
-
-  return `${day} ${month} at ${time}`;
-};
+export function formatTime12Hours(date) {
+  return format(date, 'h:mmaaa');
+}
