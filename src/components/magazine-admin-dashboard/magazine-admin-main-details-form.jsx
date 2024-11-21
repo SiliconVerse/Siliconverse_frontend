@@ -3,28 +3,24 @@ import { toast } from 'react-toastify';
 import FieldInput from '../field-input';
 import SubmitButton from '../submit-btn';
 
-export default function MagazineAdminProfileEditForm({
+const MagazineAdminMainDetailsForm = ({
   userDetails,
-  updateUser,
   handleChange,
   cancelEdit,
-}) {
+  updateUser,
+}) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-
-    const details = {
-      otherNames: userDetails.otherNames,
-      phoneNumber: userDetails.phoneNumber,
-      gender: userDetails.phoneNumber,
-      bio: userDetails.bio,
-      dob: userDetails.dob,
-    };
-
     try {
-      await updateUser(userDetails.uid, details);
+      await updateUser(userDetails.uid, {
+        firstName: userDetails.firstName,
+        lastName: userDetails.lastName,
+        stateOfResidence: userDetails.stateOfResidence,
+        country: userDetails.country,
+      });
       toast.success('profile updated successfully!', {
         position: 'top-center',
       });
@@ -38,41 +34,45 @@ export default function MagazineAdminProfileEditForm({
   };
 
   return (
-    <form className='px-1 space-y-4 max-w-screen-sm'>
+    <form className='px-1 space-y-4 max-w-screen-sm' onSubmit={handleSave}>
+      <h3>Edit Personal Details</h3>
       <div className='flex gap-3 w-full'>
         <FieldInput
-          id={'otherNames'}
-          value={userDetails.otherNames}
+          id={'firstName'}
+          value={userDetails?.firstName}
           onChange={handleChange}
-          label='Other names'
-          placeholder='Other names'
-          labelStyles='sr-only'
-        />
-        <FieldInput
-          id={'dob'}
-          value={userDetails.dob}
-          onChange={handleChange}
-          label='Date of birth'
+          label='first name'
           required
-          placeholder='Date of birth'
-          labelStyles='sr-only'
-          type='date'
-        />
-        <FieldInput
-          id={'phoneNumber'}
-          value={userDetails.phoneNumber}
-          onChange={handleChange}
-          label='Phone number'
-          placeholder='Phone number'
+          placeholder='First Name'
           labelStyles='sr-only'
         />
-
         <FieldInput
-          id={'gender'}
-          value={userDetails.otherNames}
+          id={'lastName'}
+          value={userDetails.lastName}
           onChange={handleChange}
-          label='Other names'
-          placeholder='Other names'
+          label='last name'
+          required
+          placeholder='Last Name'
+          labelStyles='sr-only'
+        />
+      </div>
+      <div className='flex gap-3 w-full'>
+        <FieldInput
+          id={'stateOfResidence'}
+          value={userDetails.stateOfResidence}
+          onChange={handleChange}
+          label='state of residence'
+          required
+          placeholder='State of residence'
+          labelStyles='sr-only'
+        />
+        <FieldInput
+          id={'country'}
+          value={userDetails.country}
+          onChange={handleChange}
+          label='country'
+          required
+          placeholder='Country'
           labelStyles='sr-only'
         />
       </div>
@@ -95,4 +95,6 @@ export default function MagazineAdminProfileEditForm({
       </div>
     </form>
   );
-}
+};
+
+export default MagazineAdminMainDetailsForm;

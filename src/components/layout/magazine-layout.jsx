@@ -29,7 +29,7 @@ export default function MagazineAdminLayout() {
 
       <div className='md:grid md:grid-cols-4 w-full h-[calc(100vh-9rem)] overflow-hidden relative'>
         <MagazineSidebar />
-        <main className='overflow-y-auto overflow-x-hidden  md:col-span-3 my-10 mx-5 md:mx-10'>
+        <main className='overflow-y-auto overflow-x-hidden md:col-span-3 px-5 md:px-10 md:py-10'>
           <Outlet />
         </main>
       </div>
