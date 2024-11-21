@@ -1,20 +1,28 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/userAuth';
-import ProtectedHeader from '../protected-header';
+import Navbar from '../Navbar';
 import MobileSideBar from '../sidebar/mobile-sidebar';
 import SideBar from '../sidebar/sidebar';
+import Spinner from '../spinner';
 import styles from './layout.module.css';
-import Navbar from '../Navbar';
 
 function Layout() {
-  const { user } = useAuth();
+  const { user, isAuthLoading } = useAuth();
   const { pathname, search } = useLocation();
 
-  if (!user)
+  if (!user && !isAuthLoading)
     return <Navigate to={'/login'} state={{ from: pathname + search }} />;
 
   if (user && !user.role) {
     return <Navigate to='/complete-signup' replace />;
+  }
+
+  if (isAuthLoading) {
+    return (
+      <div className='bg-primaryColor h-screen grid place-items-center'>
+        <Spinner />
+      </div>
+    );
   }
 
   return (
