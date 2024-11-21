@@ -36,7 +36,7 @@ export default function MagazineSidebar() {
         />
       </button>
       <aside
-        className={`bg-primaryColor text-white border-r w-full md:col-span-1 flex-col h-full md:flex z-[1000] ${
+        className={`bg-primaryColor text-white border-r w-full md:col-span-1 flex-col h-full md:flex z-50 ${
           isSidebarVisible
             ? 'flex absolute top-10 left-0 md:static md:h-full'
             : 'hidden md:flex '
@@ -78,7 +78,7 @@ export default function MagazineSidebar() {
           })}
         </nav>
 
-        <hr className='mt-32 md:mt-auto ' />
+        <hr className='mt-20 md:mt-auto ' />
         <button
           onClick={signout}
           className='border w-3/4 mx-auto py-3 mt-4 capitalize font-medium md:border-none md:py-2 md:w-full md:mt-2 hover:underline'

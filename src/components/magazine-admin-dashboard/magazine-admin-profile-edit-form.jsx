@@ -1,15 +1,34 @@
 import { useState } from 'react';
+import Select from 'react-select';
 import { toast } from 'react-toastify';
 import FieldInput from '../field-input';
 import SubmitButton from '../submit-btn';
+import TextareaWithCharCount from '../textarea-with-char-count';
 
 export default function MagazineAdminProfileEditForm({
   userDetails,
   updateUser,
   handleChange,
   cancelEdit,
+  handleGenderChange,
 }) {
   const [isLoading, setIsLoading] = useState(false);
+
+  const genders = [
+    { label: 'Female', value: 'female' },
+    { label: 'Male', value: 'male' },
+  ];
+
+  const customStyles = {
+    control: (defaultStyles) => ({
+      ...defaultStyles,
+      backgroundColor: 'inherit',
+      padding: '',
+      border: 'none',
+      boxShadow: 'none',
+      height: '44px',
+    }),
+  };
 
   const handleSave = async (event) => {
     event.preventDefault();
@@ -38,7 +57,7 @@ export default function MagazineAdminProfileEditForm({
   };
 
   return (
-    <form className='px-1 space-y-4 max-w-screen-sm'>
+    <form className='px-1 space-y-4 max-w-screen-sm' onSubmit={handleSave}>
       <div className='flex gap-3 w-full'>
         <FieldInput
           id={'otherNames'}
@@ -58,6 +77,8 @@ export default function MagazineAdminProfileEditForm({
           labelStyles='sr-only'
           type='date'
         />
+      </div>
+      <div className='flex gap-3 w-full'>
         <FieldInput
           id={'phoneNumber'}
           value={userDetails.phoneNumber}
@@ -67,15 +88,27 @@ export default function MagazineAdminProfileEditForm({
           labelStyles='sr-only'
         />
 
-        <FieldInput
-          id={'gender'}
-          value={userDetails.otherNames}
-          onChange={handleChange}
-          label='Other names'
-          placeholder='Other names'
-          labelStyles='sr-only'
-        />
+        <label className='border px-2 rounded w-full'>
+          <Select
+            options={genders}
+            defaultValue={userDetails.gender}
+            onChange={(valueObj) => {
+              handleGenderChange(valueObj.value);
+            }}
+            styles={customStyles}
+            className='w-full'
+            placeholder='Select gender'
+          />
+        </label>
       </div>
+      <TextareaWithCharCount
+        value={userDetails.bio}
+        id={'bio'}
+        onChange={handleChange}
+        label='Bio'
+        labelStyles='sr-only'
+        rows={3}
+      />
 
       <div className='flex items-center gap-3 justify-between py-4 md:max-w-sm md:justify-start'>
         <button

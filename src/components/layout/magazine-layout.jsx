@@ -27,7 +27,7 @@ export default function MagazineAdminLayout() {
       <Navbar />
       <MagazineTopbar />
 
-      <div className='md:grid md:grid-cols-4 w-full h-[calc(100vh-9rem)] overflow-hidden relative'>
+      <div className='grid grid-rows-[auto_1fr] md:grid-cols-4 w-full h-dvh md:h-[calc(100vh-9rem)] overflow-hidden relative'>
         <MagazineSidebar />
         <main className='overflow-y-auto overflow-x-hidden md:col-span-3 px-5 md:px-10 md:py-10'>
           <Outlet />

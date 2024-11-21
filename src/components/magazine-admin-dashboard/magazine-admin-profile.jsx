@@ -2,7 +2,7 @@ import { PencilIcon } from 'lucide-react';
 import { useState } from 'react';
 import fallbackImg from '../../assets/Generic-Profile-Image.webp';
 import { useAuth } from '../../hooks/userAuth';
-import { formatDate } from '../../utils/util-functions';
+import { cn, formatDate } from '../../utils/util-functions';
 import SidebarPhoto from '../side-bar-photo';
 import MagazineAdminMainDetailsForm from './magazine-admin-main-details-form';
 import MagazineAdminProfileEditForm from './magazine-admin-profile-edit-form';
@@ -14,7 +14,7 @@ export default function MagazineAdminProfile() {
 
   const [editOtherDetails, setEditOtherDetails] = useState(false);
 
-  const [userDetails, setUserDetails] = useState({
+  const initialDetails = {
     otherNames: '',
     phoneNumber: '',
     stateOfResidence: '',
@@ -26,7 +26,9 @@ export default function MagazineAdminProfile() {
     firstName: '',
     lastName: '',
     ...user,
-  });
+  };
+
+  const [userDetails, setUserDetails] = useState(initialDetails);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -38,13 +40,24 @@ export default function MagazineAdminProfile() {
     userDetails?.country ? ', ' + userDetails.country : ''
   }`;
 
+  const handleGenderChange = (value) => {
+    setUserDetails((prev) => ({ ...prev, gender: value }));
+  };
+
+  const resetDetails = () => {
+    setUserDetails(initialDetails);
+  };
+
   return (
     <>
       <section className=' shadow-sl rounded-sl py-5 relative px-4'>
         {editMainDetails ? (
           <MagazineAdminMainDetailsForm
             userDetails={userDetails}
-            cancelEdit={() => setEditMainDetails(false)}
+            cancelEdit={() => {
+              setEditMainDetails(false);
+              resetDetails();
+            }}
             updateUser={updateUserProfile}
             handleChange={handleChange}
           />
@@ -79,7 +92,11 @@ export default function MagazineAdminProfile() {
             userDetails={userDetails}
             handleChange={handleChange}
             updateUser={updateUserProfile}
-            cancelEdit={() => setEditOtherDetails(false)}
+            cancelEdit={() => {
+              setEditOtherDetails(false);
+              resetDetails();
+            }}
+            handleGenderChange={handleGenderChange}
           />
         ) : (
           <div className='space-y-3 text-[#343434]'>
@@ -105,7 +122,11 @@ export default function MagazineAdminProfile() {
             <FieldRow title={'Phone number'} value={userDetails.phoneNumber} />
             <FieldRow title={'Location'} value={location} />
             <FieldRow title={'Gender'} value={userDetails.gender} />
-            <FieldRow title={'Bio'} value={userDetails.bio} />
+            <FieldRow
+              title={'Bio'}
+              value={userDetails.bio}
+              className='max-w-3xl'
+            />
           </div>
         )}
       </section>
@@ -113,9 +134,9 @@ export default function MagazineAdminProfile() {
   );
 }
 
-const FieldRow = ({ title, value }) => {
+const FieldRow = ({ title, value, className = '' }) => {
   return (
-    <p className='space-x-2'>
+    <p className={cn('space-x-2', className)}>
       <span>{title}:</span>
       <span>{value}</span>
     </p>
