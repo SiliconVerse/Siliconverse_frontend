@@ -2,32 +2,32 @@ export const magazineAdminSidebarLinks = [
   {
     id: 0,
     name: 'content management',
-    href: 'content-management',
+    href: '/magazine-admin/content-management',
   },
   {
     id: 1,
     name: 'notification',
-    href: 'notification',
+    href: '/magazine-admin/notification',
   },
   {
     id: 2,
     name: 'dashboard',
-    href: 'dashboard',
+    href: '/magazine-admin',
   },
   {
     id: 3,
     name: 'settings',
-    href: 'settings',
+    href: '/magazine-admin/settings',
   },
   {
     id: 4,
     name: 'advertising',
-    href: 'advertising',
+    href: '/magazine-admin/advertising',
   },
   {
     id: 5,
     name: 'message center',
-    href: 'message-center',
+    href: '/magazine-admin/message-center',
   },
 ];
 

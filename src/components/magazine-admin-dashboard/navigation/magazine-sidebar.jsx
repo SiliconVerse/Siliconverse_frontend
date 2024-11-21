@@ -14,6 +14,11 @@ export default function MagazineSidebar() {
     setIsSidebarvisible((prev) => !prev);
   };
 
+  const closeSidebarMobile = () => {
+    if (!isSidebarVisible) return;
+    setIsSidebarvisible(false);
+  };
+
   return (
     <>
       <button
@@ -31,7 +36,7 @@ export default function MagazineSidebar() {
         />
       </button>
       <aside
-        className={`bg-primaryColor text-white border-r w-full md:col-span-1 flex-col h-full md:flex ${
+        className={`bg-primaryColor text-white border-r w-full md:col-span-1 flex-col h-full md:flex z-[1000] ${
           isSidebarVisible
             ? 'flex absolute top-10 left-0 md:static md:h-full'
             : 'hidden md:flex '
@@ -57,13 +62,15 @@ export default function MagazineSidebar() {
             return (
               <NavLink
                 key={sidebarLink.id}
-                to={`/magazine-admin/${sidebarLink.href}`}
+                to={sidebarLink.href}
                 className={({
                   isActive,
                 }) => `capitalize md:text-sm relative after:content-[""] after:absolute after:w-[5px] after:h-full after:top-0 after:left-0 pl-2 md:after:-left-2 md:pl-0 after:bg-white  ${
                   isActive ? 'after:block' : 'after:hidden'
                 }
               `}
+                onClick={closeSidebarMobile}
+                end
               >
                 {sidebarLink.name}
               </NavLink>

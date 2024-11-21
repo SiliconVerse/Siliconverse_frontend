@@ -26,6 +26,9 @@ export default {
       boxShadow: {
         sl: '0 1px 4px 0 rgba(12,12,13,0.05),0 1px 4px 0 rgba(12,12,13,0.1)',
       },
+      borderWidth: {
+        0.5: '0.5px',
+      },
     },
   },
 

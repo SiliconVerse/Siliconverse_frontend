@@ -1,5 +1,8 @@
 import { format, formatDistanceToNowStrict } from 'date-fns';
 
+import { clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
 export function formatDate(
   dateString,
   options = {
@@ -58,4 +61,9 @@ export function formatDayWithOrdinal(date) {
 
 export function formatTime12Hours(date) {
   return format(date, 'h:mmaaa');
+}
+
+// combine tailwind class names
+export function cn(...inputs) {
+  return twMerge(clsx(inputs));
 }
