@@ -13,6 +13,13 @@ export default function Affiliates() {
     setShowAll((prev) => !prev);
   };
 
+  const formatToDollar = (value) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(value);
+  };
+
   return (
     <section className='shadow-ml rounded-sl py-1 px-2'>
       <div className='flex items-center justify-between gap-3 overflow-hidden my-5 mt-10'>
@@ -55,7 +62,7 @@ export default function Affiliates() {
               </div>
 
               <p>{affiliate.brand}</p>
-              <p>{affiliate.earning}</p>
+              <p>{formatToDollar(affiliate.earning)}</p>
               <p>{affiliate.commission}%</p>
               <p>{affiliate.paymentMethod}</p>
               <div className='flex justify-between items-start gap-3'>
