@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../../hooks/userAuth';
 import { magazineAdminSidebarLinks } from '../../../utils/magazineAdminLinks';
+import { cn } from '../../../utils/util-functions';
 import SidebarPhoto from '../../side-bar-photo';
 
 export default function MagazineSidebar() {
@@ -36,28 +37,29 @@ export default function MagazineSidebar() {
         />
       </button>
       <aside
-        className={`bg-primaryColor text-white border-r w-full md:col-span-1 flex-col h-full md:flex z-50 ${
+        className={cn(
+          'bg-primaryColor text-white border-r w-full md:col-span-3 xl:col-span-2 flex-col h-full md:flex z-50',
           isSidebarVisible
-            ? 'flex absolute top-10 left-0 md:static md:h-full'
-            : 'hidden md:flex '
-        }`}
+            ? 'flex absolute top-10 left-0 md:static'
+            : 'hidden md:flex'
+        )}
       >
-        <div className='mx-auto gap-4 w-1/2 md:flex flex-col py-4 hidden'>
-          <div className='relative rounded-full aspect-square group w-24 self-center'>
+        <div className='mx-auto gap-1 w-1/2 md:flex flex-col py-2 hidden'>
+          <div className='relative rounded-full aspect-square group w-24  md:w-16 self-center'>
             <SidebarPhoto key={'desktop'} />
           </div>
           <div className={'space-y-1 text-center'}>
-            <h2 className='font-bold text-xl truncate'>
+            <h2 className='font-bold truncate'>
               {user?.firstName} {user?.lastName}
             </h2>
-            <p className='text-nowrap text-xl'>{`${
+            <p className='text-nowrap text-sm'>{`${
               user?.stateOfResidence || ''
             }${user?.country ? ', ' + user.country : ''}`}</p>
           </div>
         </div>
         <hr className='hidden md:block' />
 
-        <nav className='py-4 flex flex-col gap-6 md:gap-4 px-2 md:w-fit md:mx-auto md:px-0'>
+        <nav className='py-4 flex flex-col gap-6 md:gap-4 px-2 md:w-fit md:mx-auto md:px-0 '>
           {magazineAdminSidebarLinks.map((sidebarLink) => {
             return (
               <NavLink

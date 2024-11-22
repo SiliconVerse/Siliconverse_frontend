@@ -35,10 +35,7 @@ export default function MagazineArticle({
   const publishedDate = formatCustomDate(createdAt);
 
   return (
-    <div
-      key={id}
-      className='grid grid-cols-[20rem_12rem_10rem_10rem_10rem_7rem] gap-6'
-    >
+    <div className='grid grid-cols-[20rem_12rem_10rem_10rem_10rem_7rem] gap-6'>
       <div className='flex gap-2'>
         <img
           src={image}

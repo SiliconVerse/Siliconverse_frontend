@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../../hooks/userAuth';
 import Navbar from '../Navbar';
 import MagazineSidebar from '../magazine-admin-dashboard/navigation/magazine-sidebar';
@@ -9,14 +9,13 @@ export default function MagazineAdminLayout() {
   // add protection using user role i.e  if user.role !== magazine-admin then redirect to authorized access or page not found
   const { isAuthLoading, user } = useAuth();
 
-  // remove comment after magazine-admin role is set
-  // if (!user && !isAuthLoading) {
-  //   return <Navigate to={'/login'} />;
-  // }
+  if (!user && !isAuthLoading) {
+    return <Navigate to={'/login'} />;
+  }
 
   if (isAuthLoading) {
     return (
-      <div className='bg-primaryColor h-screen grid place-items-center'>
+      <div className='bg-primaryColor h-screen grid place-items-center '>
         <Spinner />
       </div>
     );
@@ -27,9 +26,9 @@ export default function MagazineAdminLayout() {
       <Navbar />
       <MagazineTopbar />
 
-      <div className='grid grid-rows-[auto_1fr] md:grid-cols-4 w-full h-dvh md:h-[calc(100vh-9rem)] overflow-hidden relative'>
+      <div className='grid max-sm:grid-rows-[auto_1fr] md:grid-cols-12 w-full h-dvh md:h-[calc(100vh-6rem)] lg:h-[calc(100vh-13.4rem)] overflow-hidden relative'>
         <MagazineSidebar />
-        <main className='overflow-y-auto overflow-x-hidden md:col-span-3 px-5 md:px-10 md:py-10'>
+        <main className='overflow-y-auto overflow-x-hidden md:col-span-full px-5 md:px-10 md:py-10 md:col-start-4 xl:col-start-3 scrollbar'>
           <Outlet />
         </main>
       </div>
