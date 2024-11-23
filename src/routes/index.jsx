@@ -23,6 +23,10 @@ import UserProfile from '../pages/UserProfilePage.jsx';
 import CompleteSignup from '../pages/complete-signup.jsx';
 import LoginForm from '../pages/login/LogIn.jsx';
 import NotFound from '../pages/notFound.jsx';
+import TalentAcceleratorProgram from '../pages/TAP/index.jsx'
+import Contact from '../pages/contact-us/contact-head/index.jsx'
+
+
 
 const routes = createRoutesFromElements(
   <Route path='/' element={<App />}>
@@ -38,7 +42,11 @@ const routes = createRoutesFromElements(
       <Route path='/signup' element={<SignUp />} />
       <Route path='/organization' element={<Organization />} />
       <Route path='/privacy' element={<PrivacyPolicy />} />
-    </Route>
+      {/* <Route path='/tap' element={< */}
+      {/* <TalentAcceleratedProgram/> */}
+      <Route path='/tap' element={<TalentAcceleratorProgram />} />
+      <Route path='/contactus' element= {<Contact />} />
+      </Route>
     {/* Wrapper */}
     <Route element={<Layout />}>
       <Route path='company-profile' element={<CompanyProfilePage />} />

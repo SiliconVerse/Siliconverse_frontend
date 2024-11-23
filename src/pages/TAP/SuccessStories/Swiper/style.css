@@ -1,0 +1,25 @@
+/* style.css */
+.swiper-button-prev,
+.swiper-button-next {
+    position: absolute;
+    /* top: 50%; */
+    display: none;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: #000; /* Change this to a visible color (e.g., white or black) */
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.swiper-button-prev {
+    left: 10px;
+}
+
+.swiper-button-next {
+    right: 10px;
+}
+
+.swiper-pagination {
+    bottom: 10px; /* Adjust this if needed */
+    text-align: center;
+}

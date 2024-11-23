@@ -1,0 +1,43 @@
+[
+    {
+        "id": 1,
+        "title": "Phase 1: ",
+        "titleOne": "Orientation & Skill Assessment",
+        "cont1": "Welcome and onboarding.",
+        "cont2":"Initial skill assessments to understand your strengths and areas for growth.",
+        "cont3": "Introduction to Siliconverse and its ecosystem."
+    },
+    {
+        "id": 2,
+        "title": "Phase 1: ",
+        "titleOne": "Orientation & Skill Assessment",
+        "cont1": "Welcome and onboarding.",
+        " cont2":"Initial skill assessments to understand your strengths and areas for growth.",
+        "cont3": "Introduction to Siliconverse and its ecosystem."
+
+    },
+    {
+        "id": 3,
+        "title": "Phase 2: ",
+        "titleOne": "Skill Development & Mentorship",
+        "cont1": "Personalized skill development plans",
+        "cont2": "Mentorship from industry experts",
+        "cont3": "Access to Siliconverse's vast network of professionals and resources."
+    },
+    {
+        "id": 4,
+        "title": "Phase 2: ",
+        "titleOne": "Skill Development & Mentorship",
+        "cont1": "Personalized skill development plans",
+        "cont2": "Mentorship from industry experts",
+        "cont3": "Access to Siliconverse's vast network of professionals and resources."
+    },
+    {
+        "id": 5,
+        "title": "Phase 2: ",
+        "titleOne": "Skill Development & Mentorship",
+        "cont1": "Personalized skill development plans",
+        "cont2": "Mentorship from industry experts",
+        "cont3": "Access to Siliconverse's vast network of professionals and resources."
+    }
+]
