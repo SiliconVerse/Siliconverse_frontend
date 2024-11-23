@@ -70,7 +70,7 @@ const MagazineSection = () => {
   return (
     <section className='bg-white space-y-6'>
       <div className='space-y-6 py-4 border-y border-y-[#FF5F15]'>
-        <div className='flex gap-4 justify-between'>
+        {/* <div className='flex gap-4 justify-between'>
           <button className='bg-[#FF5F15] py-[2px] px-8 text-white font-semibold hover:bg-orange-600'>
             Latest
           </button>
@@ -81,7 +81,7 @@ const MagazineSection = () => {
               type='text'
             />
           </div>
-        </div>
+        </div> */}
         <div className='grid grid-cols-3 gap-4 max-[900px]:grid-cols-2  max-[580px]:grid-cols-1'>
           {LatestNews.map((latest, index) => (
             <div
