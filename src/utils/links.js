@@ -19,6 +19,10 @@ export const navLinks = [
     id: "/magazine",
     title: "Magazine",
   },
+  {
+    id: "/TAP",
+    title: "Talent Accelerator Program",
+  },
 ];
 
 export const footerLinks = [
@@ -46,4 +50,13 @@ export const footerLinks = [
     id: "/mission",
     title: "Our Mission",
   },
+  {
+    id: "/tap",
+    title: "Talent Accelerator Program",
+  },
+  {
+    id: "/contactus",
+    title: "Contact Us",
+  },
+  
 ];

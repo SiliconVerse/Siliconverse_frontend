@@ -1,0 +1,30 @@
+.social__card__main{
+    width: 310px;
+    padding: 4rem 2rem;
+    background-color:#f0edeb ;
+    box-sizing: border-box;
+    border-radius: 14px;
+    height: 298px;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;     
+}
+.social__card__main:hover{
+    border: 2px solid #FF5F15;
+
+}
+.social__card__icon{
+    margin: 15px auto;
+    width: 100px;
+    height: 100px;
+    background-color: #FF5F15;
+    border-radius: 50%;
+    padding: 1.5rem;
+}
+.social__card__icon img{
+    width: 50px;
+    height: 50px;
+}
+
+
