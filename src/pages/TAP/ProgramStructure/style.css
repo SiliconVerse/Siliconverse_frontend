@@ -1,0 +1,25 @@
+.programstructure__main{
+    padding: 2rem 5rem;
+    /* width: 100%; */
+    @media screen and (max-width: 768px) {
+        /* font-size: 14px;         */
+        padding: 2rem;
+    }
+}
+.content__header{
+    font-size: 48px;
+    color: #FF5F15;
+    font-weight: 600;
+    line-height: 7rem;
+    @media screen and (max-width: 768px) {
+        /* width: 100%;         */
+        font-size: 38px;
+    }
+}
+.content__sub_text{
+    font-size: 24px;
+    @media screen and (max-width: 768px) {
+        /* width: 100%;         */
+        font-size: 14px;
+    }
+}

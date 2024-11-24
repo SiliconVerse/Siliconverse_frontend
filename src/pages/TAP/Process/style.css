@@ -1,0 +1,49 @@
+.applicationprocess__main{
+    padding: 5rem;
+    /* width: 100%; */
+    @media screen and (max-width: 768px) {
+        /* font-size: 14px;         */
+        padding: 2rem;
+    }
+}
+.applicationprocess__content{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    @media screen and (max-width: 1200px ) {
+        flex-direction: column;        
+    }
+    
+}
+.applicationprocess__first__content{
+    width: 50%;
+    @media screen and (max-width: 1200px ) {
+        width: 100%;
+        }
+}
+.applicationprocess__secondt__content{
+    width: 50%;
+    @media screen and (max-width: 1400px ) {
+        width: 100%;
+        }
+}
+.applicationprocess__content__text{
+    margin: 20px 0;
+}
+.applicationprocess__content__text__head{
+    font-size: 48px;
+    font-weight: 600;
+    color: #FF5F15;
+    @media screen and (max-width: 768px) {
+        font-size: 32px;        
+    }
+}
+.applicationprocess__content__subtext{
+    font-size: 24px;
+
+}
+.applicationprocess__content__subtext__list{
+    font-size: 24px;
+    margin: 30px 0;
+    line-height: 2.5rem;
+}

@@ -18,9 +18,11 @@ import Magazine from '../pages/Magazine.jsx';
 import Mission from '../pages/Mission.jsx';
 import Organization from '../pages/Organization.jsx';
 import SignUp from '../pages/SignUp.jsx';
+import TalentAcceleratorProgram from '../pages/TAP/index.jsx';
 import TermsAndConditions from '../pages/TermsAndConditions.jsx';
 import UserProfile from '../pages/UserProfilePage.jsx';
 import CompleteSignup from '../pages/complete-signup.jsx';
+import Contact from '../pages/contact-us/contact-head/index.jsx';
 import LoginForm from '../pages/login/LogIn.jsx';
 import MagazineAdminDashboard from '../pages/magazine-admin/MagazineAdminDashboard.jsx';
 import MagazineAdminAdvertising from '../pages/magazine-admin/magazine-admin-advertising.jsx';
@@ -30,6 +32,8 @@ import MagazineMessageCenter from '../pages/magazine-admin/magazine-message-cent
 import MagazineAdminNotification from '../pages/magazine-admin/magazine-notification.jsx';
 import NotFound from '../pages/notFound.jsx';
 import PrivacyPolicy from '../pages/privacy-policy.jsx';
+
+
 
 const routes = createRoutesFromElements(
   <Route path='/' element={<App />}>
@@ -61,6 +65,11 @@ const routes = createRoutesFromElements(
     </Route>
 
     {/* MAGAZINE ADMIN SECTION END */}
+
+      {/* <Route path='/tap' element={< */}
+      {/* <TalentAcceleratedProgram/> */}
+      <Route path='/tap' element={<TalentAcceleratorProgram />} />
+      <Route path='/contactus' element= {<Contact />} />
 
     {/* Wrapper */}
     <Route element={<Layout />}>
