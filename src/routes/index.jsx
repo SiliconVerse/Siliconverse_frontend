@@ -25,6 +25,8 @@ import LoginForm from '../pages/login/LogIn.jsx';
 import NotFound from '../pages/notFound.jsx';
 import TalentAcceleratorProgram from '../pages/TAP/index.jsx'
 import Contact from '../pages/contact-us/contact-head/index.jsx'
+import Shop from '../pages/Shop'
+import JoinSiliconVerse from '../pages/JoinSiliconverse/index.jsx';
 
 
 
@@ -46,6 +48,9 @@ const routes = createRoutesFromElements(
       {/* <TalentAcceleratedProgram/> */}
       <Route path='/tap' element={<TalentAcceleratorProgram />} />
       <Route path='/contactus' element= {<Contact />} />
+      {/* <Route path='/shop' element= {<Shop />} /> */}
+      <Route path='/shop' element={<Shop />} />
+      <Route path='/joinsiliconversecommunity' element={ <JoinSiliconVerse />}/>
       </Route>
     {/* Wrapper */}
     <Route element={<Layout />}>
