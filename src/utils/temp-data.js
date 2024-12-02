@@ -246,6 +246,7 @@ export const tempAffiliates = [
     commission: 30,
     paymentMethod: 'Bank Transfer',
     status: 'active',
+    impressions: 500_000,
   },
   {
     id: 'SUMC812X',
@@ -256,6 +257,7 @@ export const tempAffiliates = [
     commission: 15,
     paymentMethod: 'Crypto',
     status: 'active',
+    impressions: 600_000,
   },
   {
     id: 'SMNV451B',
@@ -266,5 +268,6 @@ export const tempAffiliates = [
     commission: 25,
     paymentMethod: 'Paypal',
     status: 'active',
+    impressions: 600_000,
   },
 ];

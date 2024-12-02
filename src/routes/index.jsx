@@ -8,6 +8,7 @@ import App from '../App';
 import Layout from '../components/layout/layout.jsx';
 import MagazineAdminLayout from '../components/layout/magazine-layout.jsx';
 import RootLayout from '../components/layout/root-layout.jsx';
+import AffiliateDetails from '../components/magazine-admin-dashboard/affiliate-details.jsx';
 import About from '../pages/About.jsx';
 import CompanyProfilePage from '../pages/CompanyProfilePage.jsx';
 import CurriculumVitae from '../pages/CurriculumVitae.jsx';
@@ -32,8 +33,6 @@ import MagazineMessageCenter from '../pages/magazine-admin/magazine-message-cent
 import MagazineAdminNotification from '../pages/magazine-admin/magazine-notification.jsx';
 import NotFound from '../pages/notFound.jsx';
 import PrivacyPolicy from '../pages/privacy-policy.jsx';
-
-
 
 const routes = createRoutesFromElements(
   <Route path='/' element={<App />}>
@@ -60,16 +59,18 @@ const routes = createRoutesFromElements(
       <Route path='notification' element={<MagazineAdminNotification />} />
       <Route path='advertising' element={<MagazineAdminAdvertising />} />
 
+      <Route path='advertising/:id' element={<AffiliateDetails />} />
+
       <Route path='settings' element={<MagazineAdminSettings />} />
       <Route path='message-center' element={<MagazineMessageCenter />} />
     </Route>
 
     {/* MAGAZINE ADMIN SECTION END */}
 
-      {/* <Route path='/tap' element={< */}
-      {/* <TalentAcceleratedProgram/> */}
-      <Route path='/tap' element={<TalentAcceleratorProgram />} />
-      <Route path='/contactus' element= {<Contact />} />
+    {/* <Route path='/tap' element={< */}
+    {/* <TalentAcceleratedProgram/> */}
+    <Route path='/tap' element={<TalentAcceleratorProgram />} />
+    <Route path='/contactus' element={<Contact />} />
 
     {/* Wrapper */}
     <Route element={<Layout />}>

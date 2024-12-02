@@ -1,0 +1,306 @@
+export const clickThroughRateSeries = [
+  {
+    name: 'Something',
+    data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
+  },
+  {
+    name: 'Another thing',
+    data: [5, 30, 45, 20, 59, 32, 99, 11, 128],
+  },
+];
+
+export const clickThroughRateOptions = {
+  chart: {
+    height: 300,
+    type: 'line',
+    zoom: {
+      enabled: false,
+    },
+    toolbar: {
+      show: false,
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    curve: 'straight',
+  },
+  markers: {
+    size: 4,
+  },
+  title: {
+    text: 'Click through rate',
+    align: 'left',
+    margin: 10,
+    style: {
+      fontSize: '14px',
+      fontWeight: 'bold',
+      fontFamily: 'inherit',
+      color: '#BDBDBD',
+    },
+  },
+  subtitle: {
+    text: '35%',
+    align: 'left',
+    margin: 10,
+    style: {
+      fontSize: '24px',
+      fontWeight: 'bold',
+      fontFamily: 'inherit',
+      color: '#FF5F15',
+    },
+  },
+  grid: {
+    row: {
+      colors: ['transparent'],
+      opacity: 0.5,
+    },
+  },
+  xaxis: {
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+  },
+  legend: {
+    show: false,
+  },
+};
+
+export const engagementRateSeries = [
+  {
+    name: 'Something',
+    data: [10, 141, 135, 151, 149, 162, 169, 191, 148],
+  },
+  {
+    name: 'Another thing',
+    data: [5, 30, 45, 20, 59, 32, 99, 11, 128],
+  },
+];
+
+export const engagementRateOptions = {
+  chart: {
+    height: 300,
+    type: 'line',
+    zoom: {
+      enabled: false,
+    },
+    toolbar: {
+      show: false,
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    curve: 'smooth',
+  },
+  markers: {
+    size: 4,
+  },
+  title: {
+    text: 'Engagement rate',
+    align: 'left',
+    margin: 10,
+    style: {
+      fontSize: '14px',
+      fontWeight: 'bold',
+      fontFamily: 'inherit',
+      color: '#BDBDBD',
+    },
+  },
+  subtitle: {
+    text: '75%',
+    align: 'left',
+    margin: 10,
+    style: {
+      fontSize: '24px',
+      fontWeight: 'bold',
+      fontFamily: 'inherit',
+      color: '#FF5F15',
+    },
+  },
+  grid: {
+    row: {
+      colors: ['transparent'],
+      opacity: 0.5,
+    },
+  },
+  xaxis: {
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+  },
+  legend: {
+    show: false,
+  },
+};
+
+export const reachSeries = [
+  {
+    name: 'Something',
+    data: [10, 141, 135, 151, 149, 162, 169, 191, 148],
+  },
+  {
+    name: 'Another thing',
+    data: [5, 30, 45, 20, 59, 32, 99, 11, 128],
+  },
+];
+
+export const reachOptions = {
+  chart: {
+    height: 300,
+    type: 'line',
+    zoom: {
+      enabled: false,
+    },
+    toolbar: {
+      show: false,
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    curve: 'smooth',
+  },
+  markers: {
+    size: 4,
+  },
+  title: {
+    text: 'Reach',
+    align: 'left',
+    margin: 10,
+    style: {
+      fontSize: '14px',
+      fontWeight: 'bold',
+      fontFamily: 'inherit',
+      color: '#BDBDBD',
+    },
+  },
+  subtitle: {
+    text: '500,000',
+    align: 'left',
+    margin: 10,
+    style: {
+      fontSize: '24px',
+      fontWeight: 'bold',
+      fontFamily: 'inherit',
+      color: '#FF5F15',
+    },
+  },
+  grid: {
+    row: {
+      colors: ['transparent', '#F1F1F1'],
+      opacity: 0.5,
+    },
+  },
+  xaxis: {
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+  },
+  legend: {
+    show: false,
+  },
+};
+
+export const trafficSourceDistributionSeries = [50, 35, 15];
+export const trafficSourceDistributionOptions = {
+  chart: {
+    type: 'donut',
+    height: 380,
+    zoom: {
+      enabled: false,
+    },
+  },
+  title: {
+    text: 'Traffic Source Distribution',
+    align: 'left',
+    margin: 10,
+    style: {
+      fontSize: '14px',
+      fontWeight: 'bold',
+      fontFamily: 'inherit',
+      color: '#BDBDBD',
+    },
+  },
+  subtitle: {
+    text: '100%',
+    align: 'left',
+    margin: 10,
+    style: {
+      fontSize: '24px',
+      fontWeight: 'bold',
+      fontFamily: 'inherit',
+      color: '#FF5F15',
+    },
+  },
+  labels: ['Social Media', 'Search Engines', 'Direct Traffic'],
+};
+
+export const adSpendAllocationSeries = [50, 35, 15];
+export const adSpendAllocationOptions = {
+  chart: {
+    type: 'donut',
+    height: 380,
+    zoom: {
+      enabled: false,
+    },
+  },
+  title: {
+    text: 'Ad Spend Allocation',
+    align: 'left',
+    margin: 10,
+    style: {
+      fontSize: '14px',
+      fontWeight: 'bold',
+      fontFamily: 'inherit',
+      color: '#BDBDBD',
+    },
+  },
+  subtitle: {
+    text: '$3,000',
+    align: 'left',
+    margin: 10,
+    style: {
+      fontSize: '24px',
+      fontWeight: 'bold',
+      fontFamily: 'inherit',
+      color: '#FF5F15',
+    },
+  },
+  labels: ['Social Media Ads', 'Search Ads', 'Display Ads'],
+};
+
+export const demographics = [
+  {
+    id: 0,
+    country: 'nigeria',
+    value: 110_000,
+  },
+  {
+    id: 1,
+    country: 'usa',
+    value: 90_000,
+  },
+  {
+    id: 2,
+    country: 'canada',
+    value: 70_000,
+  },
+  {
+    id: 3,
+    country: 'south africa',
+    value: 50_000,
+  },
+  {
+    id: 4,
+    country: 'ghana',
+    value: 50_000,
+  },
+  {
+    id: 5,
+    country: 'south korea',
+    value: 130_000,
+  },
+  {
+    id: 6,
+    country: 'mexico',
+    value: 110_000,
+  },
+];

@@ -20,6 +20,9 @@ export default {
           700: '#A3A3A3',
         },
       },
+      backgroundImage: {
+        demo: 'linear-gradient(90deg, #FF5F15 -2.57%, rgba(255, 95, 21, 0) 112.5%)',
+      },
       borderRadius: {
         sl: '10px',
       },

@@ -19,7 +19,7 @@ export default function MagazineAdminSettings() {
         {tabs.map((tab) => (
           <button
             key={tab}
-            className={`capitalize relative -bottom-2 pb-2 transition-colors duration-200 ease-linear hover:text-primaryColor/70 ${
+            className={`capitalize relative -bottom-2 pb-2 transition-colors duration-200 ease-linear md:hover:text-primaryColor/70 ${
               activeTab === tab
                 ? 'border-b border-black text-black'
                 : 'text-[#858585]'
