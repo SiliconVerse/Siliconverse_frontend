@@ -36,10 +36,13 @@ export function formatCurrency(val) {
 }
 // add appropriate suffix to number
 // i.e 10,000 will return 10k
-export function formatNumber(num) {
+export function formatNumber(num, options = {}) {
   if (num < 1000) return num.toString();
 
-  const formatter = new Intl.NumberFormat('en', { notation: 'compact' });
+  const formatter = new Intl.NumberFormat('en', {
+    notation: 'compact',
+    ...options,
+  });
 
   return formatter.format(num);
 }

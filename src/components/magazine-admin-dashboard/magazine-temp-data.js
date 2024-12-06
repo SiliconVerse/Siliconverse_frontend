@@ -1,3 +1,5 @@
+import { formatNumber } from '../../utils/util-functions';
+
 export const clickThroughRateSeries = [
   {
     name: 'Something',
@@ -302,5 +304,136 @@ export const demographics = [
     id: 6,
     country: 'mexico',
     value: 110_000,
+  },
+];
+
+export const visitorsStatisticsSeries = [
+  {
+    name: 'Series 1',
+    data: [19, 26, 38, 40, 45],
+  },
+];
+
+export const visitorsStatisticsOptions = {
+  chart: {
+    height: 280,
+    type: 'area',
+    toolbar: {
+      show: false,
+    },
+    zoom: {
+      enabled: false,
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  fill: {
+    colors: ['#FF5F15', '#FF5F15'],
+    type: 'gradient',
+    gradient: {
+      shadeIntensity: 1,
+      opacityFrom: 1,
+      opacityTo: 0.9,
+      stops: [0, 90, 100],
+    },
+  },
+  xaxis: {
+    labels: {
+      show: false,
+    },
+  },
+  yaxis: {
+    labels: {
+      show: false,
+    },
+  },
+  grid: {
+    show: false,
+  },
+  stroke: {
+    show: false,
+  },
+};
+
+export const churnRateOptions = {
+  chart: {
+    type: 'bar',
+    height: 450,
+    stacked: true,
+    toolbar: {
+      show: false,
+    },
+    zoom: {
+      enabled: false,
+    },
+  },
+  plotOptions: {
+    bar: {
+      horizontal: false,
+      borderRadius: 4.95,
+      borderRadiusApplication: 'end',
+      borderRadiusWhenStacked: 'all',
+    },
+  },
+  stroke: {
+    show: false,
+  },
+  grid: {
+    show: false,
+  },
+  xaxis: {
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July'],
+  },
+  yaxis: {
+    labels: {
+      formatter: function (val) {
+        return formatNumber(val);
+      },
+    },
+  },
+  tooltip: {
+    y: {
+      formatter: function (val) {
+        return formatNumber(val);
+      },
+    },
+  },
+  fill: {
+    opacity: 1,
+    colors: ['#FF5F15', '#FF9462', '#FFCDB6'],
+  },
+  legend: {
+    position: 'top',
+    horizontalAlign: 'left',
+    markers: {
+      shape: 'circle',
+      size: 5,
+    },
+    floating: false,
+    fontSize: '14px',
+    fontWeight: 500,
+    fontFamily: 'Poppins',
+    // offsetX: 40,
+    // offsetY: 5,
+  },
+
+  dataLabels: {
+    enabled: false,
+  },
+};
+
+export const churnRateSeries = [
+  {
+    name: 'Active subscribers',
+    data: [195_000, 225_000, 150_000, 200_000, 100_000, 110_000, 250_000],
+  },
+  {
+    name: 'Inactive but still subscribed',
+    data: [120_000, 126_000, 133_000, 120_000, 60_000, 70_000, 120_000],
+  },
+  {
+    name: 'Unsubscribed',
+    data: [120_000, 170_000, 110_000, 90_000, 200_000, 180_000, 40_000],
   },
 ];

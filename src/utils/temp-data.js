@@ -1,3 +1,4 @@
+import profileImg from '../assets/Generic-Profile-Image.webp';
 import randomImg from '../assets/regImg.png';
 
 export const tempArticles = [
@@ -269,5 +270,230 @@ export const tempAffiliates = [
     paymentMethod: 'Paypal',
     status: 'active',
     impressions: 600_000,
+  },
+];
+
+export const tempUploads = [
+  {
+    id: 0,
+    image: randomImg,
+    title: 'Boost Your Productivity with These Top 5 apps',
+    createdAt: '2024-09-01T12:30:00',
+    views: 50000,
+    comments: 3000,
+    author: 'Ken Dole',
+    status: 'active',
+  },
+  {
+    id: 1,
+    image: randomImg,
+    title: 'Boost Your Productivity with These Top 5 apps',
+    createdAt: '2024-09-01T12:30:00',
+    views: 50000,
+    comments: 3000,
+    author: 'John Smith',
+    status: 'active',
+  },
+  {
+    id: 2,
+    image: randomImg,
+    title: 'Boost Your Productivity with These Top 5 apps',
+    createdAt: '2024-09-01T12:30:00',
+    views: 50000,
+    comments: 3000,
+    author: 'Jane Doe',
+    status: 'active',
+  },
+  {
+    id: 3,
+    image: randomImg,
+    title: 'Boost Your Productivity with These Top 5 apps',
+    createdAt: '2024-09-01T12:30:00',
+    views: 50000,
+    comments: 3000,
+    author: 'Paul black',
+    status: 'active',
+  },
+  {
+    id: 4,
+    image: randomImg,
+    title: 'Boost Your Productivity with These Top 5 apps',
+    createdAt: '2024-09-01T12:30:00',
+    views: 50000,
+    comments: 3000,
+    author: 'Rice Doe',
+    status: 'inactive',
+  },
+  {
+    id: 5,
+    image: randomImg,
+    title: 'Boost Your Productivity with These Top 5 apps',
+    createdAt: '2024-09-01T12:30:00',
+    views: 50000,
+    comments: 3000,
+    author: 'Kat Gold',
+    status: 'active',
+  },
+  {
+    id: 6,
+    image: randomImg,
+    title: 'Boost Your Productivity with These Top 5 apps',
+    createdAt: '2024-09-01T12:30:00',
+    views: 50000,
+    comments: 3000,
+    author: 'Sylvia John',
+    status: 'active',
+  },
+  {
+    id: 7,
+    image: randomImg,
+    title: 'Boost Your Productivity with These Top 5 apps',
+    createdAt: '2024-09-01T12:30:00',
+    views: 50000,
+    comments: 3000,
+    author: 'Kelvin Ann',
+    status: 'active',
+  },
+  {
+    id: 8,
+    image: randomImg,
+    title: 'Boost Your Productivity with These Top 5 apps',
+    createdAt: '2024-09-01T12:30:00',
+    views: 50000,
+    comments: 3000,
+    author: 'Anna west',
+    status: 'inactive',
+  },
+  {
+    id: 9,
+    image: randomImg,
+    title: 'Boost Your Productivity with These Top 5 apps',
+    createdAt: '2024-09-01T12:30:00',
+    views: 50000,
+    comments: 3000,
+    author: 'Nori Smith',
+    status: 'active',
+  },
+  {
+    id: 10,
+    image: randomImg,
+    title: 'Boost Your Productivity with These Top 5 apps',
+    createdAt: '2024-09-01T12:30:00',
+    views: 50000,
+    comments: 3000,
+    author: 'Philip bruce',
+    status: 'active',
+  },
+  {
+    id: 11,
+    image: randomImg,
+    title: 'Boost Your Productivity with These Top 5 apps',
+    createdAt: '2024-09-01T12:30:00',
+    views: 50000,
+    comments: 3000,
+    author: 'Anne Barner',
+    status: 'inactive',
+  },
+];
+
+export const keywords = [
+  {
+    name: 'design',
+    value: 50_400,
+  },
+  {
+    name: 'art',
+    value: 45_400,
+  },
+  {
+    name: 'AI',
+    value: 41_400,
+  },
+  {
+    name: 'crossworlds',
+    value: 35_400,
+  },
+  {
+    name: 'IoT',
+    value: 28_400,
+  },
+  {
+    name: '5GTechnology',
+    value: 20_400,
+  },
+  {
+    name: 'SustainableTech',
+    value: 18_400,
+  },
+  {
+    name: 'ARVR',
+    value: 11_400,
+  },
+  {
+    name: 'SmartHomes',
+    value: 10_400,
+  },
+];
+
+export const subscribers = [
+  {
+    id: 0,
+    firstName: 'Esther',
+    lastName: 'murtala',
+    profilePicture: profileImg,
+  },
+  {
+    id: 1,
+    firstName: 'Martha',
+    lastName: 'Tubonimi',
+    profilePicture: profileImg,
+  },
+  {
+    id: 2,
+    firstName: 'Philip',
+    lastName: 'Iwalewa',
+    profilePicture: profileImg,
+  },
+  {
+    id: 3,
+    firstName: 'David',
+    lastName: 'Anyaoku',
+    profilePicture: profileImg,
+  },
+  {
+    id: 4,
+    firstName: 'Esther',
+    lastName: 'Pere',
+    profilePicture: profileImg,
+  },
+  {
+    id: 5,
+    firstName: 'David',
+    lastName: 'Ovunda',
+    profilePicture: profileImg,
+  },
+  {
+    id: 6,
+    firstName: 'Priscilla',
+    lastName: 'Olaniyan',
+    profilePicture: profileImg,
+  },
+  {
+    id: 7,
+    firstName: 'Stephen',
+    lastName: 'Amiesimaka',
+    profilePicture: profileImg,
+  },
+  {
+    id: 8,
+    firstName: 'John',
+    lastName: 'Doe',
+    profilePicture: profileImg,
+  },
+  {
+    id: 9,
+    firstName: 'Jane',
+    lastName: 'Smith',
+    profilePicture: profileImg,
   },
 ];
