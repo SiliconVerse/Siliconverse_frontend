@@ -60,7 +60,7 @@ export default function DashboardSecondSection({ subscribers }) {
             height={150}
           />
           <Link
-            to={''}
+            to={'/magazine-admin/subscribers'}
             className='text-primaryColor flex items-center flex-nowrap gap-3'
           >
             All subscribers
@@ -87,7 +87,7 @@ export default function DashboardSecondSection({ subscribers }) {
           ))}
         </ul>
         <Link
-          to={''}
+          to={'/magazine-admin/subscribers'}
           className='text-primaryColor flex items-center flex-nowrap gap-3'
         >
           All subscribers
@@ -110,6 +110,9 @@ export default function DashboardSecondSection({ subscribers }) {
             wrapperStyles=''
             className={'w-fit text-sm'}
             placeholder='Monthly'
+            components={{
+              IndicatorSeparator: () => null,
+            }}
           />
         </div>
         <SimpleBarChart data={churnRateSeries} options={churnRateOptions} />

@@ -17,6 +17,7 @@ export default {
         'background-color': '#FDEFE9',
         'off-white': '#D9D9D9',
         gray: {
+          500: '#7d7d7d',
           600: '#BDBDBD',
           700: '#A3A3A3',
         },
@@ -35,10 +36,10 @@ export default {
         0.5: '0.5px',
       },
       maxWidth: {
-        big: '90rem',
+        big: '1440px',
       },
       screens: {
-        large: '90rem',
+        large: '1440px',
       },
     },
   },

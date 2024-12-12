@@ -31,6 +31,7 @@ import MagazineAdminSettings from '../pages/magazine-admin/magazine-admin-settin
 import ContentManagement from '../pages/magazine-admin/magazine-content-management.jsx';
 import MagazineMessageCenter from '../pages/magazine-admin/magazine-message-center.jsx';
 import MagazineAdminNotification from '../pages/magazine-admin/magazine-notification.jsx';
+import MagazineSubscribers from '../pages/magazine-admin/magazine-subscribers.jsx';
 import NotFound from '../pages/notFound.jsx';
 import PrivacyPolicy from '../pages/privacy-policy.jsx';
 
@@ -54,6 +55,7 @@ const routes = createRoutesFromElements(
 
     <Route path='magazine-admin' element={<MagazineAdminLayout />}>
       <Route index element={<MagazineAdminDashboard />} />
+      <Route path='subscribers' element={<MagazineSubscribers />} />
       <Route path='content-management' element={<ContentManagement />} />
 
       <Route path='notification' element={<MagazineAdminNotification />} />
