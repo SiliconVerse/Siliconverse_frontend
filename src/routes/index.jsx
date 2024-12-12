@@ -6,6 +6,7 @@ import {
 import 'react-toastify/dist/ReactToastify.css';
 import App from '../App';
 import Layout from '../components/layout/layout.jsx';
+import MagazineAdminLayout from '../components/layout/magazine-layout.jsx';
 import RootLayout from '../components/layout/root-layout.jsx';
 import About from '../pages/About.jsx';
 import CompanyProfilePage from '../pages/CompanyProfilePage.jsx';
@@ -16,17 +17,25 @@ import Interns from '../pages/Interns.jsx';
 import Magazine from '../pages/Magazine.jsx';
 import Mission from '../pages/Mission.jsx';
 import Organization from '../pages/Organization.jsx';
-import PrivacyPolicy from '../pages/PrivacyPolicy.jsx';
 import SignUp from '../pages/SignUp.jsx';
+import TalentAcceleratorProgram from '../pages/TAP/index.jsx';
 import TermsAndConditions from '../pages/TermsAndConditions.jsx';
 import UserProfile from '../pages/UserProfilePage.jsx';
 import CompleteSignup from '../pages/complete-signup.jsx';
+import Contact from '../pages/contact-us/contact-head/index.jsx';
 import LoginForm from '../pages/login/LogIn.jsx';
+import MagazineAdminDashboard from '../pages/magazine-admin/MagazineAdminDashboard.jsx';
+import MagazineAdminAdvertising from '../pages/magazine-admin/magazine-admin-advertising.jsx';
+import MagazineAdminSettings from '../pages/magazine-admin/magazine-admin-settings.jsx';
+import ContentManagement from '../pages/magazine-admin/magazine-content-management.jsx';
+import MagazineMessageCenter from '../pages/magazine-admin/magazine-message-center.jsx';
+import MagazineAdminNotification from '../pages/magazine-admin/magazine-notification.jsx';
 import NotFound from '../pages/notFound.jsx';
 import TalentAcceleratorProgram from '../pages/TAP/index.jsx'
 import Contact from '../pages/contact-us/contact-head/index.jsx'
 import Shop from '../pages/Shop'
 import JoinSiliconVerse from '../pages/JoinSiliconverse/index.jsx';
+import PrivacyPolicy from '../pages/privacy-policy.jsx';
 
 
 
@@ -44,6 +53,23 @@ const routes = createRoutesFromElements(
       <Route path='/signup' element={<SignUp />} />
       <Route path='/organization' element={<Organization />} />
       <Route path='/privacy' element={<PrivacyPolicy />} />
+    </Route>
+
+    {/* MAGAZINE ADMIN SECTION START */}
+
+    <Route path='magazine-admin' element={<MagazineAdminLayout />}>
+      <Route index element={<MagazineAdminDashboard />} />
+      <Route path='content-management' element={<ContentManagement />} />
+
+      <Route path='notification' element={<MagazineAdminNotification />} />
+      <Route path='advertising' element={<MagazineAdminAdvertising />} />
+
+      <Route path='settings' element={<MagazineAdminSettings />} />
+      <Route path='message-center' element={<MagazineMessageCenter />} />
+    </Route>
+
+    {/* MAGAZINE ADMIN SECTION END */}
+
       {/* <Route path='/tap' element={< */}
       {/* <TalentAcceleratedProgram/> */}
       <Route path='/tap' element={<TalentAcceleratorProgram />} />

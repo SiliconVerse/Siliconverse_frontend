@@ -14,10 +14,12 @@
   --text-color: #222222;
   --silicon-gray: #2f2e2e;
   --background-color: #fdefe9;
+
+  scrollbar-width: thin;
 }
 
 .signUp-bg-image {
-  background-image: url("./assets/latestNews.png");
+  background-image: url('./assets/latestNews.png');
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -26,7 +28,7 @@
 }
 
 .signUp-bg-image::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -36,7 +38,7 @@
 }
 
 /* Add this CSS to your global CSS file */
-input[type="checkbox"].custom-checkbox {
+input[type='checkbox'].custom-checkbox {
   appearance: none;
   -webkit-appearance: none;
   width: 25px;
@@ -49,13 +51,13 @@ input[type="checkbox"].custom-checkbox {
   margin-right: 0.7rem;
 }
 
-input[type="checkbox"].custom-checkbox:checked {
+input[type='checkbox'].custom-checkbox:checked {
   background-color: #ff5f15;
   border-color: #ff5f15;
 }
 
-input[type="checkbox"].custom-checkbox:checked::after {
-  content: "";
+input[type='checkbox'].custom-checkbox:checked::after {
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -83,6 +85,7 @@ input[type="checkbox"].custom-checkbox:checked::after {
 @layer utilities {
   .scrollbar {
     scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) #88888886 !important;
 
     &::-webkit-scrollbar {
       width: 1px;

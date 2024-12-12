@@ -1,6 +1,4 @@
-import { doc, updateDoc } from 'firebase/firestore';
-import React, { useState } from 'react';
-import { db } from '../../hooks/auth/firebase';
+import { useState } from 'react';
 import { ReactPortal } from '../../hooks/portal';
 import SubmitButton from '../submit-btn';
 
@@ -24,16 +22,15 @@ export default function CompanyProfileEditForm({
   });
   const [charCount, setCharCount] = useState(user.bio?.length || 0);
   const maxCharLimit = 200;
-  
 
-  const { updateUser } = useAuth();
+  const { updateUserProfile } = useAuth();
 
   const handleFormChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    if (name === "bio") {
-      setCharCount(value.length);  // Update char count for bio
+    if (name === 'bio') {
+      setCharCount(value.length); // Update char count for bio
     }
   };
 
@@ -43,9 +40,7 @@ export default function CompanyProfileEditForm({
     event.preventDefault();
     setIsLoading(true);
     try {
-      const docRef = doc(db, 'Users', user.uid);
-      await updateDoc(docRef, formData);
-      updateUser({ ...formData, ...user });
+      updateUserProfile(user.uid, { ...formData });
       toast.success('company profile updated successfully!');
       closeEditModal();
     } catch (error) {
@@ -117,25 +112,25 @@ export default function CompanyProfileEditForm({
         </div>
 
         {/* Bio Section */}
-      <div className="text-white gap-4 pt-3">
-        <label className="text-lg font-medium text-black" htmlFor="bio">
-          Bio
-        </label>
-        <div className="bio_text_box">
-          <textarea
-            name="bio"
-            value={formData.bio}
-            onChange={handleFormChange}
-            placeholder="Tell us about company..."
-            rows={10}
-            cols={50}
-            maxLength={maxCharLimit}
-          />
-          <div className="char-count">
-            {charCount}/{maxCharLimit}
+        <div className='text-white gap-4 pt-3'>
+          <label className='text-lg font-medium text-black' htmlFor='bio'>
+            Bio
+          </label>
+          <div className='bio_text_box'>
+            <textarea
+              name='bio'
+              value={formData.bio}
+              onChange={handleFormChange}
+              placeholder='Tell us about company...'
+              rows={10}
+              cols={50}
+              maxLength={maxCharLimit}
+            />
+            <div className='char-count'>
+              {charCount}/{maxCharLimit}
+            </div>
           </div>
         </div>
-      </div>
 
         <div className='flex justify-end items-center gap-3'>
           <button

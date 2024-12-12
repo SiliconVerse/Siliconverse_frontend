@@ -1,4 +1,3 @@
-import { doc, updateDoc } from 'firebase/firestore';
 import {
   deleteObject,
   getDownloadURL,
@@ -8,7 +7,7 @@ import {
 import { PencilIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import profileBigImg from '../assets/Generic-Profile-Image.webp';
-import { db, storage } from '../hooks/auth/firebase';
+import { storage } from '../hooks/auth/firebase';
 import { useAuth } from '../hooks/userAuth';
 
 function SidebarPhoto() {
@@ -17,7 +16,7 @@ function SidebarPhoto() {
   const [uploading, setUploading] = useState(false);
   const [imageUrl, setImageUrl] = useState(profileBigImg);
 
-  const { updateUser, user } = useAuth();
+  const { updateUserProfile, user } = useAuth();
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -52,9 +51,8 @@ function SidebarPhoto() {
       const downloadURL = await getDownloadURL(storageRef);
 
       // Save the URL to Firestore
-      const userRef = doc(db, 'Users', user?.uid);
-      await updateDoc(userRef, { profilePicture: downloadURL });
-      await updateUser(user);
+
+      await updateUserProfile(user?.uid, { profilePicture: downloadURL });
 
       if (user?.profilePicture) {
         const oldImageRef = ref(storage, user.profilePicture);
