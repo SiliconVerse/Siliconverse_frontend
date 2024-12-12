@@ -58,5 +58,16 @@ export const footerLinks = [
     id: "/contactus",
     title: "Contact Us",
   },
+  {
+    id: "/shop",
+    title: "Shop",
+  },
+  {
+    id: "/joinsiliconversecommunity",
+    title: "Join Siliconverse Community",
+  },
+
+  
+
   
 ];

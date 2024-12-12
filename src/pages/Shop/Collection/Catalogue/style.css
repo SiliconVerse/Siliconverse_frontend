@@ -1,0 +1,13 @@
+.catalogue__main{
+    max-width: 325px;
+    padding: 2rem;
+}
+.catalogue__image{
+    margin-bottom: 30px;
+}
+.catalogue__containter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+    font-size: 20px;
+}

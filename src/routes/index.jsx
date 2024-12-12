@@ -31,6 +31,10 @@ import ContentManagement from '../pages/magazine-admin/magazine-content-manageme
 import MagazineMessageCenter from '../pages/magazine-admin/magazine-message-center.jsx';
 import MagazineAdminNotification from '../pages/magazine-admin/magazine-notification.jsx';
 import NotFound from '../pages/notFound.jsx';
+import TalentAcceleratorProgram from '../pages/TAP/index.jsx'
+import Contact from '../pages/contact-us/contact-head/index.jsx'
+import Shop from '../pages/Shop'
+import JoinSiliconVerse from '../pages/JoinSiliconverse/index.jsx';
 import PrivacyPolicy from '../pages/privacy-policy.jsx';
 
 
@@ -70,7 +74,10 @@ const routes = createRoutesFromElements(
       {/* <TalentAcceleratedProgram/> */}
       <Route path='/tap' element={<TalentAcceleratorProgram />} />
       <Route path='/contactus' element= {<Contact />} />
-
+      {/* <Route path='/shop' element= {<Shop />} /> */}
+      <Route path='/shop' element={<Shop />} />
+      <Route path='/joinsiliconversecommunity' element={ <JoinSiliconVerse />}/>
+      </Route>
     {/* Wrapper */}
     <Route element={<Layout />}>
       <Route path='company-profile' element={<CompanyProfilePage />} />
