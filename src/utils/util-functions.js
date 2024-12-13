@@ -66,7 +66,18 @@ export function formatTime12Hours(date) {
   return format(date, 'h:mmaaa');
 }
 
+export function formatTime24Hours(dateStr) {
+  const date = new Date(dateStr);
+  const time = format(date, 'HH:mm');
+
+  return time;
+}
+
 // combine tailwind class names
 export function cn(...inputs) {
   return twMerge(clsx(inputs));
+}
+
+export function scrollIntoView(node) {
+  node?.scrollIntoView({ behaviour: 'instant' });
 }

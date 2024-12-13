@@ -12,10 +12,10 @@ export default function MagazineAdminDashboard() {
   };
 
   return (
-    <>
+    <div className='px-4 py-5 md:px-6 md:py-10'>
       <DashboardFirstSection data={data} />
       <DashboardSecondSection subscribers={subscribers} />
       <DashboardThirdSection keywords={keywords} allUploads={tempUploads} />
-    </>
+    </div>
   );
 }

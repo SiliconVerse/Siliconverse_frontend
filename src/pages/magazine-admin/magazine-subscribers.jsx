@@ -18,7 +18,7 @@ export default function MagazineSubscribers() {
   const sortedDemographics = demographics.toSorted((a, b) => b.value - a.value);
 
   return (
-    <>
+    <div className='px-4 py-5 md:px-6 md:py-10'>
       <section className='space-y-6 lg:grid lg:grid-cols-2 gap-6 lg:space-y-0'>
         <VisitorsStatistics />
 
@@ -158,6 +158,6 @@ export default function MagazineSubscribers() {
           </div>
         </section>
       </section>
-    </>
+    </div>
   );
 }

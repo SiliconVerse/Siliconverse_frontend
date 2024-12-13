@@ -14,7 +14,7 @@ export default function MagazineAdminSettings() {
   };
 
   return (
-    <>
+    <div className='px-4 py-5 md:px-6 md:py-10 '>
       <div className='flex items-center gap-11 border-b-[0.5px] pb-2 border-[#C0C0C0] mb-8'>
         {tabs.map((tab) => (
           <button
@@ -38,6 +38,6 @@ export default function MagazineAdminSettings() {
           <MagazineAdminSecuritySettings />
         )}{' '}
       </>
-    </>
+    </div>
   );
 }

@@ -1,3 +1,4 @@
+import profilePic from '../../assets/woman.png';
 import { formatNumber } from '../../utils/util-functions';
 
 export const clickThroughRateSeries = [
@@ -435,5 +436,134 @@ export const churnRateSeries = [
   {
     name: 'Unsubscribed',
     data: [120_000, 170_000, 110_000, 90_000, 200_000, 180_000, 40_000],
+  },
+];
+
+export const chatDetails = {
+  chatId: 'chat1',
+  messages: [
+    {
+      id: 'msg6',
+      user: 'User1',
+      message:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, harum?',
+      timestamp: '2024-12-11T10:15:00Z',
+      profilePicture: profilePic,
+    },
+    {
+      id: 'msg1',
+      user: 'User1',
+      message: "Hey, how's it going?",
+      timestamp: '2024-12-12T10:00:00Z',
+      profilePicture: profilePic,
+    },
+    {
+      id: 'msg2',
+      user: 'User2',
+      message: "I'm good, thanks! How about you?",
+      timestamp: '2024-12-12T10:05:00Z',
+      profilePicture: profilePic,
+    },
+    {
+      id: 'msg3',
+      user: 'User1',
+      message: "I'm doing great! How's the weather today?",
+      timestamp: '2024-12-12T10:10:00Z',
+      profilePicture: profilePic,
+    },
+    {
+      id: 'msg7',
+      user: 'User1',
+      message:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, harum?',
+      timestamp: '2024-12-10T10:15:00Z',
+      profilePicture: profilePic,
+    },
+    {
+      id: 'msg4',
+      user: 'User2',
+      message: "It's sunny, finally! Been raining all week.",
+      timestamp: '2024-12-12T10:15:00Z',
+      profilePicture: profilePic,
+    },
+    {
+      id: 'msg5',
+      user: 'User1',
+      message:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, harum?',
+      timestamp: '2024-12-11T10:15:00Z',
+      profilePicture: profilePic,
+    },
+  ],
+};
+
+export const recentChats = [
+  {
+    chatId: 'chat1',
+    user: {
+      name: 'Martha Musa',
+      profilePicture: profilePic,
+      email: 'marthamusa@example.com',
+    },
+    lastMessage: "How's the weather today?",
+    timestamp: '2024-12-12T10:15:00Z',
+    participants: [
+      {
+        name: 'Martha Musa',
+        profilePicture: profilePic,
+      },
+    ],
+    unreadMessages: 2,
+  },
+  {
+    chatId: 'chat2',
+    user: {
+      name: 'Victoria Obi',
+      profilePicture: profilePic,
+      email: 'victoriaobi@example.com',
+    },
+    lastMessage: 'Can you send me that report?',
+    timestamp: '2024-12-11T18:30:00Z',
+    participants: [
+      {
+        name: 'Victoria Obi',
+        profilePicture: profilePic,
+      },
+    ],
+    unreadMessages: 1,
+  },
+  {
+    chatId: 'chat3',
+    user: {
+      name: 'Priscillia Oyedepo',
+      profilePicture: profilePic,
+      email: 'priscilliaoyedepo@example.com',
+    },
+    lastMessage: 'I need help with my code.',
+    timestamp: '2024-12-10T14:10:00Z',
+    participants: [
+      {
+        name: 'Priscillia Oyedepo',
+        profilePicture: profilePic,
+      },
+    ],
+    unreadMessages: 0,
+  },
+  {
+    chatId: 'chat4',
+    user: {
+      name: 'John Kemepade',
+      profilePicture: profilePic,
+      email: 'johnkemepade@example.com',
+    },
+    lastMessage: 'I need help with my code.',
+    timestamp: '2024-12-10T14:10:00Z',
+    participants: [
+      {
+        name: 'John Kemepade',
+        profilePicture: profilePic,
+      },
+    ],
+    unreadMessages: 0,
   },
 ];

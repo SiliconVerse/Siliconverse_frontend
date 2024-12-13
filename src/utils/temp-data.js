@@ -283,6 +283,55 @@ export const tempUploads = [
     comments: 3000,
     author: 'Ken Dole',
     status: 'active',
+    allComments: [
+      {
+        id: 0,
+        user: {
+          profilePicture: profileImg,
+          name: 'Peter Weridide',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 1,
+        user: {
+          profilePicture: profileImg,
+          name: 'Naomi Salisu',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 2,
+        user: {
+          profilePicture: profileImg,
+          name: 'Priscilla Oyedepo',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 3,
+        user: {
+          profilePicture: profileImg,
+          name: 'John Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 4,
+        user: {
+          profilePicture: profileImg,
+          name: 'Jane Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+    ],
+    reactions: 10_000,
+    shares: 10_000,
   },
   {
     id: 1,
@@ -293,6 +342,56 @@ export const tempUploads = [
     comments: 3000,
     author: 'John Smith',
     status: 'active',
+    allComments: [
+      {
+        id: 0,
+        user: {
+          profilePicture: profileImg,
+          name: 'Peter Weridide',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 1,
+        user: {
+          profilePicture: profileImg,
+          name: 'Naomi Salisu',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 2,
+        user: {
+          profilePicture: profileImg,
+          name: 'Priscilla Oyedepo',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 3,
+        user: {
+          profilePicture: profileImg,
+          name: 'John Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 4,
+        user: {
+          profilePicture: profileImg,
+          name: 'Jane Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+    ],
+
+    reactions: 11_000,
+    shares: 12_000,
   },
   {
     id: 2,
@@ -303,6 +402,56 @@ export const tempUploads = [
     comments: 3000,
     author: 'Jane Doe',
     status: 'active',
+    allComments: [
+      {
+        id: 0,
+        user: {
+          profilePicture: profileImg,
+          name: 'Peter Weridide',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 1,
+        user: {
+          profilePicture: profileImg,
+          name: 'Naomi Salisu',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 2,
+        user: {
+          profilePicture: profileImg,
+          name: 'Priscilla Oyedepo',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 3,
+        user: {
+          profilePicture: profileImg,
+          name: 'John Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 4,
+        user: {
+          profilePicture: profileImg,
+          name: 'Jane Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+    ],
+
+    reactions: 9_000,
+    shares: 7_000,
   },
   {
     id: 3,
@@ -313,6 +462,55 @@ export const tempUploads = [
     comments: 3000,
     author: 'Paul black',
     status: 'active',
+    allComments: [
+      {
+        id: 0,
+        user: {
+          profilePicture: profileImg,
+          name: 'Peter Weridide',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 1,
+        user: {
+          profilePicture: profileImg,
+          name: 'Naomi Salisu',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 2,
+        user: {
+          profilePicture: profileImg,
+          name: 'Priscilla Oyedepo',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 3,
+        user: {
+          profilePicture: profileImg,
+          name: 'John Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 4,
+        user: {
+          profilePicture: profileImg,
+          name: 'Jane Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+    ],
+    reactions: 10_000,
+    shares: 7_000,
   },
   {
     id: 4,
@@ -323,6 +521,55 @@ export const tempUploads = [
     comments: 3000,
     author: 'Rice Doe',
     status: 'inactive',
+    allComments: [
+      {
+        id: 0,
+        user: {
+          profilePicture: profileImg,
+          name: 'Peter Weridide',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 1,
+        user: {
+          profilePicture: profileImg,
+          name: 'Naomi Salisu',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 2,
+        user: {
+          profilePicture: profileImg,
+          name: 'Priscilla Oyedepo',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 3,
+        user: {
+          profilePicture: profileImg,
+          name: 'John Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 4,
+        user: {
+          profilePicture: profileImg,
+          name: 'Jane Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+    ],
+    reactions: 11_000,
+    shares: 14_000,
   },
   {
     id: 5,
@@ -333,6 +580,55 @@ export const tempUploads = [
     comments: 3000,
     author: 'Kat Gold',
     status: 'active',
+    allComments: [
+      {
+        id: 0,
+        user: {
+          profilePicture: profileImg,
+          name: 'Peter Weridide',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 1,
+        user: {
+          profilePicture: profileImg,
+          name: 'Naomi Salisu',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 2,
+        user: {
+          profilePicture: profileImg,
+          name: 'Priscilla Oyedepo',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 3,
+        user: {
+          profilePicture: profileImg,
+          name: 'John Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 4,
+        user: {
+          profilePicture: profileImg,
+          name: 'Jane Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+    ],
+    reactions: 13_000,
+    shares: 10_000,
   },
   {
     id: 6,
@@ -343,6 +639,56 @@ export const tempUploads = [
     comments: 3000,
     author: 'Sylvia John',
     status: 'active',
+    allComments: [
+      {
+        id: 0,
+        user: {
+          profilePicture: profileImg,
+          name: 'Peter Weridide',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 1,
+        user: {
+          profilePicture: profileImg,
+          name: 'Naomi Salisu',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 2,
+        user: {
+          profilePicture: profileImg,
+          name: 'Priscilla Oyedepo',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 3,
+        user: {
+          profilePicture: profileImg,
+          name: 'John Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 4,
+        user: {
+          profilePicture: profileImg,
+          name: 'Jane Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+    ],
+
+    reactions: 10_000,
+    shares: 10_000,
   },
   {
     id: 7,
@@ -353,6 +699,56 @@ export const tempUploads = [
     comments: 3000,
     author: 'Kelvin Ann',
     status: 'active',
+    allComments: [
+      {
+        id: 0,
+        user: {
+          profilePicture: profileImg,
+          name: 'Peter Weridide',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 1,
+        user: {
+          profilePicture: profileImg,
+          name: 'Naomi Salisu',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 2,
+        user: {
+          profilePicture: profileImg,
+          name: 'Priscilla Oyedepo',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 3,
+        user: {
+          profilePicture: profileImg,
+          name: 'John Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 4,
+        user: {
+          profilePicture: profileImg,
+          name: 'Jane Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+    ],
+
+    reactions: 10_000,
+    shares: 10_000,
   },
   {
     id: 8,
@@ -363,6 +759,56 @@ export const tempUploads = [
     comments: 3000,
     author: 'Anna west',
     status: 'inactive',
+    allComments: [
+      {
+        id: 0,
+        user: {
+          profilePicture: profileImg,
+          name: 'Peter Weridide',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 1,
+        user: {
+          profilePicture: profileImg,
+          name: 'Naomi Salisu',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 2,
+        user: {
+          profilePicture: profileImg,
+          name: 'Priscilla Oyedepo',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 3,
+        user: {
+          profilePicture: profileImg,
+          name: 'John Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 4,
+        user: {
+          profilePicture: profileImg,
+          name: 'Jane Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+    ],
+
+    reactions: 10_000,
+    shares: 10_000,
   },
   {
     id: 9,
@@ -373,6 +819,56 @@ export const tempUploads = [
     comments: 3000,
     author: 'Nori Smith',
     status: 'active',
+    allComments: [
+      {
+        id: 0,
+        user: {
+          profilePicture: profileImg,
+          name: 'Peter Weridide',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 1,
+        user: {
+          profilePicture: profileImg,
+          name: 'Naomi Salisu',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 2,
+        user: {
+          profilePicture: profileImg,
+          name: 'Priscilla Oyedepo',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 3,
+        user: {
+          profilePicture: profileImg,
+          name: 'John Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 4,
+        user: {
+          profilePicture: profileImg,
+          name: 'Jane Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+    ],
+
+    reactions: 10_000,
+    shares: 10_000,
   },
   {
     id: 10,
@@ -383,6 +879,55 @@ export const tempUploads = [
     comments: 3000,
     author: 'Philip bruce',
     status: 'active',
+    allComments: [
+      {
+        id: 0,
+        user: {
+          profilePicture: profileImg,
+          name: 'Peter Weridide',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 1,
+        user: {
+          profilePicture: profileImg,
+          name: 'Naomi Salisu',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 2,
+        user: {
+          profilePicture: profileImg,
+          name: 'Priscilla Oyedepo',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 3,
+        user: {
+          profilePicture: profileImg,
+          name: 'John Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 4,
+        user: {
+          profilePicture: profileImg,
+          name: 'Jane Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+    ],
+    reactions: 10_000,
+    shares: 10_000,
   },
   {
     id: 11,
@@ -393,6 +938,55 @@ export const tempUploads = [
     comments: 3000,
     author: 'Anne Barner',
     status: 'inactive',
+    allComments: [
+      {
+        id: 0,
+        user: {
+          profilePicture: profileImg,
+          name: 'Peter Weridide',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 1,
+        user: {
+          profilePicture: profileImg,
+          name: 'Naomi Salisu',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 2,
+        user: {
+          profilePicture: profileImg,
+          name: 'Priscilla Oyedepo',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 3,
+        user: {
+          profilePicture: profileImg,
+          name: 'John Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+      {
+        id: 4,
+        user: {
+          profilePicture: profileImg,
+          name: 'Jane Doe',
+        },
+        comment:
+          'Lorem ipsum dolor sit amet consectetur. Eget amet in faucibus odio id netus ut urna. Bibendum laoreet vulputate nunc amet eget dignissim ornare ac amet.',
+      },
+    ],
+    reactions: 12_000,
+    shares: 11_000,
   },
 ];
 

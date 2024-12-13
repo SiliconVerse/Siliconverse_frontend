@@ -14,12 +14,12 @@ export default function ContentManagement() {
   }, []);
 
   return (
-    <>
+    <div className='px-4 py-5 md:px-6 md:py-10 '>
       {showPublish ? (
         <PublishMagazineArticle cancelPublish={cancelPublish} />
       ) : (
         <MagazineArticles handleShowPublish={handleShowPublish} />
       )}
-    </>
+    </div>
   );
 }

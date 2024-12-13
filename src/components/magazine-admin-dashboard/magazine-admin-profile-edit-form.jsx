@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import Dropdown from '../dropdown';
-import FieldInput from '../field-input';
+import FieldInput from '../input-field';
 import SubmitButton from '../submit-btn';
 import TextareaWithCharCount from '../textarea-with-char-count';
 
