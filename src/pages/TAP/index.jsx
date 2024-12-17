@@ -1,4 +1,3 @@
-import React from 'react'
 import Taphead from './TapHead'
 import ProgrammOverview from './ProgramOverview'
 import KeyObj from './keyObj'
@@ -12,7 +11,7 @@ function TalentAcceleratorProgram() {
     //     backgroundColor: ''
     // }
     return (
-        <>
+        <section className='flex flex-col w-full p-0 m-0 mx-auto' >
         <Taphead />  
         <ProgrammOverview />  
         <KeyObj /> 
@@ -20,7 +19,7 @@ function TalentAcceleratorProgram() {
         <WhoCanApply />
         <ApplicationProcess />
         <SuccessStory />
-        </>
+        </section>
         
 
         
