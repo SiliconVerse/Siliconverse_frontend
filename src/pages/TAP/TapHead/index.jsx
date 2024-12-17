@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import BgImage from '../assets/Frame 2147224585.svg'
 import PersonImg from "../assets/Tell Me (1) 1.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import  {HeroImage, ApplyButton } from "../reuse";
 
 function Taphead() {
 	useEffect(() => {
@@ -33,19 +33,13 @@ function Taphead() {
 					</p>
 				</div>
 				{/* button */}
-				<Link
-					to={applyForm}
-					className="text-[#FF5F15] bg-[#FFFF] border-[#FFFF] font-semibold text-lg w-[70%] sm:w-[30%] p-2 rounded-lg text-center ">
-					Apply Now
-				</Link>
+				<ApplyButton className={'text-[#FF5F15] bg-[#FFFF] border-[#FFFF] font-semibold text-lg w-[70%] sm:w-[30%] p-2 rounded-lg text-center'} href={applyForm} >
+					Apply Now!
+				</ApplyButton>
 			</div>
 
 			{/* img */}
-			<div
-				className="mx-auto bg-no-repeat bg-cover "
-				style={{backgroundImage: `url(${BgImage})`}}>
-				<img src={PersonImg} alt="pi" />
-			</div>
+			<HeroImage bgImage={BgImage} alt={'person'} fgImage={PersonImg} />
 		</section>
 	);
 }
