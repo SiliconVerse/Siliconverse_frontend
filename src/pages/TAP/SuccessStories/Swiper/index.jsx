@@ -1,4 +1,3 @@
-import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -10,7 +9,7 @@ import FirstPic from '../../assets/Ellipse 8.svg';
 import SecondPic from '../../assets/Ellipse 8 (1).svg';
 import './style.css';
 
-const Swipper = () => {
+const SwiperSegment = () => {
     const slides = [
         {
             img: FirstPic,
@@ -96,4 +95,4 @@ const Swipper = () => {
     );
 };
 
-export default Swipper;
+export default SwiperSegment;
