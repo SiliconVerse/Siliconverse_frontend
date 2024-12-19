@@ -1,6 +1,6 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Pic from '../assets/Frame 2147224567 (1).svg';
 import './style.css';
 
