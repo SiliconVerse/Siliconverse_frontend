@@ -2,6 +2,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import Pic from "../assets/programmeimage.svg";
+import { SectionImage } from "../reuse";
 
 function ProgrammOverview() {
 	useEffect(() => {
@@ -32,9 +33,7 @@ function ProgrammOverview() {
 						career in the tech industry.
 					</p>
 				</div>
-				<div className="w-fit h-fit ">
-					<img src={Pic} alt="pic" className="object-cover aspect-video"/>
-				</div>
+				<SectionImage src={Pic}/>
 		</section>
 	);
 }
