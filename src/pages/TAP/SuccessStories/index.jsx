@@ -1,6 +1,5 @@
 import { ApplyButton } from "../reuse";
 import SwiperSegment from "./Swiper";
-// import Card from './Card'
 
 function SuccessStory() {
 	const signUp = "/signup";
