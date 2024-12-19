@@ -5,6 +5,7 @@ import ProgramStructure from "./ProgramStructure";
 import WhoCanApply from "./WCA";
 import ApplicationProcess from "./Process";
 import SuccessStory from "./SuccessStories";
+import Footer from "./Footer";
 
 function TalentAcceleratorProgram() {
 	// const main__styles = () =>{
@@ -19,6 +20,7 @@ function TalentAcceleratorProgram() {
 			<WhoCanApply />
 			<ApplicationProcess />
 			<SuccessStory />
+			<Footer />
 		</section>
 	);
 }
