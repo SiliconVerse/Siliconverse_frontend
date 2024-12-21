@@ -79,5 +79,5 @@ export function cn(...inputs) {
 }
 
 export function scrollIntoView(node) {
-  node?.scrollIntoView({ behaviour: 'instant' });
+  node?.scrollIntoView({ behaviour: 'auto' });
 }

@@ -1,13 +1,8 @@
 import { format, isToday, isYesterday } from 'date-fns';
 import { Clock10, EllipsisIcon, Send } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import profilePic from '../../assets/woman.png';
-import {
-  cn,
-  formatDate,
-  formatTime12Hours,
-  scrollIntoView,
-} from '../../utils/util-functions';
+import { cn, formatDate, formatTime12Hours } from '../../utils/util-functions';
 import { chatDetails } from './magazine-temp-data';
 
 export default function MessageDetails({ messages, id }) {
@@ -17,7 +12,7 @@ export default function MessageDetails({ messages, id }) {
 
   const [chat, setChat] = useState(chatDetails);
 
-  const bottomRef = useRef(null);
+  const bottomRef = useRef();
 
   const messageIndex = messages.findIndex((message) => message.chatId === id);
 
@@ -70,16 +65,21 @@ export default function MessageDetails({ messages, id }) {
       profilePicture: profilePic,
     };
     setChat((prev) => ({ ...prev, messages: [newMessage, ...prev.messages] }));
-    scrollIntoView();
+    setMessageValue('');
   };
 
-  useEffect(() => {
-    bottomRef?.current.scrollIntoView({ behaviour: 'smooth' });
-  });
+  useLayoutEffect(() => {
+    if (bottomRef.current) {
+      bottomRef.current.scrollIntoView({
+        behaviour: 'instant',
+        block: 'start',
+      });
+    }
+  }, [chat]);
 
   return (
     <>
-      <div className='flex items-center gap-5 border-b border-[#E6E6E6] py-4 px-4 xl:px-6 bg-white sticky top-0 z-50'>
+      <div className='flex items-center gap-5 border-b border-[#E6E6E6] py-4 px-4 xl:px-6 bg-white sticky top-0 z-10'>
         <img
           src={details.user.profilePicture}
           alt={details.user.name}
@@ -98,7 +98,7 @@ export default function MessageDetails({ messages, id }) {
           return (
             <div key={date} className='space-y-10'>
               <p className='text-center'>{displayDate(date)}</p>
-              <ul className='flex flex-col gap-6 overflow-y-auto'>
+              <ul className='flex flex-col gap-6'>
                 {messages
                   .toSorted(
                     (messageA, messageB) =>
@@ -114,7 +114,7 @@ export default function MessageDetails({ messages, id }) {
                       <li
                         key={message.id}
                         className={cn(
-                          'w-fit flex',
+                          'w-fit flex gap-1',
                           isCurrentUser ? ' self-end ml-10' : 'mr-10'
                         )}
                       >
@@ -189,7 +189,7 @@ export default function MessageDetails({ messages, id }) {
       </div>
 
       <form
-        className='grid grid-cols-[1fr_auto] gap-5 sticky bottom-0 py-4 px-4 xl:px-6 pb-3 md:pb-5 bg-white'
+        className='grid grid-cols-[1fr_auto] gap-5 sticky bottom-0 px-4 xl:px-6 md:pb-5 bg-white'
         onSubmit={handleSendMessage}
       >
         <textarea

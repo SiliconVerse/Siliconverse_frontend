@@ -20,9 +20,8 @@ export default function MagazineMessageCenter() {
 
   const comments = tempUploads.slice(0, 2);
 
-  // md:h-[calc(100vh-6rem)] xl:h-[calc(100vh-13rem)] overflow-hidden
   return (
-    <div className='flex md:h-[calc(100vh-6rem)] xl:h-[calc(100vh-13rem)] overflow-hidden'>
+    <div className='flex h-[calc(100vh-3.5rem)] md:h-[calc(100vh-6rem)] xl:h-[calc(100vh-13rem)] overflow-hidden'>
       <MessageCenterSidebar
         messages={recentChats}
         comments={comments}
