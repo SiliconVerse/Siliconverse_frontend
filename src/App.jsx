@@ -8,12 +8,9 @@ const App = () => {
   return (
     <div className='w-full'>
       <ScrollToTop />
-      <div className='w-full mt-[90px] md:mt-0 min-h-[calc(100vh-106px)]'>
         <AuthProvider>
           <Outlet />
         </AuthProvider>
-      </div>
-
       <ToastContainer />
     </div>
   );
