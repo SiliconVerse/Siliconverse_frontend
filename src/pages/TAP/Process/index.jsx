@@ -1,52 +1,43 @@
-import React from 'react'
-import PicImg from '../assets/Rectangle 11.svg'
-import PicImg1 from '../assets/Rectangle 12.svg'
-import './style.css'
+import PicImg from "../assets/Rectangle 11.svg";
+import PicImg1 from "../assets/Rectangle 12.svg";
+import { SectionImage } from "../reuse";
+import { list1, list2 } from "./list";
 
 function ApplicationProcess() {
-    return (
-        <div className="applicationprocess__main">
-            <div className="applicationprocess__content">
-                <div className="applicationprocess__first__content">
-                    <div className="applicationprocess__first__content__img">
-                        <img src={PicImg1} alt='pic'/>
-                    </div>
-                    <div className="applicationprocess__content__text">
-                        <h1 className="applicationprocess__content__text__head">
-                            Application Process
-                        </h1>
-                        <p className="applicationprocess__content__subtext">
-                            The application process is simple
-                        </p>
-                        <ul className="applicationprocess__content__subtext__list">
-                            <li>Click on the apply button.</li>
-                            <li>Submit your resume and other required information.</li>
-                            <li>Complete a brief assessment to gauge your skills and areas of interest.</li>
-                            <li>Shortlisted candidates will be invited for a brief interview to assess fit and commitment.</li>
-                        </ul>
-                    </div>
-                </div>
+	const items = Object.values(list1);
+const items2 = Object.values(list2)
+	return (
+		<section className="flex flex-col px-4 py-6 space-y-6">
+			<div className="">
+				<SectionImage src={PicImg1} />
+				<div className="grid grid-cols-1 text-left gap-y-4">
+					<h1 className="text-[#FF5F15] text-2xl font-bold">
+						Application Process
+					</h1>
+					<span className="">The application process is simple</span>
+					{items.map((item, index) => (
+						<ul key={index} className="list-disc">
+							<li>{item.content}</li>
+						</ul>
+					))}
+				</div>
+			</div>
 
-                <div className="applicationprocess__secondt__content">
-                    <div className="applicationprocess__second__content__img">
-                        <img src={PicImg} alt='pic'/>
-                    </div>
-
-                    <div className="applicationprocess__content__text">
-                        <h1 className="applicationprocess__content__text__head">
-                            Program Duration
-                        </h1>
-                       
-                        <ul className="applicationprocess__content__subtext__list">
-                            <li>The internship will run for 3-6 months.</li>
-                            <li>Talents are expected to dedicate at least 20 hours per week during the program.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    )
+			<div className="">
+				<SectionImage src={PicImg} />
+				<div className="grid grid-cols-1 text-left gap-y-4">
+					<h1 className="text-[#FF5F15] text-2xl font-bold">
+						Program Duration
+					</h1>
+					{items2.map((item, index) => (
+						<ul key={index} className="list-disc">
+							<li>{item.content}</li>
+						</ul>
+					))}
+				</div>
+			</div>
+		</section>
+	);
 }
 
-export default ApplicationProcess
+export default ApplicationProcess;

@@ -1,41 +1,42 @@
-import React from 'react'
-import './style.css'
-import Swipper from './Swiper'
-import {Link} from 'react-router-dom'
-// import Card from './Card'
+import { ApplyButton } from "../reuse";
+import SwiperSegment from "./Swiper";
 
 function SuccessStory() {
-    return (
-        <div className="success__story__main">
-            <div className= "success__story__content">
-                <div className= "success__story__text">
-                    <h1 className= "success__story__text__head">
-                        Success Stories
-                    </h1>
-                    <p className="success__story__subtext">
-                        At TAP, we are committed to nurturing talents who go on to succeed in various tech fields. 
-                        Hear from some of our previous participants who have transformed their careers through the program.
-                    </p>                    
-                </div>  
+	const signUp = "/signup";
+	return (
+		<section className="flex flex-col mx-auto space-y-6 w-[90%] px-4 py-6">
+			<div>
+				<div className="space-y-2">
+					<h1 className="font-semibold text-2xl text-[#ff5f15]">
+						Success Stories
+					</h1>
+					<p className="">
+						At TAP, we are committed to nurturing talents who go on
+						to succeed in various tech fields. Hear from some of our
+						previous participants who have transformed their careers
+						through the program.
+					</p>
+				</div>
 
-                 {/*Reviews  */}
-                 <div className="success__story__reviews">
-                    {/* <Card /> */}
-                    <Swipper />
+				{/*Reviews  */}
+				<SwiperSegment />
+			</div>
 
-                 </div>
-                 <div className="success__story__final">
-                    <p className="success__story__final__text">To kickstart your journey with Siliconverse’s Talent Accelerator Program (TAP) and build the future. </p>
-                    <Link
-                        to="/signup"
-                        className="success__text_button">
-                        Apply Now
-                    </Link>  
-                 </div>
-            </div>   
-        </div>
-        
-    )
+			<div className="flex flex-col space-y-4 ">
+				<p className="">
+					To kickstart your journey with Siliconverse&apos;s Talent
+					Accelerator Program (TAP) and build the future.
+				</p>
+				<ApplyButton
+					className={
+						"text-[#fff] bg-[#FF5F15] border-[#FF5F15] font-semibold text-lg w-full sm:w-[30%] p-2 rounded-full text-center mx-auto"
+					}
+					href={signUp}>
+					Apply now
+				</ApplyButton>
+			</div>
+		</section>
+	);
 }
 
-export default SuccessStory
+export default SuccessStory;

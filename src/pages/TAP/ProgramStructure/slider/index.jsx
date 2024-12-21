@@ -9,12 +9,11 @@ import Slides from '../mock.json';
 export const Slider = () => {
   // Define card styles
   const cardStyles = {
-    width: "400px",
-    height: "510px",
-    backgroundColor: "#e5e8e9",
-    padding: "3rem",
-    marginTop: "5rem",
-    borderRadius: "14px",
+    width: "auto",
+    height: "auto",
+    border: '2px solid #ededed ',
+    borderRadius: '15px',
+    padding: "1.3rem",
     fontSize: "24px",
   };
 
