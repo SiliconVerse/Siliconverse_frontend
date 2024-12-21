@@ -1,3 +1,4 @@
+import React from 'react'
 import UploadResumeInput from '../components/upload-resume-input';
 
 const PrivacyPolicy = () => {

@@ -1,14 +1,14 @@
-import React from "react";
-import Spinner from "./spinner";
+import { cn } from '../utils/util-functions';
+import Spinner from './spinner';
 
 const SubmitButton = ({ text, isLoading, className }) => {
   return (
     <button
-      className={
-        "flex gap-4 text-center justify-center items-center " +
+      className={cn(
+        'flex gap-4 text-center justify-center items-center transition-all duration-200 ease-linear',
         className
-      }
-      type="submit"
+      )}
+      type='submit'
       disabled={isLoading}
     >
       {!isLoading && text}
@@ -19,20 +19,14 @@ const SubmitButton = ({ text, isLoading, className }) => {
 
 export default SubmitButton;
 
-export const ClickButtonType = ({
-  text,
-  isLoading,
-  className,
-  onclickFn,
-}) => {
+export const ClickButtonType = ({ text, isLoading, className, onclickFn }) => {
   return (
     <button
       onClick={onclickFn}
       className={
-        "flex gap-4 text-center justify-center items-center " +
-        className
+        'flex gap-4 text-center justify-center items-center ' + className
       }
-      type="submit"
+      type='submit'
       disabled={isLoading}
     >
       {!isLoading && text}

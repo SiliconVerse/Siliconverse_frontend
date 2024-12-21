@@ -1,17 +1,19 @@
-import { doc, updateDoc } from 'firebase/firestore';
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import SubmitButton from '../components/submit-btn';
-import { db } from '../hooks/auth/firebase';
 import { useAuth } from '../hooks/userAuth';
 
 export default function CompleteSignup() {
-  const { user, updateUser } = useAuth();
+  const { user, updateUserProfile } = useAuth();
+
+  const navigate = useNavigate();
 
   const [role, SetRole] = useState('');
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const redirectUrl = `/${user.role}-profile`;
 
   const handleInputChange = (event) => {
     SetRole(event.target.value);
@@ -22,7 +24,7 @@ export default function CompleteSignup() {
   }
 
   if (user?.role) {
-    return <Navigate to={`/${user.role}-profile`} />;
+    return <Navigate to={redirectUrl} />;
   }
 
   const handleRoleSelection = async (event) => {
@@ -35,9 +37,8 @@ export default function CompleteSignup() {
     setIsLoading(true);
 
     try {
-      const docRef = doc(db, 'Users', user.uid);
-      await updateDoc(docRef, { role });
-      updateUser({ ...user, role }, true);
+      updateUserProfile(user.uid, { role });
+      navigate(redirectUrl);
     } catch (error) {
       console.log(error);
       toast.error('An error occurred,Please try again');

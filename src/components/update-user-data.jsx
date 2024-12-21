@@ -1,7 +1,5 @@
-import { doc, updateDoc } from 'firebase/firestore';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { db } from '../hooks/auth/firebase';
 import { ReactPortal } from '../hooks/portal';
 import { useAuth } from '../hooks/userAuth';
 import { skillSet } from '../utils/skillset';
@@ -10,7 +8,7 @@ import SubmitButton from './submit-btn';
 // import { Edi}
 
 const UserDataForm = ({ userData, setState }) => {
-  const { updateUser } = useAuth();
+  const { updateUserProfile } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     phone: userData.phoneNumber ?? '',
@@ -35,7 +33,9 @@ const UserDataForm = ({ userData, setState }) => {
     const regex = /^(https?:\/\/)([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
     return regex.test(url);
   }
-  {/* work */}
+  {
+    /* work */
+  }
 
   function getFormattedUrl(url) {
     if (isValidUrlRegex(url)) {
@@ -58,12 +58,10 @@ const UserDataForm = ({ userData, setState }) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const userRef = doc(db, 'Users', userData.uid);
-      await updateDoc(userRef, formData);
+      await updateUserProfile(userData.uid, userData);
       toast.success('profile updated successfully!', {
         position: 'top-center',
       });
-      await updateUser(userData);
       setState(false);
     } catch (e) {
       console.error('Error updating document: ', e);
