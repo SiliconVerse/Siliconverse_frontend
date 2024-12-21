@@ -1,6 +1,12 @@
 .whyshop__main{
     padding: 3rem;
     font-size: 20px;
+    @media screen and (max-width: 768px){
+        /* flex: wrap; */
+        font-size: 14px;
+        /* flex-direction: column; */
+        /* align-content:center; */
+    }
 }
 .whyshop__main__header{
     /* font-size: 20px; */

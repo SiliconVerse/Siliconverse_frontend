@@ -3,6 +3,12 @@
 }
 .section_one_text{
     font-size: 20px;
+    @media screen and (max-width: 768px){
+        /* flex: wrap; */
+        font-size: 14px;
+        /* flex-direction: column; */
+        /* align-content:center; */
+    }
     /* font-weight: 300; */
 }
 .section__one__text__content{

@@ -27,6 +27,9 @@ import TalentAcceleratorProgram from '../pages/TAP/index.jsx'
 import Contact from '../pages/contact-us/contact-head/index.jsx'
 import Shop from '../pages/Shop'
 import JoinSiliconVerse from '../pages/JoinSiliconverse/index.jsx';
+import UpcomingTechEvent from '../pages/UpcomingEvents/index.jsx'
+import Subscribe from '../pages/subscribe/index.jsx';
+import Privacy from '../pages/Privacy/index.jsx'
 
 
 
@@ -51,6 +54,9 @@ const routes = createRoutesFromElements(
       {/* <Route path='/shop' element= {<Shop />} /> */}
       <Route path='/shop' element={<Shop />} />
       <Route path='/joinsiliconversecommunity' element={ <JoinSiliconVerse />}/>
+      <Route path= '/upcomingtechevent' element= {<UpcomingTechEvent />} />
+      <Route path='/subscribetonewsletter' element= {<Subscribe />} />
+      <Route path='/privacypolicy' element ={<Privacy />} />
       </Route>
     {/* Wrapper */}
     <Route element={<Layout />}>

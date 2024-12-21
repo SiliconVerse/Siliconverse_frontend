@@ -38,7 +38,7 @@
     font-weight: 400;
     line-height: 2.5rem;
     @media screen and (max-width: 768px) {
-        font-size: 14px;        
+        font-size: 18px;        
     }
 }
 .sub__text2{
@@ -46,7 +46,7 @@
     /* font-weight: 200; */
     line-height: 2.5rem;
     @media screen and (max-width: 768px) {
-        font-size: 14px;        
+        font-size: 18px;        
     }
 }
 .text_button{

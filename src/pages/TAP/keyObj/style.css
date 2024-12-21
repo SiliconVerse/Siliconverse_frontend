@@ -13,7 +13,7 @@
     line-height: 7rem;
     @media screen and (max-width: 768px) {
         /* width: 100%;         */
-        font-size: 38px;
+        font-size: 35px;
     }
 }
 .keyobj__list{

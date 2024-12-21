@@ -35,7 +35,7 @@
     font-weight: 600;
     color: #FF5F15;
     @media screen and (max-width: 768px) {
-        font-size: 32px;        
+        font-size: 35px;        
     }
 }
 .applicationprocess__content__subtext{
@@ -46,4 +46,10 @@
     font-size: 24px;
     margin: 30px 0;
     line-height: 2.5rem;
+    @media screen and (max-width: 768px){
+        /* flex: wrap; */
+        font-size: 18px;
+        /* flex-direction: column; */
+        /* align-content:center; */
+    }
 }

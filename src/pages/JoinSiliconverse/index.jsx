@@ -72,7 +72,7 @@ function JoinSiliconVerse() {
 
                     })}                         
                 </div>
-                <div className="final__content" style={{marginTop: '20px', fontSize: '20px'}}>
+                <div className="final__content">
                     <p className="final__content__text">
                         Be Part of Something Bigger!
                         <br/>

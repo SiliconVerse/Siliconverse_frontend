@@ -35,19 +35,19 @@
     line-height: 7rem;
     @media screen and (max-width: 768px) {
         /* width: 100%;         */
-        font-size: 38px;
+        font-size: 35px;
     }
 }
 .program__overview__subtext1{
     font-size: 24px;
     @media screen and (max-width: 768px) {
-       font-size: 14px;        
+       font-size: 18px;        
     }
 }
 .program__overview__subtext2{
     margin-top: 20px;
     font-size: 24px;
     @media screen and (max-width: 768px) {
-       font-size: 14px;        
+       font-size: 18px;        
     }
 }

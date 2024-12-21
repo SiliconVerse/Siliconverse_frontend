@@ -1,0 +1,26 @@
+.priv-container{
+    padding: 3rem;
+}
+.privacy-header{
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.privacy-title{
+    font-size: 24px;
+    color: rgba(255, 95, 21, 1);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.privacy_sub-main-line{
+    margin-top: 20px;
+}
+.sub_list{
+    font-size: 20px;
+    line-height: 2;
+
+}
+.sub_list .scroll-link{
+    cursor: pointer;
+
+}
