@@ -1,17 +1,14 @@
 import { useState } from 'react';
+import useToggle from '../../hooks/use-toggle';
 import { tempSponsoredAds } from '../../utils/temp-data';
 import SponsoredAd from './sponsored-ad';
 
 export default function SponsoredAds() {
   const [sponsoredAds, setSponsoredAds] = useState(tempSponsoredAds);
 
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, toggleShowAll] = useToggle();
 
   const displayedAds = showAll ? sponsoredAds : sponsoredAds.slice(0, 10);
-
-  const toggleShowAll = () => {
-    setShowAll((prev) => !prev);
-  };
 
   return (
     <section className='shadow-ml rounded-sl px-2 py-1'>

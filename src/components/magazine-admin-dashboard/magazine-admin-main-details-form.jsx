@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import FieldInput from '../field-input';
+import FieldInput from '../input-field';
 import SubmitButton from '../submit-btn';
 
 const MagazineAdminMainDetailsForm = ({

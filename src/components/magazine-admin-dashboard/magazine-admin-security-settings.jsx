@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { auth } from '../../hooks/auth/firebase';
 import { useAuth } from '../../hooks/userAuth';
-import FieldInput from '../field-input';
+import FieldInput from '../input-field';
 import SubmitButton from '../submit-btn';
 
 export default function MagazineAdminSecuritySettings() {
