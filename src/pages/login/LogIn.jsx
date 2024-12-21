@@ -12,7 +12,7 @@ import './logIn.css';
 
 const LoginForm = () => {
   const location = useLocation();
-
+ 
   const { sendEmailVerification } = useSendVerificationEmail();
 
   const queryParams = new URLSearchParams(location.search);
