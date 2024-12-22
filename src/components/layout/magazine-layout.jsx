@@ -1,25 +1,25 @@
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../../hooks/userAuth';
 import Navbar from '../Navbar';
 import MagazineSidebar from '../magazine-admin-dashboard/navigation/magazine-sidebar';
 import MagazineTopbar from '../magazine-admin-dashboard/navigation/magazine-topbar';
-// import Spinner from '../spinner';
+import Spinner from '../spinner';
 
 export default function MagazineAdminLayout() {
   // add protection using user role i.e  if user.role !== magazine-admin then redirect to authorized access or page not found
   const { isAuthLoading, user } = useAuth();
 
-  // if (!user && !isAuthLoading) {
-  //   return <Navigate to={'/login'} />;
-  // }
+  if (!user && !isAuthLoading) {
+    return <Navigate to={'/login'} />;
+  }
 
-  // if (isAuthLoading) {
-  //   return (
-  //     <div className='bg-primaryColor h-screen grid place-items-center '>
-  //       <Spinner />
-  //     </div>
-  //   );
-  // }
+  if (isAuthLoading) {
+    return (
+      <div className='bg-primaryColor h-screen grid place-items-center '>
+        <Spinner />
+      </div>
+    );
+  }
 
   return (
     <>
