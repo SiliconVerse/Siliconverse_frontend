@@ -1,0 +1,19 @@
+.info_one_title{
+    color: rgba(255, 95, 21, 1);
+    font-size: 24px;
+    font-weight: bold;
+}
+.info_one_sub_title{
+    margin-top: 10px;
+    font-size: 20px;
+}
+.info_one_list{
+    margin-top: 20px;
+    font-size: 20px;
+}
+.info-one-list-cont-ul{
+    margin-top: 20px;
+    list-style-type: disc;
+    padding: 1rem 5rem;
+    line-height: 2;
+}

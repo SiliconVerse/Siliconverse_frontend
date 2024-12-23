@@ -1,0 +1,25 @@
+.whyshop__main{
+    padding: 3rem;
+    font-size: 20px;
+    @media screen and (max-width: 768px){
+        /* flex: wrap; */
+        font-size: 14px;
+        /* flex-direction: column; */
+        /* align-content:center; */
+    }
+}
+.whyshop__main__header{
+    /* font-size: 20px; */
+    color: rgba(255, 95, 21, 1);
+    font-weight: bold;
+}
+.whyshop__main_content{
+    margin-top: 30px;
+    
+}
+.whyshop__list{
+    font-weight: bold;
+}
+.whyshop__list__content{
+    margin-bottom: 30px;
+}

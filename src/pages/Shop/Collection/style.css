@@ -1,0 +1,27 @@
+.collection__main{
+    padding: 3rem;
+}
+.section_one_text{
+    font-size: 20px;
+    @media screen and (max-width: 768px){
+        /* flex: wrap; */
+        font-size: 14px;
+        /* flex-direction: column; */
+        /* align-content:center; */
+    }
+    /* font-weight: 300; */
+}
+.section__one__text__content{
+    margin-top: 10px;
+}
+.section_image_product{
+    padding: 3rem;
+    display: flex;
+    /* justify-content:space-around; */
+
+    @media screen and (max-width: 1200px){
+        /* flex: wrap; */
+        flex-direction: column;
+        align-content:center;
+    }
+}
