@@ -14,12 +14,12 @@ export default function MagazineAdminSettings() {
   };
 
   return (
-    <>
+    <div className='px-4 py-5 md:px-6 md:py-10 '>
       <div className='flex items-center gap-11 border-b-[0.5px] pb-2 border-[#C0C0C0] mb-8'>
         {tabs.map((tab) => (
           <button
             key={tab}
-            className={`capitalize relative -bottom-2 pb-2 transition-colors duration-200 ease-linear hover:text-primaryColor/70 ${
+            className={`capitalize relative -bottom-2 pb-2 transition-colors duration-200 ease-linear md:hover:text-primaryColor/70 ${
               activeTab === tab
                 ? 'border-b border-black text-black'
                 : 'text-[#858585]'
@@ -38,6 +38,6 @@ export default function MagazineAdminSettings() {
           <MagazineAdminSecuritySettings />
         )}{' '}
       </>
-    </>
+    </div>
   );
 }

@@ -1,18 +1,15 @@
 import { PlusCircle } from 'lucide-react';
-import { useState } from 'react';
+import useToggle from '../../hooks/use-toggle';
 import { tempArticles } from '../../utils/temp-data';
 import MagazineArticle from './magazine-article';
 
 export default function MagazineArticles({ handleShowPublish }) {
-  const [showAllArticles, setShowAllArticles] = useState(false);
+  const [showAllArticles, toggleShowAllArticles] = useToggle();
 
   const filteredArticles = showAllArticles
     ? tempArticles
     : tempArticles.slice(0, 10);
 
-  const toggleShowAllArticles = () => {
-    setShowAllArticles((prev) => !prev);
-  };
   return (
     <>
       <button
@@ -23,7 +20,7 @@ export default function MagazineArticles({ handleShowPublish }) {
         publish article
       </button>
 
-      <section className='mt-4 py-5 px-6'>
+      <section className='mt-4 py-5 px-3 md:px-6'>
         <header className='flex items-center justify-between gap-3 overflow-hidden my-5'>
           <h1 className='text-black font-medium'>Published articles</h1>
 

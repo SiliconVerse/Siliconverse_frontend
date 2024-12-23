@@ -8,6 +8,7 @@ import App from '../App';
 import Layout from '../components/layout/layout.jsx';
 import MagazineAdminLayout from '../components/layout/magazine-layout.jsx';
 import RootLayout from '../components/layout/root-layout.jsx';
+import AffiliateDetails from '../components/magazine-admin-dashboard/affiliate-details.jsx';
 import About from '../pages/About.jsx';
 import CompanyProfilePage from '../pages/CompanyProfilePage.jsx';
 import CurriculumVitae from '../pages/CurriculumVitae.jsx';
@@ -30,10 +31,9 @@ import MagazineAdminSettings from '../pages/magazine-admin/magazine-admin-settin
 import ContentManagement from '../pages/magazine-admin/magazine-content-management.jsx';
 import MagazineMessageCenter from '../pages/magazine-admin/magazine-message-center.jsx';
 import MagazineAdminNotification from '../pages/magazine-admin/magazine-notification.jsx';
+import MagazineSubscribers from '../pages/magazine-admin/magazine-subscribers.jsx';
 import NotFound from '../pages/notFound.jsx';
 import PrivacyPolicy from '../pages/privacy-policy.jsx';
-
-
 
 const routes = createRoutesFromElements(
   <Route path='/' element={<App />}>
@@ -55,10 +55,13 @@ const routes = createRoutesFromElements(
 
     <Route path='magazine-admin' element={<MagazineAdminLayout />}>
       <Route index element={<MagazineAdminDashboard />} />
+      <Route path='subscribers' element={<MagazineSubscribers />} />
       <Route path='content-management' element={<ContentManagement />} />
 
       <Route path='notification' element={<MagazineAdminNotification />} />
       <Route path='advertising' element={<MagazineAdminAdvertising />} />
+
+      <Route path='advertising/:id' element={<AffiliateDetails />} />
 
       <Route path='settings' element={<MagazineAdminSettings />} />
       <Route path='message-center' element={<MagazineMessageCenter />} />
@@ -66,10 +69,10 @@ const routes = createRoutesFromElements(
 
     {/* MAGAZINE ADMIN SECTION END */}
 
-      {/* <Route path='/tap' element={< */}
-      {/* <TalentAcceleratedProgram/> */}
-      <Route path='/tap' element={<TalentAcceleratorProgram />} />
-      <Route path='/contactus' element= {<Contact />} />
+    {/* <Route path='/tap' element={< */}
+    {/* <TalentAcceleratedProgram/> */}
+    <Route path='/tap' element={<TalentAcceleratorProgram />} />
+    <Route path='/contactus' element={<Contact />} />
 
     {/* Wrapper */}
     <Route element={<Layout />}>
