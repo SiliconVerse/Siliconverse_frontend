@@ -4,7 +4,7 @@ import { applyForm } from '../reuse'
 
 function SuccessStory() {
 	return (
-		<section className="flex flex-col mx-auto space-y-6 w-[90%] px-4 py-6">
+		<section className="flex flex-col space-y-6 w-[90%] px-4 py-6">
 			<div>
 				<div className="space-y-2">
 					<h1 className="font-semibold text-2xl text-[#ff5f15]">
