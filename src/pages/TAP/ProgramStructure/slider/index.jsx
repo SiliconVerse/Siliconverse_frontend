@@ -25,35 +25,49 @@ export const Slider = () => {
 
   return (
     <Swiper
-    modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-    navigation
-    // disabled the pagination because it displays more bullets than there are items on mobile
-    // pagination={{ clickable: true }} 
-    spaceBetween={10}
-    slidesPerView={1} // Always show 3 slides per group
-    slidesPerGroup={1} // Treat 3 slides as one group for pagination
-    loop={true} // Enable looping for consistent pagination
-    autoplay={{
-      delay: 3000,
-      disableOnInteraction: false,
-    }}
-  >
-    {Slides.map((item) => (
-      <SwiperSlide key={item.id}>
-        <div style={cardStyles}>
-          <div className="card-body">
-            <strong style={titleStyles}>{item.title}</strong>
-            <p>{item.titleOne}</p>
-            <ul>
-              <li>{item.cont1}</li>
-              <li>{item.cont2}</li>
-              <li>{item.cont3}</li>
-            </ul>
+      modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+      navigation
+      pagination={{ clickable: true }}
+      spaceBetween={50}
+      slidesPerView={1}
+      onSlideChange={() => console.log("Slide changed")}
+      onSwiper={(swiper) => console.log("Swiper instance:", swiper)}
+      autoplay={{
+        delay: 3000, 
+        disableOnInteraction: false, // Continue autoplay after interaction
+      }}
+      // navigation
+      // loop=[true]
+      breakpoints={{
+        640: {
+          slidesPerView: 1, // 1 slide for screens >= 640px
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 1, // 1 slide for screens >= 768px
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 3, // 3 slides for screens >= 1024px
+          spaceBetween: 30,
+        },
+      }}
+    >
+      {Slides.map((item) => (
+        <SwiperSlide key={item.id}>
+          <div style={cardStyles}>
+            <div className="card-body">
+              <strong style={titleStyles}>{item.title}</strong>
+              <p>{item.titleOne}</p>
+              <ul>
+                <li>{item.cont1}</li>
+                <li>{item.cont2}</li>
+                <li>{item.cont3}</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </SwiperSlide>
-    ))}
-  </Swiper>
-  
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
