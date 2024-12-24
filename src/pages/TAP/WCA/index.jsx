@@ -20,11 +20,12 @@ function WhoCanApply() {
 		<section
 			className="flex flex-col w-full space-y-6 bg-[#fdccb5ae]"
 			data-aos="fade-up">
-			<div  className="w-[90%] mx-auto flex flex-col px-4 py-6">
+			<div className="w-[90%] mx-auto space-y-6 flex flex-col px-4 py-6">
+				<h1 className="text-[#FF5F15] text-2xl font-bold">
+					Who Can Apply?
+				</h1>
+				<SectionImage src={WCAImg} />
 				<div className="grid grid-cols-1 space-y-4">
-					<h1 className="text-[#FF5F15] text-2xl font-bold">
-						Who Can Apply?
-					</h1>
 					{items.map((item, index) => (
 						<p key={index} className="">
 							<strong>{item.title}</strong>
@@ -32,7 +33,6 @@ function WhoCanApply() {
 						</p>
 					))}
 				</div>
-				<SectionImage src={WCAImg} />
 			</div>
 		</section>
 	);

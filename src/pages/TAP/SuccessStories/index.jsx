@@ -6,8 +6,8 @@ function SuccessStory() {
 	return (
 		<section className="flex flex-col mx-auto space-y-6 w-[90%] px-4 py-6">
 			<div className="space-y-2">
-				<h1 className="font-semibold text-2xl text-[#ff5f15]">
-					Success Stories
+			<h1 className="text-[#FF5F15] text-2xl font-bold">
+			Success Stories
 				</h1>
 				<p className="">
 					At TAP, we are committed to nurturing talents who go on to
