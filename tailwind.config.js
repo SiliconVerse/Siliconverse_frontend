@@ -17,8 +17,13 @@ export default {
         'background-color': '#FDEFE9',
         'off-white': '#D9D9D9',
         gray: {
+          500: '#7d7d7d',
+          600: '#BDBDBD',
           700: '#A3A3A3',
         },
+      },
+      backgroundImage: {
+        demo: 'linear-gradient(90deg, #FF5F15 -2.57%, rgba(255, 95, 21, 0) 112.5%)',
       },
       borderRadius: {
         sl: '10px',
@@ -29,6 +34,12 @@ export default {
       },
       borderWidth: {
         0.5: '0.5px',
+      },
+      maxWidth: {
+        big: '1440px',
+      },
+      screens: {
+        large: '1440px',
       },
     },
   },

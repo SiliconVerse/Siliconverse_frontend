@@ -63,7 +63,7 @@ export default function MagazineAdminProfile() {
           />
         ) : (
           <div className='flex gap-3 items-start '>
-            <div className='relative rounded-full aspect-square group w-[68px] self-center'>
+            <div className='relative rounded-full aspect-square group w-28 md:w-[68px] self-center'>
               <SidebarPhoto key={'desktop'} />
             </div>
 
@@ -101,7 +101,11 @@ export default function MagazineAdminProfile() {
         ) : (
           <div className='space-y-3 text-[#343434]'>
             <div className='flex justify-between items-start'>
-              <FieldRow title={'Last name'} value={userDetails.lastName} />
+              <FieldRow
+                title={'Last name'}
+                value={userDetails.lastName}
+                className='truncate'
+              />
               <button
                 className={
                   'self-center text-white transition-all duration-200 ease-linear flex items-center bg-primaryColor gap-2 text-nowrap px-3 py-1 rounded hover:opacity-70'
@@ -118,7 +122,11 @@ export default function MagazineAdminProfile() {
               title={'Date of birth'}
               value={formatDate(userDetails.dob)}
             />
-            <FieldRow title={'email address'} value={userDetails.email} />
+            <FieldRow
+              title={'email address'}
+              value={userDetails.email}
+              className='truncate'
+            />
             <FieldRow title={'Phone number'} value={userDetails.phoneNumber} />
             <FieldRow title={'Location'} value={location} />
             <FieldRow title={'Gender'} value={userDetails.gender} />
@@ -137,8 +145,8 @@ export default function MagazineAdminProfile() {
 const FieldRow = ({ title, value, className = '' }) => {
   return (
     <p className={cn('space-x-2', className)}>
-      <span>{title}:</span>
-      <span>{value}</span>
+      <span className='text-nowrap'>{title}:</span>
+      <span className='text-wrap'>{value}</span>
     </p>
   );
 };
