@@ -7,7 +7,7 @@ function ApplicationProcess() {
 	const items = Object.values(list1);
 const items2 = Object.values(list2)
 	return (
-		<section className="flex flex-col px-4 py-6 space-y-6">
+		<section className="flex flex-col px-4 w-[90%] py-6 mx-auto space-y-6">
 			<div className="">
 				<SectionImage src={PicImg1} />
 				<div className="grid grid-cols-1 text-left gap-y-4">

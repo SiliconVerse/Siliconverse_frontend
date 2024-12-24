@@ -3,7 +3,7 @@ import { listItems } from "./list";
 function KeyObj() {
 	const items = Object.values(listItems);
 	return (
-		<section className="flex flex-col px-4 py-6 space-y-4">
+		<section className="flex flex-col mx-auto w-[90%] px-4 py-6 space-y-4">
 			<h1 className="text-[#FF5F15] text-2xl font-bold">
 				Key Objectives
 			</h1>
