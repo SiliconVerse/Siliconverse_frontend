@@ -9,11 +9,14 @@ export default function InputField({
   wrapperStyles,
   className = '',
   labelStyles = '',
+  children,
   ...otherInputProps
 }) {
   return (
-    <label className={cn('w-full flex flex-col gap-1', wrapperStyles)}>
-      <span className={cn('capitalize font-medium', labelStyles)}>{label}</span>
+    <div className={cn('w-full flex flex-col gap-1', wrapperStyles)}>
+      <label htmlFor={id} className={cn('capitalize font-medium', labelStyles)}>
+        {label}
+      </label>
       <input
         id={id}
         name={id}
@@ -26,6 +29,7 @@ export default function InputField({
         )}
         {...otherInputProps}
       />
-    </label>
+      {children}
+    </div>
   );
 }
