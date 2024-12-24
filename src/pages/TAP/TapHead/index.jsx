@@ -3,13 +3,13 @@ import BgImage from "../assets/Frame 2147224585.svg";
 import PersonImg from "../assets/Tell Me (1) 1.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { HeroImage, ApplyButton } from "../reuse";
+import { HeroImage, ApplyButton, applyForm } from "../reuse";
+
 
 function Taphead() {
 	useEffect(() => {
 		AOS.init({ duration: 1000 }); // Initialize AOS
 	}, []);
-	const applyForm = "https://forms.gle/zypfC74Lr53kC18K9";
 	return (
 		<section className="bg-[#FF5F15] px-4 py-6 text-white flex flex-col space-y-20">
 			<div className="flex flex-col items-center space-y-12">

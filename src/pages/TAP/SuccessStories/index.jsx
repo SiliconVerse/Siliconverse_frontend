@@ -1,8 +1,8 @@
 import { ApplyButton } from "../reuse";
 import SwiperSegment from "./Swiper";
+import { applyForm } from '../reuse'
 
 function SuccessStory() {
-	const signUp = "/signup";
 	return (
 		<section className="flex flex-col mx-auto space-y-6 w-[90%] px-4 py-6">
 			<div>
@@ -31,7 +31,7 @@ function SuccessStory() {
 					className={
 						"text-[#fff] bg-[#FF5F15] border-[#FF5F15] font-semibold text-lg w-full sm:w-[30%] p-2 rounded-full text-center mx-auto"
 					}
-					href={signUp}>
+					href={applyForm}>
 					Apply now
 				</ApplyButton>
 			</div>

@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+export const applyForm = "https://forms.gle/zypfC74Lr53kC18K9";
+
 export function HeroImage({ bgImage, fgImage, alt, className }) {
 	return (
 		<div
