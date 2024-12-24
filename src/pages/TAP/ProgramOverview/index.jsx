@@ -16,16 +16,16 @@ function ProgrammOverview() {
 
 	return (
 		<section
-			className="flex flex-col w-[90%] mx-auto px-4 py-6 space-y-6  "
+			className="flex flex-col w-[90%] mx-auto px-4 py-6 space-y-12  "
 			data-aos="fade-up">
 			<h1 className="text-2xl font-bold text-[#FF5F15]">
 				Program Overview
 			</h1>
-			<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+			<div className="grid grid-cols-1 gap-12 sm:grid-cols-2">
 				<SectionImage src={Pic} />
 
-				<div className="flex flex-col space-y-4 ">
-					<p className="">
+				<div className="flex flex-col space-y-12 ">
+					<p className="sm:text-right">
 						The Talent Accelerator Program (TAP) by Siliconverse is
 						a specialized, hands-on internship that bridges the gap
 						between education and real-world experience. Designed
@@ -34,7 +34,7 @@ function ProgrammOverview() {
 						on cutting-edge projects and develop market-ready skills
 						to become employable.
 					</p>
-					<p className="">
+					<p className="sm:text-right">
 						The goal is simple: To accelerate your learning, enhance
 						your resume, portfolio, and prepare you for a successful
 						career in the tech industry.

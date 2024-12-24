@@ -27,7 +27,7 @@ export function ApplyButton({ href, children, className }) {
 export function SectionImage({ src }) {
 	return (
 		<div className="w-fit h-fit ">
-			<img src={src} alt="pic" className="object-cover aspect-video" />
+			<img src={src} alt="pic" className="object-cover h-auto rounded-lg aspect-video" />
 		</div>
 	);
 }

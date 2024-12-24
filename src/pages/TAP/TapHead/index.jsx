@@ -10,7 +10,7 @@ function Taphead() {
 		AOS.init({ duration: 1000 }); // Initialize AOS
 	}, []);
 	return (
-		<section className="bg-[#FF5F15] px-4 py-6 text-white space-y-20">
+		<section className="bg-[#FF5F15] px-4 py-32 text-white space-y-20 sm:h-screen">
 			<div className="flex flex-col items-center space-y-12">
 				<div className="grid items-center justify-start grid-cols-1 text-start sm:grid-cols-2 gap-y-8">
 					<HeroImage
