@@ -50,7 +50,7 @@ export default function MagazineAdminNotification() {
   };
 
   return (
-    <>
+    <div className='px-4 py-5 md:px-6 md:py-10'>
       <h1 className='mb-8 font-medium'>Notification</h1>
       <button
         className='border border-[#FF5F153B] rounded-sl py-[6px] flex text-nowrap gap-2 px-3 transition-colors ease-linear duration-200 hover:text-primaryColor hover:border-primaryColor'
@@ -110,7 +110,7 @@ export default function MagazineAdminNotification() {
           );
         })}
       </section>
-    </>
+    </div>
   );
 }
 

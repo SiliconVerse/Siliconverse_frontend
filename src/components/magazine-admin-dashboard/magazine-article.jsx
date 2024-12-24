@@ -42,7 +42,7 @@ export default function MagazineArticle({
           alt={title}
           width={56}
           height={49}
-          className='w-14 rounded-sm'
+          className='w-24 rounded-sm'
         />
 
         <h3>{title}</h3>

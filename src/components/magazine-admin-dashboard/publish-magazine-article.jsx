@@ -1,7 +1,7 @@
 import MarkdownEditor from '@uiw/react-markdown-editor';
 import { Trash } from 'lucide-react';
 import { useState } from 'react';
-import Select from 'react-select';
+import Dropdown from '../dropdown';
 
 export default function PublishMagazineArticle({ cancelPublish }) {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -13,17 +13,6 @@ export default function PublishMagazineArticle({ cancelPublish }) {
     { value: 'second option', label: 'Second option' },
     { value: 'third option', label: 'Third option' },
   ];
-
-  const customStyles = {
-    control: (defaultStyles) => ({
-      ...defaultStyles,
-      backgroundColor: 'inherit',
-      padding: '',
-      border: 'none',
-      boxShadow: 'none',
-      height: '46px',
-    }),
-  };
 
   const handleClearEditor = () => {
     setNewArticleValue('');
@@ -52,16 +41,14 @@ export default function PublishMagazineArticle({ cancelPublish }) {
       </div>
 
       <div className='mb-3 mt-10 space-y-7'>
-        <label className='flex justify-start items-center gap-1 shadow-sl rounded-sl px-4'>
-          <span className='font-medium'>Category:</span>
-          <Select
-            options={categories}
-            defaultValue={selectedCategory}
-            onChange={setSelectedCategory}
-            styles={customStyles}
-            className='w-full'
-          />
-        </label>
+        <Dropdown
+          selectedOption={selectedCategory}
+          options={categories}
+          label={'Category:'}
+          wrapperStyles='flex justify-start items-center gap-1 shadow-sl rounded-sl px-4'
+          labelStyles='font-medium'
+          handleChange={setSelectedCategory}
+        />
 
         <label className='flex justify-start items-center gap-2 shadow-sl rounded-sl px-4'>
           <span className='font-medium'>Tags:</span>

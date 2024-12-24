@@ -36,10 +36,13 @@ export function formatCurrency(val) {
 }
 // add appropriate suffix to number
 // i.e 10,000 will return 10k
-export function formatNumber(num) {
+export function formatNumber(num, options = {}) {
   if (num < 1000) return num.toString();
 
-  const formatter = new Intl.NumberFormat('en', { notation: 'compact' });
+  const formatter = new Intl.NumberFormat('en', {
+    notation: 'compact',
+    ...options,
+  });
 
   return formatter.format(num);
 }
@@ -63,7 +66,18 @@ export function formatTime12Hours(date) {
   return format(date, 'h:mmaaa');
 }
 
+export function formatTime24Hours(dateStr) {
+  const date = new Date(dateStr);
+  const time = format(date, 'HH:mm');
+
+  return time;
+}
+
 // combine tailwind class names
 export function cn(...inputs) {
   return twMerge(clsx(inputs));
+}
+
+export function scrollIntoView(node) {
+  node?.scrollIntoView({ behaviour: 'auto' });
 }
