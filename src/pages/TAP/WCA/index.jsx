@@ -18,20 +18,24 @@ function WhoCanApply() {
 	const items = Object.values(textItems);
 	return (
 		<section
-			className="flex flex-col px-4 py-6 space-y-6 bg-[#fdccb5ae]"
+			className="flex flex-col w-full space-y-6 bg-[#fdccb5ae] sm:h-screen"
 			data-aos="fade-up">
-			<div className="grid grid-cols-1 space-y-4">
+			<div className="w-[90%] mx-auto space-y-6 flex flex-col px-4 py-6">
 				<h1 className="text-[#FF5F15] text-2xl font-bold">
 					Who Can Apply?
 				</h1>
-				{items.map((item, index) => (
-					<p key={index} className="">
-						<strong>{item.title}</strong>
-						{item.content}
-					</p>
-				))}
+				<div className="grid grid-cols-1 gap-12 sm:grid-cols-2">
+					<SectionImage src={WCAImg} />
+					<div className="flex flex-col space-y-12 ">
+						{items.map((item, index) => (
+							<p key={index} className="">
+								<strong>{item.title}</strong>
+								{item.content}
+							</p>
+						))}
+					</div>
+				</div>
 			</div>
-			<SectionImage src={WCAImg} />
 		</section>
 	);
 }

@@ -11,7 +11,8 @@ export const Slider = () => {
   const cardStyles = {
     width: "auto",
     height: "auto",
-    border: '2px solid #ededed ',
+    backgroundColor: '#ededed',
+    border: '1px solid #cccccc ',
     borderRadius: '15px',
     padding: "1.3rem",
     fontSize: "24px",

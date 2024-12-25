@@ -3,11 +3,11 @@ import { listItems } from "./list";
 function KeyObj() {
 	const items = Object.values(listItems);
 	return (
-		<section className="flex flex-col px-4 py-6 space-y-4">
+		<section className="flex flex-col mx-auto w-[90%] px-4 py-6 space-y-6">
 			<h1 className="text-[#FF5F15] text-2xl font-bold">
 				Key Objectives
 			</h1>
-			<div className="grid grid-cols-1 text-left gap-y-4">
+			<div className="grid grid-cols-1 text-left gap-y-6">
 				{items.map((item, index) => (
 					<ul key={index}>
 						<li>

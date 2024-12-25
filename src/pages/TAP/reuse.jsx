@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+export const applyForm = "https://forms.gle/zypfC74Lr53kC18K9";
+
 export function HeroImage({ bgImage, fgImage, alt, className }) {
 	return (
 		<div
@@ -25,7 +27,7 @@ export function ApplyButton({ href, children, className }) {
 export function SectionImage({ src }) {
 	return (
 		<div className="w-fit h-fit ">
-			<img src={src} alt="pic" className="object-cover aspect-video" />
+			<img src={src} alt="pic" className="object-cover h-auto rounded-lg aspect-video" />
 		</div>
 	);
 }
