@@ -18,7 +18,7 @@ function WhoCanApply() {
 	const items = Object.values(textItems);
 	return (
 		<section
-			className="flex flex-col w-full space-y-6 bg-[#fdccb5ae] sm:h-screen"
+			className="flex flex-col w-full space-y-6 bg-[#fdccb5ae]"
 			data-aos="fade-up">
 			<div className="w-[90%] mx-auto space-y-6 flex flex-col px-4 py-6">
 				<h1 className="text-[#FF5F15] text-2xl font-bold">
