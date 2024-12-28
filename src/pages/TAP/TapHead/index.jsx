@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import BgImage from "/bg1.svg";
-import PersonImg from "/person.svg";
+import BgImage from "/bg1.svg"; //moved into public folder to use abosolute import path which allows vite to properly resolve it at build time
+import PersonImg from "/person.svg"; //moved into public folder to use abosolute import path which allows vite to properly resolve it at build time
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { HeroImage, ApplyButton, applyForm } from "../reuse";
