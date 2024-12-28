@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import BgImage from "../assets/Frame 2147224585.svg";
-import PersonImg from "../assets/Tell Me (1) 1.svg";
+import BgImage from "/bg1.svg"; //moved into public folder to use abosolute import path which allows vite to properly resolve it at build time
+import PersonImg from "/person.svg"; //moved into public folder to use abosolute import path which allows vite to properly resolve it at build time
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { HeroImage, ApplyButton, applyForm } from "../reuse";
@@ -10,8 +10,8 @@ function Taphead() {
 		AOS.init({ duration: 1000 }); // Initialize AOS
 	}, []);
 	return (
-		<section className="bg-[#FF5F15] px-4 py-32 text-white space-y-20 sm:h-screen">
-			<div className="flex flex-col items-center space-y-12">
+		<section className="bg-[#FF5F15] px-4 pt-32 sm:pt-16 pb-12 text-white space-y-20">
+			<div className="flex flex-col items-center space-y-20">
 				<div className="grid items-center justify-start grid-cols-1 text-start sm:grid-cols-2 gap-y-8">
 					<HeroImage
 						className="h-80 sm:h-96"
