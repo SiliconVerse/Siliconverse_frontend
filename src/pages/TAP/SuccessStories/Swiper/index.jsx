@@ -5,46 +5,42 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Card from '../Card/index.jsx';
-import FirstPic from '../../assets/Ellipse 8.svg';
-import SecondPic from '../../assets/Ellipse 8 (1).svg';
+import FirstPic from '../../assets/firstpic.svg';
+import SecondPic from '../../assets/secondpic.svg';
+import ThirdPic from '../../assets/thirdpic.svg';
+import FourthPic from '../../assets/fourthpic.svg';
 import './style.css';
 
 const SwiperSegment = () => {
     const slides = [
         {
             img: FirstPic,
-            name: 'Emmanuel',
-            role: 'Frontend Developer',
+            name: 'Emeka Onyinyechi',
+            role: 'Graphic Designer ',
             reviews:
-                'This program gave me the structured learning path I needed to excel in data analytics. I was able to master SQL and Python, and the hands-on projects helped me create meaningful data visualizations in Tableau.',
+                'Siliconverse has transformed my tech experience! The hands-on experience I gained made me more connected and productive in managing tasks, designing, and putting all my skill sets into practice. I highly recommend it to any aspiring techie seeking an internship or real-world experience. Thank you!',
         },
         {
             img: SecondPic,
-            name: 'Emmanuel',
-            role: 'Frontend Developer',
+            name: 'Victoria Nwokorie ',
+            role: 'Project Manager',
             reviews:
-                'Joining the accelerator program was a game-changer for my career in front-end development. Before, I had a basic understanding of HTML and CSS, but through the intensive, hands-on projects.......',
+                'When I joined silicon verse I didnt have practical knowledge of project management . But my time here has exposed me , enlightened me , enhanced my skill and I even met wonderful people who also helped me hone my skills and working with cross-functional teams has been so amazing .',
         },
         {
-            img: FirstPic,
-            name: 'Emmanuel',
-            role: 'Frontend Developer',
+            img: ThirdPic,
+            name: 'David Ajayi',
+            role: 'UI/UX Designer',
             reviews:
-                'Before the program, I was mostly a self-taught coder struggling to connect all the dots in full-stack development. This accelerator filled in all the gaps. I now understand the full-stack development....',
+                'As a product designer, I’ve had the opportunity to use various recruitment tools, but Siliconverse stands out as a game-changer in the industry. This platform has revolutionized the way companies connect with top talent, making the recruitment and selection process more efficient and effective.',
         },
         {
-            img: FirstPic,
-            name: 'Emmanuel',
-            role: 'Frontend Developer',
+            img: FourthPic,
+            name: 'Victor Onipinsaiye',
+            role: 'Full-Stack Developer',
             reviews:
-                'As someone transitioning from IT support, this program equipped me with the skills to become a DevOps engineer. The in-depth modules on Docker and Kubernetes were especially........',
-        },
-        {
-            img: FirstPic,
-            name: 'Emmanuel',
-            role: 'Frontend Developer',
-            reviews: 'Working well',
-        },
+                'Silicon verse has helped me to learn how to collaborate with team members to deliver on task more efficiently. I strongly recommend self taught developers like me to join this space for speedy growth in their tech journey.',
+        }
     ];
 
     return (
