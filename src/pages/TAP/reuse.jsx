@@ -6,7 +6,7 @@ export function HeroImage({ bgImage, fgImage, alt, className }) {
 	return (
 		<div
 			className={`mx-auto bg-no-repeat bg-cover ${className} `}
-			style={{ backgroundImage: `url(${bgImage})` }}>
+			style={{ backgroundImage: `url(/${bgImage})` }}>
 			<img
 				src={fgImage}
 				alt={alt}
