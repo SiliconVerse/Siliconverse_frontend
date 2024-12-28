@@ -5,10 +5,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Card from '../Card/index.jsx';
-import FirstPic from '../../assets/firstpic.svg';
-import SecondPic from '../../assets/secondpic.svg';
-import ThirdPic from '../../assets/thirdpic.svg';
-import FourthPic from '../../assets/fourthpic.svg';
+import FirstPic from '/firstpic.svg';
+import SecondPic from '/secondpic.svg';
+import ThirdPic from '/thirdpic.svg';
+import FourthPic from '/fourthpic.svg';
 import './style.css';
 
 const SwiperSegment = () => {
