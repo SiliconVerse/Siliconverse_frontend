@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import BgImage from "../assets/bg1.svg";
-import PersonImg from "../assets/person.svg";
+import BgImage from "/bg1.svg";
+import PersonImg from "/person.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { HeroImage, ApplyButton, applyForm } from "../reuse";
