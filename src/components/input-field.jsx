@@ -1,27 +1,31 @@
+import { cn } from '../utils/util-functions';
+
 export default function InputField({
+  label = '',
   type = 'text',
   value,
-  onChange,
-  label,
   id,
-  required = true,
-  children,
-  ...otherProps
+  onChange,
+  wrapperStyles,
+  className = '',
+  labelStyles = '',
+  ...otherInputProps
 }) {
   return (
-    <label className='flex flex-col gap-1 relative'>
-      {label}
+    <label className={cn('w-full flex flex-col gap-1', wrapperStyles)}>
+      <span className={cn('capitalize font-medium', labelStyles)}>{label}</span>
       <input
-        type={type}
         id={id}
         name={id}
+        type={type}
         value={value}
         onChange={onChange}
-        className='border border-black/40 rounded-md py-1 w-full px-2 focus-visible:border-primaryColor outline-none focus-visible:outline-primaryColor/20'
-        required={required}
-        {...otherProps}
+        className={cn(
+          'w-full border h-11 px-2 rounded outline-none focus-visible:outline-primaryColor/30',
+          className
+        )}
+        {...otherInputProps}
       />
-      {children}
     </label>
   );
 }

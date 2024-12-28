@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Select from 'react-select';
 import { toast } from 'react-toastify';
-import FieldInput from '../field-input';
+import Dropdown from '../dropdown';
+import FieldInput from '../input-field';
 import SubmitButton from '../submit-btn';
 import TextareaWithCharCount from '../textarea-with-char-count';
 
@@ -18,17 +18,6 @@ export default function MagazineAdminProfileEditForm({
     { label: 'Female', value: 'female' },
     { label: 'Male', value: 'male' },
   ];
-
-  const customStyles = {
-    control: (defaultStyles) => ({
-      ...defaultStyles,
-      backgroundColor: 'inherit',
-      padding: '',
-      border: 'none',
-      boxShadow: 'none',
-      height: '44px',
-    }),
-  };
 
   const handleSave = async (event) => {
     event.preventDefault();
@@ -87,19 +76,16 @@ export default function MagazineAdminProfileEditForm({
           placeholder='Phone number'
           labelStyles='sr-only'
         />
-
-        <label className='border px-2 rounded w-full'>
-          <Select
-            options={genders}
-            defaultValue={userDetails.gender}
-            onChange={(valueObj) => {
-              handleGenderChange(valueObj.value);
-            }}
-            styles={customStyles}
-            className='w-full'
-            placeholder='Select gender'
-          />
-        </label>
+        <Dropdown
+          selectedOption={userDetails.gender}
+          options={genders}
+          placeholder='Select gender'
+          handleChange={handleGenderChange}
+          wrapperStyles='border px-2 rounded w-full'
+          label={'gender'}
+          labelStyles='sr-only'
+          height='44px'
+        />
       </div>
       <TextareaWithCharCount
         value={userDetails.bio}
