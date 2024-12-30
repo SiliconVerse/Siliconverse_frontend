@@ -168,10 +168,9 @@ const UserDataForm = ({ userData, setState }) => {
             placeholder={'https://github.com/username'}
             required={false}
           >
-            {formData.github.length > 1 && (
-              <span className=' text-red-500 text-sm'>
-                {!getFormattedUrl(formData.github) &&
-                  'Invalid Link, do include https'}
+            {formData.github.length > 1 && !getFormattedUrl(formData.github) && (
+              <span className="text-red-500 text-sm">
+                Invalid Link, do include https
               </span>
             )}
           </InputField>
@@ -183,10 +182,9 @@ const UserDataForm = ({ userData, setState }) => {
             placeholder={'https://linkedin.com/in/username'}
             required={false}
           >
-            {formData.linkedIn.length > 1 && (
-              <span className=' text-red-500 text-sm'>
-                {!getFormattedUrl(formData.linkedIn) &&
-                  'Invalid Link, do include https'}
+            {formData.linkedIn.length > 1 && !getFormattedUrl(formData.linkedIn) && (
+              <span className="text-red-500 text-sm">
+                Invalid Link, do include https
               </span>
             )}
           </InputField>
@@ -198,10 +196,9 @@ const UserDataForm = ({ userData, setState }) => {
             placeholder={'https://portfolio.com'}
             required={false}
           >
-            {formData.website.length > 1 && (
-              <span className=' text-red-500 text-sm'>
-                {!getFormattedUrl(formData.website) &&
-                  'Invalid Link, do include https'}
+            {formData.website.length > 1 && !getFormattedUrl(formData.website) && (
+              <span className="text-red-500 text-sm">
+                Invalid Link, do include https
               </span>
             )}
           </InputField>
